@@ -1,68 +1,45 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v2.0
+   Version: MVP v2.1
 ========================================== */
 
 /* ========= Buttons ========= */
 
 .btn{
-
 display:inline-flex;
 align-items:center;
 justify-content:center;
 gap:.7rem;
-
 padding:1rem 2.2rem;
-
 border:none;
-
 border-radius:999px;
-
 font-weight:600;
-
 cursor:pointer;
-
 transition:.3s ease;
-
 }
 
 .btn-primary{
-
 background:var(--accent);
-
 color:var(--primary);
-
 box-shadow:0 15px 35px rgba(201,167,92,.28);
-
 }
 
 .btn-primary:hover{
-
 transform:translateY(-5px);
-
-box-shadow:0 20px 45px rgba(201,167,92,.35);
-
+box-shadow:0 22px 45px rgba(201,167,92,.35);
 }
 
 .btn-secondary{
-
 background:rgba(255,255,255,.12);
-
 border:1px solid rgba(255,255,255,.25);
-
 backdrop-filter:blur(10px);
-
 color:#fff;
-
 }
 
 .btn-secondary:hover{
-
 background:#fff;
-
 color:var(--primary);
-
 }
 
 /* ========= Hero ========= */
@@ -70,13 +47,11 @@ color:var(--primary);
 .hero{
 
 position:relative;
-
 overflow:hidden;
-
 padding:8rem 0;
 
 background:
-linear-gradient(135deg,#13213C 0%,#1B2A4A 60%,#24385F 100%);
+linear-gradient(135deg,#101B34 0%,#1B2A4A 55%,#24385F 100%);
 
 color:#fff;
 
@@ -85,41 +60,25 @@ color:#fff;
 .hero::before{
 
 content:"";
-
 position:absolute;
-
 top:-180px;
-
 left:-180px;
-
 width:420px;
-
 height:420px;
-
 border-radius:50%;
-
 background:rgba(201,167,92,.08);
-
-filter:blur(10px);
 
 }
 
 .hero::after{
 
 content:"";
-
 position:absolute;
-
 right:-120px;
-
 bottom:-120px;
-
 width:320px;
-
 height:320px;
-
 border-radius:50%;
-
 background:rgba(255,255,255,.04);
 
 }
@@ -127,13 +86,9 @@ background:rgba(255,255,255,.04);
 .hero__content{
 
 position:relative;
-
 z-index:2;
-
-max-width:900px;
-
+max-width:920px;
 margin:auto;
-
 text-align:center;
 
 }
@@ -141,20 +96,18 @@ text-align:center;
 .hero__logo{
 
 width:130px;
-
-margin:0 auto 2rem;
-
-filter:drop-shadow(0 10px 30px rgba(0,0,0,.25));
+margin:auto;
+margin-bottom:2rem;
 
 }
 
 .hero__eyebrow{
 
-display:inline-block;
+display:inline-flex;
+align-items:center;
+gap:.5rem;
 
 padding:.45rem 1rem;
-
-margin-bottom:1.5rem;
 
 border-radius:999px;
 
@@ -164,68 +117,57 @@ border:1px solid rgba(201,167,92,.25);
 
 color:var(--accent);
 
-font-size:.9rem;
-
 font-weight:700;
 
-letter-spacing:.08em;
+margin-bottom:1.5rem;
 
 }
 
 .hero__title{
 
-font-size:clamp(2.8rem,5vw,4.8rem);
+font-size:clamp(2.9rem,5vw,4.8rem);
 
 line-height:1.15;
 
-font-weight:700;
-
-margin-bottom:1.6rem;
-
 color:#fff;
+
+margin-bottom:1.5rem;
 
 }
 
 .hero__tagline{
 
-max-width:760px;
-
-margin:0 auto 2.5rem;
-
 font-size:1.15rem;
 
 line-height:2;
 
-color:rgba(255,255,255,.82);
+max-width:760px;
+
+margin:auto;
+
+margin-bottom:2.5rem;
+
+color:rgba(255,255,255,.84);
 
 }
 
 .hero__actions{
 
 display:flex;
-
 justify-content:center;
-
 gap:1rem;
-
 flex-wrap:wrap;
-
-margin-top:2.5rem;
 
 }
 
 /* ========= Sections ========= */
 
 .section{
-
 padding:6rem 0;
-
 }
 
 .section-light{
-
 background:#F8FAFC;
-
 }
 
 .section-title{
@@ -244,6 +186,8 @@ display:inline-block;
 
 margin-bottom:1rem;
 
+color:var(--accent);
+
 font-size:.9rem;
 
 font-weight:700;
@@ -251,8 +195,6 @@ font-weight:700;
 letter-spacing:.08em;
 
 text-transform:uppercase;
-
-color:var(--accent);
 
 }
 
@@ -274,33 +216,62 @@ line-height:1.9;
 
 }
 
-/* ========= Cards ========= */
+/* ========= Feature Cards ========= */
 
-.card{
+.feature-card{
 
 background:#fff;
 
-padding:2.2rem;
+padding:2.5rem;
 
 border-radius:24px;
 
-border:1px solid rgba(27,42,74,.06);
+text-align:center;
+
+border:1px solid rgba(27,42,74,.05);
 
 box-shadow:0 10px 30px rgba(0,0,0,.05);
 
-transition:.3s;
+transition:.35s;
 
 }
 
-.card:hover{
+.feature-card:hover{
 
 transform:translateY(-8px);
 
-box-shadow:0 18px 40px rgba(0,0,0,.08);
+box-shadow:0 22px 45px rgba(0,0,0,.08);
 
 }
 
-.card h3{
+.feature-icon{
+
+width:72px;
+height:72px;
+
+margin:0 auto 1.5rem;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+background:linear-gradient(
+135deg,
+rgba(201,167,92,.15),
+rgba(201,167,92,.05)
+);
+
+font-size:1.8rem;
+
+color:var(--accent);
+
+}
+
+.feature-card h3{
 
 margin-bottom:1rem;
 
@@ -308,77 +279,53 @@ color:var(--primary);
 
 }
 
-.card p{
+.feature-card p{
 
 color:var(--text-light);
 
-}
-
-/* ========= Program Card ========= */
-
-.program-card{
-
-display:flex;
-
-flex-direction:column;
-
-height:100%;
+line-height:1.9;
 
 }
 
-.program-card img{
+/* ========= Stats ========= */
 
-width:100%;
+.stats{
 
-aspect-ratio:16/10;
+display:grid;
 
-object-fit:cover;
-
-border-radius:18px;
-
-margin-bottom:1.5rem;
-
-}
-
-.program-card p{
-
-flex:1;
-
-margin-bottom:2rem;
-
-}
-
-/* ========= Teacher ========= */
-
-.teacher{
-
-display:flex;
-
-align-items:center;
+grid-template-columns:repeat(4,1fr);
 
 gap:2rem;
 
-padding:2rem;
-
-border-radius:24px;
-
-background:#fff;
-
-box-shadow:0 12px 35px rgba(0,0,0,.05);
+margin-top:4rem;
 
 }
 
-.teacher img{
+.stat{
 
-width:120px;
+text-align:center;
 
-height:120px;
+}
 
-border-radius:50%;
+.stat-number{
 
-border:4px solid var(--accent);
+display:block;
 
-object-fit:cover;
+font-size:2.8rem;
+
+font-weight:700;
+
+color:var(--accent);
+
+margin-bottom:.5rem;
+
+}
+
+.stat-label{
+
+color:var(--text-light);
+
+font-size:.95rem;
 
 }
 
@@ -386,19 +333,26 @@ object-fit:cover;
 
 .cta{
 
-position:relative;
-
-overflow:hidden;
-
 padding:5rem 3rem;
 
 border-radius:32px;
 
-text-align:center;
-
 background:linear-gradient(135deg,#13213C,#243A66);
 
+text-align:center;
+
 color:#fff;
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.cta>*{
+
+position:relative;
+z-index:2;
 
 }
 
@@ -408,25 +362,17 @@ content:"";
 
 position:absolute;
 
-width:350px;
-
-height:350px;
-
 left:-120px;
 
 top:-120px;
 
+width:340px;
+
+height:340px;
+
 border-radius:50%;
 
 background:rgba(255,255,255,.05);
-
-}
-
-.cta>*{
-
-position:relative;
-
-z-index:2;
 
 }
 
@@ -444,30 +390,23 @@ max-width:700px;
 
 margin:0 auto 2rem;
 
-color:rgba(255,255,255,.86);
+color:rgba(255,255,255,.88);
 
 }
 
 /* ========= Grid ========= */
 
 .grid{
-
 display:grid;
-
 gap:2rem;
-
 }
 
 .grid-2{
-
 grid-template-columns:repeat(2,1fr);
-
 }
 
 .grid-3{
-
 grid-template-columns:repeat(3,1fr);
-
 }
 
 /* ========= Responsive ========= */
@@ -475,7 +414,8 @@ grid-template-columns:repeat(3,1fr);
 @media(max-width:900px){
 
 .grid-2,
-.grid-3{
+.grid-3,
+.stats{
 
 grid-template-columns:1fr;
 
@@ -499,11 +439,9 @@ font-size:1rem;
 
 }
 
-.teacher{
+.feature-card{
 
-flex-direction:column;
-
-text-align:center;
+padding:2rem;
 
 }
 
