@@ -1,333 +1,285 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v3.1
+   Version: MVP v4.0
+   Lesson Player
 ========================================== */
 
-/* ========= Buttons ========= */
+/* ========= Lesson Hero ========= */
 
-.btn{
-display:inline-flex;
-align-items:center;
+.lesson-hero{
+
+padding:5rem 0;
+
+background:linear-gradient(135deg,#101B34,#1B2A4A,#28406D);
+
+color:#fff;
+
+}
+
+.lesson-breadcrumb{
+
+display:flex;
+
+gap:.6rem;
+
 justify-content:center;
-gap:.7rem;
-padding:1rem 2.2rem;
-border:none;
-border-radius:999px;
-font-weight:600;
-cursor:pointer;
-transition:.35s;
-text-decoration:none;
-}
 
-.btn-primary{
-background:var(--accent);
-color:var(--primary);
-box-shadow:0 15px 35px rgba(201,167,92,.28);
-}
-
-.btn-primary:hover{
-transform:translateY(-5px);
-box-shadow:0 24px 48px rgba(201,167,92,.35);
-}
-
-.btn-secondary{
-background:rgba(255,255,255,.12);
-color:#fff;
-border:1px solid rgba(255,255,255,.22);
-backdrop-filter:blur(12px);
-}
-
-.btn-secondary:hover{
-background:#fff;
-color:var(--primary);
-}
-
-/* ========= Hero ========= */
-
-.hero{
-
-padding:7rem 0;
-background:linear-gradient(135deg,#101B34,#1B2A4A,#29436F);
-color:#fff;
-position:relative;
-overflow:hidden;
-
-}
-
-.hero::before{
-
-content:"";
-position:absolute;
-left:-170px;
-top:-170px;
-width:420px;
-height:420px;
-border-radius:50%;
-background:rgba(201,167,92,.08);
-
-}
-
-.hero::after{
-
-content:"";
-position:absolute;
-right:-120px;
-bottom:-120px;
-width:320px;
-height:320px;
-border-radius:50%;
-background:rgba(255,255,255,.05);
-
-}
-
-.hero__content{
-
-position:relative;
-z-index:2;
-max-width:900px;
-margin:auto;
-text-align:center;
-
-}
-
-.hero__title{
-
-font-size:clamp(2.8rem,5vw,4.5rem);
-margin-bottom:1.5rem;
-line-height:1.2;
-
-}
-
-.hero__tagline{
-
-max-width:760px;
-margin:auto;
-line-height:2;
-color:rgba(255,255,255,.85);
-
-}
-
-/* ========= Sections ========= */
-
-.section{
-padding:6rem 0;
-}
-
-.section-light{
-background:#F7F9FC;
-}
-
-.section-title{
-
-max-width:760px;
-margin:0 auto 4rem;
-text-align:center;
-
-}
-
-.section-title span{
-
-display:inline-block;
-margin-bottom:1rem;
-color:var(--accent);
-font-size:.9rem;
-font-weight:700;
-letter-spacing:.08em;
-
-}
-
-.section-title h2{
-
-font-size:clamp(2rem,4vw,3rem);
-color:var(--primary);
-margin-bottom:1rem;
-
-}
-
-.section-title p{
-
-line-height:1.9;
-color:var(--text-light);
-
-}
-
-/* ========= Overview ========= */
-
-.overview{
-
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:3rem;
 align-items:center;
 
-}
+font-size:.95rem;
 
-.overview__image{
+opacity:.8;
 
-border-radius:28px;
-overflow:hidden;
-box-shadow:0 20px 50px rgba(0,0,0,.08);
+margin-bottom:1.5rem;
 
-}
-
-.overview__image img{
-
-width:100%;
-display:block;
+flex-wrap:wrap;
 
 }
 
-.overview__content p{
+.lesson-title{
+
+font-size:clamp(2.2rem,4vw,3.4rem);
+
+text-align:center;
+
+margin-bottom:1rem;
+
+}
+
+.lesson-subtitle{
+
+max-width:760px;
+
+margin:auto;
+
+text-align:center;
 
 line-height:2;
-margin-bottom:1.5rem;
-color:var(--text-light);
+
+opacity:.85;
 
 }
 
-/* ========= Feature List ========= */
+/* ========= Player ========= */
 
-.feature-list{
+.lesson-player{
+
+padding:5rem 0;
+
+}
+
+.player-layout{
 
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:1rem;
-margin-top:2rem;
 
-}
+grid-template-columns:2fr 1fr;
 
-.feature-item{
-
-background:#fff;
-padding:1.2rem;
-border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,.05);
-font-weight:600;
-
-}
-
-/* ========= Packages ========= */
-
-.package-grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
 gap:2rem;
 
+align-items:start;
+
 }
 
-.package{
+.player-card{
 
 background:#fff;
-padding:2.5rem;
-border-radius:30px;
+
+border-radius:28px;
+
+overflow:hidden;
+
 box-shadow:0 18px 45px rgba(0,0,0,.06);
+
+}
+
+.player-video{
+
+aspect-ratio:16/9;
+
+background:#0F172A;
+
 display:flex;
-flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+color:#fff;
+
+font-size:1.2rem;
 
 }
 
-.package--featured{
+.player-content{
 
-border:2px solid var(--accent);
+padding:2rem;
 
 }
 
-.package__badge{
+.player-content h2{
 
-display:inline-block;
-padding:.45rem .9rem;
-border-radius:999px;
-background:rgba(201,167,92,.12);
-color:var(--accent);
-font-size:.82rem;
-font-weight:700;
 margin-bottom:1rem;
 
-}
-
-.package h3{
-
-font-size:1.8rem;
-margin-bottom:1rem;
 color:var(--primary);
 
 }
 
-.package ul{
+.player-content p{
 
-list-style:none;
-padding:0;
-margin:2rem 0;
-display:grid;
-gap:1rem;
-flex:1;
+line-height:2;
 
-}
+color:var(--text-light);
 
-.package li{
-
-padding-right:1.6rem;
-position:relative;
-line-height:1.8;
+margin-bottom:1.5rem;
 
 }
 
-.package li::before{
+/* ========= Audio ========= */
 
-content:"✓";
-position:absolute;
-right:0;
-color:var(--accent);
-font-weight:bold;
+.audio-card{
+
+margin-top:2rem;
+
+padding:1.5rem;
+
+border-radius:20px;
+
+background:#F8FAFC;
+
+border:1px solid rgba(27,42,74,.08);
 
 }
 
-.package .btn{
+.audio-card h3{
+
+margin-bottom:1rem;
+
+color:var(--primary);
+
+}
+
+.audio-card audio{
 
 width:100%;
 
 }
 
-/* ========= Teacher ========= */
+/* ========= QR ========= */
 
-.teacher{
+.qr-card{
 
-display:grid;
-grid-template-columns:280px 1fr;
-gap:3rem;
-align-items:center;
+margin-top:2rem;
 
-}
+padding:1.5rem;
 
-.teacher__image{
+border-radius:20px;
 
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 18px 45px rgba(0,0,0,.08);
+background:rgba(201,167,92,.08);
+
+text-align:center;
 
 }
 
-.teacher__image img{
+.qr-card img{
 
-width:100%;
+width:150px;
+
+margin:1rem auto;
+
 display:block;
 
 }
 
-.teacher__info h3{
+.qr-card p{
 
-font-size:2rem;
-margin-bottom:1rem;
+font-size:.95rem;
+
+line-height:1.9;
+
+}
+
+/* ========= Sidebar ========= */
+
+.lesson-sidebar{
+
+display:flex;
+
+flex-direction:column;
+
+gap:1.5rem;
+
+}
+
+.sidebar-card{
+
+background:#fff;
+
+border-radius:24px;
+
+padding:2rem;
+
+box-shadow:0 18px 45px rgba(0,0,0,.05);
+
+}
+
+.sidebar-card h3{
+
+margin-bottom:1.25rem;
+
 color:var(--primary);
 
 }
 
-.teacher__info p{
+.lesson-list{
 
-line-height:2;
-color:var(--text-light);
+list-style:none;
+
+padding:0;
+
+margin:0;
+
+display:grid;
+
+gap:.75rem;
+
+}
+
+.lesson-list li a{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:1rem;
+
+border-radius:14px;
+
+text-decoration:none;
+
+background:#F7F9FC;
+
+color:var(--primary);
+
+transition:.25s;
+
+}
+
+.lesson-list li a:hover{
+
+background:rgba(201,167,92,.12);
+
+}
+
+.lesson-list li.active a{
+
+background:var(--accent);
+
+color:var(--primary);
+
+font-weight:700;
 
 }
 
@@ -335,18 +287,15 @@ color:var(--text-light);
 
 @media(max-width:900px){
 
-.overview,
-.package-grid,
-.teacher,
-.feature-list{
+.player-layout{
 
 grid-template-columns:1fr;
 
 }
 
-.hero{
+.lesson-hero{
 
-padding:6rem 0;
+padding:4rem 0;
 
 }
 
