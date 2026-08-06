@@ -1,19 +1,19 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v1.4
+   Version: MVP v2.0
 ========================================== */
 
-/* ---------- Buttons ---------- */
+/* ========= Buttons ========= */
 
 .btn{
 
 display:inline-flex;
 align-items:center;
 justify-content:center;
-gap:.6rem;
+gap:.7rem;
 
-padding:1rem 2rem;
+padding:1rem 2.2rem;
 
 border:none;
 
@@ -23,7 +23,7 @@ font-weight:600;
 
 cursor:pointer;
 
-transition:all .25s ease;
+transition:.3s ease;
 
 }
 
@@ -33,37 +33,188 @@ background:var(--accent);
 
 color:var(--primary);
 
-box-shadow:0 10px 28px rgba(201,167,92,.22);
+box-shadow:0 15px 35px rgba(201,167,92,.28);
 
 }
 
 .btn-primary:hover{
 
-transform:translateY(-4px);
+transform:translateY(-5px);
 
-box-shadow:0 18px 36px rgba(201,167,92,.30);
+box-shadow:0 20px 45px rgba(201,167,92,.35);
 
 }
 
 .btn-secondary{
 
-background:#fff;
+background:rgba(255,255,255,.12);
 
-color:var(--primary);
+border:1px solid rgba(255,255,255,.25);
 
-border:2px solid rgba(27,42,74,.15);
-
-}
-
-.btn-secondary:hover{
-
-background:var(--primary);
+backdrop-filter:blur(10px);
 
 color:#fff;
 
 }
 
-/* ---------- Sections ---------- */
+.btn-secondary:hover{
+
+background:#fff;
+
+color:var(--primary);
+
+}
+
+/* ========= Hero ========= */
+
+.hero{
+
+position:relative;
+
+overflow:hidden;
+
+padding:8rem 0;
+
+background:
+linear-gradient(135deg,#13213C 0%,#1B2A4A 60%,#24385F 100%);
+
+color:#fff;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+top:-180px;
+
+left:-180px;
+
+width:420px;
+
+height:420px;
+
+border-radius:50%;
+
+background:rgba(201,167,92,.08);
+
+filter:blur(10px);
+
+}
+
+.hero::after{
+
+content:"";
+
+position:absolute;
+
+right:-120px;
+
+bottom:-120px;
+
+width:320px;
+
+height:320px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.04);
+
+}
+
+.hero__content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.hero__logo{
+
+width:130px;
+
+margin:0 auto 2rem;
+
+filter:drop-shadow(0 10px 30px rgba(0,0,0,.25));
+
+}
+
+.hero__eyebrow{
+
+display:inline-block;
+
+padding:.45rem 1rem;
+
+margin-bottom:1.5rem;
+
+border-radius:999px;
+
+background:rgba(201,167,92,.12);
+
+border:1px solid rgba(201,167,92,.25);
+
+color:var(--accent);
+
+font-size:.9rem;
+
+font-weight:700;
+
+letter-spacing:.08em;
+
+}
+
+.hero__title{
+
+font-size:clamp(2.8rem,5vw,4.8rem);
+
+line-height:1.15;
+
+font-weight:700;
+
+margin-bottom:1.6rem;
+
+color:#fff;
+
+}
+
+.hero__tagline{
+
+max-width:760px;
+
+margin:0 auto 2.5rem;
+
+font-size:1.15rem;
+
+line-height:2;
+
+color:rgba(255,255,255,.82);
+
+}
+
+.hero__actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:1rem;
+
+flex-wrap:wrap;
+
+margin-top:2.5rem;
+
+}
+
+/* ========= Sections ========= */
 
 .section{
 
@@ -73,17 +224,17 @@ padding:6rem 0;
 
 .section-light{
 
-background:#fafbfd;
+background:#F8FAFC;
 
 }
 
 .section-title{
 
+text-align:center;
+
 max-width:760px;
 
 margin:0 auto 4rem;
-
-text-align:center;
 
 }
 
@@ -119,43 +270,23 @@ margin-bottom:1rem;
 
 color:var(--text-light);
 
-}
-
-/* ---------- Grid ---------- */
-
-.grid{
-
-display:grid;
-
-gap:2rem;
+line-height:1.9;
 
 }
 
-.grid-2{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.grid-3{
-
-grid-template-columns:repeat(3,1fr);
-
-}
-
-/* ---------- Cards ---------- */
+/* ========= Cards ========= */
 
 .card{
 
 background:#fff;
 
-padding:2rem;
+padding:2.2rem;
 
 border-radius:24px;
 
-border:1px solid rgba(27,42,74,.05);
+border:1px solid rgba(27,42,74,.06);
 
-box-shadow:var(--shadow-sm);
+box-shadow:0 10px 30px rgba(0,0,0,.05);
 
 transition:.3s;
 
@@ -165,11 +296,25 @@ transition:.3s;
 
 transform:translateY(-8px);
 
-box-shadow:var(--shadow-lg);
+box-shadow:0 18px 40px rgba(0,0,0,.08);
 
 }
 
-/* ---------- Program Card ---------- */
+.card h3{
+
+margin-bottom:1rem;
+
+color:var(--primary);
+
+}
+
+.card p{
+
+color:var(--text-light);
+
+}
+
+/* ========= Program Card ========= */
 
 .program-card{
 
@@ -195,31 +340,15 @@ margin-bottom:1.5rem;
 
 }
 
-.program-card h3{
-
-margin-bottom:1rem;
-
-color:var(--primary);
-
-}
-
 .program-card p{
-
-margin-bottom:2rem;
-
-color:var(--text-light);
 
 flex:1;
 
-}
-
-.program-card .btn{
-
-align-self:flex-start;
+margin-bottom:2rem;
 
 }
 
-/* ---------- Teacher ---------- */
+/* ========= Teacher ========= */
 
 .teacher{
 
@@ -231,45 +360,35 @@ gap:2rem;
 
 padding:2rem;
 
-background:#fff;
-
 border-radius:24px;
 
-box-shadow:var(--shadow-sm);
+background:#fff;
+
+box-shadow:0 12px 35px rgba(0,0,0,.05);
 
 }
 
 .teacher img{
 
-width:110px;
+width:120px;
 
-height:110px;
+height:120px;
 
 border-radius:50%;
 
-object-fit:cover;
-
 border:4px solid var(--accent);
 
-}
-
-.teacher h3{
-
-margin-bottom:.6rem;
-
-color:var(--primary);
+object-fit:cover;
 
 }
 
-.teacher p{
-
-color:var(--text-light);
-
-}
-
-/* ---------- CTA ---------- */
+/* ========= CTA ========= */
 
 .cta{
+
+position:relative;
+
+overflow:hidden;
 
 padding:5rem 3rem;
 
@@ -277,33 +396,29 @@ border-radius:32px;
 
 text-align:center;
 
+background:linear-gradient(135deg,#13213C,#243A66);
+
 color:#fff;
-
-background:linear-gradient(135deg,#1B2A4A,#31486D);
-
-position:relative;
-
-overflow:hidden;
 
 }
 
-.cta::after{
+.cta::before{
 
 content:"";
 
 position:absolute;
 
-width:300px;
+width:350px;
 
-height:300px;
+height:350px;
+
+left:-120px;
+
+top:-120px;
 
 border-radius:50%;
 
 background:rgba(255,255,255,.05);
-
-left:-100px;
-
-top:-100px;
 
 }
 
@@ -329,21 +444,33 @@ max-width:700px;
 
 margin:0 auto 2rem;
 
-color:rgba(255,255,255,.9);
+color:rgba(255,255,255,.86);
 
 }
 
-/* ---------- Audio Player ---------- */
+/* ========= Grid ========= */
 
-audio{
+.grid{
 
-width:100%;
+display:grid;
 
-border-radius:16px;
+gap:2rem;
 
 }
 
-/* ---------- Responsive ---------- */
+.grid-2{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid-3{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+/* ========= Responsive ========= */
 
 @media(max-width:900px){
 
@@ -351,6 +478,24 @@ border-radius:16px;
 .grid-3{
 
 grid-template-columns:1fr;
+
+}
+
+.hero{
+
+padding:6rem 0;
+
+}
+
+.hero__title{
+
+font-size:2.7rem;
+
+}
+
+.hero__tagline{
+
+font-size:1rem;
 
 }
 
@@ -362,15 +507,9 @@ text-align:center;
 
 }
 
-.section{
-
-padding:4.5rem 0;
-
-}
-
 .cta{
 
-padding:3.5rem 2rem;
+padding:4rem 2rem;
 
 }
 
