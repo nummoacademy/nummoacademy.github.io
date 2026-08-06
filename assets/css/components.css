@@ -1,7 +1,7 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v3.0
+   Version: MVP v3.1
 ========================================== */
 
 /* ========= Buttons ========= */
@@ -16,14 +16,14 @@ border:none;
 border-radius:999px;
 font-weight:600;
 cursor:pointer;
-transition:.35s ease;
+transition:.35s;
 text-decoration:none;
 }
 
 .btn-primary{
 background:var(--accent);
 color:var(--primary);
-box-shadow:0 16px 35px rgba(201,167,92,.28);
+box-shadow:0 15px 35px rgba(201,167,92,.28);
 }
 
 .btn-primary:hover{
@@ -33,8 +33,8 @@ box-shadow:0 24px 48px rgba(201,167,92,.35);
 
 .btn-secondary{
 background:rgba(255,255,255,.12);
-border:1px solid rgba(255,255,255,.25);
 color:#fff;
+border:1px solid rgba(255,255,255,.22);
 backdrop-filter:blur(12px);
 }
 
@@ -48,14 +48,9 @@ color:var(--primary);
 .hero{
 
 padding:7rem 0;
-
-background:
-linear-gradient(135deg,#101B34,#1B2A4A,#2A4675);
-
+background:linear-gradient(135deg,#101B34,#1B2A4A,#29436F);
 color:#fff;
-
 position:relative;
-
 overflow:hidden;
 
 }
@@ -63,17 +58,12 @@ overflow:hidden;
 .hero::before{
 
 content:"";
-
 position:absolute;
-
-width:420px;
-height:420px;
-
 left:-170px;
 top:-170px;
-
+width:420px;
+height:420px;
 border-radius:50%;
-
 background:rgba(201,167,92,.08);
 
 }
@@ -81,17 +71,12 @@ background:rgba(201,167,92,.08);
 .hero::after{
 
 content:"";
-
 position:absolute;
-
 right:-120px;
 bottom:-120px;
-
-width:300px;
-height:300px;
-
+width:320px;
+height:320px;
 border-radius:50%;
-
 background:rgba(255,255,255,.05);
 
 }
@@ -99,49 +84,17 @@ background:rgba(255,255,255,.05);
 .hero__content{
 
 position:relative;
-
 z-index:2;
-
 max-width:900px;
-
 margin:auto;
-
 text-align:center;
-
-}
-
-.hero__logo{
-
-width:125px;
-
-margin:0 auto 2rem;
-
-}
-
-.hero__eyebrow{
-
-display:inline-block;
-
-padding:.55rem 1rem;
-
-border-radius:999px;
-
-background:rgba(201,167,92,.12);
-
-color:var(--accent);
-
-font-weight:700;
-
-margin-bottom:1.5rem;
 
 }
 
 .hero__title{
 
-font-size:clamp(2.8rem,5vw,4.6rem);
-
+font-size:clamp(2.8rem,5vw,4.5rem);
 margin-bottom:1.5rem;
-
 line-height:1.2;
 
 }
@@ -149,47 +102,26 @@ line-height:1.2;
 .hero__tagline{
 
 max-width:760px;
-
-margin:0 auto 2.5rem;
-
+margin:auto;
 line-height:2;
-
-color:rgba(255,255,255,.86);
-
-}
-
-.hero__actions{
-
-display:flex;
-
-justify-content:center;
-
-gap:1rem;
-
-flex-wrap:wrap;
+color:rgba(255,255,255,.85);
 
 }
 
 /* ========= Sections ========= */
 
 .section{
-
 padding:6rem 0;
-
 }
 
 .section-light{
-
 background:#F7F9FC;
-
 }
 
 .section-title{
 
 max-width:760px;
-
 margin:0 auto 4rem;
-
 text-align:center;
 
 }
@@ -197,278 +129,205 @@ text-align:center;
 .section-title span{
 
 display:inline-block;
-
 margin-bottom:1rem;
-
-font-size:.9rem;
-
-font-weight:700;
-
-letter-spacing:.08em;
-
-text-transform:uppercase;
-
 color:var(--accent);
+font-size:.9rem;
+font-weight:700;
+letter-spacing:.08em;
 
 }
 
 .section-title h2{
 
 font-size:clamp(2rem,4vw,3rem);
-
 color:var(--primary);
-
 margin-bottom:1rem;
 
 }
 
 .section-title p{
 
-color:var(--text-light);
-
 line-height:1.9;
+color:var(--text-light);
 
 }
 
-/* ========= Grid ========= */
+/* ========= Overview ========= */
 
-.grid{
+.overview{
 
 display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:3rem;
+align-items:center;
 
+}
+
+.overview__image{
+
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.overview__image img{
+
+width:100%;
+display:block;
+
+}
+
+.overview__content p{
+
+line-height:2;
+margin-bottom:1.5rem;
+color:var(--text-light);
+
+}
+
+/* ========= Feature List ========= */
+
+.feature-list{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1rem;
+margin-top:2rem;
+
+}
+
+.feature-item{
+
+background:#fff;
+padding:1.2rem;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.05);
+font-weight:600;
+
+}
+
+/* ========= Packages ========= */
+
+.package-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:2rem;
 
 }
 
-.grid-2{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.grid-3{
-
-grid-template-columns:repeat(3,1fr);
-
-}
-
-/* ========= Program Cards ========= */
-
-.program-card{
+.package{
 
 background:#fff;
-
-border-radius:28px;
-
-overflow:hidden;
-
-display:flex;
-
-flex-direction:column;
-
+padding:2.5rem;
+border-radius:30px;
 box-shadow:0 18px 45px rgba(0,0,0,.06);
-
-transition:.35s;
-
-height:100%;
-
-}
-
-.program-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 30px 60px rgba(0,0,0,.10);
-
-}
-
-.program-card__image{
-
-aspect-ratio:16/9;
-
-overflow:hidden;
-
-background:#EEF2F8;
-
-}
-
-.program-card__image img{
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-transition:.45s;
-
-}
-
-.program-card:hover img{
-
-transform:scale(1.05);
-
-}
-
-.program-card__body{
-
-padding:2rem;
-
 display:flex;
-
 flex-direction:column;
 
-flex:1;
+}
+
+.package--featured{
+
+border:2px solid var(--accent);
 
 }
 
-.program-card__badge{
+.package__badge{
 
-display:inline-flex;
-
-align-self:flex-start;
-
+display:inline-block;
 padding:.45rem .9rem;
-
 border-radius:999px;
-
 background:rgba(201,167,92,.12);
-
 color:var(--accent);
-
 font-size:.82rem;
-
 font-weight:700;
-
 margin-bottom:1rem;
 
 }
 
-.program-card h3{
+.package h3{
 
-font-size:1.55rem;
-
+font-size:1.8rem;
 margin-bottom:1rem;
-
 color:var(--primary);
 
 }
 
-.program-card p{
+.package ul{
 
-line-height:1.9;
-
-color:var(--text-light);
-
-margin-bottom:2rem;
-
+list-style:none;
+padding:0;
+margin:2rem 0;
+display:grid;
+gap:1rem;
 flex:1;
 
 }
 
-.program-meta{
+.package li{
 
-display:flex;
-
-gap:.8rem;
-
-flex-wrap:wrap;
-
-margin-bottom:2rem;
+padding-right:1.6rem;
+position:relative;
+line-height:1.8;
 
 }
 
-.program-meta span{
+.package li::before{
 
-padding:.45rem .85rem;
-
-border-radius:999px;
-
-background:#F5F7FA;
-
-font-size:.85rem;
-
-color:var(--primary);
+content:"✓";
+position:absolute;
+right:0;
+color:var(--accent);
+font-weight:bold;
 
 }
 
-.program-card .btn{
+.package .btn{
 
 width:100%;
 
 }
 
-/* ========= Coming Soon ========= */
+/* ========= Teacher ========= */
 
-.coming-card{
+.teacher{
 
-background:#fff;
-
-border:2px dashed rgba(27,42,74,.12);
-
-border-radius:28px;
-
-padding:3rem;
-
-text-align:center;
-
-height:100%;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
+display:grid;
+grid-template-columns:280px 1fr;
+gap:3rem;
+align-items:center;
 
 }
 
-.coming-card__icon{
+.teacher__image{
 
-font-size:3rem;
-
-margin-bottom:1.5rem;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 18px 45px rgba(0,0,0,.08);
 
 }
 
-.coming-card h3{
+.teacher__image img{
 
+width:100%;
+display:block;
+
+}
+
+.teacher__info h3{
+
+font-size:2rem;
 margin-bottom:1rem;
-
 color:var(--primary);
 
 }
 
-.coming-card p{
+.teacher__info p{
 
-line-height:1.9;
-
+line-height:2;
 color:var(--text-light);
-
-}
-
-/* ========= CTA ========= */
-
-.cta{
-
-padding:5rem 3rem;
-
-border-radius:32px;
-
-background:linear-gradient(135deg,#13213C,#243A66);
-
-color:#fff;
-
-text-align:center;
-
-}
-
-.cta p{
-
-max-width:700px;
-
-margin:1rem auto 2rem;
-
-color:rgba(255,255,255,.86);
 
 }
 
@@ -476,8 +335,10 @@ color:rgba(255,255,255,.86);
 
 @media(max-width:900px){
 
-.grid-2,
-.grid-3{
+.overview,
+.package-grid,
+.teacher,
+.feature-list{
 
 grid-template-columns:1fr;
 
@@ -486,12 +347,6 @@ grid-template-columns:1fr;
 .hero{
 
 padding:6rem 0;
-
-}
-
-.program-meta{
-
-flex-direction:column;
 
 }
 
