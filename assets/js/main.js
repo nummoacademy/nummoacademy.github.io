@@ -6,13 +6,18 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Current Year
-    document.querySelectorAll("[data-current-year]").forEach(el => {
-        el.textContent = new Date().getFullYear();
+    /* ---------- Current Year ---------- */
+
+    const yearElements = document.querySelectorAll("[data-current-year]");
+
+    yearElements.forEach(element => {
+        element.textContent = new Date().getFullYear();
     });
 
-    // Active Navigation
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    /* ---------- Active Navigation ---------- */
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
     document.querySelectorAll(".site-nav a").forEach(link => {
 
@@ -20,13 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!href || href === "#") return;
 
-        if (href === currentPage) {
+        const page = href.split("/").pop();
+
+        if (page === currentPage) {
             link.classList.add("active");
         }
 
     });
 
-    // Smooth Scroll
+    /* ---------- Smooth Scroll ---------- */
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         anchor.addEventListener("click", function (e) {
