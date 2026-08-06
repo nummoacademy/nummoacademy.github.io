@@ -10,7 +10,7 @@
     <title>مشغل الدرس | NEMMO Academy</title>
 
     <meta name="description"
-        content="صفحة تشغيل الدروس والصوتيات في أكاديمية نمو التعليمية.">
+        content="مشغل الدروس والصوتيات في أكاديمية نمو التعليمية.">
 
     <meta name="theme-color" content="#1B2A4A">
 
@@ -73,69 +73,78 @@
 
     </header>
 
-    <!-- Main -->
+    <!-- Hero -->
 
-    <main class="site-main">
+    <section class="hero">
 
-        <section class="hero">
+        <div class="container">
 
-            <div class="container">
+            <div class="hero__content">
 
-                <div class="hero__content">
+                <span class="hero__eyebrow">
+                    Lesson Player
+                </span>
 
-                    <span class="hero__eyebrow">
-                        Lesson Player
-                    </span>
+                <h1 class="hero__title">
+                    مشغل الدرس
+                </h1>
 
-                    <h1 class="hero__title">
-                        مشغل الدرس
-                    </h1>
+                <p class="hero__tagline">
+                    اقرأ الجملة، استمع إلى النطق الصحيح، ثم انتقل إلى الدرس التالي.
+                </p>
 
-                    <p class="hero__tagline">
-                        استمع إلى الجملة الصحيحة، واقرأ النص والترجمة في مكان واحد.
-                    </p>
+            </div>
 
-                    <div class="card" style="width:min(100%,900px);text-align:right;">
+        </div>
 
-                        <h2 style="color:var(--primary);margin-bottom:1.5rem;">
-                            المثال الأول
-                        </h2>
+    </section>
 
-                        <p style="margin-bottom:.5rem;">
-                            <strong>الفارسية</strong>
-                        </p>
+    <!-- Lesson -->
 
-                        <p style="font-size:1.2rem;margin-bottom:1.5rem;">
-                            سلام، حال شما چطور است؟
-                        </p>
+    <section class="section section-light">
 
-                        <p style="margin-bottom:.5rem;">
-                            <strong>الترجمة</strong>
-                        </p>
+        <div class="container">
 
-                        <p style="margin-bottom:2rem;color:var(--text-light);">
-                            مرحبًا، كيف حالك؟
-                        </p>
+            <div class="card">
 
-                        <audio controls style="width:100%;margin-bottom:2rem;">
-                            <source src="../assets/audio/sample.mp3" type="audio/mpeg">
-                            متصفحك لا يدعم تشغيل الصوت.
-                        </audio>
+                <h2 style="color:var(--primary);margin-bottom:2rem;">
+                    الدرس الأول
+                </h2>
 
-                        <a class="btn btn-primary"
-                           href="../programs/persian/index.html">
-                            العودة إلى البرنامج
-                        </a>
+                <p style="font-size:1.3rem;margin-bottom:1rem;">
+                    سلام، حال شما چطور است؟
+                </p>
 
-                    </div>
+                <p style="color:var(--text-light);margin-bottom:2rem;">
+                    مرحبًا، كيف حالك؟
+                </p>
+
+                <audio controls style="width:100%;margin-bottom:2rem;">
+
+                    <source src="../assets/audio/sample.mp3"
+                        type="audio/mpeg">
+
+                    متصفحك لا يدعم تشغيل الصوت.
+
+                </audio>
+
+                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+
+                    <button class="btn btn-secondary" disabled>
+                        ← الدرس السابق
+                    </button>
+
+                    <button class="btn btn-primary">
+                        الدرس التالي →
+                    </button>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
     <!-- Footer -->
 
@@ -147,8 +156,8 @@
                 © 2026 NEMMO Academy. جميع الحقوق محفوظة.
             </p>
 
-            <a href="../programs.html">
-                جميع البرامج
+            <a href="../programs/persian/index.html">
+                العودة إلى البرنامج
             </a>
 
         </div>
