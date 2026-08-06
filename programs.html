@@ -10,7 +10,7 @@
     <title>البرامج | NEMMO Academy</title>
 
     <meta name="description"
-        content="استكشف البرامج التعليمية المتوفرة في أكاديمية نمو التعليمية.">
+        content="استكشف البرامج التعليمية في أكاديمية نمو التعليمية.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,41 +20,134 @@
 
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
 
 </head>
 
 <body>
 
-    <main class="hero">
+    <!-- Header -->
 
-        <div class="container">
+    <header class="site-header">
 
-            <div class="hero__content">
+        <div class="site-header__container">
 
-                <span class="hero__eyebrow">
-                    Programs
-                </span>
+            <a href="index.html" class="site-logo">
 
-                <h1 class="hero__title">
-                    البرامج التعليمية
-                </h1>
+                <img src="assets/images/logo.png" alt="NEMMO Academy">
 
-                <p class="hero__tagline">
-                    ابدأ رحلتك التعليمية مع برامج NEMMO Academy المصممة لتطوير
-                    المهارات والمعرفة بأسلوب احترافي.
-                </p>
+                <div class="site-logo__text">
 
-                <a class="btn btn-primary"
-                    href="programs/persian/index.html">
-                    برنامج اللغة الفارسية
-                </a>
+                    <span class="site-logo__title">
+                        NEMMO Academy
+                    </span>
 
-            </div>
+                    <span class="site-logo__subtitle">
+                        أكاديمية نمو التعليمية
+                    </span>
+
+                </div>
+
+            </a>
+
+            <nav class="site-nav">
+
+                <ul>
+
+                    <li><a href="index.html">الرئيسية</a></li>
+
+                    <li><a href="programs.html">البرامج</a></li>
+
+                    <li><a href="#">من نحن</a></li>
+
+                    <li><a href="#">تواصل معنا</a></li>
+
+                </ul>
+
+            </nav>
 
         </div>
 
+    </header>
+
+    <!-- Main -->
+
+    <main class="site-main">
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero__content">
+
+                    <span class="hero__eyebrow">
+                        Programs
+                    </span>
+
+                    <h1 class="hero__title">
+                        البرامج التعليمية
+                    </h1>
+
+                    <p class="hero__tagline">
+                        ابدأ رحلتك التعليمية مع برامج أكاديمية NEMMO المصممة لتطوير
+                        المهارات والمعرفة بأسلوب احترافي.
+                    </p>
+
+                    <div class="card program-card" style="max-width:420px;width:100%;">
+
+                        <div class="program-card__image">
+
+                            <img src="assets/images/persian-program.jpg"
+                                alt="برنامج اللغة الفارسية">
+
+                        </div>
+
+                        <h2 class="program-card__title">
+                            برنامج اللغة الفارسية
+                        </h2>
+
+                        <p class="program-card__description">
+                            الدورة الأولى في أكاديمية NEMMO، تضم الباقة الذهبية
+                            والباقة الماسية بإشراف الأستاذة زهراء سعد أحمد.
+                        </p>
+
+                        <div class="program-card__footer">
+
+                            <a class="btn btn-primary"
+                                href="programs/persian/index.html">
+                                عرض البرنامج
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer__container">
+
+            <p>
+                © 2026 NEMMO Academy. جميع الحقوق محفوظة.
+            </p>
+
+            <a href="index.html">
+                العودة للرئيسية
+            </a>
+
+        </div>
+
+    </footer>
 
     <script src="assets/js/main.js"></script>
 
