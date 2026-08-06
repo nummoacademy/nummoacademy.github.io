@@ -1,7 +1,7 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v2.1
+   Version: MVP v2.2
 ========================================== */
 
 /* ========= Buttons ========= */
@@ -27,7 +27,7 @@ box-shadow:0 15px 35px rgba(201,167,92,.28);
 
 .btn-primary:hover{
 transform:translateY(-5px);
-box-shadow:0 22px 45px rgba(201,167,92,.35);
+box-shadow:0 24px 48px rgba(201,167,92,.35);
 }
 
 .btn-secondary{
@@ -49,10 +49,7 @@ color:var(--primary);
 position:relative;
 overflow:hidden;
 padding:8rem 0;
-
-background:
-linear-gradient(135deg,#101B34 0%,#1B2A4A 55%,#24385F 100%);
-
+background:linear-gradient(135deg,#101B34,#1B2A4A,#24385F);
 color:#fff;
 
 }
@@ -61,11 +58,11 @@ color:#fff;
 
 content:"";
 position:absolute;
-top:-180px;
-left:-180px;
-width:420px;
-height:420px;
+width:450px;
+height:450px;
 border-radius:50%;
+left:-180px;
+top:-180px;
 background:rgba(201,167,92,.08);
 
 }
@@ -74,10 +71,10 @@ background:rgba(201,167,92,.08);
 
 content:"";
 position:absolute;
+width:340px;
+height:340px;
 right:-120px;
 bottom:-120px;
-width:320px;
-height:320px;
 border-radius:50%;
 background:rgba(255,255,255,.04);
 
@@ -96,29 +93,19 @@ text-align:center;
 .hero__logo{
 
 width:130px;
-margin:auto;
-margin-bottom:2rem;
+margin:0 auto 2rem;
 
 }
 
 .hero__eyebrow{
 
-display:inline-flex;
-align-items:center;
-gap:.5rem;
-
-padding:.45rem 1rem;
-
+display:inline-block;
+padding:.5rem 1rem;
 border-radius:999px;
-
 background:rgba(201,167,92,.12);
-
 border:1px solid rgba(201,167,92,.25);
-
 color:var(--accent);
-
 font-weight:700;
-
 margin-bottom:1.5rem;
 
 }
@@ -126,27 +113,16 @@ margin-bottom:1.5rem;
 .hero__title{
 
 font-size:clamp(2.9rem,5vw,4.8rem);
-
 line-height:1.15;
-
-color:#fff;
-
 margin-bottom:1.5rem;
 
 }
 
 .hero__tagline{
 
-font-size:1.15rem;
-
-line-height:2;
-
 max-width:760px;
-
-margin:auto;
-
-margin-bottom:2.5rem;
-
+margin:0 auto 2.5rem;
+line-height:2;
 color:rgba(255,255,255,.84);
 
 }
@@ -172,66 +148,63 @@ background:#F8FAFC;
 
 .section-title{
 
-text-align:center;
-
 max-width:760px;
-
 margin:0 auto 4rem;
+text-align:center;
 
 }
 
 .section-title span{
 
 display:inline-block;
-
 margin-bottom:1rem;
-
-color:var(--accent);
-
 font-size:.9rem;
-
 font-weight:700;
-
 letter-spacing:.08em;
-
 text-transform:uppercase;
+color:var(--accent);
 
 }
 
 .section-title h2{
 
 font-size:clamp(2rem,4vw,3rem);
-
-color:var(--primary);
-
 margin-bottom:1rem;
+color:var(--primary);
 
 }
 
 .section-title p{
 
-color:var(--text-light);
-
 line-height:1.9;
+color:var(--text-light);
 
 }
 
-/* ========= Feature Cards ========= */
+/* ========= Grid ========= */
+
+.grid{
+display:grid;
+gap:2rem;
+}
+
+.grid-2{
+grid-template-columns:repeat(2,1fr);
+}
+
+.grid-3{
+grid-template-columns:repeat(3,1fr);
+}
+
+/* ========= Feature ========= */
 
 .feature-card{
 
 background:#fff;
-
-padding:2.5rem;
-
+padding:2.4rem;
 border-radius:24px;
-
 text-align:center;
-
-border:1px solid rgba(27,42,74,.05);
-
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-
+box-shadow:0 12px 35px rgba(0,0,0,.05);
 transition:.35s;
 
 }
@@ -240,50 +213,161 @@ transition:.35s;
 
 transform:translateY(-8px);
 
-box-shadow:0 22px 45px rgba(0,0,0,.08);
-
 }
 
 .feature-icon{
 
 width:72px;
 height:72px;
-
 margin:0 auto 1.5rem;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 border-radius:50%;
-
-background:linear-gradient(
-135deg,
-rgba(201,167,92,.15),
-rgba(201,167,92,.05)
-);
-
+background:rgba(201,167,92,.12);
 font-size:1.8rem;
-
-color:var(--accent);
 
 }
 
-.feature-card h3{
+/* ========= Program Card ========= */
+
+.program-card{
+
+display:flex;
+flex-direction:column;
+
+background:#fff;
+
+border-radius:28px;
+
+overflow:hidden;
+
+box-shadow:0 18px 45px rgba(0,0,0,.06);
+
+transition:.35s;
+
+height:100%;
+
+}
+
+.program-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 28px 55px rgba(0,0,0,.10);
+
+}
+
+.program-card__image{
+
+aspect-ratio:16/9;
+
+overflow:hidden;
+
+background:#eef2f8;
+
+}
+
+.program-card__image img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+
+}
+
+.program-card:hover img{
+
+transform:scale(1.06);
+
+}
+
+.program-card__body{
+
+padding:2rem;
+
+display:flex;
+
+flex-direction:column;
+
+flex:1;
+
+}
+
+.program-card__badge{
+
+display:inline-flex;
+
+align-self:flex-start;
+
+padding:.45rem .9rem;
 
 margin-bottom:1rem;
+
+border-radius:999px;
+
+background:rgba(201,167,92,.12);
+
+color:var(--accent);
+
+font-size:.8rem;
+
+font-weight:700;
+
+}
+
+.program-card h3{
+
+font-size:1.6rem;
+
+color:var(--primary);
+
+margin-bottom:1rem;
+
+}
+
+.program-card p{
+
+color:var(--text-light);
+
+line-height:1.9;
+
+margin-bottom:2rem;
+
+flex:1;
+
+}
+
+.program-meta{
+
+display:flex;
+
+gap:1rem;
+
+flex-wrap:wrap;
+
+margin-bottom:2rem;
+
+}
+
+.program-meta span{
+
+padding:.45rem .8rem;
+
+border-radius:999px;
+
+background:#f4f6fa;
+
+font-size:.85rem;
 
 color:var(--primary);
 
 }
 
-.feature-card p{
+.program-card .btn{
 
-color:var(--text-light);
-
-line-height:1.9;
+width:100%;
 
 }
 
@@ -325,8 +409,6 @@ margin-bottom:.5rem;
 
 color:var(--text-light);
 
-font-size:.95rem;
-
 }
 
 /* ========= CTA ========= */
@@ -339,20 +421,13 @@ border-radius:32px;
 
 background:linear-gradient(135deg,#13213C,#243A66);
 
-text-align:center;
-
 color:#fff;
 
+text-align:center;
+
+position:relative;
+
 overflow:hidden;
-
-position:relative;
-
-}
-
-.cta>*{
-
-position:relative;
-z-index:2;
 
 }
 
@@ -363,11 +438,9 @@ content:"";
 position:absolute;
 
 left:-120px;
-
 top:-120px;
 
 width:340px;
-
 height:340px;
 
 border-radius:50%;
@@ -376,11 +449,10 @@ background:rgba(255,255,255,.05);
 
 }
 
-.cta h2{
+.cta>*{
 
-font-size:clamp(2rem,4vw,3rem);
-
-margin-bottom:1rem;
+position:relative;
+z-index:2;
 
 }
 
@@ -388,25 +460,10 @@ margin-bottom:1rem;
 
 max-width:700px;
 
-margin:0 auto 2rem;
+margin:1rem auto 2rem;
 
 color:rgba(255,255,255,.88);
 
-}
-
-/* ========= Grid ========= */
-
-.grid{
-display:grid;
-gap:2rem;
-}
-
-.grid-2{
-grid-template-columns:repeat(2,1fr);
-}
-
-.grid-3{
-grid-template-columns:repeat(3,1fr);
 }
 
 /* ========= Responsive ========= */
@@ -427,27 +484,9 @@ padding:6rem 0;
 
 }
 
-.hero__title{
+.program-meta{
 
-font-size:2.7rem;
-
-}
-
-.hero__tagline{
-
-font-size:1rem;
-
-}
-
-.feature-card{
-
-padding:2rem;
-
-}
-
-.cta{
-
-padding:4rem 2rem;
+flex-direction:column;
 
 }
 
