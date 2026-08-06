@@ -10,7 +10,9 @@
     <title>مشغل الدرس | NEMMO Academy</title>
 
     <meta name="description"
-        content="صفحة تشغيل الدروس في أكاديمية نمو التعليمية.">
+        content="صفحة تشغيل الدروس والصوتيات في أكاديمية نمو التعليمية.">
+
+    <meta name="theme-color" content="#1B2A4A">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,62 +22,138 @@
 
     <link rel="stylesheet" href="../assets/css/variables.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
 
 </head>
 
 <body>
 
-    <main class="hero">
+    <!-- Header -->
 
-        <div class="container">
+    <header class="site-header">
 
-            <div class="hero__content">
+        <div class="site-header__container">
 
-                <span class="hero__eyebrow">
-                    Lesson Player
-                </span>
+            <a href="../index.html" class="site-logo">
 
-                <h1 class="hero__title">
-                    مشغل الدرس
-                </h1>
+                <img src="../assets/images/logo.png" alt="NEMMO Academy">
 
-                <p class="hero__tagline">
-                    هذه الصفحة ستكون واجهة تشغيل الدروس والصوتيات وربط QR في النسخة
-                    الأولى من منصة NEMMO Academy.
-                </p>
+                <div class="site-logo__text">
 
-                <div class="card" style="width:min(100%,850px);">
+                    <span class="site-logo__title">
+                        NEMMO Academy
+                    </span>
 
-                    <h2 style="margin-bottom:1rem;color:var(--primary);">
-                        مثال على محتوى الدرس
-                    </h2>
+                    <span class="site-logo__subtitle">
+                        أكاديمية نمو التعليمية
+                    </span>
 
-                    <p style="margin-bottom:1rem;">
-                        <strong>الجملة:</strong><br>
-                        سلام، حال شما چطور است؟
+                </div>
+
+            </a>
+
+            <nav class="site-nav">
+
+                <ul>
+
+                    <li><a href="../index.html">الرئيسية</a></li>
+
+                    <li><a href="../programs.html">البرامج</a></li>
+
+                    <li><a href="#">من نحن</a></li>
+
+                    <li><a href="#">تواصل معنا</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- Main -->
+
+    <main class="site-main">
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero__content">
+
+                    <span class="hero__eyebrow">
+                        Lesson Player
+                    </span>
+
+                    <h1 class="hero__title">
+                        مشغل الدرس
+                    </h1>
+
+                    <p class="hero__tagline">
+                        استمع إلى الجملة الصحيحة، واقرأ النص والترجمة في مكان واحد.
                     </p>
 
-                    <p style="margin-bottom:2rem;color:var(--text-light);">
-                        مرحبًا، كيف حالك؟
-                    </p>
+                    <div class="card" style="width:min(100%,900px);text-align:right;">
 
-                    <audio controls style="width:100%;margin-bottom:2rem;">
-                        <source src="../assets/audio/sample.mp3" type="audio/mpeg">
-                        متصفحك لا يدعم تشغيل الصوت.
-                    </audio>
+                        <h2 style="color:var(--primary);margin-bottom:1.5rem;">
+                            المثال الأول
+                        </h2>
 
-                    <a class="btn btn-primary" href="../programs/persian/index.html">
-                        العودة إلى برنامج اللغة الفارسية
-                    </a>
+                        <p style="margin-bottom:.5rem;">
+                            <strong>الفارسية</strong>
+                        </p>
+
+                        <p style="font-size:1.2rem;margin-bottom:1.5rem;">
+                            سلام، حال شما چطور است؟
+                        </p>
+
+                        <p style="margin-bottom:.5rem;">
+                            <strong>الترجمة</strong>
+                        </p>
+
+                        <p style="margin-bottom:2rem;color:var(--text-light);">
+                            مرحبًا، كيف حالك؟
+                        </p>
+
+                        <audio controls style="width:100%;margin-bottom:2rem;">
+                            <source src="../assets/audio/sample.mp3" type="audio/mpeg">
+                            متصفحك لا يدعم تشغيل الصوت.
+                        </audio>
+
+                        <a class="btn btn-primary"
+                           href="../programs/persian/index.html">
+                            العودة إلى البرنامج
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
     </main>
+
+    <!-- Footer -->
+
+    <footer class="site-footer">
+
+        <div class="site-footer__container">
+
+            <p>
+                © 2026 NEMMO Academy. جميع الحقوق محفوظة.
+            </p>
+
+            <a href="../programs.html">
+                جميع البرامج
+            </a>
+
+        </div>
+
+    </footer>
 
     <script src="../assets/js/main.js"></script>
 
