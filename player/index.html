@@ -10,7 +10,7 @@
     <title>مشغل الدرس | NEMMO Academy</title>
 
     <meta name="description"
-        content="مشغل الدروس والصوتيات في أكاديمية نمو التعليمية.">
+        content="مشغل الدروس والصوتيات في أكاديمية NEMMO.">
 
     <meta name="theme-color" content="#1B2A4A">
 
@@ -29,142 +29,158 @@
 
 <body>
 
-    <!-- Header -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="site-header__container">
 
-        <div class="site-header__container">
+        <a href="../index.html" class="site-logo">
 
-            <a href="../index.html" class="site-logo">
+            <img src="../assets/images/logo.png" alt="NEMMO Academy">
 
-                <img src="../assets/images/logo.png" alt="NEMMO Academy">
+            <div class="site-logo__text">
 
-                <div class="site-logo__text">
-
-                    <span class="site-logo__title">
-                        NEMMO Academy
-                    </span>
-
-                    <span class="site-logo__subtitle">
-                        أكاديمية نمو التعليمية
-                    </span>
-
-                </div>
-
-            </a>
-
-            <nav class="site-nav">
-
-                <ul>
-
-                    <li><a href="../index.html">الرئيسية</a></li>
-
-                    <li><a href="../programs.html">البرامج</a></li>
-
-                    <li><a href="#">من نحن</a></li>
-
-                    <li><a href="#">تواصل معنا</a></li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-    <!-- Hero -->
-
-    <section class="hero">
-
-        <div class="container">
-
-            <div class="hero__content">
-
-                <span class="hero__eyebrow">
-                    Lesson Player
+                <span class="site-logo__title">
+                    NEMMO Academy
                 </span>
 
-                <h1 class="hero__title">
-                    مشغل الدرس
-                </h1>
-
-                <p class="hero__tagline">
-                    اقرأ الجملة، استمع إلى النطق الصحيح، ثم انتقل إلى الدرس التالي.
-                </p>
+                <span class="site-logo__subtitle">
+                    أكاديمية نمو التعليمية
+                </span>
 
             </div>
 
-        </div>
+        </a>
 
-    </section>
+        <nav class="site-nav">
 
-    <!-- Lesson -->
+            <ul>
 
-    <section class="section section-light">
+                <li><a href="../index.html">الرئيسية</a></li>
 
-        <div class="container">
+                <li><a href="../programs.html">البرامج</a></li>
 
-            <div class="card">
+                <li><a href="#">من نحن</a></li>
 
-                <h2 style="color:var(--primary);margin-bottom:2rem;">
-                    الدرس الأول
-                </h2>
+                <li><a href="#">تواصل معنا</a></li>
 
-                <p style="font-size:1.3rem;margin-bottom:1rem;">
-                    سلام، حال شما چطور است؟
-                </p>
+            </ul>
 
-                <p style="color:var(--text-light);margin-bottom:2rem;">
-                    مرحبًا، كيف حالك؟
-                </p>
+        </nav>
 
-                <audio controls style="width:100%;margin-bottom:2rem;">
+    </div>
 
-                    <source src="../assets/audio/sample.mp3"
-                        type="audio/mpeg">
+</header>
 
-                    متصفحك لا يدعم تشغيل الصوت.
+<main>
 
-                </audio>
+<section class="hero">
 
-                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+<div class="container">
 
-                    <button class="btn btn-secondary" disabled>
-                        ← الدرس السابق
-                    </button>
+<div class="hero__content">
 
-                    <button class="btn btn-primary">
-                        الدرس التالي →
-                    </button>
+<span class="hero__eyebrow">
 
-                </div>
+Lesson Player
 
-            </div>
+</span>
 
-        </div>
+<h1 class="hero__title">
 
-    </section>
+مشغل الدرس
 
-    <!-- Footer -->
+</h1>
 
-    <footer class="site-footer">
+<p class="hero__tagline">
 
-        <div class="site-footer__container">
+اقرأ الجملة، استمع إلى النطق الصحيح، ثم انتقل بسهولة إلى الدرس التالي.
 
-            <p>
-                © 2026 NEMMO Academy. جميع الحقوق محفوظة.
-            </p>
+</p>
 
-            <a href="../programs/persian/index.html">
-                العودة إلى البرنامج
-            </a>
+</div>
 
-        </div>
+</div>
 
-    </footer>
+</section>
 
-    <script src="../assets/js/main.js"></script>
+<section class="section section-light">
+
+<div class="container">
+
+<div class="card">
+
+<h2 class="mb-2">
+
+الدرس الأول
+
+</h2>
+
+<p class="mb-1" style="font-size:1.4rem;font-weight:600;">
+
+سلام، حال شما چطور است؟
+
+</p>
+
+<p class="mb-3" style="color:var(--text-light);">
+
+مرحبًا، كيف حالك؟
+
+</p>
+
+<audio controls style="width:100%;margin-bottom:2rem;">
+
+<source src="../assets/audio/sample.mp3" type="audio/mpeg">
+
+متصفحك لا يدعم تشغيل الصوت.
+
+</audio>
+
+<div style="display:flex;gap:1rem;flex-wrap:wrap;">
+
+<button class="btn btn-secondary" disabled>
+
+← الدرس السابق
+
+</button>
+
+<button class="btn btn-primary">
+
+الدرس التالي →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="site-footer__container">
+
+<p>
+
+© <span data-current-year></span>
+NEMMO Academy
+
+</p>
+
+<a href="../programs/persian/index.html">
+
+العودة إلى البرنامج
+
+</a>
+
+</div>
+
+</footer>
+
+<script src="../assets/js/main.js"></script>
 
 </body>
 
