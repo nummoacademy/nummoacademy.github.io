@@ -1,61 +1,49 @@
 /* ==========================================
    NEMMO Academy
    Main JavaScript
-   Version: MVP v1.0
-========================================== */
-
-"use strict";
-
-/* ==========================================
-   APP
-========================================== */
-
-const NEMMO = {
-
-    init() {
-
-        this.cache();
-
-        this.events();
-
-        this.ready();
-
-    },
-
-    cache() {
-
-        this.body = document.body;
-
-    },
-
-    events() {
-
-        // سيتم إضافة الأحداث التفاعلية
-        // في الجلسات القادمة.
-
-    },
-
-    ready() {
-
-        this.body.classList.add("app-loaded");
-
-        console.log(
-            "%cNEMMO Academy MVP",
-            "color:#C9A227;font-size:16px;font-weight:bold;"
-        );
-
-        console.log("Application initialized successfully.");
-
-    }
-
-};
-
-/* ==========================================
-   DOM READY
+   Version: MVP v1.2
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    NEMMO.init();
+    // Current Year
+    document.querySelectorAll("[data-current-year]").forEach(el => {
+        el.textContent = new Date().getFullYear();
+    });
+
+    // Active Navigation
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".site-nav a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
+
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+        anchor.addEventListener("click", function (e) {
+
+            const target = document.querySelector(this.getAttribute("href"));
+
+            if (!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    });
 
 });
