@@ -3,27 +3,26 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشغل الدرس | NEMMO Academy</title>
 
-    <title>مشغل الدرس | NEMMO Academy</title>
+<meta name="description"
+content="صفحة تشغيل الدروس في أكاديمية NEMMO.">
 
-    <meta name="description"
-        content="مشغل الدروس والصوتيات في أكاديمية NEMMO Academy.">
+<meta name="theme-color" content="#1B2A4A">
 
-    <meta name="theme-color" content="#1B2A4A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="../assets/css/variables.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/layout.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
 
 </head>
 
@@ -31,159 +30,245 @@
 
 <header class="site-header">
 
-    <div class="site-header__container">
+<div class="site-header__container">
 
-        <a href="../index.html" class="site-logo">
+<a href="../index.html" class="site-logo">
 
-            <img src="../assets/images/logo.png" alt="NEMMO Academy">
+<img src="../assets/images/logo.png" alt="NEMMO Academy">
 
-            <div class="site-logo__text">
+<div class="site-logo__text">
 
-                <span class="site-logo__title">
-                    NEMMO Academy
-                </span>
+<span class="site-logo__title">NEMMO Academy</span>
+<span class="site-logo__subtitle">أكاديمية نمو التعليمية</span>
 
-                <span class="site-logo__subtitle">
-                    أكاديمية نمو التعليمية
-                </span>
+</div>
 
-            </div>
+</a>
 
-        </a>
+<nav class="site-nav">
 
-        <nav class="site-nav">
+<ul>
 
-            <ul>
+<li><a href="../index.html">الرئيسية</a></li>
+<li><a href="../programs.html">البرامج</a></li>
+<li><a href="../programs/persian/index.html">برنامج اللغة الفارسية</a></li>
 
-                <li><a href="../index.html">الرئيسية</a></li>
+</ul>
 
-                <li><a href="../programs.html">البرامج</a></li>
+</nav>
 
-                <li><a href="#">من نحن</a></li>
-
-                <li><a href="#">تواصل معنا</a></li>
-
-            </ul>
-
-        </nav>
-
-    </div>
+</div>
 
 </header>
 
 <main>
 
-<section class="hero">
+<!-- Hero -->
+
+<section class="lesson-hero">
 
 <div class="container">
 
-<div class="hero__content">
+<div class="lesson-breadcrumb">
 
-<span class="hero__eyebrow">
+<span>الرئيسية</span>
 
-Lesson Player
+<span>›</span>
 
-</span>
+<span>برنامج اللغة الفارسية</span>
 
-<h1 class="hero__title">
+<span>›</span>
 
-مشغل الدروس
+<span>الدرس الأول</span>
+
+</div>
+
+<h1 class="lesson-title">
+
+الدرس الأول
+— التعارف والمقدمة
 
 </h1>
 
-<p class="hero__tagline">
+<p class="lesson-subtitle">
 
-اقرأ الجملة، استمع إلى النطق الصحيح،
-ثم كررها حتى تتقنها.
+ابدأ رحلتك مع اللغة الفارسية من خلال أول درس،
+وتعرّف على أساسيات النطق والكلمات الأولى
+بطريقة عملية وسهلة.
 
 </p>
-
-</div>
 
 </div>
 
 </section>
 
-<section class="section section-light">
+<!-- Lesson -->
+
+<section class="lesson-player">
 
 <div class="container">
 
-<div class="card">
+<div class="player-layout">
 
-<h2 class="mb-2">
+<!-- Main -->
 
-الدرس الأول
+<div>
 
-</h2>
+<div class="player-card">
 
-<p style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">
+<div class="player-video">
 
-سلام، حال شما چطور است؟
+<p>
 
-</p>
-
-<p class="mb-3" style="color:var(--text-light);">
-
-مرحبًا، كيف حالك؟
+مكان تشغيل الفيديو
+(YouTube / Vimeo / HTML5)
 
 </p>
 
-<audio controls preload="none" style="width:100%;margin-bottom:2rem;">
-
-<source src="../assets/audio/sample.mp3" type="audio/mpeg">
-
-متصفحك لا يدعم تشغيل الصوت.
-
-</audio>
-
-<div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between;align-items:center;">
-
-<button class="btn btn-secondary" disabled>
-
-← الدرس السابق
-
-</button>
-
-<button class="btn btn-primary">
-
-الدرس التالي →
-
-</button>
-
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="container">
-
-<div class="cta">
+<div class="player-content">
 
 <h2>
 
-استمر في التعلم
+حول هذا الدرس
 
 </h2>
 
 <p>
 
-الاستمرارية هي السر الحقيقي لإتقان اللغة.
-خصص وقتًا يوميًا ولو كان قصيرًا، وستلاحظ
-التطور مع كل درس.
+في هذا الدرس ستتعرف على أساسيات النطق،
+وكيفية تقديم نفسك باللغة الفارسية،
+مع أمثلة مبسطة تساعدك على البدء بثقة.
 
 </p>
 
-<a href="../programs/persian/index.html"
-class="btn btn-primary">
+<p>
 
-العودة إلى البرنامج
+يمكنك أيضاً الاستماع إلى التسجيل الصوتي
+ومتابعة الكتاب المرافق
+لتحسين مهارات النطق والاستيعاب.
 
+</p>
+
+<div class="audio-card">
+
+<h3>
+
+🎧 الملف الصوتي
+
+</h3>
+
+<audio controls>
+
+<source src="../assets/audio/lesson-01.mp3" type="audio/mpeg">
+
+</audio>
+
+</div>
+
+<div class="qr-card">
+
+<h3>
+
+📱 الاستماع عبر QR
+
+</h3>
+
+<img
+src="../assets/images/qr-placeholder.png"
+alt="QR Code">
+
+<p>
+
+امسح رمز QR الموجود داخل الكتيب
+للاستماع مباشرة إلى التسجيل الصوتي.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Sidebar -->
+
+<aside class="lesson-sidebar">
+
+<div class="sidebar-card">
+
+<h3>
+
+دروس الوحدة
+
+</h3>
+
+<ul class="lesson-list">
+
+<li class="active">
+<a href="#">
+<span>الدرس الأول</span>
+<span>▶</span>
 </a>
+</li>
+
+<li>
+<a href="#">
+<span>الدرس الثاني</span>
+<span>▶</span>
+</a>
+</li>
+
+<li>
+<a href="#">
+<span>الدرس الثالث</span>
+<span>▶</span>
+</a>
+</li>
+
+<li>
+<a href="#">
+<span>الدرس الرابع</span>
+<span>▶</span>
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<div class="sidebar-card">
+
+<h3>
+
+📚 المواد المرفقة
+
+</h3>
+
+<ul class="lesson-list">
+
+<li>
+<a href="#">
+<span>كتاب القواعد</span>
+<span>PDF</span>
+</a>
+</li>
+
+<li>
+<a href="#">
+<span>كتاب المحادثة</span>
+<span>PDF</span>
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</aside>
 
 </div>
 
@@ -204,9 +289,9 @@ NEMMO Academy
 
 </p>
 
-<a href="../programs.html">
+<a href="../programs/persian/index.html">
 
-جميع البرامج
+العودة إلى البرنامج
 
 </a>
 
