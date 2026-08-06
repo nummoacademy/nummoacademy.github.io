@@ -1,311 +1,319 @@
 /* ==========================================
    NEMMO Academy
-   Components Stylesheet
-   Version: MVP v1.0
+   Components
+   Version: MVP v1.1
 ========================================== */
 
-/* ==========================================
-   BUTTONS
-========================================== */
+/* ========= Buttons ========= */
 
-.btn {
+.btn{
 
-    display: inline-flex;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:.6rem;
 
-    align-items: center;
+padding:.9rem 1.8rem;
 
-    justify-content: center;
+border-radius:999px;
 
-    gap: .5rem;
+font-weight:600;
 
-    padding: .85rem 1.75rem;
+cursor:pointer;
 
-    border-radius: var(--radius-pill);
+transition:.25s;
 
-    font-size: var(--font-size-md);
-
-    font-weight: var(--font-semibold);
-
-    transition: var(--transition);
-
-    cursor: pointer;
-
-    user-select: none;
+text-decoration:none;
 
 }
 
-.btn-primary {
+.btn-primary{
 
-    background: var(--accent);
+background:var(--accent);
 
-    color: var(--primary);
-
-    box-shadow: var(--shadow-sm);
+color:var(--primary);
 
 }
 
-.btn-primary:hover {
+.btn-primary:hover{
 
-    background: var(--accent-hover);
+transform:translateY(-2px);
 
-    transform: translateY(-2px);
-
-}
-
-.btn-secondary {
-
-    background: transparent;
-
-    color: var(--surface);
-
-    border: 2px solid rgba(255,255,255,.35);
+box-shadow:var(--shadow-md);
 
 }
 
-.btn-secondary:hover {
+.btn-secondary{
 
-    background: rgba(255,255,255,.08);
+border:2px solid rgba(255,255,255,.25);
 
-}
-
-/* ==========================================
-   CARDS
-========================================== */
-
-.card {
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius-md);
-
-    padding: var(--space-4);
-
-    box-shadow: var(--shadow-sm);
-
-    transition: var(--transition);
+color:#fff;
 
 }
 
-.card:hover {
+.btn-secondary:hover{
 
-    transform: translateY(-4px);
-
-    box-shadow: var(--shadow-md);
+background:rgba(255,255,255,.08);
 
 }
 
-/* ==========================================
-   SECTION TITLE
-========================================== */
+/* ========= Section ========= */
 
-.section-title {
+.section{
 
-    margin-bottom: var(--space-4);
-
-    text-align: center;
+padding:6rem 0;
 
 }
 
-.section-title__eyebrow {
+.section-light{
 
-    display: inline-block;
-
-    margin-bottom: .75rem;
-
-    color: var(--accent);
-
-    font-size: var(--font-size-sm);
-
-    font-weight: var(--font-semibold);
-
-    letter-spacing: .08em;
+background:#fff;
 
 }
 
-.section-title__heading {
+.section-gray{
 
-    color: var(--primary);
-
-    font-size: clamp(2rem,4vw,3rem);
-
-    font-weight: var(--font-bold);
-
-    line-height: 1.3;
+background:var(--background);
 
 }
 
-.section-title__text {
+.section-title{
 
-    max-width: 700px;
+text-align:center;
 
-    margin: 1rem auto 0;
-
-    color: var(--text-light);
+margin-bottom:4rem;
 
 }
 
-/* ==========================================
-   PROGRAM CARD
-========================================== */
+.section-title span{
 
-.program-card {
+display:block;
 
-    display: flex;
+color:var(--accent);
 
-    flex-direction: column;
+font-weight:600;
 
-    gap: var(--space-3);
+margin-bottom:.7rem;
 
 }
 
-.program-card__image {
+.section-title h2{
 
-    overflow: hidden;
+font-size:2.3rem;
 
-    border-radius: var(--radius-md);
+color:var(--primary);
 
-}
-
-.program-card__image img {
-
-    width: 100%;
-
-    transition: var(--transition);
+margin-bottom:1rem;
 
 }
 
-.program-card:hover .program-card__image img {
+.section-title p{
 
-    transform: scale(1.05);
+max-width:760px;
 
-}
+margin:auto;
 
-.program-card__title {
-
-    color: var(--primary);
-
-    font-size: var(--font-size-xl);
-
-    font-weight: var(--font-bold);
+color:var(--text-light);
 
 }
 
-.program-card__description {
+/* ========= Grid ========= */
 
-    color: var(--text-light);
+.grid{
 
-}
+display:grid;
 
-.program-card__footer {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-top: auto;
+gap:2rem;
 
 }
 
-/* ==========================================
-   TEACHER CARD
-========================================== */
+.grid-2{
 
-.teacher-card {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: var(--space-3);
+grid-template-columns:repeat(2,1fr);
 
 }
 
-.teacher-card__avatar {
+.grid-3{
 
-    width: 88px;
-
-    height: 88px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    flex-shrink: 0;
-
-    border: 3px solid var(--accent);
+grid-template-columns:repeat(3,1fr);
 
 }
 
-.teacher-card__avatar img {
+/* ========= Cards ========= */
 
-    width: 100%;
+.card{
 
-    height: 100%;
+background:#fff;
 
-    object-fit: cover;
+border-radius:20px;
 
-}
+padding:2rem;
 
-.teacher-card__name {
+box-shadow:var(--shadow-sm);
 
-    color: var(--primary);
+transition:.25s;
 
-    font-size: var(--font-size-lg);
-
-    font-weight: var(--font-bold);
+height:100%;
 
 }
 
-.teacher-card__role {
+.card:hover{
 
-    margin-top: .35rem;
+transform:translateY(-6px);
 
-    color: var(--text-light);
-
-}
-
-/* ==========================================
-   CTA BANNER
-========================================== */
-
-.cta-banner {
-
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-light)
-    );
-
-    color: var(--surface);
-
-    border-radius: var(--radius-lg);
-
-    padding: var(--space-5);
-
-    text-align: center;
-
-    box-shadow: var(--shadow-md);
+box-shadow:var(--shadow-md);
 
 }
 
-.cta-banner__title {
+/* ========= Program Card ========= */
 
-    margin-bottom: var(--space-2);
+.program-card{
 
-    font-size: clamp(1.8rem,4vw,2.5rem);
+display:flex;
 
-    font-weight: var(--font-bold);
+flex-direction:column;
 
 }
 
-.cta-banner__text {
+.program-card img{
 
-    margin-bottom: var(--space-4);
+width:100%;
 
-    color: rgba(255,255,255,.9);
+border-radius:16px;
+
+margin-bottom:1.4rem;
+
+}
+
+.program-card h3{
+
+color:var(--primary);
+
+margin-bottom:1rem;
+
+font-size:1.4rem;
+
+}
+
+.program-card p{
+
+color:var(--text-light);
+
+margin-bottom:1.5rem;
+
+line-height:1.9;
+
+}
+
+.program-card .btn{
+
+margin-top:auto;
+
+align-self:flex-start;
+
+}
+
+/* ========= Teacher ========= */
+
+.teacher{
+
+display:flex;
+
+align-items:center;
+
+gap:1.5rem;
+
+}
+
+.teacher img{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid var(--accent);
+
+}
+
+.teacher h3{
+
+margin-bottom:.5rem;
+
+color:var(--primary);
+
+}
+
+.teacher p{
+
+color:var(--text-light);
+
+}
+
+/* ========= CTA ========= */
+
+.cta{
+
+background:linear-gradient(
+135deg,
+var(--primary),
+var(--primary-light)
+);
+
+padding:4rem;
+
+border-radius:28px;
+
+text-align:center;
+
+color:#fff;
+
+}
+
+.cta h2{
+
+margin-bottom:1rem;
+
+font-size:2rem;
+
+}
+
+.cta p{
+
+max-width:700px;
+
+margin:auto auto 2rem;
+
+color:rgba(255,255,255,.9);
+
+}
+
+/* ========= Responsive ========= */
+
+@media(max-width:900px){
+
+.grid-2,
+.grid-3{
+
+grid-template-columns:1fr;
+
+}
+
+.teacher{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.cta{
+
+padding:3rem 2rem;
+
+}
 
 }
