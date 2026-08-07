@@ -300,3 +300,19 @@ padding:4rem 0;
 }
 
 }
+.about-section {
+    padding: 6rem 0;
+}
+
+.about-content {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
