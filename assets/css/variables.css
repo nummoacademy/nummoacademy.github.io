@@ -96,15 +96,19 @@
 }
 
 /* ==========================================
-   DARK MODE VARIABLES
+   DARK MODE OVERRIDES
 ========================================== */
 
 [data-theme="dark"] {
-    --background: #0F172A;
-    --surface: #1E293B;
-    --text: #F8FAFC;
-    --text-light: #94A3B8;
-    --border: #334155;
+    --background: #0B132B;
+    --surface: #1C2541;
+    --primary: #5BC0BE;
+    --primary-light: #3A506B;
+    --text: #FFFFFF;
+    --text-light: #A5B4FC;
+    --border: #2A385B;
+    --shadow-sm: 0 4px 12px rgba(0,0,0,.3);
+    --shadow-md: 0 12px 32px rgba(0,0,0,.4);
 }
 
 /* ==========================================
@@ -117,8 +121,16 @@ body {
     transition: background-color var(--transition), color var(--transition);
 }
 
-h1, h2, h3, h4, h5, h6, .section-title h2 {
+h1, h2, h3, h4, h5, h6, 
+.section-title h2,
+.program-card__title,
+.site-logo__title {
     color: var(--text);
+    transition: color var(--transition);
+}
+
+p, .about-intro__text, .program-card__description {
+    color: var(--text-light);
     transition: color var(--transition);
 }
 
@@ -132,10 +144,29 @@ h1, h2, h3, h4, h5, h6, .section-title h2 {
 .testimonial, 
 .program-card, 
 .about-value, 
-.about-pillar {
+.about-pillar,
+.site-header {
     background-color: var(--surface);
     border-color: var(--border);
     transition: background-color var(--transition), border-color var(--transition);
+}
+
+/* Fix header text & icons contrast in dark mode */
+[data-theme="dark"] .site-logo__subtitle,
+[data-theme="dark"] .site-nav a {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .site-nav a:hover,
+[data-theme="dark"] .site-nav a[aria-current="page"] {
+    color: var(--text);
+}
+
+/* Fix CTA buttons contrast in dark mode */
+[data-theme="dark"] .btn-secondary {
+    background-color: var(--surface);
+    color: var(--text);
+    border-color: var(--border);
 }
 
 /* ==========================================
