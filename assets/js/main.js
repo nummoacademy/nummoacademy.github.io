@@ -1,8 +1,8 @@
 /* ==========================================
    NEMMO Academy
    Main JavaScript
-   Version: MVP v2.4
-   Registration Modal + WhatsApp
+   Version: MVP v2.5
+   Registration Modal + WhatsApp + Theme Toggle
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,6 +16,41 @@ document.addEventListener("DOMContentLoaded", () => {
     yearElements.forEach((element) => {
         element.textContent = new Date().getFullYear();
     });
+
+
+    /* ==========================================
+       Theme Toggle (Dark / Light Mode)
+    ========================================== */
+
+    const themeToggleBtn = document.getElementById("themeToggle");
+    const moonIcon = document.querySelector(".moon-icon");
+    const sunIcon = document.querySelector(".sun-icon");
+
+    // استرجاع المظهر المحفوظ سابقاً في المتصفح
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+        document.body.setAttribute("data-theme", "dark");
+        if (moonIcon) moonIcon.style.display = "none";
+        if (sunIcon) sunIcon.style.display = "block";
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            const isDark = document.body.getAttribute("data-theme") === "dark";
+
+            if (isDark) {
+                document.body.removeAttribute("data-theme");
+                localStorage.setItem("theme", "light");
+                if (moonIcon) moonIcon.style.display = "block";
+                if (sunIcon) sunIcon.style.display = "none";
+            } else {
+                document.body.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+                if (moonIcon) moonIcon.style.display = "none";
+                if (sunIcon) sunIcon.style.display = "block";
+            }
+        });
+    }
 
 
     /* ==========================================
