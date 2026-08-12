@@ -104,15 +104,19 @@
     --shadow-md: 0 12px 32px rgba(0,0,0,.4);
 }
 
-/* 1. إجبار كافة الخلفيات الرئيسية والأقسام على التحول للون الداكن */
+/* 1. إجبار كافة الخلفيات الرئيسية والأقسام وقسم الـ Hero على التحول للون الداكن */
 [data-theme="dark"] body,
 [data-theme="dark"] main,
 [data-theme="dark"] section,
 [data-theme="dark"] .section,
 [data-theme="dark"] .section-light,
 [data-theme="dark"] .hero,
-[data-theme="dark"] .about-section {
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .about-hero,
+[data-theme="dark"] .about-section,
+[data-theme="dark"] .home-hero {
     background-color: var(--background) !important;
+    background-image: none !important; /* إلغاء أي خلفيات صورية بيضاء إن وجدت */
     color: var(--text) !important;
 }
 
@@ -138,7 +142,8 @@
 [data-theme="dark"] h6,
 [data-theme="dark"] .section-title h2,
 [data-theme="dark"] .program-card__title,
-[data-theme="dark"] .site-logo__title {
+[data-theme="dark"] .site-logo__title,
+[data-theme="dark"] .hero__title {
     color: #FFFFFF !important;
 }
 
@@ -146,7 +151,8 @@
 [data-theme="dark"] span, 
 [data-theme="dark"] .about-intro__text, 
 [data-theme="dark"] .program-card__description,
-[data-theme="dark"] .site-nav a {
+[data-theme="dark"] .site-nav a,
+[data-theme="dark"] .hero__subtitle {
     color: var(--text-light) !important;
 }
 
