@@ -94,3 +94,67 @@
     --transition: .3s ease;
 
 }
+
+/* ==========================================
+   DARK MODE VARIABLES
+========================================== */
+
+[data-theme="dark"] {
+    --background: #0F172A;
+    --surface: #1E293B;
+    --text: #F8FAFC;
+    --text-light: #94A3B8;
+    --border: #334155;
+}
+
+/* ==========================================
+   BASE THEME APPLICATION
+========================================== */
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+h1, h2, h3, h4, h5, h6, .section-title h2 {
+    color: var(--text);
+    transition: color var(--transition);
+}
+
+.section-light {
+    background-color: var(--background);
+    transition: background-color var(--transition);
+}
+
+.feature-card, 
+.package-card, 
+.testimonial, 
+.program-card, 
+.about-value, 
+.about-pillar {
+    background-color: var(--surface);
+    border-color: var(--border);
+    transition: background-color var(--transition), border-color var(--transition);
+}
+
+/* ==========================================
+   THEME TOGGLE BUTTON STYLING
+========================================== */
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: var(--space-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition), color var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    color: var(--accent);
+}
