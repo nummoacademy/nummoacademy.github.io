@@ -15,18 +15,15 @@
     <meta name="theme-color" content="#1B2A4A">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Global Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="../../assets/css/variables.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
     <link rel="stylesheet" href="../../assets/css/layout.css">
@@ -34,10 +31,6 @@
 </head>
 
 <body>
-
-    <!-- ==========================================
-         Header
-    ========================================== -->
 
     <header class="site-header">
 
@@ -62,7 +55,7 @@
 
                 </div>
 
-            </a>
+            </div>
 
             <nav class="site-nav">
 
@@ -86,6 +79,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <button id="themeToggle" class="theme-toggle-btn" aria-label="تبديل المظهر">
+                            <i data-lucide="moon" class="moon-icon"></i>
+                            <i data-lucide="sun" class="sun-icon" style="display: none;"></i>
+                        </button>
+                    </li>
+
                 </ul>
 
             </nav>
@@ -96,10 +96,6 @@
 
 
     <main>
-
-        <!-- ==========================================
-             Program Hero
-        ========================================== -->
 
         <section class="hero program-hero">
 
@@ -127,7 +123,7 @@
                         يجمع بين الدروس المصورة، والكتب التعليمية، والتطبيق
                         العملي، والدعم المستمر، ليمنحك القدرة على استخدام
                         اللغة الفارسية في الدراسة، والسفر، والعمل،
-                        والتواصل اليومي.
+                        التواصل اليومي.
                     </p>
 
                     <div class="hero__actions">
@@ -136,7 +132,7 @@
                             href="#packages"
                             class="btn btn-primary"
                         >
-                            استعرض الباقات
+                            استعراض الباقات
                         </a>
 
                         <a
@@ -154,10 +150,6 @@
 
         </section>
 
-
-        <!-- ==========================================
-             Program Overview
-        ========================================== -->
 
         <section
             id="about-program"
@@ -191,7 +183,7 @@
 
                         <p>
                             يجمع البرنامج بين الشرح المبسط، والتطبيق العملي،
-                            والمواد التعليمية المساندة، ليمنح الطالب أساسًا قويًا
+                            المواد التعليمية المساندة، ليمنح الطالب أساسًا قويًا
                             في اللغة ومهارات استخدامها في الحياة الواقعية.
                         </p>
 
@@ -203,10 +195,6 @@
 
         </section>
 
-
-        <!-- ==========================================
-             Program Goals
-        ========================================== -->
 
         <section class="section section-light">
 
@@ -321,10 +309,6 @@
 
         </section>
 
-
-        <!-- ==========================================
-             What You Will Learn
-        ========================================== -->
 
         <section class="section">
 
@@ -487,10 +471,6 @@
         </section>
 
 
-        <!-- ==========================================
-             Why This Program
-        ========================================== -->
-
         <section class="section section-light">
 
             <div class="container">
@@ -618,10 +598,6 @@
         </section>
 
 
-        <!-- ==========================================
-             Teacher
-        ========================================== -->
-
         <section class="section">
 
             <div class="container">
@@ -670,10 +646,6 @@
         </section>
 
 
-        <!-- ==========================================
-             Packages
-        ========================================== -->
-
         <section
             id="packages"
             class="section section-light"
@@ -700,8 +672,6 @@
 
                 <div class="packages-grid">
 
-
-                    <!-- Diamond -->
 
                     <article class="package-card package-card--featured">
 
@@ -775,8 +745,6 @@
                     </article>
 
 
-                    <!-- Gold -->
-
                     <article class="package-card">
 
                         <div class="package-card__header">
@@ -839,10 +807,6 @@
 
         </section>
 
-
-        <!-- ==========================================
-             Registration Steps
-        ========================================== -->
 
         <section class="section">
 
@@ -920,10 +884,6 @@
 
         </section>
 
-
-        <!-- ==========================================
-             FAQ
-        ========================================== -->
 
         <section class="section section-light">
 
@@ -1021,10 +981,6 @@
         </section>
 
 
-        <!-- ==========================================
-             Final CTA
-        ========================================== -->
-
         <section class="section section-light">
 
             <div class="container">
@@ -1057,10 +1013,84 @@
         </section>
 
 
-        <!-- ==========================================
-             Registration Modal
-             Session 2.4
-        ========================================== -->
+        <section id="contact" class="section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        CONTACT US
+                    </span>
+
+                    <h2>
+                        تواصل معنا
+                    </h2>
+
+                    <p>
+                        يسعدنا تواصلك معنا عبر منصاتنا الرسمية. اختر المنصة المناسبة لك للإجابة عن جميع استفساراتك.
+                    </p>
+
+                </div>
+
+                <div class="contact-grid">
+
+                    <a href="https://wa.me/9647770300029" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card__icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-card__info">
+                            <h3>واتساب</h3>
+                            <span>+9647770300029</span>
+                        </div>
+                    </a>
+
+                    <a href="https://t.me/NemoAcademy" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card__icon">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div class="contact-card__info">
+                            <h3>تليغرام</h3>
+                            <span>@NemoAcademy</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/nemmo.ac?igsh=aXdpOXZjNmlseXJ0" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card__icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="contact-card__info">
+                            <h3>انستغرام</h3>
+                            <span>@nemmo.ac</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=61575293433047" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card__icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div class="contact-card__info">
+                            <h3>فيسبوك</h3>
+                            <span>NEMMO Academy</span>
+                        </div>
+                    </a>
+
+                    <a href="https://tiktok.com/@nemoacademy1997" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card__icon">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <div class="contact-card__info">
+                            <h3>تيك توك</h3>
+                            <span>@nemoacademy1997</span>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
         <div
             class="registration-modal"
@@ -1272,10 +1302,6 @@
     </main>
 
 
-    <!-- ==========================================
-         Footer
-    ========================================== -->
-
     <footer class="site-footer">
 
         <div class="site-footer__container">
@@ -1294,9 +1320,16 @@
 
     </footer>
 
-
-    <!-- Global JS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../../assets/js/main.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        if (typeof lucide !== "undefined") {
+            lucide.createIcons();
+        }
+    });
+    </script>
 
 </body>
 
