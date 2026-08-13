@@ -1,76 +1,74 @@
 /* ==========================================
    NEMMO Academy
    Main JavaScript
-   Version: MVP v2.6 (Unified & Fully Compatible)
+   Version: MVP v2.8 (Fixed Modal Script)
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    /* ==========================================
-       1. Current Year Auto Update
-    ========================================== */
-    const yearElements = document.querySelectorAll("[data-current-year]");
-    yearElements.forEach((element) => {
-        element.textContent = new Date().getFullYear();
-    });
+    // 1. تحديث سنة الحقوق المحفوظة تلقائياً
+    const currentYearSpan = document.querySelector("[data-current-year]");
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
+    // 2. تفعيل أيقونات Lucide
+    if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+    }
 
-    /* ==========================================
-       2. Theme Toggle (Dark / Light Mode)
-    ========================================== */
+    // 3. تبديل الوضع الليلي / النهاري (Dark / Light Theme Toggle)
     const themeToggleBtn = document.getElementById("themeToggle");
     const moonIcon = document.querySelector(".moon-icon");
     const sunIcon = document.querySelector(".sun-icon");
 
-    // استرجاع المظهر المحفوظ سابقاً
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") {
-        document.body.setAttribute("data-theme", "dark");
-        document.documentElement.setAttribute("data-theme", "dark");
-        if (moonIcon) moonIcon.style.display = "none";
-        if (sunIcon) sunIcon.style.display = "block";
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        document.body.setAttribute("data-theme", savedTheme);
+        updateThemeIcons(savedTheme);
     }
 
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener("click", () => {
-            const isDark = document.body.getAttribute("data-theme") === "dark" || document.documentElement.getAttribute("data-theme") === "dark";
+        themeToggleBtn.addEventListener("click", function () {
+            const currentTheme = document.body.getAttribute("data-theme") || document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-            if (isDark) {
-                document.body.removeAttribute("data-theme");
-                document.documentElement.removeAttribute("data-theme");
-                localStorage.setItem("theme", "light");
-                if (moonIcon) moonIcon.style.display = "block";
-                if (sunIcon) sunIcon.style.display = "none";
-            } else {
+            if (newTheme === "dark") {
                 document.body.setAttribute("data-theme", "dark");
                 document.documentElement.setAttribute("data-theme", "dark");
-                localStorage.setItem("theme", "dark");
-                if (moonIcon) moonIcon.style.display = "none";
-                if (sunIcon) sunIcon.style.display = "block";
+            } else {
+                document.body.removeAttribute("data-theme");
+                document.documentElement.removeAttribute("data-theme");
             }
+
+            localStorage.setItem("theme", newTheme);
+            updateThemeIcons(newTheme);
         });
     }
 
+    function updateThemeIcons(theme) {
+        if (moonIcon && sunIcon) {
+            if (theme === "dark") {
+                moonIcon.style.display = "none";
+                sunIcon.style.display = "inline-block";
+            } else {
+                moonIcon.style.display = "inline-block";
+                sunIcon.style.display = "none";
+            }
+        }
+    }
 
-    /* ==========================================
-       3. Smooth Scrolling
-    ========================================== */
+    // 4. السحب والتمرير السلس (Smooth Scroll)
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (event) => {
             const targetId = link.getAttribute("href");
-
-            if (!targetId || targetId === "#") {
-                return;
-            }
+            if (!targetId || targetId === "#") return;
 
             const target = document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
+            if (!target) return;
 
             event.preventDefault();
-
             target.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
@@ -78,209 +76,141 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // 5. التحكم في النافذة المنبثقة للتسجيل (Registration Pop-up Modal)
+    const modal = document.getElementById("registrationModal");
+    const form = document.getElementById("registrationForm");
+    const errorMsg = document.getElementById("registrationError");
 
-    /* ==========================================
-       4. Registration Modal System
-    ========================================== */
-    // البحث بالخصائص القديمة أوالجديدة لضمان التوافق التام
-    const modal = document.querySelector("[data-registration-modal]") || document.getElementById("registrationModal");
+    const openBtns = document.querySelectorAll(".js-open-registration, .js-open-modal, [data-registration-open]");
+    const closeBtns = document.querySelectorAll(".js-close-registration, [data-modal-close]");
 
-    if (!modal) {
-        return;
-    }
+    const WHATSAPP_NUMBER = "9647770300029"; // رقم المبيعات الرسمي
 
-    const form = modal.querySelector("[data-registration-form]") || modal.querySelector("#registrationForm") || modal.querySelector("form");
-    const closeButtons = modal.querySelectorAll("[data-modal-close], .js-close-registration, .registration-modal__close");
-    const openButtons = document.querySelectorAll("[data-registration-open], .js-open-registration, .js-open-modal");
+    // فتح النافذة
+    function openRegistrationModal(programName = "", packageName = "") {
+        if (!modal) return;
 
-    const programSelect = modal.querySelector("#registration-program") || modal.querySelector("#registrationProgram") || modal.querySelector("#program");
-    const packageSelect = modal.querySelector("#registration-package") || modal.querySelector("#registrationPackage") || modal.querySelector("#package");
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden"; // منع التمرير الخلفي أثناء تفعيل النافذة
 
-
-    /* ==========================================
-       Open Modal Function
-    ========================================== */
-    const openModal = (button) => {
-        const selectedProgram = button?.dataset.program || button?.getAttribute("data-program") || "";
-        const selectedPackage = button?.dataset.package || button?.getAttribute("data-package") || "";
-
-        // تحديد البرنامج
-        if (selectedProgram && programSelect) {
+        // تحديد البرنامج تلقائياً
+        const programSelect = document.getElementById("registrationProgram") || document.getElementById("registration-program");
+        if (programSelect && programName) {
             for (let option of programSelect.options) {
-                if (option.value === selectedProgram || option.text === selectedProgram) {
+                if (option.value === programName || option.text === programName) {
                     option.selected = true;
                     break;
                 }
             }
         }
 
-        // تحديد الباقة
-        if (selectedPackage) {
-            if (packageSelect && packageSelect.tagName === "SELECT") {
-                for (let option of packageSelect.options) {
-                    if (option.value.includes(selectedPackage) || selectedPackage.includes(option.value)) {
-                        option.selected = true;
-                        break;
-                    }
+        // تحديد الباقة تلقائياً
+        if (packageName) {
+            const packageRadios = modal.querySelectorAll('input[name="package"]');
+            packageRadios.forEach(radio => {
+                if (radio.value.includes(packageName) || packageName.includes(radio.value)) {
+                    radio.checked = true;
                 }
-            } else {
-                const packageRadios = modal.querySelectorAll('input[name="package"]');
-                packageRadios.forEach(radio => {
-                    if (radio.value.includes(selectedPackage) || selectedPackage.includes(radio.value)) {
-                        radio.checked = true;
-                    }
-                });
-            }
+            });
         }
-
-        modal.classList.add("is-open");
-        document.body.classList.add("modal-open");
-        modal.setAttribute("aria-hidden", "false");
-
-        const firstInput = modal.querySelector("input:not([type='hidden']), select, textarea");
-        if (firstInput) {
-            setTimeout(() => {
-                firstInput.focus();
-            }, 100);
-        }
-    };
-
-
-    /* ==========================================
-       Close Modal Function
-    ========================================== */
-    const closeModal = () => {
-        modal.classList.remove("is-open");
-        document.body.classList.remove("modal-open");
-        modal.setAttribute("aria-hidden", "true");
-    };
-
-
-    /* ==========================================
-       Attach Open Events
-    ========================================== */
-    openButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            event.preventDefault();
-            openModal(button);
-        });
-    });
-
-
-    /* ==========================================
-       Attach Close Events
-    ========================================== */
-    closeButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            event.preventDefault();
-            closeModal();
-        });
-    });
-
-
-    /* ==========================================
-       Close On Overlay Click
-    ========================================== */
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal || event.target.classList.contains("registration-modal__overlay")) {
-            closeModal();
-        }
-    });
-
-
-    /* ==========================================
-       Close On Escape Key
-    ========================================== */
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal.classList.contains("is-open")) {
-            closeModal();
-        }
-    });
-
-
-    /* ==========================================
-       Form Submission & WhatsApp
-    ========================================== */
-    if (!form) {
-        return;
     }
 
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
+    // إغلاق النافذة
+    function closeRegistrationModal() {
+        if (!modal) return;
 
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+
+        if (errorMsg) {
+            errorMsg.textContent = "";
+            errorMsg.style.display = "none";
         }
+    }
 
-        // جمع البيانات بجميع المعرفات الممكنة
-        const fullName = (
-            form.querySelector("#registration-name") ||
-            form.querySelector("#registrationName") ||
-            form.querySelector("#fullName")
-        )?.value.trim() || "";
-
-        const phone = (
-            form.querySelector("#registration-phone") ||
-            form.querySelector("#registrationPhone") ||
-            form.querySelector("#phone")
-        )?.value.trim() || "";
-
-        const governorate = (
-            form.querySelector("#registration-governorate") ||
-            form.querySelector("#registrationGovernorate") ||
-            form.querySelector("#governorate")
-        )?.value.trim() || "";
-
-        const address = (
-            form.querySelector("#registration-address") ||
-            form.querySelector("#registrationAddress") ||
-            form.querySelector("#address")
-        )?.value.trim() || "";
-
-        let program = "";
-        if (programSelect) {
-            program = programSelect.options[programSelect.selectedIndex]?.text || programSelect.value || "";
-        }
-
-        let selectedPackageText = "";
-        if (packageSelect && packageSelect.tagName === "SELECT") {
-            selectedPackageText = packageSelect.options[packageSelect.selectedIndex]?.text || packageSelect.value || "";
-        } else {
-            const checkedRadio = form.querySelector('input[name="package"]:checked');
-            selectedPackageText = checkedRadio ? checkedRadio.value : "";
-        }
-
-        /* صياغة رسالة الواتساب الرسمية */
-        const message = `طلب تسجيل جديد - NEMMO Academy 🎓
-
-الاسم:
-${fullName}
-
-رقم الهاتف:
-${phone}
-
-المحافظة:
-${governorate}
-
-العنوان:
-${address}
-
-البرنامج:
-${program}
-
-الباقة:
-${selectedPackageText}`;
-
-        const whatsappNumber = "9647770300029";
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-        // فتح تطبيق الواتساب
-        window.open(whatsappURL, "_blank", "noopener,noreferrer");
-
-        // إغلاق النافذة وإعادة الضبط
-        form.reset();
-        closeModal();
+    // ربط كافة أزرار التفعيل
+    openBtns.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const program = this.getAttribute("data-program") || this.dataset.program || "";
+            const pkg = this.getAttribute("data-package") || this.dataset.package || "";
+            openRegistrationModal(program, pkg);
+        });
     });
+
+    // ربط أزرار الإغلاق والخلفية المعتمة
+    closeBtns.forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            closeRegistrationModal();
+        });
+    });
+
+    if (modal) {
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal || e.target.classList.contains("registration-modal__overlay")) {
+                closeRegistrationModal();
+            }
+        });
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+            closeRegistrationModal();
+        }
+    });
+
+    // 6. معالجة إرسال البيانات عبر الواتساب
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const nameInput = document.getElementById("registrationName") || document.getElementById("registration-name");
+            const phoneInput = document.getElementById("registrationPhone") || document.getElementById("registration-phone");
+            const governorateSelect = document.getElementById("registrationGovernorate") || document.getElementById("registration-governorate");
+            const addressInput = document.getElementById("registrationAddress") || document.getElementById("registration-address");
+            const programSelect = document.getElementById("registrationProgram") || document.getElementById("registration-program");
+            const selectedPackage = modal.querySelector('input[name="package"]:checked');
+
+            const name = nameInput ? nameInput.value.trim() : "";
+            const phone = phoneInput ? phoneInput.value.trim() : "";
+            const governorate = governorateSelect ? governorateSelect.value.trim() : "";
+            const address = addressInput ? addressInput.value.trim() : "";
+            const program = programSelect ? (programSelect.options[programSelect.selectedIndex]?.text || programSelect.value) : "";
+            const pkg = selectedPackage ? selectedPackage.value.trim() : "";
+
+            if (!name || !phone || !governorate || !address || !program || !pkg) {
+                if (errorMsg) {
+                    errorMsg.textContent = "يرجى ملء كافة الحقول المطلوبة واختيار الباقة والبرنامج.";
+                    errorMsg.style.display = "block";
+                }
+                return;
+            }
+
+            if (errorMsg) {
+                errorMsg.textContent = "";
+                errorMsg.style.display = "none";
+            }
+
+            // صياغة الرسالة الموجهة للواتساب
+            const whatsappMessage = `طلب تسجيل جديد - NEMMO Academy 🎓\n\n` +
+                                    `👤 الاسم الثلاثي: ${name}\n` +
+                                    `📞 رقم الهاتف: ${phone}\n` +
+                                    `📍 المحافظة: ${governorate}\n` +
+                                    `🏠 العنوان الكامل: ${address}\n` +
+                                    `📚 البرنامج: ${program}\n` +
+                                    `💎 الباقة المختارة: ${pkg}`;
+
+            const encodedText = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+            form.reset();
+            closeRegistrationModal();
+        });
+    }
 
 });
