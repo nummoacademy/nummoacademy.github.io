@@ -1,50 +1,49 @@
 /* ==========================================
    NEMMO Academy
    Main JavaScript
-   Version: MVP v2.5
-   Registration Modal + WhatsApp + Theme Toggle
+   Version: MVP v2.6 (Unified & Fully Compatible)
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================
-       Current Year
+       1. Current Year Auto Update
     ========================================== */
-
     const yearElements = document.querySelectorAll("[data-current-year]");
-
     yearElements.forEach((element) => {
         element.textContent = new Date().getFullYear();
     });
 
 
     /* ==========================================
-       Theme Toggle (Dark / Light Mode)
+       2. Theme Toggle (Dark / Light Mode)
     ========================================== */
-
     const themeToggleBtn = document.getElementById("themeToggle");
     const moonIcon = document.querySelector(".moon-icon");
     const sunIcon = document.querySelector(".sun-icon");
 
-    // استرجاع المظهر المحفوظ سابقاً في المتصفح
+    // استرجاع المظهر المحفوظ سابقاً
     const currentTheme = localStorage.getItem("theme");
     if (currentTheme === "dark") {
         document.body.setAttribute("data-theme", "dark");
+        document.documentElement.setAttribute("data-theme", "dark");
         if (moonIcon) moonIcon.style.display = "none";
         if (sunIcon) sunIcon.style.display = "block";
     }
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", () => {
-            const isDark = document.body.getAttribute("data-theme") === "dark";
+            const isDark = document.body.getAttribute("data-theme") === "dark" || document.documentElement.getAttribute("data-theme") === "dark";
 
             if (isDark) {
                 document.body.removeAttribute("data-theme");
+                document.documentElement.removeAttribute("data-theme");
                 localStorage.setItem("theme", "light");
                 if (moonIcon) moonIcon.style.display = "block";
                 if (sunIcon) sunIcon.style.display = "none";
             } else {
                 document.body.setAttribute("data-theme", "dark");
+                document.documentElement.setAttribute("data-theme", "dark");
                 localStorage.setItem("theme", "dark");
                 if (moonIcon) moonIcon.style.display = "none";
                 if (sunIcon) sunIcon.style.display = "block";
@@ -54,13 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==========================================
-       Smooth Scrolling
+       3. Smooth Scrolling
     ========================================== */
-
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
-
         link.addEventListener("click", (event) => {
-
             const targetId = link.getAttribute("href");
 
             if (!targetId || targetId === "#") {
@@ -79,181 +75,184 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
                 block: "start"
             });
-
         });
-
     });
 
 
     /* ==========================================
-       Registration Modal
+       4. Registration Modal System
     ========================================== */
-
-    const modal = document.querySelector("[data-registration-modal]");
+    // البحث بالخصائص القديمة أوالجديدة لضمان التوافق التام
+    const modal = document.querySelector("[data-registration-modal]") || document.getElementById("registrationModal");
 
     if (!modal) {
         return;
     }
 
-    const form = modal.querySelector("[data-registration-form]");
-    const closeButtons = modal.querySelectorAll("[data-modal-close]");
-    const openButtons = document.querySelectorAll("[data-registration-open]");
+    const form = modal.querySelector("[data-registration-form]") || modal.querySelector("#registrationForm") || modal.querySelector("form");
+    const closeButtons = modal.querySelectorAll("[data-modal-close], .js-close-registration, .registration-modal__close");
+    const openButtons = document.querySelectorAll("[data-registration-open], .js-open-registration, .js-open-modal");
 
-    const programSelect = modal.querySelector("#registration-program");
-    const packageSelect = modal.querySelector("#registration-package");
+    const programSelect = modal.querySelector("#registration-program") || modal.querySelector("#registrationProgram") || modal.querySelector("#program");
+    const packageSelect = modal.querySelector("#registration-package") || modal.querySelector("#registrationPackage") || modal.querySelector("#package");
 
 
     /* ==========================================
-       Open Modal
+       Open Modal Function
     ========================================== */
-
     const openModal = (button) => {
+        const selectedProgram = button?.dataset.program || button?.getAttribute("data-program") || "";
+        const selectedPackage = button?.dataset.package || button?.getAttribute("data-package") || "";
 
-        const selectedProgram = button?.dataset.program || "";
-
+        // تحديد البرنامج
         if (selectedProgram && programSelect) {
-            programSelect.value = selectedProgram;
+            for (let option of programSelect.options) {
+                if (option.value === selectedProgram || option.text === selectedProgram) {
+                    option.selected = true;
+                    break;
+                }
+            }
+        }
+
+        // تحديد الباقة
+        if (selectedPackage) {
+            if (packageSelect && packageSelect.tagName === "SELECT") {
+                for (let option of packageSelect.options) {
+                    if (option.value.includes(selectedPackage) || selectedPackage.includes(option.value)) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            } else {
+                const packageRadios = modal.querySelectorAll('input[name="package"]');
+                packageRadios.forEach(radio => {
+                    if (radio.value.includes(selectedPackage) || selectedPackage.includes(radio.value)) {
+                        radio.checked = true;
+                    }
+                });
+            }
         }
 
         modal.classList.add("is-open");
         document.body.classList.add("modal-open");
-
         modal.setAttribute("aria-hidden", "false");
 
-        const firstInput = modal.querySelector(
-            "input:not([type='hidden']), select"
-        );
-
+        const firstInput = modal.querySelector("input:not([type='hidden']), select, textarea");
         if (firstInput) {
             setTimeout(() => {
                 firstInput.focus();
             }, 100);
         }
-
     };
 
 
     /* ==========================================
-       Close Modal
+       Close Modal Function
     ========================================== */
-
     const closeModal = () => {
-
         modal.classList.remove("is-open");
         document.body.classList.remove("modal-open");
-
         modal.setAttribute("aria-hidden", "true");
-
     };
 
 
     /* ==========================================
-       Open Buttons
+       Attach Open Events
     ========================================== */
-
     openButtons.forEach((button) => {
-
         button.addEventListener("click", (event) => {
-
             event.preventDefault();
-
             openModal(button);
-
         });
-
     });
 
 
     /* ==========================================
-       Close Buttons
+       Attach Close Events
     ========================================== */
-
     closeButtons.forEach((button) => {
-
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
             closeModal();
         });
-
     });
 
 
     /* ==========================================
-       Close When Clicking Overlay
+       Close On Overlay Click
     ========================================== */
-
     modal.addEventListener("click", (event) => {
-
-        if (event.target === modal) {
+        if (event.target === modal || event.target.classList.contains("registration-modal__overlay")) {
             closeModal();
         }
-
     });
 
 
     /* ==========================================
-       Close With Escape
+       Close On Escape Key
     ========================================== */
-
     document.addEventListener("keydown", (event) => {
-
-        if (
-            event.key === "Escape" &&
-            modal.classList.contains("is-open")
-        ) {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
             closeModal();
         }
-
     });
 
 
     /* ==========================================
-       Registration Form
+       Form Submission & WhatsApp
     ========================================== */
-
     if (!form) {
         return;
     }
 
     form.addEventListener("submit", (event) => {
-
         event.preventDefault();
 
         if (!form.checkValidity()) {
-
             form.reportValidity();
-
             return;
         }
 
+        // جمع البيانات بجميع المعرفات الممكنة
+        const fullName = (
+            form.querySelector("#registration-name") ||
+            form.querySelector("#registrationName") ||
+            form.querySelector("#fullName")
+        )?.value.trim() || "";
 
-        /* ==========================================
-           Collect Form Data
-        ========================================== */
+        const phone = (
+            form.querySelector("#registration-phone") ||
+            form.querySelector("#registrationPhone") ||
+            form.querySelector("#phone")
+        )?.value.trim() || "";
 
-        const fullName =
-            form.querySelector("#registration-name")?.value.trim() || "";
+        const governorate = (
+            form.querySelector("#registration-governorate") ||
+            form.querySelector("#registrationGovernorate") ||
+            form.querySelector("#governorate")
+        )?.value.trim() || "";
 
-        const phone =
-            form.querySelector("#registration-phone")?.value.trim() || "";
+        const address = (
+            form.querySelector("#registration-address") ||
+            form.querySelector("#registrationAddress") ||
+            form.querySelector("#address")
+        )?.value.trim() || "";
 
-        const governorate =
-            form.querySelector("#registration-governorate")?.value.trim() || "";
+        let program = "";
+        if (programSelect) {
+            program = programSelect.options[programSelect.selectedIndex]?.text || programSelect.value || "";
+        }
 
-        const address =
-            form.querySelector("#registration-address")?.value.trim() || "";
+        let selectedPackageText = "";
+        if (packageSelect && packageSelect.tagName === "SELECT") {
+            selectedPackageText = packageSelect.options[packageSelect.selectedIndex]?.text || packageSelect.value || "";
+        } else {
+            const checkedRadio = form.querySelector('input[name="package"]:checked');
+            selectedPackageText = checkedRadio ? checkedRadio.value : "";
+        }
 
-        const program =
-            programSelect?.options[programSelect.selectedIndex]?.text || "";
-
-        const selectedPackage =
-            packageSelect?.options[packageSelect.selectedIndex]?.text || "";
-
-
-        /* ==========================================
-           WhatsApp Message
-        ========================================== */
-
-        const message = `طلب تسجيل جديد
+        /* صياغة رسالة الواتساب الرسمية */
+        const message = `طلب تسجيل جديد - NEMMO Academy 🎓
 
 الاسم:
 ${fullName}
@@ -271,34 +270,17 @@ ${address}
 ${program}
 
 الباقة:
-${selectedPackage}`;
-
-
-        /* ==========================================
-           WhatsApp Number
-        ========================================== */
+${selectedPackageText}`;
 
         const whatsappNumber = "9647770300029";
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
+        // فتح تطبيق الواتساب
+        window.open(whatsappURL, "_blank", "noopener,noreferrer");
 
-        /* ==========================================
-           WhatsApp URL
-        ========================================== */
-
-        const whatsappURL =
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-
-        /* ==========================================
-           Open WhatsApp
-        ========================================== */
-
-        window.open(
-            whatsappURL,
-            "_blank",
-            "noopener,noreferrer"
-        );
-
+        // إغلاق النافذة وإعادة الضبط
+        form.reset();
+        closeModal();
     });
 
 });
