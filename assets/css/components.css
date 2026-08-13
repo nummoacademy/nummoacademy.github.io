@@ -1,7 +1,7 @@
 /* ==========================================
    NEMMO Academy
    Components
-   Version: MVP v2.8 (Fixed Modal & Compact Contact)
+   Version: MVP v3.0 (Unified & Zero Errors)
 ========================================== */
 
 
@@ -59,13 +59,13 @@
 
 
 /* ==========================================
-   Hero
+   Hero & Covers
 ========================================== */
 
 .hero {
     position: relative;
     overflow: hidden;
-    padding: 7rem 0 6rem;
+    padding: 6rem 0 5rem;
     background:
         radial-gradient(
             circle at 15% 20%,
@@ -119,6 +119,24 @@
     height: 110px;
     object-fit: contain;
     margin: 0 auto 1.5rem;
+}
+
+.hero__cover-wrapper {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.1);
+    background: #1B2A4A;
+}
+
+.hero__cover-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 380px !important;
+    object-fit: contain !important;
+    display: block;
 }
 
 .hero__eyebrow {
@@ -353,7 +371,7 @@
 
 
 /* ==========================================
-   Values Carousel Slider (قيمنا)
+   Values & Goals Carousel Slider
 ========================================== */
 
 .values-carousel {
@@ -422,6 +440,329 @@
 
 
 /* ==========================================
+   Editorial Layout & Phone Mockup
+========================================== */
+
+.section-title.text-right-desktop {
+    text-align: right;
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.program-editorial-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.editorial-text-column {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--text-light);
+}
+
+.editorial-lead {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+}
+
+.editorial-text-column p {
+    margin-bottom: 1rem;
+}
+
+.editorial-media-column {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 100px;
+}
+
+.phone-mockup {
+    position: relative;
+    width: 290px;
+    background: #000000;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+    border: 3px solid var(--border, #334155);
+    margin: 0 auto;
+}
+
+.phone-mockup__screen {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000;
+}
+
+.phone-mockup__screen iframe {
+    position: absolute;
+    top: -55px;
+    left: 0;
+    width: 100%;
+    height: 590px;
+    border: 0;
+}
+
+
+/* ==========================================
+   Instructor Avatar Frame
+========================================== */
+
+.instructor-avatar {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    border: 3px solid var(--accent, #c9a75c);
+    padding: 4px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.instructor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* ==========================================
+   Sample Lessons & Videos
+========================================== */
+
+.lessons-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 0 1.5rem;
+}
+
+.lessons-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lessons-carousel::-webkit-scrollbar-thumb {
+    background: var(--accent, #c9a75c);
+    border-radius: 10px;
+}
+
+.lessons-carousel__track {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.lesson-slide {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+}
+
+.lesson-card {
+    background-color: var(--surface, #ffffff);
+    border: 1px solid var(--border, rgba(27, 42, 74, 0.08));
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.lesson-card__video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.lesson-card__video-wrapper iframe {
+    position: absolute;
+    top: -55px;
+    left: 0;
+    width: 100%;
+    height: 490px;
+    border: 0;
+}
+
+.lesson-card__content {
+    padding: 1rem;
+}
+
+.lesson-card__badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent, #c9a75c);
+}
+
+.lesson-card__content h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary, #1B2A4A);
+    margin-top: 0.25rem;
+}
+
+
+/* ==========================================
+   Program Packages Grid
+========================================== */
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.package-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: 18px;
+    padding: 2.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.package-card--featured {
+    border: 2px solid var(--primary, #1B2A4A);
+    position: relative;
+    background-color: #fcfdfe;
+}
+
+.package-card__header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1.25rem;
+}
+
+.package-card__label {
+    display: inline-block;
+    background-color: rgba(27, 42, 74, 0.08);
+    color: var(--primary, #1B2A4A);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+}
+
+.package-card__header h3 {
+    font-size: 1.5rem;
+    color: var(--primary, #1B2A4A);
+    margin-bottom: 0.4rem;
+}
+
+.package-card__header p {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.package-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem 0;
+}
+
+.package-list li {
+    position: relative;
+    padding-right: 1.6rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.92rem;
+    color: #334155;
+}
+
+.package-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+.package-card .btn {
+    width: 100%;
+}
+
+
+/* ==========================================
+   FAQ Section
+========================================== */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid rgba(27, 42, 74, 0.1);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item summary {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary, #1B2A4A);
+    cursor: pointer;
+    outline: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: var(--accent, #c9a75c);
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item__answer {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.faq-item__answer p {
+    margin: 0;
+    color: var(--text-light, #64748b);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+
+/* ==========================================
    Compact Contact Bar (شريط التواصل المدمج)
 ========================================== */
 
@@ -468,7 +809,7 @@
 
 
 /* ==========================================
-   Registration Modal (المنبثق المصلح بالكامل)
+   Registration Modal (المنبثق)
 ========================================== */
 
 .registration-modal {
@@ -699,6 +1040,27 @@
     .about-pillars {
         grid-template-columns: 1fr;
     }
+
+    .section-title.text-right-desktop {
+        text-align: center;
+    }
+
+    .program-editorial-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .editorial-text-column {
+        text-align: right;
+    }
+
+    .editorial-media-column {
+        position: static;
+    }
+
+    .phone-mockup {
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 640px) {
@@ -745,9 +1107,21 @@
     .package-options {
         grid-template-columns: 1fr;
     }
+
+    .lesson-slide {
+        flex: 0 0 280px;
+    }
+
+    .lesson-card__video-wrapper {
+        height: 340px;
+    }
+
+    .package-card {
+        padding: 1.75rem 1.25rem;
+    }
 }
 
-/* التوافق التام مع الوضع الليلي */
+/* Dark Theme Support */
 [data-theme="dark"] .about-value,
 [data-theme="dark"] .program-card,
 [data-theme="dark"] .contact-icon-link,
@@ -755,7 +1129,10 @@
 [data-theme="dark"] .package-option__content,
 [data-theme="dark"] .registration-form input,
 [data-theme="dark"] .registration-form select,
-[data-theme="dark"] .registration-form textarea {
+[data-theme="dark"] .registration-form textarea,
+[data-theme="dark"] .package-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .lesson-card {
     background-color: #1E293B !important;
     border-color: #334155 !important;
     color: #FFFFFF !important;
@@ -765,6 +1142,9 @@
 [data-theme="dark"] .program-card__body h3,
 [data-theme="dark"] .registration-modal__header h2,
 [data-theme="dark"] .registration-form label,
-[data-theme="dark"] .package-option__content strong {
+[data-theme="dark"] .package-option__content strong,
+[data-theme="dark"] .package-card__header h3,
+[data-theme="dark"] .faq-item summary,
+[data-theme="dark"] .lesson-card__content h3 {
     color: #FFFFFF !important;
 }
