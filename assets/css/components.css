@@ -1183,3 +1183,519 @@
     border-color: rgba(201, 167, 92, 0.35);
     color: #ffffff;
 }
+
+/* ==========================================
+   Persian Program Packages v4
+   NEMMO Academy
+========================================== */
+
+/* ===========================
+   Packages Section
+=========================== */
+
+.packages-section{
+    padding:5rem 0;
+}
+
+/* ===========================
+   Packages Grid
+=========================== */
+
+.packages-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1.75rem;
+    align-items:stretch;
+}
+
+/* ===========================
+   Package Card
+=========================== */
+
+.pkg-card-v3{
+
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    background:var(--primary);
+    border:1px solid rgba(201,162,39,.20);
+
+    border-radius:22px;
+
+    padding:1.8rem 1.5rem;
+
+    overflow:hidden;
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+
+}
+
+/* Gold Top Line */
+
+.pkg-card-v3::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    transparent);
+
+}
+
+/* Hover */
+
+.pkg-card-v3:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--accent);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   Number
+=========================== */
+
+.pkg-card-v3__number{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+    color:var(--accent);
+
+}
+
+/* ===========================
+   Icon
+=========================== */
+
+.pkg-card-v3__icon-wrap{
+
+    width:68px;
+    height:68px;
+
+    margin:.5rem auto 1.2rem;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid var(--accent);
+
+    color:var(--accent);
+
+    background:rgba(201,162,39,.08);
+
+    font-size:1.7rem;
+
+}
+
+/* ===========================
+   Title
+=========================== */
+
+.pkg-card-v3__title{
+
+    color:#fff;
+
+    font-size:1.3rem;
+
+    font-weight:700;
+
+    margin-bottom:.45rem;
+
+}
+
+/* ===========================
+   Description
+=========================== */
+
+.pkg-card-v3__desc{
+
+    color:#b8c3d1;
+
+    font-size:.92rem;
+
+    line-height:1.8;
+
+    margin-bottom:1.5rem;
+
+    min-height:62px;
+
+}
+
+/* ===========================
+   Checklist
+=========================== */
+
+.pkg-card-v3__checklist{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0 0 1.8rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.7rem;
+
+}
+
+.pkg-card-v3__checklist li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:.65rem;
+
+    color:#eef2f7;
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+}
+
+.pkg-card-v3__checklist li i{
+
+    color:var(--accent);
+
+    margin-top:4px;
+
+    flex-shrink:0;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.pkg-card-v3__actions{
+
+    margin-top:auto;
+
+    display:flex;
+
+    gap:.75rem;
+
+}
+
+.pkg-card-v3__actions .btn{
+
+    flex:1;
+
+    min-height:48px;
+
+    border-radius:12px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/* Gold */
+
+.btn-pkg-gold{
+
+    background:var(--accent);
+
+    color:var(--primary)!important;
+
+    border:none;
+
+    transition:.25s;
+
+}
+
+.btn-pkg-gold:hover{
+
+    filter:brightness(1.08);
+
+}
+
+/* Outline */
+
+.btn-pkg-outline{
+
+    background:transparent;
+
+    color:#fff!important;
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+.btn-pkg-outline:hover{
+
+    border-color:var(--accent);
+
+    color:var(--accent)!important;
+
+}
+
+/* ===========================
+   VIP Card
+=========================== */
+
+.pkg-card-v3--vip{
+
+    grid-column:1/-1;
+
+    border:2px solid var(--accent);
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #22375e 0%,
+    var(--primary) 100%);
+
+    box-shadow:
+    0 0 35px rgba(201,162,39,.18);
+
+}
+
+/* ===========================
+   VIP Icons
+=========================== */
+
+.vip-tracks-wrapper{
+
+    text-align:center;
+
+    margin:.8rem 0 1.5rem;
+
+}
+
+.vip-tracks-wrapper p{
+
+    color:#d7e0ea;
+
+    margin-bottom:.9rem;
+
+    font-size:.9rem;
+
+}
+
+.vip-icons-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:.55rem;
+
+}
+
+.vip-icon-pill{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--accent);
+
+    background:rgba(201,162,39,.10);
+
+    border:1px solid rgba(201,162,39,.35);
+
+}
+
+/* ===========================
+   Common Features
+=========================== */
+
+.all-inclusions-bar{
+
+    margin-top:3rem;
+
+    background:var(--primary);
+
+    border:1px solid rgba(201,162,39,.20);
+
+    border-radius:22px;
+
+    padding:2.5rem;
+
+}
+
+.all-inclusions-bar__title{
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    margin-bottom:2.2rem;
+
+}
+
+.all-inclusions-bar__grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(130px,1fr));
+
+    gap:1.5rem;
+
+}
+
+.bar-inclusion-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:.8rem;
+
+    text-align:center;
+
+}
+
+.bar-inclusion-item i{
+
+    color:var(--accent);
+
+    font-size:2rem;
+
+}
+
+.bar-inclusion-item span{
+
+    color:#eef2f7;
+
+    font-size:.9rem;
+
+    line-height:1.5;
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:1100px){
+
+.packages-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.packages-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.pkg-card-v3--vip{
+
+grid-column:auto;
+
+}
+
+.pkg-card-v3__actions{
+
+flex-direction:column;
+
+}
+
+.all-inclusions-bar{
+
+padding:2rem 1.5rem;
+
+}
+
+.all-inclusions-bar__grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:480px){
+
+.pkg-card-v3{
+
+padding:1.5rem;
+
+}
+
+.pkg-card-v3__title{
+
+font-size:1.15rem;
+
+}
+
+.pkg-card-v3__desc{
+
+font-size:.88rem;
+
+min-height:auto;
+
+}
+
+.bar-inclusion-item span{
+
+font-size:.82rem;
+
+}
+
+}
