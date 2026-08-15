@@ -214,3 +214,174 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+// ==========================================
+// Package Details Modal Controller (Session 3.3)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const packagesData = {
+        basics: {
+            title: 'باقة الأساسيات',
+            badge: 'المسار التأسيسي - للمبتدئين',
+            desc: 'لمن يريد البدء بتعلّم الفارسية من الصفر.',
+            outcome: 'تأسيس الطالب للانتقال إلى مستويات أعلى، والقراءة والكتابة والنطق الصحيح.',
+            features: [
+                'الحروف والنطق ومخارج الحروف.',
+                'الكلمات والجمل الأساسية.',
+                'أساسيات القواعد.',
+                'تكوين الجمل البسيطة.',
+                'تأسيس الطالب للانتقال إلى مستويات أعلى.'
+            ]
+        },
+        daily: {
+            title: 'باقة التواصل اليومي',
+            badge: 'المسار الاجتماعي التفاعلي',
+            desc: 'لمن هدفه التحدث بالفارسية واستخدامها في الحياة اليومية.',
+            outcome: 'تكوين الجمل والتحدث بثقة وفهم الحوارات اليومية.',
+            features: [
+                'المحادثات اليومية.',
+                'العبارات والمفردات المستخدمة في الحياة اليومية.',
+                'مواقف التواصل الاجتماعي.',
+                'الاستماع والفهم.',
+                'تكوين الجمل والتحدث بثقة.'
+            ]
+        },
+        travel: {
+            title: 'باقة السياحة والسفر',
+            badge: 'دليلك للرحلات والتنقل',
+            desc: 'لمن يحتاج اللغة أثناء السفر والرحلات إلى إيران.',
+            outcome: 'امتلاك العبارات التي يحتاجها السائح للتواصل مع الإيرانيين في كافة المواقف.',
+            features: [
+                'محادثات السفر.',
+                'المطار والتنقل.',
+                'الفندق والمطاعم.',
+                'التسوق والتعاملات اليومية.',
+                'العبارات التي يحتاجها السائح للتواصل مع الإيرانيين.'
+            ]
+        },
+        business: {
+            title: 'باقة التجارة العامة',
+            badge: 'للتجار وبيئة الأعمال',
+            desc: 'لأصحاب الأعمال وكل من يحتاج الفارسية في المجال التجاري.',
+            outcome: 'إدارة المعاملات المهنية، التواصل مع العملاء، والتعامل مع الشركاء بثقة.',
+            features: [
+                'المصطلحات التجارية.',
+                'المحادثات المهنية.',
+                'التواصل مع العملاء.',
+                'التعامل مع الشركاء.',
+                'العبارات والمواقف المستخدمة في بيئة الأعمال والتجارة.'
+            ]
+        },
+        academic: {
+            title: 'باقة التعليم والدراسة',
+            badge: 'للباحثين والبيئة الجامعية',
+            desc: 'للراغبين بالدراسة والتعامل مع البيئة الأكاديمية باللغة الفارسية.',
+            outcome: 'فهم النصوص الأكاديمية والمحادثات الدراسية والتواصل في البيئة التعليمية.',
+            features: [
+                'المفردات الأكاديمية.',
+                'المحادثات الدراسية.',
+                'فهم النصوص.',
+                'القراءة والاستيعاب.',
+                'التواصل في البيئة التعليمية.'
+            ]
+        },
+        service: {
+            title: 'باقة الزوار والمواكب',
+            badge: 'لكوادر الخدمة والزيارة',
+            desc: 'للزوار والمواكب الذين يحتاجون الفارسية للتعامل والتواصل مع الإيرانيين.',
+            outcome: 'إدارة مواقف الاستقبال والخدمة والتوجيه والتعامل اليومي في المواكب.',
+            features: [
+                'العبارات الخاصة بالزيارة.',
+                'التواصل مع الزوار الإيرانيين.',
+                'مواقف الاستقبال والخدمة.',
+                'التوجيه والتعامل اليومي.',
+                'المفردات والمحادثات التي يحتاجها المشاركون في المواكب.'
+            ]
+        },
+        vip: {
+            title: 'باقة VIP | الشاملة',
+            badge: 'الباقة المتكاملة الشاملة',
+            desc: 'الباقة المتكاملة لمن يريد تعلّم الفارسية واستخدامها في مختلف المجالات.',
+            outcome: 'تشمل جميع الباقات والمسارات الستة بالكامل مع كافة المزايا الأكاديمية.',
+            features: [
+                '1. باقة الأساسيات كاملة.',
+                '2. باقة التواصل اليومي كاملة.',
+                '3. باقة السياحة والسفر كاملة.',
+                '4. باقة التجارة العامة كاملة.',
+                '5. باقة التعليم والدراسة كاملة.',
+                '6. باقة الزوار والمواكب كاملة.'
+            ]
+        }
+    };
+
+    const detailsModal = document.getElementById('packageDetailsModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalDesc = document.getElementById('modalDescription');
+    const modalOutcome = document.getElementById('modalOutcome');
+    const modalFeatures = document.getElementById('modalFeatures');
+    const modalSubBtn = document.getElementById('modalSubscribeAction');
+    let activePackageTitle = '';
+
+    // فتح الـ Modal وتعبئة البيانات عند النقر على "اعرف المزيد"
+    document.querySelectorAll('.js-open-details').forEach(button => {
+        button.addEventListener('click', () => {
+            const targetKey = button.getAttribute('data-package-target');
+            const data = packagesData[targetKey];
+
+            if (data && detailsModal) {
+                activePackageTitle = data.title;
+                modalTitle.textContent = data.title;
+                modalBadge.textContent = data.badge;
+                modalDesc.textContent = data.desc;
+                modalOutcome.textContent = data.outcome;
+
+                modalFeatures.innerHTML = '';
+                data.features.forEach(feat => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${feat}`;
+                    modalFeatures.appendChild(li);
+                });
+
+                detailsModal.classList.add('is-open');
+                detailsModal.setAttribute('aria-hidden', 'false');
+            }
+        });
+    });
+
+    // إغلاق الـ Modal
+    document.querySelectorAll('.js-close-details').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (detailsModal) {
+                detailsModal.classList.remove('is-open');
+                detailsModal.setAttribute('aria-hidden', 'true');
+            }
+        });
+    });
+
+    // الانتقال المباشر لنموذج التسجيل من داخل الـ Modal
+    if (modalSubBtn) {
+        modalSubBtn.addEventListener('click', () => {
+            if (detailsModal) {
+                detailsModal.classList.remove('is-open');
+                detailsModal.setAttribute('aria-hidden', 'true');
+            }
+
+            const regModal = document.getElementById('registrationModal');
+            if (regModal) {
+                regModal.classList.add('is-open');
+                regModal.setAttribute('aria-hidden', 'false');
+
+                // تحديد الباقة تلقائياً في القائمة المنسدلة للنموذج
+                const pkgSelect = regModal.querySelector('select[name="package"]');
+                if (pkgSelect) {
+                    for (let option of pkgSelect.options) {
+                        if (option.value.includes(activePackageTitle)) {
+                            pkgSelect.value = option.value;
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+    }
+});
