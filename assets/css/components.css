@@ -1148,3 +1148,38 @@
 [data-theme="dark"] .lesson-card__content h3 {
     color: #FFFFFF !important;
 }
+
+/* ==========================================
+   Program Quick Features (شارات نبذة عن البرنامج)
+========================================== */
+
+.program-quick-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
+
+.quick-feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: 10px;
+    background: rgba(201, 167, 92, 0.1);
+    border: 1px solid rgba(201, 167, 92, 0.25);
+    color: var(--primary, #1B2A4A);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.quick-feature-tag i {
+    color: var(--accent, #c9a75c);
+    font-size: 0.95rem;
+}
+
+[data-theme="dark"] .quick-feature-tag {
+    background: rgba(201, 167, 92, 0.15);
+    border-color: rgba(201, 167, 92, 0.35);
+    color: #ffffff;
+}
