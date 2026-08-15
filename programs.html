@@ -7,7 +7,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>البرامج | NEMMO Academy</title>
-
+<script>
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
 <meta name="description"
 content="استكشف البرامج التعليمية في أكاديمية نمو التعليمية.">
 
