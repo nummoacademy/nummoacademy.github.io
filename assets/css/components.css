@@ -1699,3 +1699,63 @@ font-size:.82rem;
 }
 
 }
+
+/* ==========================================
+   Fix Card & Modal Text Colors
+========================================== */
+
+/* تثبيت الألوان الفاتحة داخل البطاقات */
+.pkg-card-v3,
+.pkg-card-v3 * {
+    box-sizing: border-box;
+}
+
+.pkg-card-v3__title {
+    color: #FFFFFF !important;
+}
+
+.pkg-card-v3__desc {
+    color: #CBD5E1 !important;
+}
+
+.pkg-outcome span {
+    color: #F1F5F9 !important;
+}
+
+.pkg-card-v3__checklist li {
+    color: #E2E8F0 !important;
+}
+
+/* تثبيت ألوان النصوص داخل نافذة (اعرف المزيد) */
+#packageDetailsModal .registration-modal__dialog {
+    background: #152238 !important;
+    border: 1px solid rgba(201, 162, 39, 0.3) !important;
+}
+
+#packageDetailsModal #modalTitle {
+    color: #FFFFFF !important;
+}
+
+#packageDetailsModal #modalDescription {
+    color: #CBD5E1 !important;
+}
+
+#packageDetailsModal .modal-outcome-box strong {
+    color: #E5A93C !important;
+}
+
+#packageDetailsModal .modal-outcome-box p {
+    color: #F1F5F9 !important;
+}
+
+#packageDetailsModal .pkg-card-v3__checklist li {
+    color: #E2E8F0 !important;
+}
+
+#packageDetailsModal .modal-inclusions-note span {
+    color: #CBD5E1 !important;
+}
+
+#packageDetailsModal .registration-modal__close {
+    color: #FFFFFF !important;
+}
