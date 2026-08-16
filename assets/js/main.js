@@ -590,3 +590,109 @@ document.addEventListener('DOMContentLoaded', () => {
     // التهيئة الأولى
     goToStep(0);
 });
+
+// ==========================================
+// Verified Credentials Lightbox & Touch Zoom Controller (Final)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const certBtns = document.querySelectorAll('.js-cert-trigger');
+    const lightbox = document.getElementById('certificateLightbox');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const zoomContainer = document.getElementById('certZoomContainer');
+    const closeBtns = document.querySelectorAll('.js-close-lightbox');
+
+    if (!lightbox || !certBtns.length) return;
+
+    let lastFocusedElement = null;
+    let lastTap = 0;
+
+    function openLightbox(src, title, triggerElement) {
+        lastFocusedElement = triggerElement || document.activeElement;
+        
+        if (lightboxImg) {
+            lightboxImg.src = src;
+            lightboxImg.alt = title;
+        }
+        if (lightboxCaption) {
+            lightboxCaption.textContent = title;
+        }
+        if (zoomContainer) {
+            zoomContainer.classList.remove('is-zoomed');
+            zoomContainer.scrollTop = 0;
+            zoomContainer.scrollLeft = 0;
+        }
+
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        lightbox.focus();
+    }
+
+    function closeLightbox() {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+
+        if (zoomContainer) {
+            zoomContainer.classList.remove('is-zoomed');
+        }
+
+        setTimeout(() => {
+            if (lightboxImg) lightboxImg.src = '';
+        }, 200);
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    // فتح النافذة عبر أزرار معاينة الوثيقة
+    certBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.getAttribute('data-cert-src');
+            const title = btn.getAttribute('data-cert-title');
+            if (src && title) openLightbox(src, title, btn);
+        });
+    });
+
+    // تفاعل التكبير بالنقر المزدوج على الموبايل والنقر العادي على الحاسوب
+    if (zoomContainer) {
+        zoomContainer.addEventListener('click', (e) => {
+            e.stopPropagation();
+            zoomContainer.classList.toggle('is-zoomed');
+        });
+
+        zoomContainer.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 300 && tapLength > 0) {
+                e.preventDefault();
+                e.stopPropagation();
+                zoomContainer.classList.toggle('is-zoomed');
+            }
+            lastTap = currentTime;
+        });
+    }
+
+    // أزرار الإغلاق
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', closeLightbox);
+    });
+
+    // الإغلاق عند النقر خارج المحتوى (على الخلفية المعتمة)
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.classList.contains('cert-lightbox__backdrop')) {
+            closeLightbox();
+        }
+    });
+
+    // الإغلاق بزر Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+});
