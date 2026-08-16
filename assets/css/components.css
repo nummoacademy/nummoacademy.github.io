@@ -1797,3 +1797,372 @@ font-size:.82rem;
     color: #FFFFFF !important;
     border-color: rgba(255, 255, 255, 0.3) !important;
 }
+/* ==========================================
+   NEMMO Professional Journey CSS (Final MVP)
+========================================== */
+
+.journey-section {
+    padding: 3.5rem 0;
+}
+
+.journey-wrapper {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    max-width: 920px;
+    margin: 1.8rem auto 0;
+}
+
+/* Orbit Path System */
+.journey-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.journey-orbit-disc {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.journey-path-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.journey-path-track {
+    stroke: rgba(201, 162, 39, 0.15);
+    stroke-width: 2;
+    stroke-dasharray: 4 4;
+}
+
+.journey-path-progress {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-dasharray: 691;
+    stroke-dashoffset: 576;
+    transition: stroke-dashoffset 0.4s ease;
+}
+
+.orbit-center-core {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-light, #22375e) 0%, var(--primary) 100%);
+    border: 1.5px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.orbit-center-core i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.orbit-center-core span {
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Step Nodes */
+.journey-step-node {
+    position: absolute;
+    top: var(--pos-top);
+    left: var(--pos-left);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.55rem 0.2rem 0.28rem;
+    background: var(--primary);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 999px;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    z-index: 3;
+}
+
+.journey-step-node .step-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--accent);
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.journey-step-node .step-txt {
+    color: var(--text-light, #cbd5e1);
+    font-size: 0.74rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.journey-step-node:hover,
+.journey-step-node.is-active,
+.journey-step-node:focus-visible {
+    border-color: var(--accent);
+    background: var(--primary-light, #1e3156);
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.4);
+    transform: translate(-50%, -50%) scale(1.06);
+}
+
+.journey-step-node.is-active .step-num {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+.journey-step-node.is-active .step-txt {
+    color: #FFFFFF;
+}
+
+/* Display Card - Zero CLS Fixed Grid Stack */
+.journey-card-display {
+    background: var(--primary);
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-radius: 18px;
+    padding: 1.6rem 1.8rem;
+    border-right: 3.5px solid var(--accent);
+    touch-action: pan-y;
+}
+
+.journey-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.journey-step-counter {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+    font-family: monospace, sans-serif;
+}
+
+.counter-current {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.counter-divider,
+.counter-total {
+    font-size: 0.75rem;
+    color: var(--text-light, #64748b);
+}
+
+.journey-progress-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.journey-progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width 0.35s ease;
+}
+
+.journey-controls {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.journey-nav-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.journey-nav-btn:hover,
+.journey-nav-btn:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Zero CLS Grid Stack */
+.journey-slides-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    min-height: 110px;
+}
+
+.journey-slide {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.journey-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.slide-title {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.slide-benefit {
+    color: var(--text-light, #cbd5e1);
+    font-size: 0.86rem;
+    line-height: 1.6;
+    margin-bottom: 0.95rem;
+}
+
+/* Chips Component */
+.slide-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.step-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    font-size: 0.76rem;
+    color: var(--text-light, #cbd5e1);
+}
+
+.step-chip i {
+    color: var(--text-light, #94a3b8);
+    font-size: 0.68rem;
+}
+
+.step-chip--highlight {
+    background: rgba(201, 162, 39, 0.12);
+    border-color: rgba(201, 162, 39, 0.35);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.step-chip--highlight i {
+    color: var(--accent);
+}
+
+/* Bottom CTA Strip */
+.journey-cta-box {
+    margin-top: 1.8rem;
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+}
+
+.journey-cta-text h4 {
+    color: #FFFFFF;
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.journey-cta-text p {
+    color: var(--text-light, #cbd5e1);
+    font-size: 0.78rem;
+    margin: 0;
+}
+
+.journey-cta-box .btn {
+    white-space: nowrap;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.82rem;
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .journey-path-progress,
+    .journey-progress-fill,
+    .journey-step-node,
+    .journey-slide {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Mobile & Tablet Optimization */
+@media (max-width: 860px) {
+    .journey-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .journey-orbit-disc {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+    }
+
+    .orbit-center-core {
+        width: 72px;
+        height: 72px;
+    }
+
+    .orbit-center-core span {
+        font-size: 0.62rem;
+    }
+
+    .journey-step-node .step-txt {
+        font-size: 0.68rem;
+    }
+
+    .journey-cta-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
