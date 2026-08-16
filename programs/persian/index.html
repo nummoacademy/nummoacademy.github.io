@@ -453,42 +453,164 @@
         </section>
 
 
-        <section class="section">
+     <!-- قسم المشرفة التعليمية والوثائق المعتمدة -->
+        <section id="instructor" class="section instructor-section" aria-label="الملف المهني للمدربة">
 
             <div class="container">
 
-                <div class="section-title">
-                    <span>YOUR INSTRUCTOR</span>
-                    <h2>الأستاذة زهراء سعد أحمد</h2>
-                </div>
+                <div class="instructor-grid">
 
-                <div class="testimonial">
+                    <!-- العمود الجانبي: الصورة الشخصية واللغات -->
+                    <div class="instructor-media-col">
+                        <div class="instructor-image-frame">
+                            <img 
+                                src="../../assets/images/teacher-wide.jpg" 
+                                alt="الأستاذة زهراء سعد أحمد - مدربة ومعدة برنامج اللغة الفارسية" 
+                                class="instructor-main-img"
+                                loading="lazy"
+                                decoding="async"
+                            >
+                            <div class="instructor-image-badge">
+                                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                                <span>ماجستير إدارة الأعمال (MBA)</span>
+                            </div>
+                        </div>
 
-                    <div class="instructor-avatar">
-                        <img src="../../assets/images/logo.png" alt="الأستاذة زهراء سعد أحمد">
+                        <!-- صندوق اللغات المتقنة -->
+                        <div class="instructor-languages-box">
+                            <h3 class="instructor-subheading">اللغات المتقنة</h3>
+                            <div class="languages-pills">
+                                <div class="lang-pill">
+                                    <span class="lang-name">اللغة العربية</span>
+                                    <span class="lang-level">اللغة الأم (طلاقة كاملة)</span>
+                                </div>
+                                <div class="lang-pill">
+                                    <span class="lang-name">اللغة الفارسية</span>
+                                    <span class="lang-level">مستوى متقدم (تحدثاً وكتابةً)</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <p class="testimonial__quote">
-                        تشرف الأستاذة زهراء سعد أحمد على إعداد وتقديم برنامج
-                        اللغة الفارسية وفق منهج عملي ومبسط يراعي احتياجات
-                        الطالب العراقي والعربي.
-                    </p>
+                    <!-- العمود الرئيسي: النبذة، الرسالة، والوثائق المعتمدة -->
+                    <div class="instructor-info-col">
 
-                    <p class="testimonial__quote">
-                        يعتمد البرنامج على التدرج في التعلم، مع التركيز على
-                        الفهم العميق، والنطق الصحيح، والقدرة على استخدام اللغة
-                        في مختلف المواقف اليومية والأكاديمية والمهنية.
-                    </p>
+                        <div class="instructor-block-header">
+                            <span class="instructor-eyebrow">المشرفة التعليمية والمدربة</span>
+                            <h2 class="instructor-name">الأستاذة زهراء سعد أحمد</h2>
+                            <p class="instructor-role-title">مدربة ومعدة منهج برنامج اللغة الفارسية في أكاديمية نُمو</p>
+                        </div>
 
-                    <div class="testimonial__author">
-                        الأستاذة زهراء سعد أحمد
-                        <span class="testimonial__role">
-                            مدرّسة برنامج اللغة الفارسية
-                        </span>
+                        <div class="instructor-block-summary">
+                            <p>
+                                حاصلة على درجة ماجستير إدارة الأعمال (MBA) من المؤسسة التعليمية حكيم بإصفهان. تشرف على إعداد وتقديم برنامج اللغة الفارسية في أكاديمية نُمو وفق منهج تعليمي تطبيقي يركز على الفهم المباشر والنطق السليم وبناء القدرة على استخدام اللغة بثقة في مختلف المواقف اليومية.
+                            </p>
+                        </div>
+
+                        <!-- رسالة المدربة المعتمدة -->
+                        <div class="instructor-mini-message">
+                            <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+                            <blockquote>
+                                "صممت هذا المنهج ليكون عملياً وسهل التطبيق ويقود المتعلم إلى استخدام اللغة بثقة في المواقف اليومية."
+                            </blockquote>
+                        </div>
+
+                        <!-- قائمة المؤهلات والوثائق الرسمية -->
+                        <div class="instructor-credentials-group">
+                            <h3 class="instructor-subheading">المؤهلات والوثائق المعتمدة</h3>
+                            
+                            <div class="credentials-list-compact">
+
+                                <!-- الوثيقة 1: MBA -->
+                                <div class="credential-row">
+                                    <div class="credential-row__info">
+                                        <div class="credential-row__icon">
+                                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="credential-row__title">ماجستير إدارة الأعمال (MBA)</h4>
+                                            <p class="credential-row__issuer">المؤسسة التعليمية حكيم – إصفهان</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" 
+                                            class="btn-cert-view js-cert-trigger" 
+                                            data-cert-title="شهادة ماجستير إدارة الأعمال (MBA) – المؤسسة التعليمية حكيم" 
+                                            data-cert-src="../../assets/images/certificate-1.png"
+                                            aria-label="معاينة شهادة ماجستير إدارة الأعمال">
+                                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                        <span>معاينة الوثيقة</span>
+                                    </button>
+                                </div>
+
+                                <!-- الوثيقة 2: شهادة النقابة -->
+                                <div class="credential-row">
+                                    <div class="credential-row__info">
+                                        <div class="credential-row__icon">
+                                            <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="credential-row__title">شهادة عضوية نقابية</h4>
+                                            <p class="credential-row__issuer">النقابة العامة للعاملين في الخدمات الصحية والمهن الطبية</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" 
+                                            class="btn-cert-view js-cert-trigger" 
+                                            data-cert-title="شهادة عضوية – النقابة العامة للعاملين في الخدمات الصحية والمهن الطبية" 
+                                            data-cert-src="../../assets/images/certificate-2.png"
+                                            aria-label="معاينة شهادة العضوية النقابية">
+                                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                        <span>معاينة الوثيقة</span>
+                                    </button>
+                                </div>
+
+                                <!-- الوثيقة 3: شهادة الشكر والتقدير -->
+                                <div class="credential-row">
+                                    <div class="credential-row__info">
+                                        <div class="credential-row__icon">
+                                            <i class="fa-solid fa-award" aria-hidden="true"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="credential-row__title">شهادة شكر وتقدير</h4>
+                                            <p class="credential-row__issuer">تقديراً للجهود في إدارة مركز الدكتور كرماني</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" 
+                                            class="btn-cert-view js-cert-trigger" 
+                                            data-cert-title="شهادة شكر وتقدير – إدارة مركز الدكتور كرماني" 
+                                            data-cert-src="../../assets/images/certificate-3.png"
+                                            aria-label="معاينة شهادة الشكر والتقدير">
+                                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                        <span>معاينة الوثيقة</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
 
+            </div>
+
+            <!-- نافذة معاينة الوثائق وتكبيرها (Lightbox Modal with Zoom) -->
+            <div id="certificateLightbox" class="cert-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="معاينة الوثيقة الرسمية" tabindex="-1">
+                <div class="cert-lightbox__backdrop js-close-lightbox"></div>
+                <div class="cert-lightbox__content">
+                    <button type="button" class="cert-lightbox__close js-close-lightbox" aria-label="إغلاق المعاينة">
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                    
+                    <div class="cert-lightbox__body">
+                        <div class="cert-zoom-container" id="certZoomContainer" title="انقر لتكبير أو تصغير الوثيقة">
+                            <img id="lightboxImage" src="" alt="معاينة الوثيقة" loading="lazy" decoding="async">
+                        </div>
+                        <div class="cert-lightbox__footer">
+                            <p id="lightboxCaption" class="cert-lightbox__caption"></p>
+                            <span class="cert-zoom-hint"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> انقر على الوثيقة للتكبير / التصغير</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </section>
