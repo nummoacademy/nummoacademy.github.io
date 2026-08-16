@@ -2387,20 +2387,20 @@ body.modal-open {
 .instructor-name {
     font-size: 2rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--primary, #1B2A4A);
     margin: 0 0 0.35rem 0;
     line-height: 1.25;
 }
 
 .instructor-role-title {
-    color: var(--text-light, #CBD5E1);
+    color: var(--text-light, #64748b);
     font-size: 0.95rem;
     font-weight: 600;
     margin: 0;
 }
 
 .instructor-block-summary p {
-    color: var(--text-light, #CBD5E1);
+    color: var(--primary, #1B2A4A);
     font-size: 0.94rem;
     line-height: 1.85;
     margin: 0;
@@ -2425,7 +2425,7 @@ body.modal-open {
 }
 
 .instructor-mini-message blockquote {
-    color: var(--text-light, #CBD5E1);
+    color: var(--primary, #1B2A4A);
     font-size: 0.88rem;
     line-height: 1.65;
     margin: 0;
@@ -2435,10 +2435,22 @@ body.modal-open {
 .instructor-subheading {
     font-size: 1.05rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: var(--primary, #1B2A4A);
     margin: 0 0 0.85rem 0;
     border-right: 3px solid var(--accent);
     padding-right: 0.6rem;
+}
+
+/* دعم الوضع الليلي لاسم ونصوص المدربة تلقائياً */
+[data-theme="dark"] .instructor-name,
+[data-theme="dark"] .instructor-block-summary p,
+[data-theme="dark"] .instructor-mini-message blockquote,
+[data-theme="dark"] .instructor-subheading {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .instructor-role-title {
+    color: #CBD5E1 !important;
 }
 
 /* قائمة الوثائق المدمجة */
