@@ -1759,3 +1759,41 @@ font-size:.82rem;
 #packageDetailsModal .registration-modal__close {
     color: #FFFFFF !important;
 }
+/* ==========================================
+   Fix VIP Card Text & Badge Visibility
+========================================== */
+
+/* تثبيت لون نصوص وعناصر بطاقة VIP */
+.pkg-card-v3--vip,
+.pkg-card-v3--vip * {
+    color-scheme: dark;
+}
+
+.pkg-card-v3--vip .vip-tracks-wrapper p {
+    color: #E2E8F0 !important;
+}
+
+.pkg-card-v3--vip .vip-track-item {
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(201, 162, 39, 0.4) !important;
+}
+
+.pkg-card-v3--vip .vip-track-item i {
+    color: var(--accent, #c9a75c) !important;
+}
+
+.pkg-card-v3--vip .pkg-card-v3__number {
+    color: var(--accent, #c9a75c) !important;
+}
+
+.pkg-card-v3--vip .pkg-badge--gold {
+    background: var(--accent, #c9a75c) !important;
+    color: #0F172A !important;
+    border-color: var(--accent, #c9a75c) !important;
+}
+
+.pkg-card-v3--vip .btn-pkg-outline {
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
