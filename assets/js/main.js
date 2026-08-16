@@ -385,3 +385,208 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ==========================================
+// NEMMO Learning Journey Controller (WAI-ARIA TabList & Performance)
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const nodes = Array.from(document.querySelectorAll('.journey-step-node'));
+    const slides = document.querySelectorAll('.journey-slide');
+    const currentNumElem = document.getElementById('journeyCurrentNum');
+    const progressBar = document.getElementById('journeyProgressBar');
+    const progressTrack = document.getElementById('journeyProgressTrack');
+    const progressPath = document.getElementById('journeyProgressPath');
+    const btnNext = document.querySelector('.js-journey-next');
+    const btnPrev = document.querySelector('.js-journey-prev');
+    const swipeArea = document.getElementById('journeySwipeArea');
+    const sectionElem = document.getElementById('achievements');
+
+    if (!slides.length || !nodes.length) return;
+
+    let currentStep = 0;
+    const totalSteps = slides.length;
+    let autoPlayTimer = null;
+    let resumeTimeout = null;
+    let isVisible = false;
+
+    // المتابعة الديناميكية لتفضيل تقليل الحركة
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = motionQuery.matches;
+
+    motionQuery.addEventListener('change', (e) => {
+        prefersReducedMotion = e.matches;
+        if (prefersReducedMotion) {
+            stopAutoPlay();
+        } else if (isVisible) {
+            startAutoPlay();
+        }
+    });
+
+    const maxDashOffset = 691;
+
+    function goToStep(index, shouldFocus = false) {
+        currentStep = (index + totalSteps) % totalSteps;
+
+        // تحديث حالة العقد والوصولية الكاملة
+        nodes.forEach((node, i) => {
+            const isActive = i === currentStep;
+            node.classList.toggle('is-active', isActive);
+            node.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            node.setAttribute('tabindex', isActive ? '0' : '-1');
+
+            if (isActive && shouldFocus) {
+                node.focus();
+            }
+        });
+
+        // تحديث الشرائح (بدون reflow)
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('is-active', i === currentStep);
+        });
+
+        // تحديث العداد
+        if (currentNumElem) {
+            currentNumElem.textContent = String(currentStep + 1).padStart(2, '0');
+        }
+
+        // تحديث شريط التقدم وقيمته في WAI-ARIA
+        if (progressBar) {
+            progressBar.style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
+        }
+        if (progressTrack) {
+            progressTrack.setAttribute('aria-valuenow', currentStep + 1);
+        }
+
+        // تحديث مسار SVG الدائري
+        if (progressPath) {
+            const ratio = (currentStep + 1) / totalSteps;
+            progressPath.style.strokeDashoffset = maxDashOffset - (maxDashOffset * ratio);
+        }
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        if (!isVisible || prefersReducedMotion) return;
+
+        autoPlayTimer = setInterval(() => {
+            goToStep(currentStep + 1);
+        }, 5500);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+        }
+    }
+
+    function handleUserInteraction() {
+        stopAutoPlay();
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        if (!prefersReducedMotion) {
+            resumeTimeout = setTimeout(() => {
+                startAutoPlay();
+            }, 15000);
+        }
+    }
+
+    // أزرار التنقل
+    if (btnNext) {
+        btnNext.addEventListener('click', () => {
+            goToStep(currentStep + 1);
+            handleUserInteraction();
+        });
+    }
+
+    if (btnPrev) {
+        btnPrev.addEventListener('click', () => {
+            goToStep(currentStep - 1);
+            handleUserInteraction();
+        });
+    }
+
+    // دعم لوحة المفاتيح الكامل لـ WAI-ARIA TabList
+    nodes.forEach((node, idx) => {
+        node.addEventListener('click', () => {
+            goToStep(idx);
+            handleUserInteraction();
+        });
+
+        node.addEventListener('keydown', (e) => {
+            let targetIdx = null;
+
+            switch (e.key) {
+                case 'ArrowLeft': // التالي في سياق RTL
+                    targetIdx = currentStep + 1;
+                    break;
+                case 'ArrowRight': // السابق في سياق RTL
+                    targetIdx = currentStep - 1;
+                    break;
+                case 'Home':
+                    targetIdx = 0;
+                    break;
+                case 'End':
+                    targetIdx = totalSteps - 1;
+                    break;
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    goToStep(idx);
+                    handleUserInteraction();
+                    return;
+                default:
+                    return;
+            }
+
+            if (targetIdx !== null) {
+                e.preventDefault();
+                goToStep(targetIdx, true);
+                handleUserInteraction();
+            }
+        });
+    });
+
+    // دعم السحب باللمس للأجهزة الذكية (Touch Swipe)
+    if (swipeArea) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        swipeArea.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            handleUserInteraction();
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 40) {
+                goToStep(currentStep + 1);
+            } else if (touchEndX - touchStartX > 40) {
+                goToStep(currentStep - 1);
+            }
+            handleUserInteraction();
+        }, { passive: true });
+    }
+
+    // Intersection Observer لإيقاف وتشغيل الـ Auto Play
+    if (sectionElem && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    isVisible = true;
+                    startAutoPlay();
+                } else {
+                    isVisible = false;
+                    stopAutoPlay();
+                }
+            });
+        }, { threshold: 0.25 });
+
+        observer.observe(sectionElem);
+    } else {
+        isVisible = true;
+        startAutoPlay();
+    }
+
+    // التهيئة الأولى
+    goToStep(0);
+});
