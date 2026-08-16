@@ -222,114 +222,176 @@
         </section>
 
 
-        <section class="section section-light">
+       <!-- Educational Learning Journey (Final Production Version) -->
+        <section id="achievements" class="section journey-section" aria-label="رحلة التعلم في البرنامج">
 
             <div class="container">
 
-                <div class="section-title">
-                    <span>PROGRAM GOALS</span>
-                    <h2>أهداف البرنامج</h2>
-                    <p>بنهاية البرنامج سيكون الطالب قادرًا على:</p>
+                <div class="section-title text-center">
+                    <span>YOUR LEARNING JOURNEY</span>
+                    <h2>رحلتك نحو الإتقان خطوة بخطوة</h2>
+                    <p>مسار عملي متدرج يأخذك من الصفر وحتى الطلاقة والاستخدام الواقعي بثقة.</p>
                 </div>
 
-                <div class="grid grid-3">
+                <div class="journey-wrapper">
 
-                    <article class="feature-card">
-                        <div class="feature-icon">01</div>
-                        <h3>التحدث بثقة</h3>
-                        <p>التحدث باللغة الفارسية بثقة في المواقف اليومية.</p>
-                    </article>
+                    <!-- مدار المراحل (TabList متوافق مع WAI-ARIA) -->
+                    <div class="journey-visual">
+                        <div class="journey-orbit-disc" role="tablist" aria-label="مراحل مسار التعلم">
+                            
+                            <!-- مسار SVG الدائري المتصل -->
+                            <svg class="journey-path-svg" viewBox="0 0 280 280" fill="none" aria-hidden="true">
+                                <circle cx="140" cy="140" r="110" class="journey-path-track" />
+                                <circle id="journeyProgressPath" cx="140" cy="140" r="110" class="journey-path-progress" />
+                            </svg>
 
-                    <article class="feature-card">
-                        <div class="feature-icon">02</div>
-                        <h3>فهم القواعد</h3>
-                        <p>فهم أساسيات القواعد بطريقة مبسطة.</p>
-                    </article>
+                            <div class="orbit-center-core" aria-hidden="true">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <span>رحلة الإتقان</span>
+                            </div>
 
-                    <article class="feature-card">
-                        <div class="feature-icon">03</div>
-                        <h3>المفردات العملية</h3>
-                        <p>استخدام المفردات الأكثر شيوعًا في الحياة العملية.</p>
-                    </article>
+                            <!-- عقد المراحل التفاعلية -->
+                            <button type="button" class="journey-step-node is-active" id="journey-tab-0" data-step="0" role="tab" aria-selected="true" aria-controls="journey-slide-0" tabindex="0" style="--pos-top: 8%; --pos-left: 50%;">
+                                <span class="step-num">1</span>
+                                <span class="step-txt">التحدث</span>
+                            </button>
 
-                    <article class="feature-card">
-                        <div class="feature-icon">04</div>
-                        <h3>التواصل</h3>
-                        <p>التواصل أثناء السفر والدراسة والعمل.</p>
-                    </article>
+                            <button type="button" class="journey-step-node" id="journey-tab-1" data-step="1" role="tab" aria-selected="false" aria-controls="journey-slide-1" tabindex="-1" style="--pos-top: 28%; --pos-left: 88%;">
+                                <span class="step-num">2</span>
+                                <span class="step-txt">القراءة</span>
+                            </button>
 
-                    <article class="feature-card">
-                        <div class="feature-icon">05</div>
-                        <h3>الاستماع والقراءة</h3>
-                        <p>تطوير مهارات الاستماع والقراءة والنطق الصحيح.</p>
-                    </article>
+                            <button type="button" class="journey-step-node" id="journey-tab-2" data-step="2" role="tab" aria-selected="false" aria-controls="journey-slide-2" tabindex="-1" style="--pos-top: 72%; --pos-left: 88%;">
+                                <span class="step-num">3</span>
+                                <span class="step-txt">الكتابة</span>
+                            </button>
+
+                            <button type="button" class="journey-step-node" id="journey-tab-3" data-step="3" role="tab" aria-selected="false" aria-controls="journey-slide-3" tabindex="-1" style="--pos-top: 92%; --pos-left: 50%;">
+                                <span class="step-num">4</span>
+                                <span class="step-txt">السياحة</span>
+                            </button>
+
+                            <button type="button" class="journey-step-node" id="journey-tab-4" data-step="4" role="tab" aria-selected="false" aria-controls="journey-slide-4" tabindex="-1" style="--pos-top: 72%; --pos-left: 12%;">
+                                <span class="step-num">5</span>
+                                <span class="step-txt">الدراسة</span>
+                            </button>
+
+                            <button type="button" class="journey-step-node" id="journey-tab-5" data-step="5" role="tab" aria-selected="false" aria-controls="journey-slide-5" tabindex="-1" style="--pos-top: 28%; --pos-left: 12%;">
+                                <span class="step-num">6</span>
+                                <span class="step-txt">التجارة</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة عرض تفاصيل المرحلة -->
+                    <div class="journey-card-display" id="journeySwipeArea">
+
+                        <!-- رأس البطاقة: العداد وشريط التقدم -->
+                        <div class="journey-card-meta">
+                            <div class="journey-step-counter" aria-label="المرحلة الحالية">
+                                <span class="counter-current" id="journeyCurrentNum">01</span>
+                                <span class="counter-divider">/</span>
+                                <span class="counter-total">06</span>
+                            </div>
+
+                            <div class="journey-progress-track" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6" id="journeyProgressTrack">
+                                <div class="journey-progress-fill" id="journeyProgressBar" style="width: 16.66%;"></div>
+                            </div>
+
+                            <div class="journey-controls">
+                                <button type="button" class="journey-nav-btn js-journey-prev" aria-label="المرحلة السابقة">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                                <button type="button" class="journey-nav-btn js-journey-next" aria-label="المرحلة التالية">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- حاوية الشرائح المتراكبة (Zero CLS Stack) -->
+                        <div class="journey-slides-container">
+
+                            <!-- المرحلة 1 -->
+                            <article class="journey-slide is-active" id="journey-slide-0" data-index="0" role="tabpanel" aria-labelledby="journey-tab-0">
+                                <h3 class="slide-title">التحدث والطلاقة</h3>
+                                <p class="slide-benefit">كسر حاجز الخوف والتحدث بالفارسية في المواقف الحية بثقة وسلاسة.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> محادثات يومية فورية</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> نطق صحيح</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> ثقة بالتحدث</span>
+                                </div>
+                            </article>
+
+                            <!-- المرحلة 2 -->
+                            <article class="journey-slide" id="journey-slide-1" data-index="1" role="tabpanel" aria-labelledby="journey-tab-1">
+                                <h3 class="slide-title">القراءة وفهم المعاني</h3>
+                                <p class="slide-benefit">استيعاب سريع للنصوص المكتوبة واللافتات وقراءتها بنطق سليم.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> قراءة فورية بدون ترجمة</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> تمييز الكلمات</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> استيعاب مباشر</span>
+                                </div>
+                            </article>
+
+                            <!-- المرحلة 3 -->
+                            <article class="journey-slide" id="journey-slide-2" data-index="2" role="tabpanel" aria-labelledby="journey-tab-2">
+                                <h3 class="slide-title">الكتابة وتطبيق القواعد</h3>
+                                <p class="slide-benefit">صياغة الجمل والرسائل وفق القواعد النحوية بطريقة عملية ومبسطة.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> كتابة مراسلات واضحة</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> تصريف الأفعال</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> قواعد مبسطة</span>
+                                </div>
+                            </article>
+
+                            <!-- المرحلة 4 -->
+                            <article class="journey-slide" id="journey-slide-3" data-index="3" role="tabpanel" aria-labelledby="journey-tab-3">
+                                <h3 class="slide-title">السياحة والتنقل الحر</h3>
+                                <p class="slide-benefit">إدارة سفرك وزياراتك العلاجية والسياحية في إيران بدون الحاجة لمترجم.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> استقلالية تامة بالسفر</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> حوارات المطار والفندق</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> تسوق بلا عائق</span>
+                                </div>
+                            </article>
+
+                            <!-- المرحلة 5 -->
+                            <article class="journey-slide" id="journey-slide-4" data-index="4" role="tabpanel" aria-labelledby="journey-tab-4">
+                                <h3 class="slide-title">التعليم والدراسة الجامعية</h3>
+                                <p class="slide-benefit">تجهيزك للبيئة الأكاديمية واستيعاب المحاضرات والمناهج الجامعية.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> اندماج أكاديمي سريع</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> فهم المراجع العلمية</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> مراسلات رسمية</span>
+                                </div>
+                            </article>
+
+                            <!-- المرحلة 6 -->
+                            <article class="journey-slide" id="journey-slide-5" data-index="5" role="tabpanel" aria-labelledby="journey-tab-5">
+                                <h3 class="slide-title">التجارة وإدارة الأعمال</h3>
+                                <p class="slide-benefit">تمكينك من التفاوض، مخاطبة الموردين، وإبرام الصفقات باللغة الفارسية.</p>
+                                <div class="slide-chips">
+                                    <span class="step-chip step-chip--highlight"><i class="fa-solid fa-bolt"></i> صفقات تجارية ناجحة</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> مهارات التسعير</span>
+                                    <span class="step-chip"><i class="fa-solid fa-check"></i> مخاطبة الشركات</span>
+                                </div>
+                            </article>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        </section>
-
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-title">
-                    <span>WHAT YOU WILL LEARN</span>
-                    <h2>ماذا ستتعلم؟</h2>
-                </div>
-
-                <div class="grid grid-3">
-
-                    <article class="feature-card">
-                        <div class="feature-icon">01</div>
-                        <h3>أساسيات اللغة</h3>
-                        <p>أساسيات اللغة الفارسية والمهارات الأولى في استخدامها.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">02</div>
-                        <h3>القراءة والكتابة</h3>
-                        <p>تعلم القراءة والكتابة باللغة الفارسية.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">03</div>
-                        <h3>القواعد</h3>
-                        <p>قواعد اللغة بطريقة مبسطة وواضحة.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">04</div>
-                        <h3>المحادثات اليومية</h3>
-                        <p>التدريب على المحادثات اليومية والمواقف الواقعية.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">05</div>
-                        <h3>السفر والأكاديميا</h3>
-                        <p>محادثات خاصة بالسفر والمواقف الأكاديمية.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">06</div>
-                        <h3>المفردات والنطق</h3>
-                        <p>مفردات الحياة اليومية والنطق الصحيح.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">07</div>
-                        <h3>التدريب العملي</h3>
-                        <p>تدريب عملي يساعد الطالب على استخدام ما يتعلمه.</p>
-                    </article>
-
-                    <article class="feature-card">
-                        <div class="feature-icon">08</div>
-                        <h3>تطبيقات واقعية</h3>
-                        <p>تطبيقات واقعية تربط التعلم بالحياة اليومية.</p>
-                    </article>
-
+                <!-- CTA توجيهي مدمج نحو الباقات -->
+                <div class="journey-cta-box">
+                    <div class="journey-cta-text">
+                        <h4>كل مرحلة تقرّبك خطوة نحو إتقان اللغة الفارسية...</h4>
+                        <p>اختر الباقة المناسبة وابدأ رحلتك اليوم لتصنع الفارق.</p>
+                    </div>
+                    <a href="#packages" class="btn btn-pkg-gold">
+                        استعراض الباقات والاشتراك <i class="fa-solid fa-arrow-down" style="margin-right: 0.35rem;"></i>
+                    </a>
                 </div>
 
             </div>
