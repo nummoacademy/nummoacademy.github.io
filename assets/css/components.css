@@ -2166,3 +2166,93 @@ font-size:.82rem;
         text-align: center;
     }
 }
+/* ==========================================
+   Fix Learning Journey Readability & Contrast
+========================================== */
+
+/* تثبيت خلفية البطاقة والتباين */
+.journey-card-display {
+    background: #152238 !important;
+    border-color: rgba(201, 162, 39, 0.28) !important;
+    border-right: 3.5px solid var(--accent, #c9a75c) !important;
+}
+
+/* نصوص الشريحة داخل البطاقة */
+.journey-slide .slide-title {
+    color: #FFFFFF !important;
+}
+
+.journey-slide .slide-benefit {
+    color: #E2E8F0 !important;
+}
+
+/* الرقائق (Chips) */
+.journey-slide .step-chip {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #F8FAFC !important;
+}
+
+.journey-slide .step-chip i {
+    color: var(--accent, #c9a75c) !important;
+}
+
+.journey-slide .step-chip--highlight {
+    background: rgba(201, 162, 39, 0.18) !important;
+    border-color: var(--accent, #c9a75c) !important;
+    color: #FFFFFF !important;
+}
+
+.journey-slide .step-chip--highlight i {
+    color: var(--accent, #c9a75c) !important;
+}
+
+/* العداد وأزرار التحكم */
+.journey-step-counter .counter-current {
+    color: var(--accent, #c9a75c) !important;
+}
+
+.journey-step-counter .counter-divider,
+.journey-step-counter .counter-total {
+    color: #94A3B8 !important;
+}
+
+.journey-nav-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+/* العقد في المدار */
+.journey-step-node {
+    background: #152238 !important;
+    border-color: rgba(201, 162, 39, 0.3) !important;
+}
+
+.journey-step-node .step-txt {
+    color: #E2E8F0 !important;
+}
+
+.journey-step-node.is-active {
+    background: #1E3156 !important;
+    border-color: var(--accent, #c9a75c) !important;
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.4) !important;
+}
+
+.journey-step-node.is-active .step-txt {
+    color: #FFFFFF !important;
+}
+
+/* شريط الدعوة السفلي (CTA Strip) */
+.journey-cta-box {
+    background: rgba(201, 162, 39, 0.1) !important;
+    border-color: rgba(201, 162, 39, 0.3) !important;
+}
+
+.journey-cta-text h4 {
+    color: #FFFFFF !important;
+}
+
+.journey-cta-text p {
+    color: #E2E8F0 !important;
+}
