@@ -33,23 +33,24 @@
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- CSS Hierarchy: المشترك أولاً ثم الخاص بالصفحة -->
     <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 
 </head>
 
-<body>
+<body class="page-home">
 
 
 <!-- ==========================================
-     Header (Glassmorphism Navbar)
+     Header
 ========================================== -->
 
 <header class="site-header" id="siteHeader">
 
-    <div class="container site-header__container">
+    <div class="site-header__container">
 
         <a href="index.html" class="site-logo">
             <img
@@ -101,16 +102,16 @@
 ========================================== -->
 
 <section class="hero-v2" id="hero">
-    <!-- Ambient Multi-Layer Lighting -->
+    <!-- إضاءة خلفية هادئة -->
     <div class="hero-v2__ambient" aria-hidden="true">
         <div class="hero-v2__glow hero-v2__glow--primary"></div>
         <div class="hero-v2__glow hero-v2__glow--gold"></div>
     </div>
 
-    <div class="container hero-v2__wrapper">
+    <div class="hero-v2__wrapper">
         <div class="hero-v2__container">
             
-            <!-- المحتوى النصي -->
+            <!-- النصوص والأزرار -->
             <div class="hero-v2__content">
                 <div class="hero-v2__badge">
                     <span class="hero-v2__badge-pulse"></span>
@@ -137,7 +138,7 @@
                     </button>
                 </div>
 
-                <!-- شريط المصداقية والثقة -->
+                <!-- شريط الثقة -->
                 <div class="hero-v2__trust-strip">
                     <div class="hero-v2__trust-pill">
                         <i class="fa-solid fa-check-double"></i>
@@ -150,7 +151,7 @@
                 </div>
             </div>
 
-            <!-- الشعار الذهبي ثلاثي الأبعاد والمنصة المضيئة -->
+            <!-- الشعار الذهبي العائم والمنصة -->
             <div class="hero-v2__visual">
                 <div class="hero-v2__visual-core">
                     <div class="hero-v2__ring hero-v2__ring--outer"></div>
@@ -164,7 +165,7 @@
 
         </div>
 
-        <!-- شريط الفلسفة التعليمية الموحد -->
+        <!-- شريط الفلسفة التعليمية -->
         <div class="hero-v2__philosophy-bar">
             <div class="hero-v2__philosophy-item">
                 <div class="hero-v2__philosophy-icon">
@@ -214,160 +215,99 @@
      About
 ========================================== -->
 
-<section
-    id="about"
-    class="section about-section"
->
+<section id="about" class="section about-section">
 
     <div class="container">
 
         <div class="section-title">
-
-            <span>
-                ABOUT NEMMO
-            </span>
-
-            <h2>
-                أكاديمية نمو التعليمية
-            </h2>
-
+            <span>ABOUT NEMMO</span>
+            <h2>أكاديمية نمو التعليمية</h2>
         </div>
 
-
         <div class="about-intro">
-
             <p class="about-intro__text">
-
                 أكاديمية نمو التعليمية (NEMMO Academy) هي أكاديمية تعليمية عراقية
                 متخصصة في تطوير المعرفة والمهارات، تبدأ بتعليم اللغات وتتوسع نحو
                 مجالات التعليم والتطوير المهني، من خلال تقديم تجربة تعليمية احترافية
                 تلبي احتياجات الفرد العراقي وتواكب متطلبات المستقبل.
-
             </p>
-
         </div>
 
-
         <div class="about-pillars">
-
-
             <article class="about-pillar">
-
-                <span class="about-pillar__label">
-                    OUR VISION
-                </span>
-
-                <h3>
-                    رؤيتنا
-                </h3>
-
+                <span class="about-pillar__label">OUR VISION</span>
+                <h3>رؤيتنا</h3>
                 <p>
                     وجدت الأكاديمية لنشر المعرفة وتطوير الفرد العراقي من خلال تعليمه
                     المهارات واللغات التي يحتاجها في الدراسة والسفر والعلاج والتجارة
                     والعمل والتواصل مع العالم.
                 </p>
-
                 <p>
                     هدفنا ليس بيع دورات فقط، بل المساهمة في صناعة جيل واعٍ قادر على
                     المنافسة والتواصل مع مختلف الثقافات.
                 </p>
-
             </article>
 
-
             <article class="about-pillar">
-
-                <span class="about-pillar__label">
-                    OUR MISSION
-                </span>
-
-                <h3>
-                    رسالتنا
-                </h3>
-
+                <span class="about-pillar__label">OUR MISSION</span>
+                <h3>رسالتنا</h3>
                 <p>
                     تقديم تجربة تعليمية احترافية، سهلة، وعملية، تبدأ بتعليم اللغات،
                     وتتوسع مستقبلًا إلى مجالات التعليم والتطوير المهني وإدارة الأعمال.
                 </p>
-
             </article>
-
-
         </div>
 
-
-        <!-- قسم قيمنا بعد تحويله لسلايدر أفقي تفاعلي -->
         <div class="about-values">
-
             <div class="about-values__header">
-
-                <span>
-                    OUR VALUES
-                </span>
-
-                <h3>
-                    قيمنا
-                </h3>
-
+                <span>OUR VALUES</span>
+                <h3>قيمنا</h3>
             </div>
 
-            <!-- Carousel Slider for Values -->
             <div class="values-carousel">
-
                 <div class="values-carousel__track">
-
                     <article class="about-value">
                         <div class="about-value__icon">◆</div>
                         <h4>الجودة</h4>
                         <p>نحرص على تقديم محتوى وتجربة تعليمية بمستوى احترافي.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">◈</div>
                         <h4>البساطة</h4>
                         <p>نجعل التعلم واضحًا وسهل الوصول والفهم.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">✓</div>
                         <h4>التطبيق العملي</h4>
                         <p>نركز على المهارات التي يستطيع الطالب استخدامها في حياته.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">★</div>
                         <h4>التعلم الممتع</h4>
                         <p>نؤمن بأن تجربة التعلم الفعالة يجب أن تكون ممتعة ومحفزة.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">⏱</div>
                         <h4>احترام وقت الطالب</h4>
                         <p>نصمم المحتوى بطريقة منظمة تحترم وقت المتعلم واحتياجاته.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">↗</div>
                         <h4>التطوير المستمر</h4>
                         <p>نعمل باستمرار على تحسين المحتوى والتجربة التعليمية.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">✓</div>
                         <h4>المصداقية</h4>
                         <p>نبني علاقتنا مع الطالب على الوضوح والثقة.</p>
                     </article>
-
                     <article class="about-value">
                         <div class="about-value__icon">♥</div>
                         <h4>الاهتمام الحقيقي بنتائج الطالب</h4>
                         <p>نجاح الطالب ونتائجه هما محور التجربة التعليمية في NEMMO.</p>
                     </article>
-
                 </div>
-
             </div>
-
         </div>
 
     </div>
@@ -379,85 +319,43 @@
      Why NEMMO
 ========================================== -->
 
-<section
-    id="why"
-    class="section"
->
+<section id="why" class="section">
 
     <div class="container">
 
         <div class="section-title">
-
-            <span>
-                WHY NEMMO
-            </span>
-
-            <h2>
-                تعليم يصنع فرقًا حقيقيًا
-            </h2>
-
+            <span>WHY NEMMO</span>
+            <h2>تعليم يصنع فرقًا حقيقيًا</h2>
             <p>
                 هدفنا ليس بيع دورة، بل بناء تجربة تعليمية تمنح الطالب الثقة
                 وتساعده على استخدام اللغة في الحياة الواقعية.
             </p>
-
         </div>
 
-
         <div class="grid grid-3">
-
-
             <article class="feature-card">
-
                 <div class="feature-icon">
                     <i data-lucide="graduation-cap"></i>
                 </div>
-
-                <h3>
-                    تعليم احترافي
-                </h3>
-
-                <p>
-                    محتوى منظم، واضح، ومناسب لجميع المستويات.
-                </p>
-
+                <h3>تعليم احترافي</h3>
+                <p>محتوى منظم، واضح، ومناسب لجميع المستويات.</p>
             </article>
 
-
             <article class="feature-card">
-
                 <div class="feature-icon">
                     <i data-lucide="book-open"></i>
                 </div>
-
-                <h3>
-                    مصادر متكاملة
-                </h3>
-
-                <p>
-                    فيديو، كتب، ملفات صوتية، وكتيبات تعليمية في مكان واحد.
-                </p>
-
+                <h3>مصادر متكاملة</h3>
+                <p>فيديو، كتب، ملفات صوتية، وكتيبات تعليمية في مكان واحد.</p>
             </article>
 
-
             <article class="feature-card">
-
                 <div class="feature-icon">
                     <i data-lucide="rocket"></i>
                 </div>
-
-                <h3>
-                    قابلة للنمو
-                </h3>
-
-                <p>
-                    الأكاديمية مصممة لتضم مستقبلًا العديد من البرامج والتخصصات.
-                </p>
-
+                <h3>قابلة للنمو</h3>
+                <p>الأكاديمية مصممة لتضم مستقبلًا العديد من البرامج والتخصصات.</p>
             </article>
-
-
         </div>
 
     </div>
@@ -469,96 +367,46 @@
      Programs
 ========================================== -->
 
-<section
-    id="programs"
-    class="section section-light"
->
+<section id="programs" class="section section-light">
 
     <div class="container">
 
         <div class="section-title">
-
-            <span>
-                FEATURED PROGRAM
-            </span>
-
-            <h2>
-                البرامج التعليمية
-            </h2>
-
+            <span>FEATURED PROGRAM</span>
+            <h2>البرامج التعليمية</h2>
             <p>
                 اكتشف البرامج التعليمية التي تقدمها أكاديمية NEMMO
                 وصمم مسارك التعليمي بما يناسب أهدافك.
             </p>
-
         </div>
 
-
         <article class="program-card">
-
-
             <div class="program-card__image">
-
                 <img
                     src="assets/images/persian-course-cover.jpg"
                     alt="برنامج اللغة الفارسية"
                 >
-
             </div>
 
-
             <div class="program-card__body">
-
-                <span class="program-card__badge">
-                    متاح الآن
-                </span>
-
-                <h3 class="program-card__title">
-                    برنامج اللغة الفارسية
-                </h3>
-
+                <span class="program-card__badge">متاح الآن</span>
+                <h3 class="program-card__title">برنامج اللغة الفارسية</h3>
                 <p class="program-card__description">
-
                     برنامج احترافي متكامل يتضمن محاضرات مسجلة،
                     كتاب القواعد، كتاب المحادثة، ودعماً صوتياً عبر QR Code.
-
                 </p>
 
-
                 <div class="program-meta">
-
-                    <span class="meta-tag">
-                        <i data-lucide="gem"></i>
-                        الباقة الماسية
-                    </span>
-
-                    <span class="meta-tag">
-                        <i data-lucide="star"></i>
-                        الباقة الذهبية
-                    </span>
-
-                    <span class="meta-tag">
-                        <i data-lucide="video"></i>
-                        70 محاضرة مسجلة
-                    </span>
-
-                    <span class="meta-tag">
-                        <i data-lucide="book-open"></i>
-                        كتابان
-                    </span>
-
+                    <span class="meta-tag"><i data-lucide="gem"></i> الباقة الماسية</span>
+                    <span class="meta-tag"><i data-lucide="star"></i> الباقة الذهبية</span>
+                    <span class="meta-tag"><i data-lucide="video"></i> 70 محاضرة مسجلة</span>
+                    <span class="meta-tag"><i data-lucide="book-open"></i> كتابان</span>
                 </div>
 
-
                 <div class="program-card__actions">
-
-                    <a
-                        href="programs/persian/index.html"
-                        class="btn btn-primary"
-                    >
+                    <a href="programs/persian/index.html" class="btn btn-primary">
                         عرض البرنامج
                     </a>
-
                     <button
                         type="button"
                         class="btn btn-secondary js-open-registration"
@@ -567,11 +415,8 @@
                         <i data-lucide="user-plus"></i>
                         اشترك الآن
                     </button>
-
                 </div>
-
             </div>
-
         </article>
 
     </div>
@@ -580,7 +425,7 @@
 
 
 <!-- ==========================================
-     Testimonial / Philosophy
+     Philosophy
 ========================================== -->
 
 <section class="section">
@@ -588,39 +433,20 @@
     <div class="container">
 
         <div class="section-title">
-
-            <span>
-                OUR PHILOSOPHY
-            </span>
-
-            <h2>
-                لماذا يتعلم الطالب معنا؟
-            </h2>
-
+            <span>OUR PHILOSOPHY</span>
+            <h2>لماذا يتعلم الطالب معنا؟</h2>
         </div>
 
-
         <div class="testimonial">
-
             <p class="testimonial__quote">
-
                 "في NEMMO Academy نؤمن أن أفضل طريقة لتعلم أي لغة
                 هي أن يشعر الطالب بأنه يستخدمها في حياته اليومية،
                 وليس فقط داخل الدرس."
-
             </p>
-
-
             <div class="testimonial__author">
-
                 NEMMO Academy
-
-                <span class="testimonial__role">
-                    نتعلم اليوم... لنصنع فرص الغد.
-                </span>
-
+                <span class="testimonial__role">نتعلم اليوم... لنصنع فرص الغد.</span>
             </div>
-
         </div>
 
     </div>
@@ -637,17 +463,11 @@
     <div class="container">
 
         <div class="cta">
-
-            <h2>
-                ابدأ رحلتك التعليمية اليوم
-            </h2>
-
+            <h2>ابدأ رحلتك التعليمية اليوم</h2>
             <p>
                 استكشف البرنامج، تعرف على الباقات، وابدأ أول خطوة
                 نحو تعلم اللغة الفارسية بطريقة احترافية.
             </p>
-
-
             <button
                 type="button"
                 class="btn btn-primary js-open-registration"
@@ -656,7 +476,6 @@
                 <i data-lucide="user-plus"></i>
                 أكمل التسجيل
             </button>
-
         </div>
 
     </div>
@@ -665,7 +484,7 @@
 
 
 <!-- ==========================================
-     Contact (المطور والمدمج بشريط أفقـي للأيقونات)
+     Contact
 ========================================== -->
 
 <section id="contact" class="section">
@@ -673,53 +492,34 @@
     <div class="container">
 
         <div class="section-title">
-
-            <span>
-                CONTACT US
-            </span>
-
-            <h2>
-                تواصل معنا
-            </h2>
-
+            <span>CONTACT US</span>
+            <h2>تواصل معنا</h2>
             <p>
                 يسعدنا تواصلك معنا عبر منصاتنا الرسمية. اختر المنصة المناسبة لك للإجابة عن جميع استفساراتك.
             </p>
-
         </div>
 
         <div class="contact-compact-bar">
-
-            <!-- WhatsApp -->
             <a href="https://wa.me/9647770300029" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="واتساب">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>واتساب</span>
             </a>
-
-            <!-- Telegram -->
             <a href="https://t.me/NemoAcademy" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تليغرام">
                 <i class="fa-brands fa-telegram"></i>
                 <span>تليغرام</span>
             </a>
-
-            <!-- Instagram -->
             <a href="https://www.instagram.com/nemmo.ac?igsh=aXdpOXZjNmlseXJ0" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="انستغرام">
                 <i class="fa-brands fa-instagram"></i>
                 <span>انستغرام</span>
             </a>
-
-            <!-- Facebook -->
             <a href="https://www.facebook.com/profile.php?id=61575293433047" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="فيسبوك">
                 <i class="fa-brands fa-facebook-f"></i>
                 <span>فيسبوك</span>
             </a>
-
-            <!-- TikTok -->
             <a href="https://tiktok.com/@nemoacademy1997" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تيك توك">
                 <i class="fa-brands fa-tiktok"></i>
                 <span>تيك توك</span>
             </a>
-
         </div>
 
     </div>
@@ -737,16 +537,8 @@
 <footer class="site-footer">
 
     <div class="site-footer__container">
-
-        <p>
-            © <span data-current-year></span>
-            NEMMO Academy
-        </p>
-
-        <a href="programs.html">
-            البرامج
-        </a>
-
+        <p>© <span data-current-year></span> NEMMO Academy</p>
+        <a href="programs.html">البرامج</a>
     </div>
 
 </footer>
@@ -756,117 +548,38 @@
      Registration Modal
 ========================================== -->
 
-<div
-    class="registration-modal"
-    id="registrationModal"
-    aria-hidden="true"
->
+<div class="registration-modal" id="registrationModal" aria-hidden="true">
 
-    <div
-        class="registration-modal__overlay js-close-registration"
-    ></div>
+    <div class="registration-modal__overlay js-close-registration"></div>
 
+    <div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle">
 
-    <div
-        class="registration-modal__dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="registrationModalTitle"
-    >
-
-
-        <button
-            type="button"
-            class="registration-modal__close js-close-registration"
-            aria-label="إغلاق"
-        >
+        <button type="button" class="registration-modal__close js-close-registration" aria-label="إغلاق">
             <i data-lucide="x"></i>
         </button>
 
-
         <div class="registration-modal__header">
-
-            <span class="registration-modal__eyebrow">
-                REGISTRATION
-            </span>
-
-            <h2 id="registrationModalTitle">
-                أكمل تسجيلك
-            </h2>
-
-            <p>
-                أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب
-                لإكمال إجراءات التسجيل.
-            </p>
-
+            <span class="registration-modal__eyebrow">REGISTRATION</span>
+            <h2 id="registrationModalTitle">أكمل تسجيلك</h2>
+            <p>أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب لإكمال إجراءات التسجيل.</p>
         </div>
 
-
-        <form
-            id="registrationForm"
-            class="registration-form"
-            novalidate
-        >
-
-
-            <!-- الاسم الثلاثي -->
+        <form id="registrationForm" class="registration-form" novalidate>
 
             <div class="form-group">
-
-                <label for="registrationName">
-                    الاسم الثلاثي
-                </label>
-
-                <input
-                    type="text"
-                    id="registrationName"
-                    name="name"
-                    placeholder="أدخل الاسم الثلاثي"
-                    autocomplete="name"
-                    required
-                >
-
+                <label for="registrationName">الاسم الثلاثي</label>
+                <input type="text" id="registrationName" name="name" placeholder="أدخل الاسم الثلاثي" autocomplete="name" required>
             </div>
 
-
-            <!-- رقم الهاتف -->
-
             <div class="form-group">
-
-                <label for="registrationPhone">
-                    رقم الهاتف
-                </label>
-
-                <input
-                    type="tel"
-                    id="registrationPhone"
-                    name="phone"
-                    placeholder="07XXXXXXXXX"
-                    autocomplete="tel"
-                    required
-                >
-
+                <label for="registrationPhone">رقم الهاتف</label>
+                <input type="tel" id="registrationPhone" name="phone" placeholder="07XXXXXXXXX" autocomplete="tel" required>
             </div>
 
-
-            <!-- المحافظة -->
-
             <div class="form-group">
-
-                <label for="registrationGovernorate">
-                    المحافظة
-                </label>
-
-                <select
-                    id="registrationGovernorate"
-                    name="governorate"
-                    required
-                >
-
-                    <option value="">
-                        اختر المحافظة
-                    </option>
-
+                <label for="registrationGovernorate">المحافظة</label>
+                <select id="registrationGovernorate" name="governorate" required>
+                    <option value="">اختر المحافظة</option>
                     <option value="بغداد">بغداد</option>
                     <option value="الأنبار">الأنبار</option>
                     <option value="بابل">بابل</option>
@@ -885,155 +598,48 @@
                     <option value="دهوك">دهوك</option>
                     <option value="أربيل">أربيل</option>
                     <option value="واسط">واسط</option>
-
                 </select>
-
             </div>
 
-
-            <!-- العنوان -->
-
             <div class="form-group">
-
-                <label for="registrationAddress">
-                    العنوان الكامل
-                </label>
-
-                <textarea
-                    id="registrationAddress"
-                    name="address"
-                    rows="3"
-                    placeholder="أدخل العنوان الكامل"
-                    autocomplete="street-address"
-                    required
-                ></textarea>
-
+                <label for="registrationAddress">العنوان الكامل</label>
+                <textarea id="registrationAddress" name="address" rows="3" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea>
             </div>
 
-
-            <!-- البرنامج -->
-
             <div class="form-group">
-
-                <label for="registrationProgram">
-                    البرنامج
-                </label>
-
-                <select
-                    id="registrationProgram"
-                    name="program"
-                    required
-                >
-
-                    <option value="">
-                        اختر البرنامج
-                    </option>
-
-                    <option value="برنامج اللغة الفارسية">
-                        برنامج اللغة الفارسية
-                    </option>
-
+                <label for="registrationProgram">البرنامج</label>
+                <select id="registrationProgram" name="program" required>
+                    <option value="">اختر البرنامج</option>
+                    <option value="برنامج اللغة الفارسية">برنامج اللغة الفارسية</option>
                 </select>
-
             </div>
 
-
-            <!-- الباقة -->
-
             <div class="form-group">
-
-                <label>
-                    الباقة
-                </label>
-
-
+                <label>الباقة</label>
                 <div class="package-options">
-
-
                     <label class="package-option">
-
-                        <input
-                            type="radio"
-                            name="package"
-                            value="الباقة الماسية"
-                            required
-                        >
-
+                        <input type="radio" name="package" value="الباقة الماسية" required>
                         <span class="package-option__content">
-
                             <i data-lucide="gem"></i>
-
-                            <span>
-                                <strong>
-                                    الباقة الماسية
-                                </strong>
-
-                                <small>
-                                    Diamond
-                                </small>
-                            </span>
-
+                            <span><strong>الباقة الماسية</strong><small>Diamond</small></span>
                         </span>
-
                     </label>
-
-
                     <label class="package-option">
-
-                        <input
-                            type="radio"
-                            name="package"
-                            value="الباقة الذهبية"
-                            required
-                        >
-
+                        <input type="radio" name="package" value="الباقة الذهبية" required>
                         <span class="package-option__content">
-
                             <i data-lucide="star"></i>
-
-                            <span>
-                                <strong>
-                                    الباقة الذهبية
-                                </strong>
-
-                                <small>
-                                    Gold
-                                </small>
-                            </span>
-
+                            <span><strong>الباقة الذهبية</strong><small>Gold</small></span>
                         </span>
-
                     </label>
-
-
                 </div>
-
             </div>
 
+            <p id="registrationError" class="registration-form__error" role="alert" aria-live="polite"></p>
 
-            <!-- رسالة الخطأ -->
-
-            <p
-                id="registrationError"
-                class="registration-form__error"
-                role="alert"
-                aria-live="polite"
-            ></p>
-
-
-            <!-- زر الإرسال -->
-
-            <button
-                type="submit"
-                class="btn btn-primary registration-form__submit"
-            >
-
+            <button type="submit" class="btn btn-primary registration-form__submit">
                 <i data-lucide="send"></i>
-
                 إرسال الطلب عبر واتساب
-
             </button>
-
 
         </form>
 
@@ -1042,10 +648,8 @@
 </div>
 
 
-<!-- Lucide Icons -->
+<!-- Scripts -->
 <script src="https://unpkg.com/lucide@latest"></script>
-
-<!-- Main JavaScript -->
 <script src="assets/js/main.js"></script>
 
 <script>
