@@ -2673,3 +2673,453 @@ body.modal-open {
         justify-content: center;
     }
 }
+
+
+/* ==========================================================================
+   Session 4.1 — Hero V2 & Philosophy Bar (Scoped Living UI & Design Tokens)
+   ========================================================================== */
+
+.hero-v2 {
+    position: relative;
+    background-color: var(--primary, #1B2A4A);
+    background-image: 
+        radial-gradient(circle at 50% 12%, rgba(39, 73, 109, 0.75) 0%, transparent 65%),
+        linear-gradient(180deg, rgba(13, 27, 48, 0.4) 0%, var(--primary, #1B2A4A) 100%),
+        radial-gradient(circle at 85% 30%, rgba(201, 167, 92, 0.12) 0%, transparent 50%);
+    color: #ffffff;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-block: 7.5rem 3.5rem;
+    overflow: hidden;
+}
+
+.hero-v2__wrapper {
+    position: relative;
+    z-index: 2;
+    inline-size: 100%;
+}
+
+/* Ambient Lighting Elements */
+.hero-v2__ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-v2__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+}
+
+.hero-v2__glow--primary {
+    inline-size: 650px;
+    block-size: 650px;
+    inset-block-start: -150px;
+    inset-inline-end: 5%;
+    background: var(--primary-light, #22375e);
+}
+
+.hero-v2__glow--gold {
+    inline-size: 450px;
+    block-size: 450px;
+    inset-block-end: 5%;
+    inset-inline-start: 10%;
+    background: var(--accent, #c9a75c);
+    opacity: 0.16;
+}
+
+.hero-v2__container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3.5rem;
+    margin-block-end: 3.5rem;
+}
+
+/* Content Area */
+.hero-v2__content {
+    max-inline-size: 620px;
+}
+
+.hero-v2__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(201, 167, 92, 0.35);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--accent, #c9a75c);
+    margin-block-end: 1.25rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-v2__badge-pulse {
+    inline-size: 8px;
+    block-size: 8px;
+    background: var(--accent, #c9a75c);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent, #c9a75c);
+}
+
+.hero-v2__title {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.25;
+    font-weight: 800;
+    color: #ffffff;
+    margin-block-end: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.hero-v2__title-gradient {
+    background: linear-gradient(135deg, #ffffff 40%, var(--accent, #c9a75c) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-v2__description {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-light, #cbd5e1);
+    max-inline-size: 560px;
+    margin-block-end: 2rem;
+}
+
+.hero-v2__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-block-end: 2rem;
+}
+
+.hero-v2__trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.hero-v2__trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light, #cbd5e1);
+}
+
+.hero-v2__trust-pill i {
+    color: var(--accent, #c9a75c);
+}
+
+/* Living Showcase Card */
+.hero-v2__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-v2__card-showcase {
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 480px;
+}
+
+.hero-v2__ring {
+    position: absolute;
+    inset: -14px;
+    border: 1px dashed rgba(201, 167, 92, 0.22);
+    border-radius: 28px;
+    pointer-events: none;
+    animation: heroRingBreath 8s ease-in-out infinite alternate;
+}
+
+.hero-v2__interactive-card {
+    background: linear-gradient(145deg, rgba(34, 55, 94, 0.8) 0%, rgba(27, 42, 74, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.4), 0 0 25px rgba(201, 167, 92, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    animation: heroCardBreath 6s ease-in-out infinite alternate;
+}
+
+.hero-v2__interactive-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201, 167, 92, 0.45);
+    box-shadow: 0 25px 55px rgba(15, 23, 42, 0.5), 0 0 35px rgba(201, 167, 92, 0.15);
+}
+
+.hero-v2__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block-end: 1rem;
+    margin-block-end: 1rem;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-v2__card-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hero-v2__card-logo {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 4px;
+}
+
+.hero-v2__card-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--accent, #c9a75c);
+}
+
+.hero-v2__card-name {
+    font-size: 0.95rem;
+    color: #ffffff;
+}
+
+.hero-v2__card-status {
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.hero-v2__card-status i {
+    font-size: 0.5rem;
+    animation: statusPulse 2s infinite;
+}
+
+/* Active Tracker Progress */
+.hero-v2__progress-box {
+    background: rgba(15, 23, 42, 0.45);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    margin-block-end: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-v2__progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--text-light, #cbd5e1);
+    margin-block-end: 0.5rem;
+}
+
+.hero-v2__progress-info strong {
+    color: var(--accent, #c9a75c);
+}
+
+.hero-v2__progress-track {
+    inline-size: 100%;
+    block-size: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.hero-v2__progress-bar {
+    block-size: 100%;
+    inline-size: calc(var(--progress, 0) * 1%);
+    background: linear-gradient(90deg, var(--accent, #c9a75c), #e5a93c);
+    border-radius: 6px;
+    transition: inline-size 0.5s ease;
+}
+
+.hero-v2__card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hero-v2__card-step {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.65rem 0.9rem;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-v2__card-step:hover,
+.hero-v2__card-step--active {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(201, 167, 92, 0.3);
+    transform: translateX(3px);
+}
+
+.hero-v2__step-icon {
+    inline-size: 34px;
+    block-size: 34px;
+    min-inline-size: 34px;
+    background: rgba(201, 167, 92, 0.15);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent, #c9a75c);
+    font-size: 0.85rem;
+}
+
+.hero-v2__step-info strong {
+    display: block;
+    font-size: 0.82rem;
+    color: #ffffff;
+}
+
+.hero-v2__step-info small {
+    color: var(--text-light, #cbd5e1);
+    font-size: 0.72rem;
+}
+
+/* Philosophy Bar */
+.hero-v2__philosophy-bar {
+    background: rgba(27, 42, 74, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.3);
+}
+
+.hero-v2__philosophy-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-block-size: 52px;
+    transition: transform 0.3s ease;
+}
+
+.hero-v2__philosophy-item:hover {
+    transform: translateY(-3px);
+}
+
+.hero-v2__philosophy-icon {
+    inline-size: 44px;
+    block-size: 44px;
+    min-inline-size: 44px;
+    background: rgba(201, 167, 92, 0.12);
+    border: 1px solid rgba(201, 167, 92, 0.25);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent, #c9a75c);
+    font-size: 1.15rem;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-v2__philosophy-item:hover .hero-v2__philosophy-icon {
+    background: rgba(201, 167, 92, 0.25);
+    border-color: rgba(201, 167, 92, 0.5);
+}
+
+.hero-v2__philosophy-title {
+    display: block;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.hero-v2__philosophy-desc {
+    color: var(--text-light, #cbd5e1);
+    font-size: 0.8rem;
+    margin: 0.15rem 0 0;
+}
+
+/* Animations */
+@keyframes heroCardBreath {
+    0% { transform: translateY(0); opacity: 0.96; }
+    100% { transform: translateY(-4px); opacity: 1; }
+}
+
+@keyframes heroRingBreath {
+    0% { opacity: 0.3; transform: scale(0.99); }
+    100% { opacity: 0.6; transform: scale(1.01); }
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .hero-v2__interactive-card,
+    .hero-v2__ring,
+    .hero-v2__philosophy-item,
+    .hero-v2__card-step,
+    .hero-v2__card-status i {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+    .hero-v2 {
+        min-height: auto;
+        padding-block-start: 8rem;
+    }
+
+    .hero-v2__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-v2__content {
+        margin-inline: auto;
+    }
+
+    .hero-v2__description {
+        margin-inline: auto;
+    }
+
+    .hero-v2__actions,
+    .hero-v2__trust-strip {
+        justify-content: center;
+    }
+
+    .hero-v2__philosophy-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-v2__philosophy-bar {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.25rem;
+    }
+
+    .hero-v2__trust-strip {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
