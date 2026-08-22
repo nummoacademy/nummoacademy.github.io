@@ -2,22 +2,23 @@
    NEMMO Academy — Home Page Scoped Styles (home.css)
    ========================================================================== */
 
+/* 1. Header & Glass Navbar (ثابت وواضح بالوضعين) */
 .page-home .site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(8, 19, 33, 0.85);
+    background: rgba(8, 19, 33, 0.90) !important;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(214, 167, 79, 0.15);
+    border-bottom: 1px solid rgba(214, 167, 79, 0.2) !important;
     padding: 0.75rem 0;
     transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .page-home .site-header--scrolled {
-    background: rgba(8, 19, 33, 0.96);
+    background: rgba(8, 19, 33, 0.98) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     padding: 0.5rem 0;
 }
@@ -32,10 +33,103 @@
     padding: 0 1.5rem;
 }
 
+.page-home .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.page-home .site-logo__img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.page-home .site-logo__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-home .site-logo__title {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.1;
+}
+
+.page-home .site-logo__subtitle {
+    color: #d6a74f !important;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.page-home .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-home .site-nav a {
+    color: #f1f5f9 !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+.page-home .site-nav a:hover,
+.page-home .site-nav a.is-active {
+    color: #d6a74f !important;
+}
+
+.page-home .site-nav a.is-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #d6a74f;
+    border-radius: 2px;
+}
+
+.page-home .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-home .theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(214, 167, 79, 0.3) !important;
+    color: #ffffff !important;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.page-home .theme-toggle-btn:hover {
+    background: rgba(214, 167, 79, 0.25) !important;
+    border-color: #d6a74f !important;
+    color: #d6a74f !important;
+}
+
+/* 2. Hero V2 Section */
 .page-home .hero-v2 {
     position: relative;
-    background: radial-gradient(circle at 50% 15%, #183459 0%, #0d1b30 50%, #081321 100%);
-    color: #ffffff;
+    background: radial-gradient(circle at 50% 15%, #183459 0%, #0d1b30 50%, #081321 100%) !important;
+    color: #ffffff !important;
     min-height: 100svh;
     display: flex;
     align-items: center;
@@ -99,12 +193,12 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(214, 167, 79, 0.35);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(214, 167, 79, 0.35) !important;
     padding: 0.35rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
-    color: #d6a74f;
+    color: #d6a74f !important;
     margin-bottom: 1.25rem;
     backdrop-filter: blur(8px);
 }
@@ -121,7 +215,7 @@
     font-size: clamp(2.2rem, 4.2vw, 3.4rem);
     line-height: 1.25;
     font-weight: 800;
-    color: #ffffff;
+    color: #ffffff !important;
     margin-bottom: 1.25rem;
     letter-spacing: -0.01em;
 }
@@ -135,7 +229,7 @@
 .page-home .hero-v2__description {
     font-size: 1.05rem;
     line-height: 1.75;
-    color: #cbd5e1;
+    color: #cbd5e1 !important;
     max-width: 560px;
     margin-bottom: 2rem;
 }
@@ -162,16 +256,16 @@
 }
 
 .page-home .btn-hero-glass {
-    background: rgba(255, 255, 255, 0.06) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     gap: 0.65rem;
 }
 
 .page-home .btn-hero-glass:hover {
-    background: rgba(255, 255, 255, 0.14) !important;
+    background: rgba(255, 255, 255, 0.16) !important;
     border-color: #d6a74f !important;
     color: #ffffff !important;
     transform: translateY(-3px);
@@ -188,13 +282,14 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: #cbd5e1;
+    color: #cbd5e1 !important;
 }
 
 .page-home .hero-v2__trust-pill i {
-    color: #d6a74f;
+    color: #d6a74f !important;
 }
 
+/* 3. الشعار العائم */
 .page-home .hero-v2__visual {
     display: flex;
     justify-content: center;
@@ -252,11 +347,12 @@
     filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
 }
 
+/* 4. شريط الفلسفة التعليمية */
 .page-home .hero-v2__philosophy-bar {
-    background: rgba(16, 33, 63, 0.7);
+    background: rgba(16, 33, 63, 0.85) !important;
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 20px;
     padding: 1.5rem 2.25rem;
     display: grid;
@@ -280,33 +376,110 @@
     width: 46px;
     height: 46px;
     min-width: 46px;
-    background: rgba(214, 167, 79, 0.12);
-    border: 1px solid rgba(214, 167, 79, 0.3);
+    background: rgba(214, 167, 79, 0.15) !important;
+    border: 1px solid rgba(214, 167, 79, 0.35) !important;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d6a74f;
+    color: #d6a74f !important;
     font-size: 1.2rem;
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .page-home .hero-v2__philosophy-item:hover .hero-v2__philosophy-icon {
-    background: rgba(214, 167, 79, 0.25);
-    border-color: #d6a74f;
+    background: rgba(214, 167, 79, 0.3) !important;
+    border-color: #d6a74f !important;
 }
 
 .page-home .hero-v2__philosophy-title {
     display: block;
-    color: #ffffff;
+    color: #ffffff !important;
     font-size: 0.95rem;
     font-weight: 700;
 }
 
 .page-home .hero-v2__philosophy-desc {
-    color: #cbd5e1;
+    color: #cbd5e1 !important;
     font-size: 0.8rem;
     margin: 0.15rem 0 0;
+}
+
+/* 5. قسم قيمنا باللون النيلي الفخم */
+.page-home .about-value {
+    background: #152238 !important;
+    border: 1px solid rgba(201, 162, 39, 0.25) !important;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+}
+
+.page-home .about-value:hover {
+    transform: translateY(-5px);
+    border-color: #d6a74f !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.page-home .about-value__icon {
+    background: rgba(214, 167, 79, 0.15) !important;
+    border: 1px solid rgba(214, 167, 79, 0.35) !important;
+    color: #d6a74f !important;
+}
+
+.page-home .about-value h4 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.page-home .about-value p {
+    color: #cbd5e1 !important;
+}
+
+/* 6. ترتيب أعمدة رؤيتنا ورسالتنا */
+.page-home .about-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.page-home .about-pillar {
+    background: #ffffff;
+    border: 1px solid rgba(27, 42, 74, 0.1);
+    border-radius: 20px;
+    padding: 2.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.page-home .about-pillar__label {
+    color: #d6a74f;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.page-home .about-pillar h3 {
+    color: #1B2A4A;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-home .about-pillar p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+[data-theme="dark"] .page-home .about-pillar {
+    background: #1E293B !important;
+    border-color: #334155 !important;
+}
+
+[data-theme="dark"] .page-home .about-pillar h3 {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .page-home .about-pillar p {
+    color: #cbd5e1 !important;
 }
 
 @keyframes heroFloatSoft {
@@ -326,6 +499,7 @@
     .page-home .hero-v2__actions, .page-home .hero-v2__trust-strip { justify-content: center; }
     .page-home .hero-v2__visual { order: -1; }
     .page-home .hero-v2__philosophy-bar { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 1.5rem; }
+    .page-home .about-pillars { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
