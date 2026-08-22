@@ -33,9 +33,11 @@
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- CSS Hierarchy: المشترك أولاً ثم الخاص بالفارسية -->
     <link rel="stylesheet" href="../../assets/css/variables.css">
     <link rel="stylesheet" href="../../assets/css/layout.css">
     <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/persian.css">
 
 </head>
 
@@ -90,7 +92,7 @@
 
 
 <!-- ==========================================
-     Hero (مع حجم شعار مضبوط 100%)
+     Hero Section
 ========================================== -->
 
 <section class="hero">
@@ -103,7 +105,6 @@
                 src="../../assets/images/logo.png"
                 alt="NEMMO Academy"
                 class="hero__logo"
-                style="max-width: 110px; height: auto;"
             >
 
             <span class="hero__eyebrow">
@@ -202,7 +203,7 @@
 
 
 <!-- ==========================================
-     Learning Journey (المسار المداري التفاعلي الشغال)
+     Learning Journey (المسار المداري التفاعلي مع التشغيل التلقائي)
 ========================================== -->
 
 <section class="section journey-section">
@@ -414,7 +415,7 @@
 
 
 <!-- ==========================================
-     Instructor & Verified Credentials (الأستاذة والشهادات)
+     Instructor & Verified Credentials (الصور الصحيحة)
 ========================================== -->
 
 <section id="instructor" class="section instructor-section">
@@ -426,7 +427,7 @@
             <div class="instructor-media-col">
                 <div class="instructor-image-frame">
                     <img 
-                        src="../../assets/images/instructor-zahraa.jpg" 
+                        src="../../assets/images/teacher.jpg" 
                         alt="الأستاذة زهراء سعد أحمد"
                         class="instructor-main-img"
                     >
@@ -454,7 +455,7 @@
                 <div class="instructor-title-block">
                     <span class="instructor-eyebrow">المشرفة التعليمية والمدربة</span>
                     <h2 class="instructor-name">الأستاذة زهراء سعد أحمد</h2>
-                    <p class="instructor-role-title">مدربة وعمدة مريح برنامج اللغة الفارسية في أكاديمية نمو</p>
+                    <p class="instructor-role-title">مدربة ومعدة منهج برنامج اللغة الفارسية في أكاديمية نمو</p>
                 </div>
 
                 <div class="instructor-block-summary">
@@ -482,7 +483,7 @@
                                     <p class="credential-row__issuer">المؤسسة التعليمية حكيم - إصفهان</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/cert-mba.jpg" data-cert-title="شهادة ماجستير إدارة الأعمال (MBA)">
+                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/certificate-1.png" data-cert-title="شهادة ماجستير إدارة الأعمال (MBA)">
                                 <i data-lucide="eye"></i> معاينة الوثيقة
                             </button>
                         </div>
@@ -495,7 +496,7 @@
                                     <p class="credential-row__issuer">النقابة العامة للعاملين في الخدمات الصحية والمهن الطبية</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/cert-union.jpg" data-cert-title="شهادة العضوية النقابية">
+                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/certificate-2.png" data-cert-title="شهادة العضوية النقابية">
                                 <i data-lucide="eye"></i> معاينة الوثيقة
                             </button>
                         </div>
@@ -508,7 +509,7 @@
                                     <p class="credential-row__issuer">تقديراً للجهود في إدارة مركز الدكتور كرماني</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/cert-appreciation.jpg" data-cert-title="شهادة شكر وتقدير">
+                            <button type="button" class="btn-cert-view js-view-cert" data-cert-src="../../assets/images/certificate-3.png" data-cert-title="شهادة شكر وتقدير">
                                 <i data-lucide="eye"></i> معاينة الوثيقة
                             </button>
                         </div>
@@ -524,7 +525,7 @@
 
 
 <!-- ==========================================
-     Sample Lessons Carousel (فيديوهات الإنستغرام)
+     Sample Lessons Carousel
 ========================================== -->
 
 <section class="section section-light">
@@ -757,7 +758,7 @@
 
         </div>
 
-        <!-- All Inclusions Bar -->
+        <!-- All Inclusions Bar (أيقونات ذهبية بالكامل) -->
         <div class="all-inclusions-bar">
             <h3 class="all-inclusions-bar__title">كل باقة تتضمن:</h3>
             <div class="all-inclusions-bar__grid">
@@ -1045,8 +1046,8 @@
             <p id="modalDescription"></p>
         </div>
         <div class="modal-body" style="text-align: right; color: #cbd5e1;">
-            <div class="modal-outcome-box" style="margin-bottom: 1.25rem; padding: 1rem; background: rgba(214, 167, 79, 0.1); border-radius: 12px; border: 1px solid rgba(214, 167, 79, 0.25);">
-                <strong style="color: #d6a74f; display: block; margin-bottom: 0.25rem;">النتيجة المباشرة:</strong>
+            <div class="modal-outcome-box" style="margin-bottom: 1.25rem; padding: 1rem; background: rgba(201, 162, 39, 0.1); border-radius: 12px; border: 1px solid rgba(201, 162, 39, 0.25);">
+                <strong style="color: #c9a75c; display: block; margin-bottom: 0.25rem;">النتيجة المباشرة:</strong>
                 <p id="modalOutcome" style="margin: 0; color: #ffffff;"></p>
             </div>
             <h4 style="color: #ffffff; margin-bottom: 0.75rem;">المحاور والدروس المتضمنة:</h4>
@@ -1086,7 +1087,7 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="../../assets/js/main.js"></script>
 
-<!-- Persian Page Integrated JavaScript -->
+<!-- Persian Page Integrated JavaScript (مع الدوران التلقائي) -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     if (typeof lucide !== "undefined") {
@@ -1103,6 +1104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentStepIndex = 0;
     const totalSteps = stepNodes.length;
+    let autoPlayTimer = null;
 
     function goToStep(index) {
         if (index < 0) index = totalSteps - 1;
@@ -1126,19 +1128,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayTimer = setInterval(() => {
+            goToStep(currentStepIndex + 1);
+        }, 4000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
     stepNodes.forEach((node) => {
         node.addEventListener("click", function () {
             const step = parseInt(this.getAttribute("data-step"), 10);
             goToStep(step);
+            startAutoPlay();
         });
     });
 
     if (nextBtn) {
-        nextBtn.addEventListener("click", () => goToStep(currentStepIndex + 1));
+        nextBtn.addEventListener("click", () => { goToStep(currentStepIndex + 1); startAutoPlay(); });
     }
     if (prevBtn) {
-        prevBtn.addEventListener("click", () => goToStep(currentStepIndex - 1));
+        prevBtn.addEventListener("click", () => { goToStep(currentStepIndex - 1); startAutoPlay(); });
     }
+
+    startAutoPlay();
 
     // 2. مودال تفاصيل الباقات (اعرف المزيد)
     const packagesData = {
