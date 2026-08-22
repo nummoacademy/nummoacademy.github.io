@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NEMMO Academy | أكاديمية نمو التعليمية</title>
-<script>
+    <script>
       (function () {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -121,57 +121,162 @@
 
 
 <!-- ==========================================
-     Hero
+     Session 4.1 — Hero Section (Living UI & Story)
 ========================================== -->
 
-<section class="hero">
-
-    <div class="container">
-
-        <div class="hero__content">
-
-            <img
-                class="hero__logo"
-                src="assets/images/logo.png"
-                alt="NEMMO Academy"
-            >
-
-            <span class="hero__eyebrow">
-                نتعلم اليوم... لنصنع فرص الغد.
-            </span>
-
-            <h1 class="hero__title">
-                منصة تعليمية عراقية
-                تبني المعرفة وتصنع المستقبل
-            </h1>
-
-            <p class="hero__tagline">
-                نمنح الطالب تجربة تعليمية متكاملة تجمع بين الدروس المصورة،
-                الكتب التعليمية، الصوتيات، والتطبيق العملي ضمن بيئة تعليمية حديثة.
-            </p>
-
-            <div class="hero__actions">
-
-                <a
-                    href="#programs"
-                    class="btn btn-primary"
-                >
-                    استعراض البرامج
-                </a>
-
-                <a
-                    href="#contact"
-                    class="btn btn-secondary"
-                >
-                    تواصل معنا
-                </a>
-
-            </div>
-
-        </div>
-
+<section class="hero-v2" id="hero">
+    <!-- Ambient Multi-Layer Lighting (Pure CSS) -->
+    <div class="hero-v2__ambient" aria-hidden="true">
+        <div class="hero-v2__glow hero-v2__glow--primary"></div>
+        <div class="hero-v2__glow hero-v2__glow--gold"></div>
     </div>
 
+    <div class="container hero-v2__wrapper">
+        <div class="hero-v2__container">
+            <!-- المحتوى النصي والدعوة للإجراء -->
+            <div class="hero-v2__content">
+                <div class="hero-v2__badge">
+                    <span class="hero-v2__badge-pulse"></span>
+                    <span>منصة نُمو التعليمية • استثمار لمستقبلك</span>
+                </div>
+
+                <h1 class="hero-v2__title">
+                    تعلّم اليوم بتطبيق واقعي... <br>
+                    <span class="hero-v2__title-gradient">وافتح أبواب فرص الغد</span>
+                </h1>
+
+                <p class="hero-v2__description">
+                    أكاديمية تعليمية متكاملة تنقلك من المعرفة النظرية إلى الممارسة الفعلية؛ مسارات مدروسة، مناهج مساندة، ومتابعة حقيقية لتحقيق أهدافك في الدراسة والعمل والحياة.
+                </p>
+
+                <div class="hero-v2__actions">
+                    <a href="programs.html" class="btn btn-primary hero-v2__btn-primary">
+                        <span>استكشف البرامج</span>
+                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                    <button type="button" class="btn btn-secondary hero-v2__btn-secondary js-open-registration" data-program="عام - أكاديمية نُمو">
+                        <i class="fa-regular fa-circle-check" aria-hidden="true"></i>
+                        <span>اشترك الآن</span>
+                    </button>
+                </div>
+
+                <!-- شريط المصداقية والثقة -->
+                <div class="hero-v2__trust-strip">
+                    <div class="hero-v2__trust-pill">
+                        <i class="fa-solid fa-check-double" aria-hidden="true"></i>
+                        <span>تطبيق عملي مباشر</span>
+                    </div>
+                    <div class="hero-v2__trust-pill">
+                        <i class="fa-solid fa-shield-heart" aria-hidden="true"></i>
+                        <span>متابعة مستمرة خطوة بخطوة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- البطاقة التفاعلية الحية (Living UI Card) -->
+            <div class="hero-v2__visual">
+                <div class="hero-v2__card-showcase">
+                    <div class="hero-v2__ring" aria-hidden="true"></div>
+
+                    <div class="hero-v2__interactive-card">
+                        <div class="hero-v2__card-header">
+                            <div class="hero-v2__card-brand">
+                                <img src="assets/images/logo.png" alt="NEMMO Academy" class="hero-v2__card-logo" width="44" height="44">
+                                <div>
+                                    <span class="hero-v2__card-label">نظام التعلم الذكي</span>
+                                    <strong class="hero-v2__card-name">NEMMO Learning Path</strong>
+                                </div>
+                            </div>
+                            <span class="hero-v2__card-status">
+                                <i class="fa-solid fa-circle" aria-hidden="true"></i>
+                                المشرف متصل الآن
+                            </span>
+                        </div>
+
+                        <!-- خط التقدم التفاعلي (CSS Variable) -->
+                        <div class="hero-v2__progress-box">
+                            <div class="hero-v2__progress-info">
+                                <span>الدرس الحالي: المحادثة التفاعلية</span>
+                                <strong>38% مكتمل</strong>
+                            </div>
+                            <div class="hero-v2__progress-track" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100">
+                                <div class="hero-v2__progress-bar" style="--progress: 38;"></div>
+                            </div>
+                        </div>
+
+                        <div class="hero-v2__card-body">
+                            <div class="hero-v2__card-step hero-v2__card-step--active">
+                                <div class="hero-v2__step-icon"><i class="fa-solid fa-play" aria-hidden="true"></i></div>
+                                <div class="hero-v2__step-info">
+                                    <strong>دروس تفاعلية مركزة</strong>
+                                    <small>شرح عملي مبسط خطوة بخطوة</small>
+                                </div>
+                            </div>
+
+                            <div class="hero-v2__card-step">
+                                <div class="hero-v2__step-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+                                <div class="hero-v2__step-info">
+                                    <strong>حقائب ومطبوعات تعليمية</strong>
+                                    <small>كتب وملازم تصل لباب بيتك</small>
+                                </div>
+                            </div>
+
+                            <div class="hero-v2__card-step">
+                                <div class="hero-v2__step-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+                                <div class="hero-v2__step-info">
+                                    <strong>تواصل وتصحيح مباشر</strong>
+                                    <small>مجتمع تفاعلي وإشراف مستمر</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط الفلسفة التعليمية (Philosophy Bar) -->
+        <div class="hero-v2__philosophy-bar">
+            <div class="hero-v2__philosophy-item">
+                <div class="hero-v2__philosophy-icon">
+                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                </div>
+                <div class="hero-v2__philosophy-text">
+                    <strong class="hero-v2__philosophy-title">برامج متخصصة</strong>
+                    <p class="hero-v2__philosophy-desc">برامج تعليمية مصممة بعناية</p>
+                </div>
+            </div>
+
+            <div class="hero-v2__philosophy-item">
+                <div class="hero-v2__philosophy-icon">
+                    <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                </div>
+                <div class="hero-v2__philosophy-text">
+                    <strong class="hero-v2__philosophy-title">تعلم عملي</strong>
+                    <p class="hero-v2__philosophy-desc">معرفة قابلة للتطبيق في الحياة</p>
+                </div>
+            </div>
+
+            <div class="hero-v2__philosophy-item">
+                <div class="hero-v2__philosophy-icon">
+                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                </div>
+                <div class="hero-v2__philosophy-text">
+                    <strong class="hero-v2__philosophy-title">مسارات واضحة</strong>
+                    <p class="hero-v2__philosophy-desc">تعلم منظم نحو أهدافك</p>
+                </div>
+            </div>
+
+            <div class="hero-v2__philosophy-item">
+                <div class="hero-v2__philosophy-icon">
+                    <i class="fa-solid fa-infinity" aria-hidden="true"></i>
+                </div>
+                <div class="hero-v2__philosophy-text">
+                    <strong class="hero-v2__philosophy-title">تجربة مرنة</strong>
+                    <p class="hero-v2__philosophy-desc">تعلم بالطريقة والوقت المناسبين</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
