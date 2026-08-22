@@ -4,7 +4,8 @@
 
 /* 0. Base Page Safety */
 .page-home {
-    overflow-x: hidden;
+    overflow-x: hidden; /* Fallback */
+    overflow-x: clip;
 }
 
 /* 1. Header & Glass Navbar (ثابت وواضح بالوضعين) */
