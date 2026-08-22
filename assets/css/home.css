@@ -1,0 +1,335 @@
+/* ==========================================================================
+   NEMMO Academy — Home Page Scoped Styles (home.css)
+   ========================================================================== */
+
+.page-home .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(8, 19, 33, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(214, 167, 79, 0.15);
+    padding: 0.75rem 0;
+    transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-home .site-header--scrolled {
+    background: rgba(8, 19, 33, 0.96);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+}
+
+.page-home .site-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.page-home .hero-v2 {
+    position: relative;
+    background: radial-gradient(circle at 50% 15%, #183459 0%, #0d1b30 50%, #081321 100%);
+    color: #ffffff;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
+    overflow: hidden;
+}
+
+.page-home .hero-v2__ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-home .hero-v2__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.45;
+}
+
+.page-home .hero-v2__glow--primary {
+    width: 650px;
+    height: 650px;
+    top: -100px;
+    right: 5%;
+    background: rgba(30, 64, 175, 0.4);
+}
+
+.page-home .hero-v2__glow--gold {
+    width: 450px;
+    height: 450px;
+    bottom: 5%;
+    left: 10%;
+    background: rgba(214, 167, 79, 0.2);
+}
+
+.page-home .hero-v2__wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.page-home .hero-v2__container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 3.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.page-home .hero-v2__content {
+    max-width: 620px;
+}
+
+.page-home .hero-v2__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(214, 167, 79, 0.35);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #d6a74f;
+    margin-bottom: 1.25rem;
+    backdrop-filter: blur(8px);
+}
+
+.page-home .hero-v2__badge-pulse {
+    width: 8px;
+    height: 8px;
+    background: #d6a74f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #d6a74f;
+}
+
+.page-home .hero-v2__title {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.25;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-home .hero-v2__title-gradient {
+    background: linear-gradient(135deg, #ffffff 40%, #d6a74f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-home .hero-v2__description {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #cbd5e1;
+    max-width: 560px;
+    margin-bottom: 2rem;
+}
+
+.page-home .hero-v2__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.page-home .btn-hero-gold {
+    background: linear-gradient(135deg, #d6a74f 0%, #b88628 100%) !important;
+    color: #081321 !important;
+    font-weight: 800 !important;
+    border: none !important;
+    box-shadow: 0 8px 25px rgba(214, 167, 79, 0.35) !important;
+    gap: 0.65rem;
+}
+
+.page-home .btn-hero-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(214, 167, 79, 0.5) !important;
+}
+
+.page-home .btn-hero-glass {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    gap: 0.65rem;
+}
+
+.page-home .btn-hero-glass:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: #d6a74f !important;
+    color: #ffffff !important;
+    transform: translateY(-3px);
+}
+
+.page-home .hero-v2__trust-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.page-home .hero-v2__trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.page-home .hero-v2__trust-pill i {
+    color: #d6a74f;
+}
+
+.page-home .hero-v2__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-home .hero-v2__visual-core {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-home .hero-v2__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(214, 167, 79, 0.25);
+    pointer-events: none;
+}
+
+.page-home .hero-v2__ring--outer {
+    width: 310px;
+    height: 310px;
+    border-style: dashed;
+    animation: heroSpinSlow 35s linear infinite;
+}
+
+.page-home .hero-v2__ring--inner {
+    width: 250px;
+    height: 250px;
+    border-color: rgba(56, 189, 248, 0.2);
+    animation: heroSpinSlow 25s linear infinite reverse;
+}
+
+.page-home .hero-v2__pedestal {
+    position: absolute;
+    bottom: -15px;
+    width: 220px;
+    height: 35px;
+    background: radial-gradient(ellipse at center, rgba(214, 167, 79, 0.5) 0%, transparent 70%);
+    filter: blur(10px);
+}
+
+.page-home .hero-v2__logo-box {
+    position: relative;
+    z-index: 2;
+    animation: heroFloatSoft 6s ease-in-out infinite alternate;
+}
+
+.page-home .hero-v2__floating-logo {
+    max-width: 220px;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+}
+
+.page-home .hero-v2__philosophy-bar {
+    background: rgba(16, 33, 63, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.page-home .hero-v2__philosophy-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.page-home .hero-v2__philosophy-item:hover {
+    transform: translateY(-3px);
+}
+
+.page-home .hero-v2__philosophy-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    background: rgba(214, 167, 79, 0.12);
+    border: 1px solid rgba(214, 167, 79, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d6a74f;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.page-home .hero-v2__philosophy-item:hover .hero-v2__philosophy-icon {
+    background: rgba(214, 167, 79, 0.25);
+    border-color: #d6a74f;
+}
+
+.page-home .hero-v2__philosophy-title {
+    display: block;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.page-home .hero-v2__philosophy-desc {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    margin: 0.15rem 0 0;
+}
+
+@keyframes heroFloatSoft {
+    0% { transform: translateY(-5px); }
+    100% { transform: translateY(5px); }
+}
+
+@keyframes heroSpinSlow {
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 991px) {
+    .page-home .site-nav { display: none; }
+    .page-home .hero-v2 { min-height: auto; padding-top: 8rem; }
+    .page-home .hero-v2__container { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+    .page-home .hero-v2__description, .page-home .hero-v2__content { margin: 0 auto; }
+    .page-home .hero-v2__actions, .page-home .hero-v2__trust-strip { justify-content: center; }
+    .page-home .hero-v2__visual { order: -1; }
+    .page-home .hero-v2__philosophy-bar { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+    .page-home .hero-v2__title { font-size: 2.1rem; }
+    .page-home .hero-v2__philosophy-bar { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.25rem; }
+    .page-home .hero-v2__trust-strip { flex-direction: column; gap: 0.75rem; }
+}
