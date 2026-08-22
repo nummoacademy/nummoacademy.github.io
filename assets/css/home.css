@@ -2,6 +2,11 @@
    NEMMO Academy — Home Page Scoped Styles (home.css)
    ========================================================================== */
 
+/* 0. Base Page Safety */
+.page-home {
+    overflow-x: hidden;
+}
+
 /* 1. Header & Glass Navbar (ثابت وواضح بالوضعين) */
 .page-home .site-header {
     position: fixed;
@@ -136,6 +141,7 @@
     padding-top: 7.5rem;
     padding-bottom: 3.5rem;
     overflow: hidden;
+    max-width: 100%;
 }
 
 .page-home .hero-v2__ambient {
@@ -143,6 +149,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
+    overflow: hidden;
 }
 
 .page-home .hero-v2__glow {
@@ -153,16 +160,16 @@
 }
 
 .page-home .hero-v2__glow--primary {
-    width: 650px;
-    height: 650px;
+    width: min(650px, 90vw);
+    height: min(650px, 90vw);
     top: -100px;
     right: 5%;
     background: rgba(30, 64, 175, 0.4);
 }
 
 .page-home .hero-v2__glow--gold {
-    width: 450px;
-    height: 450px;
+    width: min(450px, 80vw);
+    height: min(450px, 80vw);
     bottom: 5%;
     left: 10%;
     background: rgba(214, 167, 79, 0.2);
@@ -294,12 +301,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .page-home .hero-v2__visual-core {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: min(320px, 80vw);
+    height: min(320px, 80vw);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -313,15 +322,15 @@
 }
 
 .page-home .hero-v2__ring--outer {
-    width: 310px;
-    height: 310px;
+    width: 95%;
+    height: 95%;
     border-style: dashed;
     animation: heroSpinSlow 35s linear infinite;
 }
 
 .page-home .hero-v2__ring--inner {
-    width: 250px;
-    height: 250px;
+    width: 78%;
+    height: 78%;
     border-color: rgba(56, 189, 248, 0.2);
     animation: heroSpinSlow 25s linear infinite reverse;
 }
@@ -329,7 +338,7 @@
 .page-home .hero-v2__pedestal {
     position: absolute;
     bottom: -15px;
-    width: 220px;
+    width: 70%;
     height: 35px;
     background: radial-gradient(ellipse at center, rgba(214, 167, 79, 0.5) 0%, transparent 70%);
     filter: blur(10px);
@@ -342,7 +351,7 @@
 }
 
 .page-home .hero-v2__floating-logo {
-    max-width: 220px;
+    max-width: min(220px, 55vw);
     height: auto;
     filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
 }
@@ -504,6 +513,8 @@
 
 @media (max-width: 640px) {
     .page-home .hero-v2__title { font-size: 2.1rem; }
+    .page-home .hero-v2__actions { flex-direction: column; width: 100%; }
+    .page-home .hero-v2__actions .btn { width: 100%; }
     .page-home .hero-v2__philosophy-bar { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.25rem; }
     .page-home .hero-v2__trust-strip { flex-direction: column; gap: 0.75rem; }
 }
