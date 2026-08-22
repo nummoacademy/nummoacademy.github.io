@@ -682,3 +682,18 @@
     .page-persian .all-inclusions-bar { padding: 2rem 1.25rem; }
     .page-persian .all-inclusions-bar__grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ضبط المسار المداري في شاشات الموبايل */
+@media (max-width: 600px) {
+    .page-persian .journey-orbit-disc {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 1.5rem;
+    }
+    .page-persian .journey-step-node {
+        padding: 0.15rem 0.4rem;
+    }
+    .page-persian .journey-step-node .step-txt {
+        font-size: 0.62rem;
+    }
+}
