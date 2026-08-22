@@ -1,7 +1,7 @@
 /* ==========================================
    NEMMO Academy
    Main JavaScript
-   Version: MVP v2.8 (Fixed Modal Script)
+   Version: MVP v3.0 (Session 4.1 Integration)
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,12 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 5. التحكم في النافذة المنبثقة للتسجيل (Registration Pop-up Modal)
+    // 5. تأثير الترويسة الزجاجية عند التمرير (Session 4.1 Sticky Header)
+    const siteHeader = document.querySelector(".site-header");
+    if (siteHeader) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 20) {
+                siteHeader.classList.add("site-header--scrolled");
+            } else {
+                siteHeader.classList.remove("site-header--scrolled");
+            }
+        }, { passive: true });
+    }
+
+    // 6. التحكم في النافذة المنبثقة للتسجيل (Registration Pop-up Modal)
     const modal = document.getElementById("registrationModal");
     const form = document.getElementById("registrationForm");
     const errorMsg = document.getElementById("registrationError");
 
-    const openBtns = document.querySelectorAll(".js-open-registration, .js-open-modal, [data-registration-open]");
+    const openBtns = document.querySelectorAll(".js-open-registration, .js-open-modal, [data-registration-open], [data-open-modal='registrationModal'], .js-register-trigger");
     const closeBtns = document.querySelectorAll(".js-close-registration, [data-modal-close]");
 
     const WHATSAPP_NUMBER = "9647770300029"; // رقم المبيعات الرسمي
@@ -92,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden"; // منع التمرير الخلفي أثناء تفعيل النافذة
+        document.body.style.overflow = "hidden";
 
         // تحديد البرنامج تلقائياً
         const programSelect = document.getElementById("registrationProgram") || document.getElementById("registration-program");
@@ -162,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 6. معالجة إرسال البيانات عبر الواتساب
+    // 7. معالجة إرسال البيانات عبر الواتساب
     if (form) {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -214,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
 // ==========================================
 // Package Details Modal Controller (Session 3.3)
 // ==========================================
@@ -371,7 +384,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 regModal.classList.add('is-open');
                 regModal.setAttribute('aria-hidden', 'false');
 
-                // تحديد الباقة تلقائياً في القائمة المنسدلة للنموذج
                 const pkgSelect = regModal.querySelector('select[name="package"]');
                 if (pkgSelect) {
                     for (let option of pkgSelect.options) {
@@ -409,7 +421,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let resumeTimeout = null;
     let isVisible = false;
 
-    // المتابعة الديناميكية لتفضيل تقليل الحركة
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let prefersReducedMotion = motionQuery.matches;
 
@@ -427,7 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function goToStep(index, shouldFocus = false) {
         currentStep = (index + totalSteps) % totalSteps;
 
-        // تحديث حالة العقد والوصولية الكاملة
         nodes.forEach((node, i) => {
             const isActive = i === currentStep;
             node.classList.toggle('is-active', isActive);
@@ -439,17 +449,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // تحديث الشرائح (بدون reflow)
         slides.forEach((slide, i) => {
             slide.classList.toggle('is-active', i === currentStep);
         });
 
-        // تحديث العداد
         if (currentNumElem) {
             currentNumElem.textContent = String(currentStep + 1).padStart(2, '0');
         }
 
-        // تحديث شريط التقدم وقيمته في WAI-ARIA
         if (progressBar) {
             progressBar.style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
         }
@@ -457,7 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
             progressTrack.setAttribute('aria-valuenow', currentStep + 1);
         }
 
-        // تحديث مسار SVG الدائري
         if (progressPath) {
             const ratio = (currentStep + 1) / totalSteps;
             progressPath.style.strokeDashoffset = maxDashOffset - (maxDashOffset * ratio);
@@ -490,7 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // أزرار التنقل
     if (btnNext) {
         btnNext.addEventListener('click', () => {
             goToStep(currentStep + 1);
@@ -505,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // دعم لوحة المفاتيح الكامل لـ WAI-ARIA TabList
     nodes.forEach((node, idx) => {
         node.addEventListener('click', () => {
             goToStep(idx);
@@ -516,10 +520,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let targetIdx = null;
 
             switch (e.key) {
-                case 'ArrowLeft': // التالي في سياق RTL
+                case 'ArrowLeft':
                     targetIdx = currentStep + 1;
                     break;
-                case 'ArrowRight': // السابق في سياق RTL
+                case 'ArrowRight':
                     targetIdx = currentStep - 1;
                     break;
                 case 'Home':
@@ -546,7 +550,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // دعم السحب باللمس للأجهزة الذكية (Touch Swipe)
     if (swipeArea) {
         let touchStartX = 0;
         let touchEndX = 0;
@@ -567,7 +570,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // Intersection Observer لإيقاف وتشغيل الـ Auto Play
     if (sectionElem && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -587,7 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoPlay();
     }
 
-    // التهيئة الأولى
     goToStep(0);
 });
 
@@ -649,7 +650,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // فتح النافذة عبر أزرار معاينة الوثيقة
     certBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const src = btn.getAttribute('data-cert-src');
@@ -658,7 +658,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // تفاعل التكبير بالنقر المزدوج على الموبايل والنقر العادي على الحاسوب
     if (zoomContainer) {
         zoomContainer.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -677,19 +676,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // أزرار الإغلاق
     closeBtns.forEach(btn => {
         btn.addEventListener('click', closeLightbox);
     });
 
-    // الإغلاق عند النقر خارج المحتوى (على الخلفية المعتمة)
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target.classList.contains('cert-lightbox__backdrop')) {
             closeLightbox();
         }
     });
 
-    // الإغلاق بزر Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
             closeLightbox();
