@@ -1,7 +1,5 @@
 /* ==========================================
-   NEMMO Academy
-   Main JavaScript
-   Version: MVP v3.0 (Session 4.1 Integration)
+   NEMMO Academy - Main JavaScript (MVP Final)
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -17,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         lucide.createIcons();
     }
 
-    // 3. تبديل الوضع الليلي / النهاري (Dark / Light Theme Toggle)
+    // 3. تبديل الوضع الليلي / النهاري
     const themeToggleBtn = document.getElementById("themeToggle");
     const moonIcon = document.querySelector(".moon-icon");
     const sunIcon = document.querySelector(".sun-icon");
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 4. السحب والتمرير السلس (Smooth Scroll)
+    // 4. السحب والتمرير السلس
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (event) => {
             const targetId = link.getAttribute("href");
@@ -76,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 5. تأثير الترويسة الزجاجية عند التمرير (Session 4.1 Sticky Header)
+    // 5. تأثير الترويسة الزجاجية عند التمرير
     const siteHeader = document.querySelector(".site-header");
     if (siteHeader) {
         window.addEventListener("scroll", () => {
@@ -88,17 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }, { passive: true });
     }
 
-    // 6. التحكم في النافذة المنبثقة للتسجيل (Registration Pop-up Modal)
+    // 6. التحكم في النافذة المنبثقة للتسجيل
     const modal = document.getElementById("registrationModal");
     const form = document.getElementById("registrationForm");
     const errorMsg = document.getElementById("registrationError");
 
-    const openBtns = document.querySelectorAll(".js-open-registration, .js-open-modal, [data-registration-open], [data-open-modal='registrationModal'], .js-register-trigger");
+    const openBtns = document.querySelectorAll(".js-open-registration, .js-open-modal, [data-registration-open]");
     const closeBtns = document.querySelectorAll(".js-close-registration, [data-modal-close]");
 
     const WHATSAPP_NUMBER = "9647770300029"; // رقم المبيعات الرسمي
 
-    // فتح النافذة
     function openRegistrationModal(programName = "", packageName = "") {
         if (!modal) return;
 
@@ -106,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
 
-        // تحديد البرنامج تلقائياً
         const programSelect = document.getElementById("registrationProgram") || document.getElementById("registration-program");
         if (programSelect && programName) {
             for (let option of programSelect.options) {
@@ -117,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // تحديد الباقة تلقائياً
         if (packageName) {
             const packageRadios = modal.querySelectorAll('input[name="package"]');
             packageRadios.forEach(radio => {
@@ -128,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // إغلاق النافذة
     function closeRegistrationModal() {
         if (!modal) return;
 
@@ -142,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ربط كافة أزرار التفعيل
     openBtns.forEach(btn => {
         btn.addEventListener("click", function (e) {
             e.preventDefault();
@@ -152,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ربط أزرار الإغلاق والخلفية المعتمة
     closeBtns.forEach(btn => {
         btn.addEventListener("click", function (e) {
             e.preventDefault();
@@ -206,7 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 errorMsg.style.display = "none";
             }
 
-            // صياغة الرسالة الموجهة للواتساب
             const whatsappMessage = `طلب تسجيل جديد - NEMMO Academy 🎓\n\n` +
                                     `👤 الاسم الثلاثي: ${name}\n` +
                                     `📞 رقم الهاتف: ${phone}\n` +
@@ -225,470 +216,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-});
-
-// ==========================================
-// Package Details Modal Controller (Session 3.3)
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const packagesData = {
-        basics: {
-            title: 'باقة الأساسيات',
-            badge: 'المسار التأسيسي - للمبتدئين',
-            desc: 'لمن يريد البدء بتعلّم الفارسية من الصفر.',
-            outcome: 'تأسيس الطالب للانتقال إلى مستويات أعلى، والقراءة والكتابة والنطق الصحيح.',
-            features: [
-                'الحروف والنطق ومخارج الحروف.',
-                'الكلمات والجمل الأساسية.',
-                'أساسيات القواعد.',
-                'تكوين الجمل البسيطة.',
-                'تأسيس الطالب للانتقال إلى مستويات أعلى.'
-            ]
-        },
-        daily: {
-            title: 'باقة التواصل اليومي',
-            badge: 'المسار الاجتماعي التفاعلي',
-            desc: 'لمن هدفه التحدث بالفارسية واستخدامها في الحياة اليومية.',
-            outcome: 'تكوين الجمل والتحدث بثقة وفهم الحوارات اليومية.',
-            features: [
-                'المحادثات اليومية.',
-                'العبارات والمفردات المستخدمة في الحياة اليومية.',
-                'مواقف التواصل الاجتماعي.',
-                'الاستماع والفهم.',
-                'تكوين الجمل والتحدث بثقة.'
-            ]
-        },
-        travel: {
-            title: 'باقة السياحة والسفر',
-            badge: 'دليلك للرحلات والتنقل',
-            desc: 'لمن يحتاج اللغة أثناء السفر والرحلات إلى إيران.',
-            outcome: 'امتلاك العبارات التي يحتاجها السائح للتواصل مع الإيرانيين في كافة المواقف.',
-            features: [
-                'محادثات السفر.',
-                'المطار والتنقل.',
-                'الفندق والمطاعم.',
-                'التسوق والتعاملات اليومية.',
-                'العبارات التي يحتاجها السائح للتواصل مع الإيرانيين.'
-            ]
-        },
-        business: {
-            title: 'باقة التجارة العامة',
-            badge: 'للتجار وبيئة الأعمال',
-            desc: 'لأصحاب الأعمال وكل من يحتاج الفارسية في المجال التجاري.',
-            outcome: 'إدارة المعاملات المهنية، التواصل مع العملاء، والتعامل مع الشركاء بثقة.',
-            features: [
-                'المصطلحات التجارية.',
-                'المحادثات المهنية.',
-                'التواصل مع العملاء.',
-                'التعامل مع الشركاء.',
-                'العبارات والمواقف المستخدمة في بيئة الأعمال والتجارة.'
-            ]
-        },
-        academic: {
-            title: 'باقة التعليم والدراسة',
-            badge: 'للباحثين والبيئة الجامعية',
-            desc: 'للراغبين بالدراسة والتعامل مع البيئة الأكاديمية باللغة الفارسية.',
-            outcome: 'فهم النصوص الأكاديمية والمحادثات الدراسية والتواصل في البيئة التعليمية.',
-            features: [
-                'المفردات الأكاديمية.',
-                'المحادثات الدراسية.',
-                'فهم النصوص.',
-                'القراءة والاستيعاب.',
-                'التواصل في البيئة التعليمية.'
-            ]
-        },
-        service: {
-            title: 'باقة الزوار والمواكب',
-            badge: 'لكوادر الخدمة والزيارة',
-            desc: 'للزوار والمواكب الذين يحتاجون الفارسية للتعامل والتواصل مع الإيرانيين.',
-            outcome: 'إدارة مواقف الاستقبال والخدمة والتوجيه والتعامل اليومي في المواكب.',
-            features: [
-                'العبارات الخاصة بالزيارة.',
-                'التواصل مع الزوار الإيرانيين.',
-                'مواقف الاستقبال والخدمة.',
-                'التوجيه والتعامل اليومي.',
-                'المفردات والمحادثات التي يحتاجها المشاركون في المواكب.'
-            ]
-        },
-        vip: {
-            title: 'باقة VIP | الشاملة',
-            badge: 'الباقة المتكاملة الشاملة',
-            desc: 'الباقة المتكاملة لمن يريد تعلّم الفارسية واستخدامها في مختلف المجالات.',
-            outcome: 'تشمل جميع الباقات والمسارات الستة بالكامل مع كافة المزايا الأكاديمية.',
-            features: [
-                '1. باقة الأساسيات كاملة.',
-                '2. باقة التواصل اليومي كاملة.',
-                '3. باقة السياحة والسفر كاملة.',
-                '4. باقة التجارة العامة كاملة.',
-                '5. باقة التعليم والدراسة كاملة.',
-                '6. باقة الزوار والمواكب كاملة.'
-            ]
-        }
-    };
-
-    const detailsModal = document.getElementById('packageDetailsModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBadge = document.getElementById('modalBadge');
-    const modalDesc = document.getElementById('modalDescription');
-    const modalOutcome = document.getElementById('modalOutcome');
-    const modalFeatures = document.getElementById('modalFeatures');
-    const modalSubBtn = document.getElementById('modalSubscribeAction');
-    let activePackageTitle = '';
-
-    // فتح الـ Modal وتعبئة البيانات عند النقر على "اعرف المزيد"
-    document.querySelectorAll('.js-open-details').forEach(button => {
-        button.addEventListener('click', () => {
-            const targetKey = button.getAttribute('data-package-target');
-            const data = packagesData[targetKey];
-
-            if (data && detailsModal) {
-                activePackageTitle = data.title;
-                modalTitle.textContent = data.title;
-                modalBadge.textContent = data.badge;
-                modalDesc.textContent = data.desc;
-                modalOutcome.textContent = data.outcome;
-
-                modalFeatures.innerHTML = '';
-                data.features.forEach(feat => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${feat}`;
-                    modalFeatures.appendChild(li);
-                });
-
-                detailsModal.classList.add('is-open');
-                detailsModal.setAttribute('aria-hidden', 'false');
-            }
-        });
-    });
-
-    // إغلاق الـ Modal
-    document.querySelectorAll('.js-close-details').forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (detailsModal) {
-                detailsModal.classList.remove('is-open');
-                detailsModal.setAttribute('aria-hidden', 'true');
-            }
-        });
-    });
-
-    // الانتقال المباشر لنموذج التسجيل من داخل الـ Modal
-    if (modalSubBtn) {
-        modalSubBtn.addEventListener('click', () => {
-            if (detailsModal) {
-                detailsModal.classList.remove('is-open');
-                detailsModal.setAttribute('aria-hidden', 'true');
-            }
-
-            const regModal = document.getElementById('registrationModal');
-            if (regModal) {
-                regModal.classList.add('is-open');
-                regModal.setAttribute('aria-hidden', 'false');
-
-                const pkgSelect = regModal.querySelector('select[name="package"]');
-                if (pkgSelect) {
-                    for (let option of pkgSelect.options) {
-                        if (option.value.includes(activePackageTitle)) {
-                            pkgSelect.value = option.value;
-                            break;
-                        }
-                    }
-                }
-            }
-        });
-    }
-});
-
-// ==========================================
-// NEMMO Learning Journey Controller (WAI-ARIA TabList & Performance)
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const nodes = Array.from(document.querySelectorAll('.journey-step-node'));
-    const slides = document.querySelectorAll('.journey-slide');
-    const currentNumElem = document.getElementById('journeyCurrentNum');
-    const progressBar = document.getElementById('journeyProgressBar');
-    const progressTrack = document.getElementById('journeyProgressTrack');
-    const progressPath = document.getElementById('journeyProgressPath');
-    const btnNext = document.querySelector('.js-journey-next');
-    const btnPrev = document.querySelector('.js-journey-prev');
-    const swipeArea = document.getElementById('journeySwipeArea');
-    const sectionElem = document.getElementById('achievements');
-
-    if (!slides.length || !nodes.length) return;
-
-    let currentStep = 0;
-    const totalSteps = slides.length;
-    let autoPlayTimer = null;
-    let resumeTimeout = null;
-    let isVisible = false;
-
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let prefersReducedMotion = motionQuery.matches;
-
-    motionQuery.addEventListener('change', (e) => {
-        prefersReducedMotion = e.matches;
-        if (prefersReducedMotion) {
-            stopAutoPlay();
-        } else if (isVisible) {
-            startAutoPlay();
-        }
-    });
-
-    const maxDashOffset = 691;
-
-    function goToStep(index, shouldFocus = false) {
-        currentStep = (index + totalSteps) % totalSteps;
-
-        nodes.forEach((node, i) => {
-            const isActive = i === currentStep;
-            node.classList.toggle('is-active', isActive);
-            node.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            node.setAttribute('tabindex', isActive ? '0' : '-1');
-
-            if (isActive && shouldFocus) {
-                node.focus();
-            }
-        });
-
-        slides.forEach((slide, i) => {
-            slide.classList.toggle('is-active', i === currentStep);
-        });
-
-        if (currentNumElem) {
-            currentNumElem.textContent = String(currentStep + 1).padStart(2, '0');
-        }
-
-        if (progressBar) {
-            progressBar.style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
-        }
-        if (progressTrack) {
-            progressTrack.setAttribute('aria-valuenow', currentStep + 1);
-        }
-
-        if (progressPath) {
-            const ratio = (currentStep + 1) / totalSteps;
-            progressPath.style.strokeDashoffset = maxDashOffset - (maxDashOffset * ratio);
-        }
-    }
-
-    function startAutoPlay() {
-        stopAutoPlay();
-        if (!isVisible || prefersReducedMotion) return;
-
-        autoPlayTimer = setInterval(() => {
-            goToStep(currentStep + 1);
-        }, 5500);
-    }
-
-    function stopAutoPlay() {
-        if (autoPlayTimer) {
-            clearInterval(autoPlayTimer);
-            autoPlayTimer = null;
-        }
-    }
-
-    function handleUserInteraction() {
-        stopAutoPlay();
-        if (resumeTimeout) clearTimeout(resumeTimeout);
-        if (!prefersReducedMotion) {
-            resumeTimeout = setTimeout(() => {
-                startAutoPlay();
-            }, 15000);
-        }
-    }
-
-    if (btnNext) {
-        btnNext.addEventListener('click', () => {
-            goToStep(currentStep + 1);
-            handleUserInteraction();
-        });
-    }
-
-    if (btnPrev) {
-        btnPrev.addEventListener('click', () => {
-            goToStep(currentStep - 1);
-            handleUserInteraction();
-        });
-    }
-
-    nodes.forEach((node, idx) => {
-        node.addEventListener('click', () => {
-            goToStep(idx);
-            handleUserInteraction();
-        });
-
-        node.addEventListener('keydown', (e) => {
-            let targetIdx = null;
-
-            switch (e.key) {
-                case 'ArrowLeft':
-                    targetIdx = currentStep + 1;
-                    break;
-                case 'ArrowRight':
-                    targetIdx = currentStep - 1;
-                    break;
-                case 'Home':
-                    targetIdx = 0;
-                    break;
-                case 'End':
-                    targetIdx = totalSteps - 1;
-                    break;
-                case 'Enter':
-                case ' ':
-                    e.preventDefault();
-                    goToStep(idx);
-                    handleUserInteraction();
-                    return;
-                default:
-                    return;
-            }
-
-            if (targetIdx !== null) {
-                e.preventDefault();
-                goToStep(targetIdx, true);
-                handleUserInteraction();
-            }
-        });
-    });
-
-    if (swipeArea) {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        swipeArea.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            handleUserInteraction();
-        }, { passive: true });
-
-        swipeArea.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 40) {
-                goToStep(currentStep + 1);
-            } else if (touchEndX - touchStartX > 40) {
-                goToStep(currentStep - 1);
-            }
-            handleUserInteraction();
-        }, { passive: true });
-    }
-
-    if (sectionElem && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    isVisible = true;
-                    startAutoPlay();
-                } else {
-                    isVisible = false;
-                    stopAutoPlay();
-                }
-            });
-        }, { threshold: 0.25 });
-
-        observer.observe(sectionElem);
-    } else {
-        isVisible = true;
-        startAutoPlay();
-    }
-
-    goToStep(0);
-});
-
-// ==========================================
-// Verified Credentials Lightbox & Touch Zoom Controller (Final)
-// ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    const certBtns = document.querySelectorAll('.js-cert-trigger');
-    const lightbox = document.getElementById('certificateLightbox');
-    const lightboxImg = document.getElementById('lightboxImage');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const zoomContainer = document.getElementById('certZoomContainer');
-    const closeBtns = document.querySelectorAll('.js-close-lightbox');
-
-    if (!lightbox || !certBtns.length) return;
-
-    let lastFocusedElement = null;
-    let lastTap = 0;
-
-    function openLightbox(src, title, triggerElement) {
-        lastFocusedElement = triggerElement || document.activeElement;
-        
-        if (lightboxImg) {
-            lightboxImg.src = src;
-            lightboxImg.alt = title;
-        }
-        if (lightboxCaption) {
-            lightboxCaption.textContent = title;
-        }
-        if (zoomContainer) {
-            zoomContainer.classList.remove('is-zoomed');
-            zoomContainer.scrollTop = 0;
-            zoomContainer.scrollLeft = 0;
-        }
-
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('modal-open');
-        lightbox.focus();
-    }
-
-    function closeLightbox() {
-        if (!lightbox.classList.contains('is-open')) return;
-
-        lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
-
-        if (zoomContainer) {
-            zoomContainer.classList.remove('is-zoomed');
-        }
-
-        setTimeout(() => {
-            if (lightboxImg) lightboxImg.src = '';
-        }, 200);
-
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-            lastFocusedElement.focus();
-        }
-    }
-
-    certBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const src = btn.getAttribute('data-cert-src');
-            const title = btn.getAttribute('data-cert-title');
-            if (src && title) openLightbox(src, title, btn);
-        });
-    });
-
-    if (zoomContainer) {
-        zoomContainer.addEventListener('click', (e) => {
-            e.stopPropagation();
-            zoomContainer.classList.toggle('is-zoomed');
-        });
-
-        zoomContainer.addEventListener('touchend', (e) => {
-            const currentTime = new Date().getTime();
-            const tapLength = currentTime - lastTap;
-            if (tapLength < 300 && tapLength > 0) {
-                e.preventDefault();
-                e.stopPropagation();
-                zoomContainer.classList.toggle('is-zoomed');
-            }
-            lastTap = currentTime;
-        });
-    }
-
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', closeLightbox);
-    });
-
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.classList.contains('cert-lightbox__backdrop')) {
-            closeLightbox();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
-            closeLightbox();
-        }
-    });
 });
