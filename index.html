@@ -12,67 +12,52 @@
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
           document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       })();
     </script>
-    <meta
-        name="description"
-        content="أكاديمية تعليمية عراقية متخصصة في تطوير المعرفة والمهارات وتعليم اللغات."
-    >
-
+    <meta name="description" content="أكاديمية تعليمية متخصصة في تطوير المعرفة والمهارات وتعليم اللغات بمنهجية تفاعلية واقعية.">
     <meta name="theme-color" content="#081321">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS Hierarchy: المشترك أولاً ثم الخاص بالصفحة -->
+    <!-- CSS Hierarchy -->
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/home.css">
-
 </head>
 
 <body class="page-home">
 
-
 <!-- ==========================================
-     Header
+     Header & Mobile Navigation Drawer
 ========================================== -->
-
 <header class="site-header" id="siteHeader">
-
     <div class="site-header__container">
 
         <a href="index.html" class="site-logo">
-            <img
-                src="assets/images/logo.png"
-                alt="NEMMO Academy"
-                class="site-logo__img"
-            >
+            <img src="assets/images/logo.png" alt="NEMMO Academy" class="site-logo__img" loading="eager">
             <div class="site-logo__text">
-                <span class="site-logo__title">
-                    NEMMO Academy
-                </span>
-                <span class="site-logo__subtitle">
-                    أكاديمية نمو التعليمية
-                </span>
+                <span class="site-logo__title">NEMMO Academy</span>
+                <span class="site-logo__subtitle">أكاديمية نمو التعليمية</span>
             </div>
         </a>
 
-        <nav class="site-nav">
+        <nav class="site-nav" id="siteNav" aria-label="القائمة الرئيسية" aria-hidden="true">
             <ul>
                 <li><a href="index.html" class="is-active">الرئيسية</a></li>
-                <li><a href="programs.html">البرامج</a></li>
+                <li><a href="programs.html">الدورات التعليمية</a></li>
                 <li><a href="#about">من نحن</a></li>
+                <li><a href="#policies">سياستنا</a></li>
+                <li><a href="#testimonials">آراء المستخدمين</a></li>
+                <li><a href="#faq">الأسئلة الشائعة</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
             </ul>
         </nav>
@@ -87,22 +72,24 @@
                 <i data-lucide="moon" class="moon-icon"></i>
                 <i data-lucide="sun" class="sun-icon" style="display: none;"></i>
             </button>
+
+            <!-- زر القائمة للهواتف -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </div>
 
     </div>
-
 </header>
 
-
-<main>
-
+<main id="mainContent">
 
 <!-- ==========================================
-     Session 4.1 — Hero Section (Living UI)
+     Hero Section
 ========================================== -->
-
 <section class="hero-v2" id="hero">
-    <!-- إضاءة خلفية هادئة -->
     <div class="hero-v2__ambient" aria-hidden="true">
         <div class="hero-v2__glow hero-v2__glow--primary"></div>
         <div class="hero-v2__glow hero-v2__glow--gold"></div>
@@ -111,7 +98,6 @@
     <div class="hero-v2__wrapper">
         <div class="hero-v2__container">
             
-            <!-- النصوص والأزرار -->
             <div class="hero-v2__content">
                 <div class="hero-v2__badge">
                     <span class="hero-v2__badge-pulse"></span>
@@ -128,17 +114,16 @@
                 </p>
 
                 <div class="hero-v2__actions">
-                    <a href="programs.html" class="btn btn-hero-gold">
-                        <span>استكشف البرامج</span>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </a>
-                    <button type="button" class="btn btn-hero-glass js-open-registration" data-program="عام - أكاديمية نُمو">
-                        <i class="fa-regular fa-circle-check"></i>
+                    <button type="button" class="btn btn-hero-gold js-open-registration" data-program="عام - أكاديمية نُمو">
+                        <i class="fa-solid fa-user-plus"></i>
                         <span>اشترك الآن</span>
                     </button>
+                    <a href="programs.html" class="btn btn-hero-glass">
+                        <span>الدورات التعليمية</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
                 </div>
 
-                <!-- شريط الثقة -->
                 <div class="hero-v2__trust-strip">
                     <div class="hero-v2__trust-pill">
                         <i class="fa-solid fa-check-double"></i>
@@ -151,14 +136,13 @@
                 </div>
             </div>
 
-            <!-- الشعار الذهبي العائم والمنصة -->
             <div class="hero-v2__visual">
                 <div class="hero-v2__visual-core">
                     <div class="hero-v2__ring hero-v2__ring--outer"></div>
                     <div class="hero-v2__ring hero-v2__ring--inner"></div>
                     <div class="hero-v2__pedestal"></div>
                     <div class="hero-v2__logo-box">
-                        <img src="assets/images/logo.png" alt="NEMMO Academy" class="hero-v2__floating-logo">
+                        <img src="assets/images/logo.png" alt="NEMMO Academy" class="hero-v2__floating-logo" loading="eager">
                     </div>
                 </div>
             </div>
@@ -183,7 +167,7 @@
                 </div>
                 <div class="hero-v2__philosophy-text">
                     <strong class="hero-v2__philosophy-title">تعلم عملي</strong>
-                    <p class="hero-v2__philosophy-desc">معرفة قابلة للتطبيق في الحياة</p>
+                    <p class="hero-v2__philosophy-desc">معرفة قابلة للتطبيق المباشر</p>
                 </div>
             </div>
 
@@ -193,7 +177,7 @@
                 </div>
                 <div class="hero-v2__philosophy-text">
                     <strong class="hero-v2__philosophy-title">مسارات واضحة</strong>
-                    <p class="hero-v2__philosophy-desc">تعلم منظم نحو أهدافك</p>
+                    <p class="hero-v2__philosophy-desc">تعلم منظم ومباشر نحو أهدافك</p>
                 </div>
             </div>
 
@@ -202,23 +186,19 @@
                     <i class="fa-solid fa-infinity"></i>
                 </div>
                 <div class="hero-v2__philosophy-text">
-                    <strong class="hero-v2__philosophy-title">تجربة مرنة</strong>
-                    <p class="hero-v2__philosophy-desc">تعلم بالطريقة والوقت المناسبين</p>
+                    <strong class="hero-v2__philosophy-title">مرونة كاملة</strong>
+                    <p class="hero-v2__philosophy-desc">تعلم بالوقت والسرعة التي تناسبك</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
 <!-- ==========================================
-     About
+     About Section
 ========================================== -->
-
 <section id="about" class="section about-section">
-
     <div class="container">
-
         <div class="section-title">
             <span>ABOUT NEMMO</span>
             <h2>أكاديمية نمو التعليمية</h2>
@@ -226,10 +206,7 @@
 
         <div class="about-intro">
             <p class="about-intro__text">
-                أكاديمية نمو التعليمية (NEMMO Academy) هي أكاديمية تعليمية عراقية
-                متخصصة في تطوير المعرفة والمهارات، تبدأ بتعليم اللغات وتتوسع نحو
-                مجالات التعليم والتطوير المهني، من خلال تقديم تجربة تعليمية احترافية
-                تلبي احتياجات الفرد العراقي وتواكب متطلبات المستقبل.
+                أكاديمية نمو التعليمية (NEMMO Academy) هي منصة تعليمية متخصصة في تطوير المعرفة والمهارات الحياتية والمهنية، تبدأ باللغات وتتوسع نحو مجالات التطوير المهني، من خلال تجربة تعليمية حديثة تواكب المستقبل.
             </p>
         </div>
 
@@ -238,13 +215,7 @@
                 <span class="about-pillar__label">OUR VISION</span>
                 <h3>رؤيتنا</h3>
                 <p>
-                    وجدت الأكاديمية لنشر المعرفة وتطوير الفرد العراقي من خلال تعليمه
-                    المهارات واللغات التي يحتاجها في الدراسة والسفر والعلاج والتجارة
-                    والعمل والتواصل مع العالم.
-                </p>
-                <p>
-                    هدفنا ليس بيع دورات فقط، بل المساهمة في صناعة جيل واعٍ قادر على
-                    المنافسة والتواصل مع مختلف الثقافات.
+                    نشر المعرفة وبناء تجربة تعليمية تطبيقية تساعد المتعلم على استخدام ما يتعلمه بثقة في حياته العملية ودراسته وسفره.
                 </p>
             </article>
 
@@ -252,190 +223,164 @@
                 <span class="about-pillar__label">OUR MISSION</span>
                 <h3>رسالتنا</h3>
                 <p>
-                    تقديم تجربة تعليمية احترافية، سهلة، وعملية، تبدأ بتعليم اللغات،
-                    وتتوسع مستقبلًا إلى مجالات التعليم والتطوير المهني وإدارة الأعمال.
+                    تقديم برامج تدريبية منظمة واحترافية تلبي احتياجات المتعلم الفعلية مع التزام تام بالجودة والمتابعة المستمرة.
                 </p>
             </article>
         </div>
-
-        <div class="about-values">
-            <div class="about-values__header">
-                <span>OUR VALUES</span>
-                <h3>قيمنا</h3>
-            </div>
-
-            <div class="values-carousel">
-                <div class="values-carousel__track">
-                    <article class="about-value">
-                        <div class="about-value__icon">◆</div>
-                        <h4>الجودة</h4>
-                        <p>نحرص على تقديم محتوى وتجربة تعليمية بمستوى احترافي.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">◈</div>
-                        <h4>البساطة</h4>
-                        <p>نجعل التعلم واضحًا وسهل الوصول والفهم.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">✓</div>
-                        <h4>التطبيق العملي</h4>
-                        <p>نركز على المهارات التي يستطيع الطالب استخدامها في حياته.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">★</div>
-                        <h4>التعلم الممتع</h4>
-                        <p>نؤمن بأن تجربة التعلم الفعالة يجب أن تكون ممتعة ومحفزة.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">⏱</div>
-                        <h4>احترام وقت الطالب</h4>
-                        <p>نصمم المحتوى بطريقة منظمة تحترم وقت المتعلم واحتياجاته.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">↗</div>
-                        <h4>التطوير المستمر</h4>
-                        <p>نعمل باستمرار على تحسين المحتوى والتجربة التعليمية.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">✓</div>
-                        <h4>المصداقية</h4>
-                        <p>نبني علاقتنا مع الطالب على الوضوح والثقة.</p>
-                    </article>
-                    <article class="about-value">
-                        <div class="about-value__icon">♥</div>
-                        <h4>الاهتمام الحقيقي بنتائج الطالب</h4>
-                        <p>نجاح الطالب ونتائجه هما محور التجربة التعليمية في NEMMO.</p>
-                    </article>
-                </div>
-            </div>
-        </div>
-
     </div>
-
 </section>
 
-
 <!-- ==========================================
-     Why NEMMO
+     Policies Section (سياستنا)
 ========================================== -->
-
-<section id="why" class="section">
-
+<section id="policies" class="section section-light">
     <div class="container">
-
         <div class="section-title">
-            <span>WHY NEMMO</span>
-            <h2>تعليم يصنع فرقًا حقيقيًا</h2>
-            <p>
-                هدفنا ليس بيع دورة، بل بناء تجربة تعليمية تمنح الطالب الثقة
-                وتساعده على استخدام اللغة في الحياة الواقعية.
-            </p>
+            <span>OUR COMMITMENT</span>
+            <h2>سياستنا التعليمية</h2>
+            <p>معايير ثابتة نلتزم بها لضمان أعلى مستويات الجودة والمصداقية لكل متعلم.</p>
         </div>
 
         <div class="grid grid-3">
             <article class="feature-card">
-                <div class="feature-icon">
-                    <i data-lucide="graduation-cap"></i>
-                </div>
-                <h3>تعليم احترافي</h3>
-                <p>محتوى منظم، واضح، ومناسب لجميع المستويات.</p>
+                <div class="feature-icon"><i class="fa-solid fa-award"></i></div>
+                <h3>الالتزام بالجودة</h3>
+                <p>محتوى تعليمي ومناهج مساندة خاضعة للمراجعة والتدقيق المستمر لضمان الفاعلية القصوى.</p>
             </article>
 
             <article class="feature-card">
-                <div class="feature-icon">
-                    <i data-lucide="book-open"></i>
-                </div>
-                <h3>مصادر متكاملة</h3>
-                <p>فيديو، كتب، ملفات صوتية، وكتيبات تعليمية في مكان واحد.</p>
+                <div class="feature-icon"><i class="fa-solid fa-user-clock"></i></div>
+                <h3>متابعة مستمرة</h3>
+                <p>دعم فني وأكاديمي متواصل للإجابة عن الاستفسارات ومرافقة الطالب في رحلته خطوة بخطوة.</p>
             </article>
 
             <article class="feature-card">
-                <div class="feature-icon">
-                    <i data-lucide="rocket"></i>
-                </div>
-                <h3>قابلة للنمو</h3>
-                <p>الأكاديمية مصممة لتضم مستقبلًا العديد من البرامج والتخصصات.</p>
+                <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>الخصوصية والأمان</h3>
+                <p>نحافظ على خصوصية بيانات ومعلومات المشتركين وفق أعلى معايير الحماية والسرية.</p>
             </article>
         </div>
-
     </div>
-
 </section>
 
-
 <!-- ==========================================
-     Philosophy
+     Testimonials Section (سلايدر آراء الطلاب)
 ========================================== -->
-
-<section class="section">
-
+<section id="testimonials" class="section">
     <div class="container">
-
         <div class="section-title">
-            <span>OUR PHILOSOPHY</span>
-            <h2>لماذا يتعلم الطالب معنا؟</h2>
+            <span>STUDENT EXPERIENCES</span>
+            <h2>تجارب وآراء المشتركين</h2>
+            <p>قصص نجاح واقعية لطلاب خاضوا تجربة التعلم معنا في أكاديمية نُمو.</p>
         </div>
 
-        <div class="testimonial">
-            <p class="testimonial__quote">
-                "في NEMMO Academy نؤمن أن أفضل طريقة لتعلم أي لغة
-                هي أن يشعر الطالب بأنه يستخدمها في حياته اليومية،
-                وليس فقط داخل الدرس."
-            </p>
-            <div class="testimonial__author">
-                NEMMO Academy
-                <span class="testimonial__role">نتعلم اليوم... لنصنع فرص الغد.</span>
+        <div class="testimonials-slider-wrapper">
+            <div class="testimonial-slides-container">
+                
+                <div class="testimonial testimonial-slide is-active">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial__quote">
+                        "المنهج والترتيب العملي في الأكاديمية وفّر علي أشهراً من التشتت. التطبيق الواقعي والصوتيات ساعدتني على التحدث بثقة وسلاسة من الأسابيع الأولى."
+                    </p>
+                    <div class="testimonial__author">
+                        أحمد العراقي
+                        <span class="testimonial__role">برنامج اللغة الفارسية • مسار التواصل اليومي</span>
+                    </div>
+                </div>
+
+                <div class="testimonial testimonial-slide">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial__quote">
+                        "المتابعة المستمرة ووضوح شرح الأستاذة جعلت دراسة اللغة سهلة وممتعة جداً، والكتب المرفقة مع الـ QR Code ممتازة للتدريب الصوتي."
+                    </p>
+                    <div class="testimonial__author">
+                        مروة جاسم
+                        <span class="testimonial__role">برنامج اللغة الفارسية • مسار السياحة والسفر</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- أزرار التحكم بالسلايدر -->
+            <div class="slider-controls">
+                <button type="button" id="prevReviewBtn" class="slider-btn" aria-label="الرأي السابق">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button type="button" id="nextReviewBtn" class="slider-btn" aria-label="الرأي التالي">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
             </div>
         </div>
-
     </div>
-
 </section>
 
+<!-- ==========================================
+     FAQ Section
+========================================== -->
+<section id="faq" class="section section-light">
+    <div class="container">
+        <div class="section-title">
+            <span>FAQ</span>
+            <h2>الأسئلة الشائعة</h2>
+            <p>إجابات سريعة ومباشرة على أكثر الاستفسارات تكراراً.</p>
+        </div>
+
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>كيف يمكنني البدء في الدورة بعد الاشتراك؟</summary>
+                <div class="faq-item__answer">
+                    <p>بعد إتمام التسجيل عبر الواتساب، يتم تزويدك مباشرة بكافة الروابط والحقيبة التعليمية والوصول للمنصة فوراً.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>هل المحتوى متاح في أي وقت؟</summary>
+                <div class="faq-item__answer">
+                    <p>نعم، جميع المحاضرات مسجلة بجودة عالية ومتاحة للمشاهدة والمراجعة بالوقت الذي يناسبك مع وصول دائم.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>هل توجد كتب أو مصادر مرفقة؟</summary>
+                <div class="faq-item__answer">
+                    <p>نعم، تشتمل البرامج على كتب تدريبية تفاعلية وقواميس صوتية عبر رمز QR مدعومة بالكامل.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
 
 <!-- ==========================================
-     CTA
+     CTA Section
 ========================================== -->
-
-<section class="section section-light">
-
+<section class="section">
     <div class="container">
-
         <div class="cta">
             <h2>ابدأ رحلتك التعليمية اليوم</h2>
             <p>
-                استكشف البرنامج، تعرف على الباقات، وابدأ أول خطوة
-                نحو تعلم اللغة الفارسية بطريقة احترافية.
+                اختر مسارك المفضل، وطوّر مهاراتك بطريقة تفاعلية احترافية مع فريق أكاديمية نُمو.
             </p>
-            <button
-                type="button"
-                class="btn btn-primary js-open-registration"
-                data-program="عام - أكاديمية نُمو"
-            >
-                <i data-lucide="user-plus"></i>
-                أكمل التسجيل
+            <button type="button" class="btn btn-hero-gold js-open-registration" data-program="عام - أكاديمية نُمو">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>اشترك الآن</span>
             </button>
         </div>
-
     </div>
-
 </section>
 
-
 <!-- ==========================================
-     Contact
+     Contact Section
 ========================================== -->
-
-<section id="contact" class="section">
-
+<section id="contact" class="section section-light">
     <div class="container">
-
         <div class="section-title">
             <span>CONTACT US</span>
             <h2>تواصل معنا</h2>
-            <p>
-                يسعدنا تواصلك معنا عبر منصاتنا الرسمية. اختر المنصة المناسبة لك للإجابة عن جميع استفساراتك.
-            </p>
+            <p>فريقنا جاهز للإجابة عن كافة استفساراتك عبر منصاتنا الرسمية.</p>
         </div>
 
         <div class="contact-compact-bar">
@@ -460,39 +405,28 @@
                 <span>تيك توك</span>
             </a>
         </div>
-
     </div>
-
 </section>
 
-
 </main>
-
 
 <!-- ==========================================
      Footer
 ========================================== -->
-
 <footer class="site-footer">
-
     <div class="site-footer__container">
-        <p>© <span data-current-year></span> NEMMO Academy</p>
-        <a href="programs.html">البرامج</a>
+        <p>© <span data-current-year></span> NEMMO Academy. جميع الحقوق محفوظة.</p>
+        <a href="programs.html">الدورات التعليمية</a>
     </div>
-
 </footer>
-
 
 <!-- ==========================================
      Registration Modal
 ========================================== -->
-
 <div class="registration-modal" id="registrationModal" aria-hidden="true">
-
     <div class="registration-modal__overlay js-close-registration"></div>
 
     <div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle">
-
         <button type="button" class="registration-modal__close js-close-registration" aria-label="إغلاق">
             <i data-lucide="x"></i>
         </button>
@@ -500,11 +434,10 @@
         <div class="registration-modal__header">
             <span class="registration-modal__eyebrow">REGISTRATION</span>
             <h2 id="registrationModalTitle">أكمل تسجيلك</h2>
-            <p>أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب لإكمال إجراءات التسجيل.</p>
+            <p>أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب لتأكيد التسجيل.</p>
         </div>
 
         <form id="registrationForm" class="registration-form" novalidate>
-
             <div class="form-group">
                 <label for="registrationName">الاسم الثلاثي</label>
                 <input type="text" id="registrationName" name="name" placeholder="أدخل الاسم الثلاثي" autocomplete="name" required>
@@ -542,7 +475,7 @@
 
             <div class="form-group">
                 <label for="registrationAddress">العنوان الكامل</label>
-                <textarea id="registrationAddress" name="address" rows="3" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea>
+                <textarea id="registrationAddress" name="address" rows="2" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea>
             </div>
 
             <div class="form-group">
@@ -553,24 +486,18 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label>الباقة</label>
-                <div class="package-options">
-                    <label class="package-option">
-                        <input type="radio" name="package" value="الباقة الماسية" required>
-                        <span class="package-option__content">
-                            <i data-lucide="gem"></i>
-                            <span><strong>الباقة الماسية</strong><small>Diamond</small></span>
-                        </span>
-                    </label>
-                    <label class="package-option">
-                        <input type="radio" name="package" value="الباقة الذهبية" required>
-                        <span class="package-option__content">
-                            <i data-lucide="star"></i>
-                            <span><strong>الباقة الذهبية</strong><small>Gold</small></span>
-                        </span>
-                    </label>
-                </div>
+            <!-- قائمة المسارات الشرطية -->
+            <div class="form-group is-hidden" id="trackGroup">
+                <label for="registrationTrack">اختر المسار التعليمي</label>
+                <select id="registrationTrack" name="track">
+                    <option value="">اختر المسار المناسب</option>
+                    <option value="باقة الأساسيات">باقة الأساسيات</option>
+                    <option value="باقة التواصل اليومي">باقة التواصل اليومي</option>
+                    <option value="باقة السياحة والسفر">باقة السياحة والسفر</option>
+                    <option value="باقة التجارة العامة">باقة التجارة العامة</option>
+                    <option value="باقة الزوار والمواكب">باقة الزوار والمواكب</option>
+                    <option value="باقة VIP الشاملة">باقة VIP الشاملة</option>
+                </select>
             </div>
 
             <p id="registrationError" class="registration-form__error" role="alert" aria-live="polite"></p>
@@ -579,26 +506,12 @@
                 <i data-lucide="send"></i>
                 إرسال الطلب عبر واتساب
             </button>
-
         </form>
-
     </div>
-
 </div>
-
 
 <!-- Scripts -->
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="assets/js/main.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    if (typeof lucide !== "undefined") {
-        lucide.createIcons();
-    }
-});
-</script>
-
 </body>
-
 </html>
