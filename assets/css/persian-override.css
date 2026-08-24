@@ -1,6 +1,6 @@
 /* ========================================================================== 
    NEMMO Academy — Persian Page Overrides
-   Purpose: tighten the program page on desktop and fix lesson/card ratios.
+   Purpose: tighten the program page on desktop and make lesson cards square.
    Loaded via layout.css for .page-persian only.
    ========================================================================== */
 
@@ -58,18 +58,26 @@
     gap: 1rem;
 }
 
+/* Square lesson cards: video + compact footer inside one tile */
 .page-persian .lesson-slide {
-    flex: 0 0 clamp(260px, 28vw, 330px);
+    flex: 0 0 clamp(250px, 24vw, 290px);
 }
 
 .page-persian .lesson-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
+    border-radius: 18px;
+    background: #0b132b;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
 }
 
 .page-persian .lesson-card__video-wrapper {
     position: relative;
-    aspect-ratio: 1 / 1;
-    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;
     background: #0b132b;
     overflow: hidden;
 }
@@ -80,6 +88,53 @@
     width: 100%;
     height: 100%;
     border: 0;
+    transform: scale(1.08);
+    transform-origin: center top;
+}
+
+.page-persian .lesson-card__content {
+    position: relative;
+    margin-top: auto;
+    padding: 0.85rem 0.9rem 0.95rem;
+    background: linear-gradient(180deg, rgba(11, 19, 43, 0.02) 0%, rgba(11, 19, 43, 0.88) 18%, rgba(11, 19, 43, 0.98) 100%);
+}
+
+.page-persian .lesson-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.3rem;
+    color: var(--accent, #c9a75c);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.page-persian .lesson-card__content h3 {
+    margin: 0 0 0.55rem;
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.page-persian .btn-link-watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #d9e2ef;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.3;
+}
+
+.page-persian .btn-link-watch i {
+    color: var(--accent, #c9a75c);
+    font-size: 0.78rem;
+}
+
+.page-persian .btn-link-watch:hover {
+    color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -110,10 +165,14 @@
     }
 
     .page-persian .lesson-slide {
-        flex: 0 0 min(82vw, 320px);
+        flex: 0 0 min(86vw, 320px);
     }
 
-    .page-persian .lesson-card__video-wrapper {
+    .page-persian .lesson-card {
         aspect-ratio: 1 / 1;
+    }
+
+    .page-persian .lesson-card__video-wrapper iframe {
+        transform: scale(1.02);
     }
 }
