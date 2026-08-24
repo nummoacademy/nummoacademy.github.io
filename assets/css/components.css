@@ -3,6 +3,20 @@
    Contains only shared UI elements across all pages
    ========================================================================== */
 
+/* --- Layout Helpers --- */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 /* --- Buttons --- */
 .btn {
     display: inline-flex;
@@ -89,6 +103,133 @@
     color: var(--text-light, #64748b);
     line-height: 1.8;
     font-size: 0.92rem;
+}
+
+/* --- Programs Overview Card --- */
+.program-card {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.25rem;
+    background: var(--surface, #ffffff);
+    border: 1px solid rgba(27, 42, 74, 0.08);
+    border-radius: 24px;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(0, 0, 0, 0.06));
+}
+
+.program-card__image {
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0d1b30;
+}
+
+.program-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.program-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.program-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(201, 167, 92, 0.12);
+    border: 1px solid rgba(201, 167, 92, 0.25);
+    color: var(--accent, #c9a75c);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.program-card__title {
+    margin: 0;
+    color: var(--primary, #1B2A4A);
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.program-card__description {
+    margin: 0;
+    color: var(--text-light, #64748b);
+    line-height: 1.9;
+    font-size: 0.96rem;
+}
+
+.program-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.program-meta span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(201, 167, 92, 0.1);
+    border: 1px solid rgba(201, 167, 92, 0.22);
+    color: var(--primary, #1B2A4A);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.program-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.program-card__actions .btn {
+    flex: 1 1 220px;
+}
+
+.coming-card {
+    padding: 2rem;
+    background: var(--surface, #ffffff);
+    border: 1px solid rgba(27, 42, 74, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    text-align: center;
+}
+
+.coming-card__icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    border-radius: 20px;
+    background: rgba(201, 167, 92, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.coming-card h3 {
+    margin: 0 0 0.75rem;
+    color: var(--primary, #1B2A4A);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.coming-card p {
+    margin: 0;
+    color: var(--text-light, #64748b);
+    line-height: 1.8;
+    font-size: 0.95rem;
 }
 
 /* --- Section Structure & Titles --- */
@@ -243,6 +384,9 @@
 }
 
 .lesson-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-size: 0.75rem;
     font-weight: 700;
     color: var(--accent, #c9a75c);
@@ -253,6 +397,21 @@
     font-weight: 600;
     color: var(--primary, #1B2A4A);
     margin-top: 0.25rem;
+}
+
+.btn-link-watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+    color: var(--primary, #1B2A4A);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-link-watch:hover {
+    color: var(--accent, #c9a75c);
 }
 
 /* --- Testimonial & Quote --- */
@@ -344,15 +503,21 @@
     align-items: center;
 }
 
-.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
 .faq-item summary::after {
-    content: "+";
+    content: '+';
     font-size: 1.4rem;
     color: var(--accent, #c9a75c);
     transition: transform 0.2s ease;
 }
 
-.faq-item[open] summary::after { content: "−"; }
+.faq-item[open] summary::after {
+    content: '−';
+}
+
 .faq-item__answer {
     margin-top: 0.85rem;
     padding-top: 0.85rem;
@@ -439,10 +604,7 @@
 
 .registration-modal__overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
 }
 
 .registration-modal__dialog {
@@ -495,7 +657,6 @@
     line-height: 1.6;
 }
 
-/* ضبط نصوص وقوائم مودال تفاصيل الباقات */
 .registration-modal__dialog ul {
     list-style: none;
     padding: 0;
@@ -553,8 +714,8 @@
     font-weight: 600;
 }
 
-.registration-form input[type="text"],
-.registration-form input[type="tel"],
+.registration-form input[type='text'],
+.registration-form input[type='tel'],
 .registration-form select,
 .registration-form textarea {
     width: 100%;
@@ -712,7 +873,10 @@
     justify-content: center;
 }
 
-.cert-zoom-container.is-zoomed { cursor: zoom-out; }
+.cert-zoom-container.is-zoomed {
+    cursor: zoom-out;
+}
+
 .cert-zoom-container img {
     max-width: 100%;
     max-height: 68vh;
@@ -747,54 +911,150 @@
     font-size: 0.74rem;
 }
 
+/* --- Package Details Modal Fixes --- */
+#packageDetailsModal .registration-modal__dialog {
+    background: var(--surface, #ffffff);
+    color: var(--text, #1E1E1E);
+}
+
+#packageDetailsModal .registration-modal__header h2,
+#packageDetailsModal .registration-modal__header p {
+    color: var(--text, #1E1E1E) !important;
+}
+
+#packageDetailsModal .registration-modal__eyebrow {
+    color: var(--accent, #c9a75c) !important;
+}
+
+#packageDetailsModal .modal-body,
+#packageDetailsModal .modal-body p,
+#packageDetailsModal .modal-body li,
+#packageDetailsModal .modal-body h4,
+#packageDetailsModal .modal-body strong,
+#packageDetailsModal .modal-outcome-box p,
+#packageDetailsModal .modal-outcome-box strong {
+    color: var(--text, #1E1E1E) !important;
+}
+
+#packageDetailsModal .modal-body h4,
+#packageDetailsModal .modal-outcome-box strong {
+    color: var(--primary, #1B2A4A) !important;
+}
+
+#packageDetailsModal .modal-outcome-box {
+    background: rgba(201, 167, 92, 0.08) !important;
+    border: 1px solid rgba(201, 167, 92, 0.22) !important;
+}
+
+#packageDetailsModal .modal-outcome-box p {
+    line-height: 1.9;
+}
+
+#packageDetailsModal .pkg-card-v3__checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* --- Dark Theme Core Overrides --- */
-[data-theme="dark"] .feature-card,
-[data-theme="dark"] .testimonial,
-[data-theme="dark"] .faq-item,
-[data-theme="dark"] .lesson-card,
-[data-theme="dark"] .contact-icon-link,
-[data-theme="dark"] .registration-modal__dialog,
-[data-theme="dark"] .package-option__content,
-[data-theme="dark"] .registration-form input,
-[data-theme="dark"] .registration-form select,
-[data-theme="dark"] .registration-form textarea {
+[data-theme='dark'] .feature-card,
+[data-theme='dark'] .testimonial,
+[data-theme='dark'] .faq-item,
+[data-theme='dark'] .lesson-card,
+[data-theme='dark'] .contact-icon-link,
+[data-theme='dark'] .registration-modal__dialog,
+[data-theme='dark'] .package-option__content,
+[data-theme='dark'] .registration-form input,
+[data-theme='dark'] .registration-form select,
+[data-theme='dark'] .registration-form textarea,
+[data-theme='dark'] #packageDetailsModal .registration-modal__dialog {
     background-color: var(--surface) !important;
     border-color: var(--border) !important;
     color: var(--text) !important;
 }
 
-[data-theme="dark"] .feature-card h3,
-[data-theme="dark"] .testimonial__quote,
-[data-theme="dark"] .faq-item summary,
-[data-theme="dark"] .registration-modal__header h2,
-[data-theme="dark"] .registration-modal__dialog h2,
-[data-theme="dark"] .registration-modal__dialog h3,
-[data-theme="dark"] .registration-modal__dialog h4,
-[data-theme="dark"] .registration-form label,
-[data-theme="dark"] .package-option__content strong,
-[data-theme="dark"] .lesson-card__content h3,
-[data-theme="dark"] .registration-modal__dialog li {
+[data-theme='dark'] .feature-card h3,
+[data-theme='dark'] .testimonial__quote,
+[data-theme='dark'] .faq-item summary,
+[data-theme='dark'] .registration-modal__header h2,
+[data-theme='dark'] .registration-modal__dialog h2,
+[data-theme='dark'] .registration-modal__dialog h3,
+[data-theme='dark'] .registration-modal__dialog h4,
+[data-theme='dark'] .registration-form label,
+[data-theme='dark'] .package-option__content strong,
+[data-theme='dark'] .lesson-card__content h3,
+[data-theme='dark'] .registration-modal__dialog li,
+[data-theme='dark'] #packageDetailsModal .modal-body,
+[data-theme='dark'] #packageDetailsModal .modal-body p,
+[data-theme='dark'] #packageDetailsModal .modal-body li,
+[data-theme='dark'] #packageDetailsModal .modal-body h4,
+[data-theme='dark'] #packageDetailsModal .modal-outcome-box p,
+[data-theme='dark'] #packageDetailsModal .modal-outcome-box strong {
     color: var(--text) !important;
 }
 
-[data-theme="dark"] .registration-modal__dialog p,
-[data-theme="dark"] .registration-modal__header p {
+[data-theme='dark'] .registration-modal__dialog p,
+[data-theme='dark'] .registration-modal__header p,
+[data-theme='dark'] #packageDetailsModal .registration-modal__header p {
     color: var(--text-light) !important;
+}
+
+[data-theme='dark'] #packageDetailsModal .modal-outcome-box {
+    background: rgba(201, 167, 92, 0.12) !important;
+    border-color: rgba(201, 167, 92, 0.32) !important;
 }
 
 /* --- Responsive Helpers --- */
 @media (max-width: 900px) {
-    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2,
+    .grid-3,
+    .program-card {
+        grid-template-columns: 1fr;
+    }
+
+    .program-card__actions .btn {
+        flex: 1 1 100%;
+    }
 }
 
 @media (max-width: 640px) {
-    .section { padding: 3.5rem 0; }
-    .contact-compact-bar { gap: 0.6rem; }
-    .contact-icon-link { padding: 0.65rem 1rem; font-size: 0.85rem; }
-    .registration-modal__dialog { padding: 1.5rem 1.25rem; border-radius: 20px; }
-    .package-options { grid-template-columns: 1fr; }
-    .lesson-slide { flex: 0 0 280px; }
-    .lesson-card__video-wrapper { height: 340px; }
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .contact-compact-bar {
+        gap: 0.6rem;
+    }
+
+    .contact-icon-link {
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .registration-modal__dialog {
+        padding: 1.5rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .package-options {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-slide {
+        flex: 0 0 280px;
+    }
+
+    .lesson-card__video-wrapper {
+        height: 340px;
+    }
+
+    .program-card {
+        padding: 1rem;
+    }
+
+    .program-card__image img {
+        aspect-ratio: 16 / 10;
+    }
 }
 
 /* ===== Modal Typography Patch ===== */
@@ -802,11 +1062,11 @@
     color: var(--primary, #1B2A4A);
 }
 
-[data-theme="dark"] .registration-modal__dialog strong {
+[data-theme='dark'] .registration-modal__dialog strong {
     color: var(--text) !important;
 }
 
-[data-theme="dark"] .registration-modal__dialog p,
-[data-theme="dark"] .registration-modal__dialog li {
+[data-theme='dark'] .registration-modal__dialog p,
+[data-theme='dark'] .registration-modal__dialog li {
     color: #CBD5E1 !important;
 }
