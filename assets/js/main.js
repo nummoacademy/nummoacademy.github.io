@@ -1,23 +1,20 @@
 /* ========================================================================== 
-   NEMMO Academy — Main JavaScript (Modular Production v3.4)
+   NEMMO Academy — Main JavaScript (Modular Production v3.5)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
     let lastActiveElement = null;
     const WHATSAPP_NUMBER = '9647770300029';
 
-    // 1. Update year
     const currentYearSpan = document.querySelector('[data-current-year]');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // 2. Lucide icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
 
-    // 3. Theme toggle
     const themeToggleBtn = document.getElementById('themeToggle');
     const moonIcon = document.querySelector('.moon-icon');
     const sunIcon = document.querySelector('.sun-icon');
@@ -43,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 4. Mobile navigation drawer
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const siteNav = document.getElementById('siteNav');
+    const registrationModal = document.getElementById('registrationModal');
 
     function closeMobileNav() {
         if (!siteNav || !siteNav.classList.contains('is-open')) return;
@@ -58,6 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileMenuBtn.classList.remove('is-active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
+    }
+
+    if (siteNav && registrationModal && document.body.classList.contains('page-home') && !siteNav.querySelector('.site-nav__cta')) {
+        const ctaItem = document.createElement('li');
+        ctaItem.className = 'site-nav__cta';
+        ctaItem.innerHTML = "<button type='button' class='btn btn-hero-gold js-open-registration' data-program='عام - أكاديمية نُمو'><i class='fa-solid fa-user-plus'></i><span>اشترك الآن</span></button>";
+        const navList = siteNav.querySelector('ul');
+        if (navList) navList.appendChild(ctaItem);
     }
 
     if (mobileMenuBtn && siteNav) {
@@ -75,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             e.stopPropagation();
         });
 
-        siteNav.querySelectorAll('a').forEach(link => {
+        siteNav.querySelectorAll('a, button').forEach(link => {
             link.addEventListener('click', closeMobileNav);
         });
 
@@ -92,27 +97,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
 
-    // 5. Header scroll effect
     const siteHeader = document.querySelector('.site-header');
     let isScrolling = false;
 
     window.addEventListener('scroll', function () {
-        if (!isScrolling) {
-            window.requestAnimationFrame(function () {
-                if (siteHeader) {
-                    if (window.scrollY > 20) {
-                        siteHeader.classList.add('site-header--scrolled');
-                    } else {
-                        siteHeader.classList.remove('site-header--scrolled');
-                    }
-                }
-                isScrolling = false;
-            });
-            isScrolling = true;
-        }
+        if (isScrolling) return;
+
+        window.requestAnimationFrame(function () {
+            if (siteHeader) {
+                siteHeader.classList.toggle('site-header--scrolled', window.scrollY > 20);
+            }
+            isScrolling = false;
+        });
+
+        isScrolling = true;
     }, { passive: true });
 
-    // 6. Smooth scroll for internal anchors
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function (event) {
             const targetId = this.getAttribute('href');
@@ -122,14 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!target) return;
 
             event.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
-    // 7. Testimonials slider
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const prevReviewBtn = document.getElementById('prevReviewBtn');
     const nextReviewBtn = document.getElementById('nextReviewBtn');
@@ -137,10 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function showReview(index) {
         if (!testimonialSlides.length) return;
-
-        testimonialSlides.forEach((slide, i) => {
-            slide.classList.toggle('is-active', i === index);
-        });
+        testimonialSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
     }
 
     if (testimonialSlides.length) {
@@ -159,8 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 8. Registration modal and track system
-    const modal = document.getElementById('registrationModal');
+    const modal = registrationModal;
     const form = document.getElementById('registrationForm');
     const errorMsg = document.getElementById('registrationError');
     const programSelect = document.getElementById('registrationProgram');
@@ -198,24 +190,22 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        if (e.key === 'Tab') {
-            const focusableElements = modal.querySelectorAll('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
-            if (!focusableElements.length) return;
+        if (e.key !== 'Tab') return;
 
-            const firstElement = focusableElements[0];
-            const lastElement = focusableElements[focusableElements.length - 1];
+        const focusableElements = modal.querySelectorAll('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!focusableElements.length) return;
 
-            if (e.shiftKey) {
-                if (document.activeElement === firstElement) {
-                    lastElement.focus();
-                    e.preventDefault();
-                }
-            } else {
-                if (document.activeElement === lastElement) {
-                    firstElement.focus();
-                    e.preventDefault();
-                }
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                e.preventDefault();
             }
+        } else if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
         }
     }
 
@@ -306,7 +296,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 9. WhatsApp submission
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
