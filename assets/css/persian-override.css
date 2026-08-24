@@ -1,0 +1,119 @@
+/* ========================================================================== 
+   NEMMO Academy — Persian Page Overrides
+   Purpose: tighten the program page on desktop and fix lesson/card ratios.
+   Loaded via layout.css for .page-persian only.
+   ========================================================================== */
+
+.page-persian .program-editorial-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 330px);
+    gap: clamp(1.25rem, 2vw, 2rem);
+    align-items: start;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.page-persian .editorial-text-column {
+    text-align: right;
+    max-width: 100%;
+    padding-inline-start: clamp(0.25rem, 1.5vw, 0.85rem);
+}
+
+.page-persian .editorial-text-column p {
+    max-width: 66ch;
+}
+
+.page-persian .editorial-media-column {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@media (min-width: 901px) {
+    .page-persian .phone-mockup {
+        width: min(100%, 300px);
+        margin-left: clamp(0.75rem, 2.2vw, 2rem);
+        margin-right: 0;
+    }
+}
+
+.page-persian .phone-mockup__screen {
+    aspect-ratio: 9 / 16;
+    height: auto;
+    max-height: 520px;
+}
+
+.page-persian .phone-mockup__screen iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-persian .lessons-carousel {
+    padding-top: 0.5rem;
+}
+
+.page-persian .lessons-carousel__track {
+    gap: 1rem;
+}
+
+.page-persian .lesson-slide {
+    flex: 0 0 clamp(260px, 28vw, 330px);
+}
+
+.page-persian .lesson-card {
+    overflow: hidden;
+}
+
+.page-persian .lesson-card__video-wrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    background: #0b132b;
+    overflow: hidden;
+}
+
+.page-persian .lesson-card__video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .page-persian .program-editorial-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .page-persian .editorial-text-column {
+        padding-inline-start: 0;
+    }
+
+    .page-persian .editorial-text-column p {
+        max-width: 100%;
+    }
+
+    .page-persian .editorial-media-column {
+        justify-content: center;
+    }
+
+    .page-persian .phone-mockup {
+        width: min(100%, 290px);
+        margin: 0 auto;
+    }
+
+    .page-persian .phone-mockup__screen {
+        max-height: none;
+    }
+
+    .page-persian .lesson-slide {
+        flex: 0 0 min(82vw, 320px);
+    }
+
+    .page-persian .lesson-card__video-wrapper {
+        aspect-ratio: 1 / 1;
+    }
+}
