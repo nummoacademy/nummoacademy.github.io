@@ -1,6 +1,6 @@
 /* ========================================================================== 
    NEMMO Academy — Phone Fix Overrides
-   Loaded last to preserve desktop while tightening phone/tablet layouts.
+   Purpose: mobile-first overrides that preserve desktop and tighten phones/tablets.
    ========================================================================== */
 
 :root {
@@ -43,7 +43,7 @@
     }
 
     body.is-nav-open::before {
-        content: "";
+        content: '';
         position: fixed;
         inset: var(--mobile-header-h) 0 0 0;
         background: rgba(3, 8, 20, 0.66);
@@ -252,9 +252,9 @@
     }
 }
 
-/* ============================
+/* --------------------------------------------------------------------------
    Home page tuning
-============================ */
+-------------------------------------------------------------------------- */
 @media (max-width: 991px) {
     .page-home .site-header__actions > .btn-hero-gold {
         display: none !important;
@@ -262,7 +262,7 @@
 
     .page-home .hero-v2 {
         min-height: auto !important;
-        padding-top: calc(var(--mobile-header-h) + 1rem) !important;
+        padding-top: calc(var(--mobile-header-h) + 0.65rem) !important;
         padding-bottom: 1rem !important;
     }
 
@@ -410,15 +410,6 @@
         padding: 1rem !important;
     }
 
-    .page-home .about-intro__text,
-    .page-home .about-pillar {
-        text-align: right !important;
-    }
-
-    .page-home .about-pillar h3 {
-        font-size: 1.15rem !important;
-    }
-
     .page-home .testimonial {
         max-width: 100% !important;
     }
@@ -433,21 +424,18 @@
         margin-top: 1rem !important;
     }
 
+    .page-home .faq-item summary {
+        font-size: 0.98rem !important;
+    }
+
     .page-home .contact-compact-bar {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 0.6rem !important;
+        gap: 0.65rem !important;
     }
 
     .page-home .contact-icon-link {
         width: 100% !important;
-        padding: 0.8rem 0.9rem !important;
         justify-content: center !important;
-        font-size: 0.86rem !important;
-    }
-
-    .page-home .site-footer__container {
-        gap: 0.75rem !important;
+        padding: 0.8rem 1rem !important;
     }
 }
 
@@ -456,95 +444,83 @@
         min-height: 58px !important;
     }
 
-    .page-home .site-logo {
-        max-width: calc(100vw - 92px) !important;
-    }
-
     .page-home .site-logo__title {
-        font-size: 0.84rem !important;
+        font-size: 0.88rem !important;
     }
 
     .page-home .site-logo__subtitle {
-        font-size: 0.6rem !important;
+        font-size: 0.66rem !important;
     }
 
     .page-home .hero-v2__title {
-        font-size: clamp(1.4rem, 8vw, 1.9rem) !important;
+        font-size: clamp(1.65rem, 8.5vw, 2.2rem) !important;
     }
 
     .page-home .hero-v2__visual-core {
-        width: min(155px, 48vw) !important;
-        height: min(155px, 48vw) !important;
+        width: min(190px, 58vw) !important;
+        height: min(190px, 58vw) !important;
     }
 
-    .page-home .hero-v2__floating-logo {
-        max-width: min(110px, 34vw) !important;
+    .page-home .hero-v2__trust-strip {
+        gap: 0.4rem !important;
     }
 
     .page-home .hero-v2__philosophy-item {
-        gap: 0.7rem !important;
-    }
-
-    .page-home .contact-compact-bar {
-        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
     }
 }
 
-/* ============================
+/* --------------------------------------------------------------------------
    Programs page tuning
-============================ */
+-------------------------------------------------------------------------- */
 @media (max-width: 991px) {
     .page-programs .site-header__actions > .btn-primary {
         display: none !important;
     }
 
     .page-programs .hero {
-        padding: calc(var(--mobile-header-h) + 1rem) 0 2rem !important;
-    }
-
-    .page-programs .hero__content {
-        text-align: center !important;
-        max-width: none !important;
-        padding-inline: 0.2rem !important;
+        padding: calc(var(--mobile-header-h) + 1rem) 0 2.5rem !important;
     }
 
     .page-programs .hero__logo {
-        width: 84px !important;
-        margin: 0 auto 1rem !important;
+        width: 88px !important;
+        margin-bottom: 1rem !important;
     }
 
     .page-programs .hero__title {
-        font-size: clamp(1.8rem, 7vw, 2.8rem) !important;
-        overflow-wrap: anywhere !important;
+        font-size: clamp(2rem, 8vw, 2.8rem) !important;
+        line-height: 1.2 !important;
     }
 
     .page-programs .hero__tagline {
-        font-size: 1rem !important;
+        font-size: 0.98rem !important;
         line-height: 1.85 !important;
-        overflow-wrap: anywhere !important;
+        margin-bottom: 1.75rem !important;
     }
 
     .page-programs .grid-2 {
         grid-template-columns: 1fr !important;
     }
 
-    .page-programs .program-card {
-        grid-template-columns: 1fr !important;
-        padding: 0.9rem !important;
-        gap: 0.9rem !important;
+    .page-programs .program-card,
+    .page-programs .coming-card {
         border-radius: 18px !important;
     }
 
+    .page-programs .program-card {
+        display: block !important;
+        padding: 1rem !important;
+    }
+
     .page-programs .program-card__image img {
-        aspect-ratio: 16 / 10 !important;
+        aspect-ratio: 16 / 9 !important;
     }
 
     .page-programs .program-card__body {
-        padding: 0 !important;
+        padding: 1rem !important;
     }
 
-    .page-programs .program-meta,
-    .page-programs .program-card__actions {
+    .page-programs .program-meta {
         gap: 0.5rem !important;
     }
 
@@ -556,20 +532,14 @@
         width: 100% !important;
     }
 
-    .page-programs .coming-card {
-        padding: 1rem !important;
-        border-radius: 18px !important;
-    }
-
     .page-programs .cta {
         padding: 1.6rem 1rem !important;
-        border-radius: 18px !important;
     }
 }
 
-/* ============================
+/* --------------------------------------------------------------------------
    Persian page tuning
-============================ */
+-------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
     .page-persian .packages-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -578,33 +548,37 @@
 
 @media (max-width: 991px) {
     .page-persian .hero {
-        padding: calc(var(--mobile-header-h) + 1rem) 0 2.2rem !important;
-    }
-
-    .page-persian .hero__content {
-        text-align: center !important;
-        padding-inline: 0.2rem !important;
+        padding: calc(var(--mobile-header-h) + 0.8rem) 0 2.2rem !important;
     }
 
     .page-persian .hero__logo {
         width: 88px !important;
-        margin: 0 auto 0.95rem !important;
+        max-height: 88px !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .page-persian .hero__eyebrow {
+        font-size: 0.78rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 0.9rem !important;
     }
 
     .page-persian .hero__title {
-        font-size: clamp(1.85rem, 7vw, 2.8rem) !important;
-        overflow-wrap: anywhere !important;
+        font-size: clamp(1.75rem, 7vw, 2.35rem) !important;
+        line-height: 1.22 !important;
     }
 
     .page-persian .hero__tagline {
-        font-size: 1rem !important;
+        font-size: 0.98rem !important;
         line-height: 1.85 !important;
-        overflow-wrap: anywhere !important;
+        margin-bottom: 0 !important;
     }
 
     .page-persian .hero__actions {
         flex-direction: column !important;
         width: 100% !important;
+        gap: 0.75rem !important;
+        margin-top: 1.25rem !important;
     }
 
     .page-persian .hero__actions .btn {
@@ -621,73 +595,117 @@
 
     .page-persian .editorial-text-column {
         text-align: right !important;
+        font-size: 0.98rem !important;
+    }
+
+    .page-persian .program-quick-features {
+        gap: 0.45rem !important;
+    }
+
+    .page-persian .quick-feature-tag {
+        width: 100% !important;
+        justify-content: flex-start !important;
     }
 
     .page-persian .phone-mockup {
         width: min(100%, 320px) !important;
-        margin: 0 auto !important;
         padding: 8px !important;
-        border-radius: 28px !important;
     }
 
     .page-persian .phone-mockup__screen {
-        height: 400px !important;
+        height: 370px !important;
     }
 
     .page-persian .phone-mockup__screen iframe {
-        top: 0 !important;
-        height: 100% !important;
+        top: -45px !important;
+        height: calc(100% + 90px) !important;
     }
 
     .page-persian .journey-section {
-        padding: 3.25rem 0 !important;
+        padding: 3rem 0 !important;
     }
 
     .page-persian .journey-orbit-disc {
-        width: 220px !important;
-        height: 220px !important;
-        margin: 0 auto 0.9rem !important;
+        width: 200px !important;
+        height: 200px !important;
+        margin: 0 auto 0.85rem !important;
+    }
+
+    .page-persian .orbit-center-core {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .page-persian .orbit-center-core span {
+        font-size: 0.62rem !important;
     }
 
     .page-persian .journey-step-node {
-        padding: 0.16rem 0.42rem !important;
+        padding: 0.14rem 0.38rem !important;
     }
 
     .page-persian .journey-step-node .step-txt {
-        font-size: 0.64rem !important;
+        font-size: 0.62rem !important;
     }
 
     .page-persian .journey-card-display {
         padding: 1rem !important;
-        border-radius: 16px !important;
     }
 
     .page-persian .journey-card-meta {
         flex-direction: column !important;
         align-items: stretch !important;
+        gap: 0.7rem !important;
     }
 
     .page-persian .journey-cta-box {
         flex-direction: column !important;
         text-align: center !important;
-        align-items: stretch !important;
+        padding: 1rem !important;
     }
 
     .page-persian .instructor-image-frame {
-        height: 360px !important;
+        height: 340px !important;
+    }
+
+    .page-persian .instructor-name {
+        font-size: 1.45rem !important;
+    }
+
+    .page-persian .credentials-list-compact {
+        gap: 0.6rem !important;
+    }
+
+    .page-persian .credential-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.7rem !important;
+        padding: 0.9rem !important;
+    }
+
+    .page-persian .btn-cert-view {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .page-persian .packages-section {
+        padding: 3rem 0 !important;
     }
 
     .page-persian .packages-grid {
         grid-template-columns: 1fr !important;
-    }
-
-    .page-persian .pkg-card-v3--vip {
-        grid-column: auto !important;
+        gap: 1rem !important;
     }
 
     .page-persian .pkg-card-v3,
-    .page-persian .all-inclusions-bar {
+    .page-persian .pkg-card-v3--vip {
+        grid-column: auto !important;
+        padding: 1.25rem !important;
         border-radius: 18px !important;
+    }
+
+    .page-persian .pkg-card-v3__desc {
+        min-height: 0 !important;
     }
 
     .page-persian .pkg-card-v3__actions {
@@ -699,18 +717,85 @@
     }
 
     .page-persian .all-inclusions-bar {
-        padding: 1.1rem !important;
+        padding: 1.25rem !important;
+        border-radius: 18px !important;
     }
 
     .page-persian .all-inclusions-bar__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns: 1fr !important;
         gap: 0.8rem !important;
+    }
+
+    .page-persian .lesson-slide {
+        flex: 0 0 280px !important;
+    }
+
+    .page-persian .lesson-card__video-wrapper {
+        height: 300px !important;
+    }
+
+    .page-persian .lesson-card__video-wrapper iframe {
+        top: -40px !important;
+        height: calc(100% + 80px) !important;
+    }
+
+    .page-persian .lesson-card__content {
+        padding: 0.9rem !important;
+    }
+
+    .page-persian .lesson-card__content h3 {
+        font-size: 0.92rem !important;
+    }
+
+    .page-persian .registration-modal__dialog,
+    .page-persian .cert-lightbox__content {
+        padding: 1.25rem !important;
+        border-radius: 18px !important;
+    }
+
+    .page-persian #packageDetailsModal .modal-body,
+    .page-persian #packageDetailsModal .modal-body * {
+        color: var(--text, #1E1E1E) !important;
+    }
+
+    .page-persian #packageDetailsModal .modal-outcome-box {
+        background: rgba(201, 167, 92, 0.08) !important;
+        border: 1px solid rgba(201, 167, 92, 0.25) !important;
     }
 }
 
 @media (max-width: 640px) {
+    .page-home .site-header__container {
+        min-height: 58px !important;
+    }
+
+    .page-home .site-logo__title {
+        font-size: 0.88rem !important;
+    }
+
+    .page-home .site-logo__subtitle {
+        font-size: 0.66rem !important;
+    }
+
+    .page-home .hero-v2__title {
+        font-size: clamp(1.65rem, 8.5vw, 2.2rem) !important;
+    }
+
+    .page-home .hero-v2__visual-core {
+        width: min(190px, 58vw) !important;
+        height: min(190px, 58vw) !important;
+    }
+
+    .page-home .hero-v2__trust-strip {
+        gap: 0.4rem !important;
+    }
+
+    .page-home .hero-v2__philosophy-item {
+        gap: 0.75rem !important;
+    }
+
     .page-persian .hero__eyebrow {
-        font-size: 0.8rem !important;
+        font-size: 0.74rem !important;
     }
 
     .page-persian .program-quick-features,
@@ -719,31 +804,36 @@
     }
 
     .page-persian .journey-orbit-disc {
-        width: 200px !important;
-        height: 200px !important;
+        width: 180px !important;
+        height: 180px !important;
     }
 
-    .page-persian .journey-card-meta {
-        gap: 0.7rem !important;
+    .page-persian .journey-step-node .step-txt {
+        max-width: 58px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 
-    .page-persian .all-inclusions-bar__grid {
-        grid-template-columns: 1fr !important;
+    .page-persian .cert-lightbox {
+        padding: 1rem !important;
+    }
+
+    .page-persian .cert-lightbox__content {
+        padding: 1rem !important;
+    }
+
+    .page-persian .cert-zoom-container img {
+        max-height: 62vh !important;
     }
 }
 
-/* ============================
-   Modal readability fixes (day & dark mode)
-============================ */
-.registration-modal {
-    padding: 0.75rem !important;
-}
-
+/* --------------------------------------------------------------------------
+   Modal readability fixes (day + dark)
+-------------------------------------------------------------------------- */
 .registration-modal__dialog {
     background: var(--surface, #ffffff) !important;
-    color: var(--text, #1e1e1e) !important;
-    width: min(100%, 560px) !important;
-    max-height: calc(100dvh - 1.5rem) !important;
+    color: var(--text, #1E1E1E) !important;
 }
 
 .registration-modal__dialog h2,
@@ -772,65 +862,42 @@
     gap: 0.5rem !important;
 }
 
-.registration-modal__close {
-    top: 0.85rem !important;
-    left: 0.85rem !important;
-}
-
 .page-persian .registration-modal__dialog .modal-body,
 .page-persian .registration-modal__dialog .modal-body * {
-    color: var(--text, #1e1e1e) !important;
+    color: var(--text, #1E1E1E) !important;
 }
 
 .page-persian .registration-modal__dialog .modal-outcome-box {
-    background: rgba(201, 162, 39, 0.08) !important;
-    border: 1px solid rgba(201, 162, 39, 0.25) !important;
+    background: rgba(201, 167, 92, 0.08) !important;
+    border: 1px solid rgba(201, 167, 92, 0.25) !important;
 }
 
 .page-persian .registration-modal__dialog .modal-outcome-box strong {
     color: var(--accent, #c9a75c) !important;
 }
 
-[data-theme="dark"] .registration-modal__dialog,
-[data-theme="dark"] .cert-lightbox__content {
+[data-theme='dark'] .registration-modal__dialog,
+[data-theme='dark'] .cert-lightbox__content {
     background: var(--surface) !important;
     color: var(--text) !important;
 }
 
-[data-theme="dark"] .registration-modal__dialog h2,
-[data-theme="dark"] .registration-modal__dialog h3,
-[data-theme="dark"] .registration-modal__dialog h4,
-[data-theme="dark"] .registration-modal__dialog strong,
-[data-theme="dark"] .registration-modal__dialog label,
-[data-theme="dark"] .registration-modal__dialog p,
-[data-theme="dark"] .registration-modal__dialog li,
-[data-theme="dark"] .registration-modal__dialog small {
+[data-theme='dark'] .registration-modal__dialog h2,
+[data-theme='dark'] .registration-modal__dialog h3,
+[data-theme='dark'] .registration-modal__dialog h4,
+[data-theme='dark'] .registration-modal__dialog strong,
+[data-theme='dark'] .registration-modal__dialog label,
+[data-theme='dark'] .registration-modal__dialog p,
+[data-theme='dark'] .registration-modal__dialog li,
+[data-theme='dark'] .registration-modal__dialog small {
     color: var(--text) !important;
 }
 
-[data-theme="dark"] .page-persian .registration-modal__dialog .modal-body,
-[data-theme="dark"] .page-persian .registration-modal__dialog .modal-body * {
+[data-theme='dark'] .page-persian .registration-modal__dialog .modal-body,
+[data-theme='dark'] .page-persian .registration-modal__dialog .modal-body * {
     color: #CBD5E1 !important;
 }
 
-[data-theme="dark"] .page-persian .registration-modal__dialog .modal-outcome-box strong {
+[data-theme='dark'] .page-persian .registration-modal__dialog .modal-outcome-box strong {
     color: var(--accent, #c9a75c) !important;
-}
-
-/* ============================
-   Certificates / lightbox cleanup on phones
-============================ */
-@media (max-width: 640px) {
-    .cert-lightbox {
-        padding: 0.75rem !important;
-    }
-
-    .cert-lightbox__content {
-        padding: 1rem !important;
-        border-radius: 16px !important;
-    }
-
-    .cert-zoom-container img {
-        max-height: 62vh !important;
-    }
 }
