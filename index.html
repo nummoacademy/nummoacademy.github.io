@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/mobile-fixes.css">
 </head>
 
 <body class="page-home">
@@ -264,7 +265,7 @@
 </section>
 
 <!-- ==========================================
-     Testimonials Section (سلايدر آراء الطلاب)
+     Testimonials Section (آراء المستخدمين)
 ========================================== -->
 <section id="testimonials" class="section">
     <div class="container">
@@ -486,7 +487,6 @@
                 </select>
             </div>
 
-            <!-- قائمة المسارات الشرطية -->
             <div class="form-group is-hidden" id="trackGroup">
                 <label for="registrationTrack">اختر المسار التعليمي</label>
                 <select id="registrationTrack" name="track">
@@ -510,8 +510,344 @@
     </div>
 </div>
 
+<!-- ==========================================
+     Modal 2: Package Details Modal
+========================================== -->
+<div class="registration-modal" id="packageDetailsModal" aria-hidden="true">
+    <div class="registration-modal__overlay js-close-pkg-modal"></div>
+
+    <div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="packageDetailsTitle">
+        <button type="button" class="registration-modal__close js-close-pkg-modal" aria-label="إغلاق">
+            <i data-lucide="x"></i>
+        </button>
+
+        <div class="registration-modal__header">
+            <span class="registration-modal__eyebrow">PACKAGE DETAILS</span>
+            <h2 id="packageDetailsTitle">تفاصيل الباقة</h2>
+            <p id="modalDescription"></p>
+        </div>
+
+        <div class="modal-body">
+            <div class="modal-outcome-box">
+                <strong class="modal-outcome-box__label">النتيجة المباشرة:</strong>
+                <p id="modalOutcome" class="modal-outcome-box__text"></p>
+            </div>
+
+            <h4 class="modal-body__heading">المحاور والدروس المتضمنة:</h4>
+            <ul id="modalTopicsList" class="pkg-card-v3__checklist modal-topics-list"></ul>
+
+            <button
+                type="button"
+                class="btn btn-pkg-gold js-open-registration"
+                id="modalSubscribeBtn"
+                data-program="برنامج اللغة الفارسية"
+                style="width: 100%;"
+            >
+                اشترك في هذه الباقة الآن
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ==========================================
+     Modal 3: Cert Lightbox
+========================================== -->
+<div class="cert-lightbox" id="certLightbox" aria-hidden="true">
+    <div class="cert-lightbox__backdrop js-close-cert"></div>
+
+    <div class="cert-lightbox__content" role="dialog" aria-modal="true">
+        <button type="button" class="cert-lightbox__close js-close-cert" aria-label="إغلاق">
+            <i data-lucide="x"></i>
+        </button>
+
+        <div class="cert-lightbox__body">
+            <div class="cert-zoom-container" id="certZoomContainer">
+                <img id="certLightboxImg" src="" alt="وثيقة معتمدة">
+            </div>
+            <div class="cert-lightbox__footer">
+                <p class="cert-lightbox__caption" id="certLightboxCaption"></p>
+                <span class="cert-zoom-hint"><i data-lucide="zoom-in"></i> اضغط على الصورة للتكبير / التصغير</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Scripts -->
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+    }
+
+    // Journey slider
+    const stepNodes = document.querySelectorAll(".journey-step-node");
+    const slides = document.querySelectorAll(".journey-slide");
+    const stepCurrentSpan = document.getElementById("journeyStepCurrent");
+    const progressFill = document.getElementById("journeyProgressFill");
+    const nextBtn = document.getElementById("journeyNext");
+    const prevBtn = document.getElementById("journeyPrev");
+
+    let currentStepIndex = 0;
+    const totalSteps = stepNodes.length;
+    let autoPlayTimer = null;
+
+    function goToStep(index) {
+        if (index < 0) index = totalSteps - 1;
+        if (index >= totalSteps) index = 0;
+        currentStepIndex = index;
+
+        stepNodes.forEach((node, idx) => {
+            node.classList.toggle("is-active", idx === index);
+        });
+
+        slides.forEach((slide, idx) => {
+            slide.classList.toggle("is-active", idx === index);
+        });
+
+        if (stepCurrentSpan) {
+            stepCurrentSpan.textContent = String(index + 1).padStart(2, "0");
+        }
+
+        if (progressFill) {
+            progressFill.style.width = ((index + 1) / totalSteps) * 100 + "%";
+        }
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayTimer = setInterval(() => {
+            goToStep(currentStepIndex + 1);
+        }, 4000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    stepNodes.forEach((node) => {
+        node.addEventListener("click", function () {
+            const step = parseInt(this.getAttribute("data-step"), 10);
+            goToStep(step);
+            startAutoPlay();
+        });
+    });
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            goToStep(currentStepIndex + 1);
+            startAutoPlay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            goToStep(currentStepIndex - 1);
+            startAutoPlay();
+        });
+    }
+
+    startAutoPlay();
+
+    // Package details modal
+    const packagesData = {
+        "1": {
+            title: "باقة الأساسيات",
+            desc: "لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.",
+            outcome: "تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.",
+            topics: [
+                "الحروف والنطق ومخارج الأصوات الفارسية.",
+                "تركيب الكلمات وبناء الجمل البسيطة.",
+                "قواعد تصريف الأفعال في الحاضر والماضي.",
+                "الأرقام والأيام والتعريف بالنفس."
+            ]
+        },
+        "2": {
+            title: "باقة التواصل اليومي",
+            desc: "لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.",
+            outcome: "تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.",
+            topics: [
+                "المحادثات في الأسواق والمطاعم والأماكن العامة.",
+                "العبارات والاصطلاحات الشائعة عند الإيرانيين.",
+                "فهم اللهجة العامية والرد السريع بدون تردد.",
+                "التعبير عن المشاعر والآراء والاحتياجات اليومية."
+            ]
+        },
+        "3": {
+            title: "باقة السياحة والسفر",
+            desc: "لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.",
+            outcome: "الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.",
+            topics: [
+                "محادثات المطارات، سيارات الأجرة، والفنادق.",
+                "مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.",
+                "التسوق والمفاصلة بالأسعار والصرافة.",
+                "إرشادات الطرق والتنقل بين المدن."
+            ]
+        },
+        "4": {
+            title: "باقة التجارة العامة",
+            desc: "لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.",
+            outcome: "إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.",
+            topics: [
+                "المصطلحات التجارية، العقود، والمراسلات الرسمية.",
+                "محادثات التفاوض على الأسعار وشروط الدفع والشحن.",
+                "التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.",
+                "إدارة الجلسات والاجتماعات التجارية."
+            ]
+        },
+        "5": {
+            title: "باقة التعليم والدراسة",
+            desc: "للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.",
+            outcome: "القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.",
+            topics: [
+                "المصطلحات الأكاديمية والجامعية المشتركة.",
+                "فهم المحاضرات التخصصية وتلخيص الدروس.",
+                "مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.",
+                "التعامل مع بيئة السكن والأنشطة الطلابية."
+            ]
+        },
+        "6": {
+            title: "باقة الزوار والمواكب",
+            desc: "لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين الإيرانيين.",
+            outcome: "إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.",
+            topics: [
+                "عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.",
+                "توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.",
+                "الحوارات الدينية والشعائرية والتنظيمية.",
+                "المحادثات السريعة والمباشرة في المواكب الحسينية."
+            ]
+        },
+        "vip": {
+            title: "باقة VIP الشاملة",
+            desc: "الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.",
+            outcome: "إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.",
+            topics: [
+                "الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.",
+                "كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.",
+                "متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.",
+                "شهادة إتمام معتمدة من الأكاديمية."
+            ]
+        }
+    };
+
+    const pkgModal = document.getElementById("packageDetailsModal");
+    const openPkgBtns = document.querySelectorAll(".js-open-pkg-modal");
+    const closePkgBtns = document.querySelectorAll(".js-close-pkg-modal");
+
+    function closePackageModal() {
+        if (!pkgModal) return;
+        pkgModal.classList.remove("is-open");
+        document.body.style.overflow = "";
+    }
+
+    openPkgBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const pkgId = this.getAttribute("data-pkg-id");
+            const data = packagesData[pkgId];
+            if (!data || !pkgModal) return;
+
+            const title = document.getElementById("packageDetailsTitle");
+            const desc = document.getElementById("modalDescription");
+            const outcome = document.getElementById("modalOutcome");
+            const list = document.getElementById("modalTopicsList");
+            const subBtn = document.getElementById("modalSubscribeBtn");
+
+            if (title) title.textContent = data.title;
+            if (desc) desc.textContent = data.desc;
+            if (outcome) outcome.textContent = data.outcome;
+
+            if (list) {
+                list.innerHTML = "";
+                data.topics.forEach(t => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<i data-lucide="check"></i> ${t}`;
+                    list.appendChild(li);
+                });
+            }
+
+            if (subBtn) {
+                subBtn.setAttribute("data-track", data.title);
+            }
+
+            if (typeof lucide !== "undefined") {
+                lucide.createIcons();
+            }
+
+            pkgModal.classList.add("is-open");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closePkgBtns.forEach(btn => {
+        btn.addEventListener("click", closePackageModal);
+    });
+
+    if (pkgModal) {
+        pkgModal.addEventListener("click", function (e) {
+            if (e.target === pkgModal || e.target.classList.contains("registration-modal__overlay")) {
+                closePackageModal();
+            }
+        });
+    }
+
+    // Certificate lightbox
+    const certLightbox = document.getElementById("certLightbox");
+    const certImg = document.getElementById("certLightboxImg");
+    const certCaption = document.getElementById("certLightboxCaption");
+    const certContainer = document.getElementById("certZoomContainer");
+    const viewCertBtns = document.querySelectorAll(".js-view-cert");
+    const closeCertBtns = document.querySelectorAll(".js-close-cert");
+
+    function closeCertLightbox() {
+        if (!certLightbox) return;
+        certLightbox.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (certImg) certImg.src = "";
+    }
+
+    viewCertBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const src = this.getAttribute("data-cert-src");
+            const title = this.getAttribute("data-cert-title");
+
+            if (certImg) certImg.src = src || "";
+            if (certCaption) certCaption.textContent = title || "";
+            if (certContainer) certContainer.classList.remove("is-zoomed");
+
+            if (certLightbox) {
+                certLightbox.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+            }
+        });
+    });
+
+    closeCertBtns.forEach(btn => {
+        btn.addEventListener("click", closeCertLightbox);
+    });
+
+    if (certContainer) {
+        certContainer.addEventListener("click", function () {
+            this.classList.toggle("is-zoomed");
+        });
+    }
+
+    if (certLightbox) {
+        certLightbox.addEventListener("click", function (e) {
+            if (e.target === certLightbox || e.target.classList.contains("cert-lightbox__backdrop")) {
+                closeCertLightbox();
+            }
+        });
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            closePackageModal();
+            closeCertLightbox();
+        }
+    });
+});
+</script>
 </body>
 </html>
