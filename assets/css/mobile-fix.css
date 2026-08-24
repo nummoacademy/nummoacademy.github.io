@@ -1,0 +1,640 @@
+/* ========================================================================== 
+   NEMMO Academy — Mobile Fixes (mobile-fix.css)
+   Purpose: keep desktop layouts intact and fully optimize phone/tablet views.
+   ========================================================================== */
+
+html,
+body {
+    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+body.is-nav-open {
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+/* --------------------------------------------------------------------------
+   Shared Header / Drawer (all pages)
+-------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 10000 !important;
+    }
+
+    .site-header__container {
+        width: min(1180px, 92%) !important;
+        margin-inline: auto !important;
+        min-height: 64px !important;
+        padding: 0.55rem 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0.65rem !important;
+        flex-direction: row !important;
+    }
+
+    .site-logo {
+        flex-shrink: 1 !important;
+        gap: 0.6rem !important;
+        max-width: calc(100vw - 118px) !important;
+    }
+
+    .site-logo img,
+    .site-logo__img {
+        width: 38px !important;
+        height: 38px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .site-logo__text {
+        line-height: 1.12 !important;
+        min-width: 0 !important;
+    }
+
+    .site-logo__title {
+        font-size: 0.92rem !important;
+        line-height: 1.12 !important;
+    }
+
+    .site-logo__subtitle {
+        font-size: 0.7rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .site-header__actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 0.5rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .theme-toggle-btn,
+    .mobile-menu-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+
+    .mobile-menu-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        padding: 0 !important;
+        border-radius: 12px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(214, 167, 79, 0.28) !important;
+    }
+
+    .hamburger-bar {
+        width: 18px !important;
+        height: 2px !important;
+        border-radius: 2px !important;
+        background: #ffffff !important;
+    }
+
+    /* Full-width drawer to avoid split-screen feeling on phones */
+    .site-nav {
+        position: fixed !important;
+        top: 64px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: calc(100dvh - 64px) !important;
+        padding: 1rem 1rem 1.25rem !important;
+        background: rgba(8, 19, 33, 0.985) !important;
+        border-top: 1px solid rgba(214, 167, 79, 0.14) !important;
+        border-left: 0 !important;
+        transform: translateY(-102%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        z-index: 9999 !important;
+        box-shadow: none !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+    }
+
+    .site-nav.is-open {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    .site-nav ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.7rem !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .site-nav li {
+        width: 100% !important;
+    }
+
+    .site-nav a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 0.95rem 1rem !important;
+        border-radius: 14px !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        color: #f8fafc !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+    }
+
+    .site-nav a::after {
+        display: none !important;
+    }
+
+    .site-nav a.is-active,
+    .site-nav a:hover {
+        background: rgba(214, 167, 79, 0.14) !important;
+        color: #d6a74f !important;
+        border-color: rgba(214, 167, 79, 0.24) !important;
+    }
+
+    .site-nav__cta {
+        display: block !important;
+        margin-top: 0.35rem !important;
+    }
+
+    .site-nav__cta .btn,
+    .site-nav__cta button {
+        width: 100% !important;
+        min-height: 50px !important;
+        justify-content: center !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Home page mobile tuning
+-------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .page-home .site-header__actions > .btn-hero-gold {
+        display: none !important;
+    }
+
+    .page-home .hero-v2 {
+        min-height: auto !important;
+        padding-top: 4.9rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .page-home .hero-v2__wrapper {
+        padding: 0 1rem !important;
+    }
+
+    .page-home .hero-v2__container {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        margin-bottom: 0.9rem !important;
+    }
+
+    .page-home .hero-v2__content {
+        order: 1 !important;
+        text-align: center !important;
+        max-width: none !important;
+    }
+
+    .page-home .hero-v2__badge {
+        margin-bottom: 0.8rem !important;
+        font-size: 0.75rem !important;
+        padding: 0.28rem 0.75rem !important;
+    }
+
+    .page-home .hero-v2__title {
+        font-size: clamp(1.75rem, 8vw, 2.3rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .page-home .hero-v2__description {
+        font-size: 0.95rem !important;
+        line-height: 1.8 !important;
+        margin-bottom: 1rem !important;
+        max-width: none !important;
+    }
+
+    .page-home .hero-v2__actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .page-home .hero-v2__actions .btn {
+        width: 100% !important;
+        min-height: 50px !important;
+        justify-content: center !important;
+    }
+
+    .page-home .hero-v2__trust-strip {
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+
+    .page-home .hero-v2__visual {
+        order: 2 !important;
+        margin-top: 0 !important;
+    }
+
+    .page-home .hero-v2__visual-core {
+        width: min(210px, 60vw) !important;
+        height: min(210px, 60vw) !important;
+    }
+
+    .page-home .hero-v2__floating-logo {
+        max-width: min(140px, 40vw) !important;
+    }
+
+    .page-home .hero-v2__philosophy-bar {
+        order: 3 !important;
+        margin-top: 0.75rem !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+        padding: 1rem !important;
+        border-radius: 18px !important;
+    }
+
+    .page-home .hero-v2__philosophy-item {
+        padding: 0.8rem 0.9rem !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        border: 1px solid rgba(255, 255, 255, 0.07) !important;
+        border-radius: 14px !important;
+        align-items: flex-start !important;
+    }
+
+    .page-home .hero-v2__philosophy-icon {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        font-size: 1rem !important;
+    }
+
+    .page-home .hero-v2__philosophy-title {
+        font-size: 0.88rem !important;
+    }
+
+    .page-home .hero-v2__philosophy-desc {
+        font-size: 0.75rem !important;
+    }
+
+    .page-home .section {
+        padding: 3.25rem 0 !important;
+    }
+
+    .page-home .section-title {
+        margin-bottom: 1.6rem !important;
+    }
+
+    .page-home .about-intro__text,
+    .page-home .about-pillar {
+        padding: 1rem !important;
+        border-radius: 18px !important;
+        text-align: right !important;
+    }
+
+    .page-home .about-pillars {
+        grid-template-columns: 1fr !important;
+        gap: 0.9rem !important;
+    }
+
+    .page-home .about-pillar h3 {
+        font-size: 1.15rem !important;
+    }
+
+    .page-home .testimonial {
+        padding: 1.35rem 1rem !important;
+        border-radius: 18px !important;
+    }
+
+    .page-home .testimonial__quote {
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+    }
+
+    .page-home .slider-controls {
+        gap: 0.75rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .page-home .cta {
+        padding: 1.75rem 1rem !important;
+        border-radius: 20px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-home .site-header__container {
+        min-height: 58px !important;
+    }
+
+    .page-home .site-logo__title {
+        font-size: 0.88rem !important;
+    }
+
+    .page-home .site-logo__subtitle {
+        font-size: 0.66rem !important;
+    }
+
+    .page-home .hero-v2__title {
+        font-size: clamp(1.65rem, 8.5vw, 2.2rem) !important;
+    }
+
+    .page-home .hero-v2__visual-core {
+        width: min(190px, 58vw) !important;
+        height: min(190px, 58vw) !important;
+    }
+
+    .page-home .hero-v2__trust-strip {
+        gap: 0.4rem !important;
+    }
+
+    .page-home .hero-v2__philosophy-item {
+        gap: 0.75rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Programs page mobile tuning
+-------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .page-programs .hero {
+        padding: 5.25rem 0 3rem !important;
+    }
+
+    .page-programs .hero__title {
+        font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    }
+
+    .page-programs .grid-2 {
+        grid-template-columns: 1fr !important;
+    }
+
+    .page-programs .program-card,
+    .page-programs .coming-card {
+        border-radius: 18px !important;
+    }
+
+    .page-programs .program-card__image {
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .page-programs .program-card__body {
+        padding: 1rem !important;
+    }
+
+    .page-programs .program-meta {
+        gap: 0.5rem !important;
+    }
+
+    .page-programs .program-card__actions {
+        flex-direction: column !important;
+    }
+
+    .page-programs .program-card__actions .btn {
+        width: 100% !important;
+    }
+
+    .page-programs .cta {
+        padding: 1.6rem 1rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Persian page mobile tuning
+-------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+    .page-persian .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .page-persian .hero {
+        padding: 5.5rem 0 3rem !important;
+    }
+
+    .page-persian .hero__title {
+        font-size: clamp(1.9rem, 7vw, 3rem) !important;
+    }
+
+    .page-persian .hero__actions {
+        flex-direction: column !important;
+    }
+
+    .page-persian .hero__actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .page-persian .program-editorial-wrapper,
+    .page-persian .instructor-grid,
+    .page-persian .journey-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+    }
+
+    .page-persian .editorial-text-column {
+        text-align: right !important;
+    }
+
+    .page-persian .phone-mockup {
+        width: min(100%, 320px) !important;
+        margin: 0 auto !important;
+    }
+
+    .page-persian .phone-mockup__screen {
+        height: 420px !important;
+    }
+
+    .page-persian .phone-mockup__screen iframe {
+        top: -55px !important;
+        height: calc(100% + 110px) !important;
+    }
+
+    .page-persian .journey-orbit-disc {
+        width: 220px !important;
+        height: 220px !important;
+        margin: 0 auto 1rem !important;
+    }
+
+    .page-persian .journey-step-node {
+        padding: 0.14rem 0.38rem !important;
+    }
+
+    .page-persian .journey-step-node .step-txt {
+        font-size: 0.62rem !important;
+    }
+
+    .page-persian .journey-card-display {
+        padding: 1rem 1rem 1.1rem !important;
+    }
+
+    .page-persian .journey-cta-box {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    .page-persian .instructor-image-frame {
+        height: 380px !important;
+    }
+
+    .page-persian .packages-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .page-persian .pkg-card-v3--vip {
+        grid-column: auto !important;
+    }
+
+    .page-persian .pkg-card-v3__actions {
+        flex-direction: column !important;
+    }
+
+    .page-persian .pkg-card-v3__actions .btn {
+        width: 100% !important;
+    }
+
+    .page-persian .all-inclusions-bar {
+        padding: 1.25rem !important;
+    }
+
+    .page-persian .all-inclusions-bar__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 0.9rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-persian .hero__eyebrow {
+        font-size: 0.82rem !important;
+    }
+
+    .page-persian .program-quick-features,
+    .page-persian .slide-chips {
+        gap: 0.45rem !important;
+    }
+
+    .page-persian .journey-orbit-disc {
+        width: 200px !important;
+        height: 200px !important;
+    }
+
+    .page-persian .journey-card-meta {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Modal readability fixes (day & dark mode)
+-------------------------------------------------------------------------- */
+.registration-modal__dialog {
+    background: var(--surface, #ffffff) !important;
+    color: var(--text, #1e1e1e) !important;
+}
+
+.registration-modal__dialog h2,
+.registration-modal__dialog h3,
+.registration-modal__dialog h4,
+.registration-modal__dialog strong,
+.registration-modal__dialog label {
+    color: var(--primary, #1B2A4A) !important;
+}
+
+.registration-modal__dialog p,
+.registration-modal__dialog li,
+.registration-modal__dialog small {
+    color: var(--text-light, #64748b) !important;
+}
+
+.registration-modal__dialog ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0.75rem 0 !important;
+}
+
+.registration-modal__dialog li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.page-persian .registration-modal__dialog .modal-body,
+.page-persian .registration-modal__dialog .modal-body * {
+    color: var(--text, #1e1e1e) !important;
+}
+
+.page-persian .registration-modal__dialog .modal-outcome-box {
+    background: rgba(201, 162, 39, 0.08) !important;
+    border: 1px solid rgba(201, 162, 39, 0.25) !important;
+}
+
+.page-persian .registration-modal__dialog .modal-outcome-box strong {
+    color: var(--accent, #c9a75c) !important;
+}
+
+[data-theme="dark"] .registration-modal__dialog,
+[data-theme="dark"] .cert-lightbox__content {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+}
+
+[data-theme="dark"] .registration-modal__dialog h2,
+[data-theme="dark"] .registration-modal__dialog h3,
+[data-theme="dark"] .registration-modal__dialog h4,
+[data-theme="dark"] .registration-modal__dialog strong,
+[data-theme="dark"] .registration-modal__dialog label,
+[data-theme="dark"] .registration-modal__dialog p,
+[data-theme="dark"] .registration-modal__dialog li,
+[data-theme="dark"] .registration-modal__dialog small {
+    color: var(--text) !important;
+}
+
+[data-theme="dark"] .page-persian .registration-modal__dialog .modal-body,
+[data-theme="dark"] .page-persian .registration-modal__dialog .modal-body * {
+    color: #CBD5E1 !important;
+}
+
+[data-theme="dark"] .page-persian .registration-modal__dialog .modal-outcome-box strong {
+    color: var(--accent, #c9a75c) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Certificates / lightbox cleanup on phones
+-------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .cert-lightbox {
+        padding: 1rem !important;
+    }
+
+    .cert-lightbox__content {
+        padding: 1rem !important;
+        border-radius: 16px !important;
+    }
+
+    .cert-zoom-container img {
+        max-height: 62vh !important;
+    }
+}
