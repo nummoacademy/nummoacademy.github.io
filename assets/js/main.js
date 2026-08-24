@@ -1,5 +1,5 @@
 /* ========================================================================== 
-   NEMMO Academy — Main JavaScript (Modular Production v3.5)
+   NEMMO Academy — Main JavaScript (Modular Production v3.6)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -40,9 +40,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const siteNav = document.getElementById('siteNav');
-    const registrationModal = document.getElementById('registrationModal');
+    const siteHeader = document.querySelector('.site-header');
+    let siteNav = document.getElementById('siteNav');
+    let mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+    if (!siteNav) {
+        siteNav = document.querySelector('.site-nav');
+        if (siteNav && !siteNav.id) {
+            siteNav.id = 'siteNav';
+        }
+    }
+
+    if (siteHeader && siteNav && !mobileMenuBtn) {
+        const headerActions = siteHeader.querySelector('.site-header__actions');
+        if (headerActions) {
+            mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.id = 'mobileMenuBtn';
+            mobileMenuBtn.type = 'button';
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.setAttribute('aria-label', 'فتح القائمة');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.innerHTML = '<span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>';
+            headerActions.appendChild(mobileMenuBtn);
+        }
+    }
+
+    if (siteNav && !siteNav.hasAttribute('aria-hidden')) {
+        siteNav.setAttribute('aria-hidden', 'true');
+    }
 
     function closeMobileNav() {
         if (!siteNav || !siteNav.classList.contains('is-open')) return;
@@ -57,12 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    if (siteNav && registrationModal && document.body.classList.contains('page-home') && !siteNav.querySelector('.site-nav__cta')) {
-        const ctaItem = document.createElement('li');
-        ctaItem.className = 'site-nav__cta';
-        ctaItem.innerHTML = "<button type='button' class='btn btn-hero-gold js-open-registration' data-program='عام - أكاديمية نُمو'><i class='fa-solid fa-user-plus'></i><span>اشترك الآن</span></button>";
+    if (siteNav && document.body.classList.contains('page-home') && !siteNav.querySelector('.site-nav__cta')) {
         const navList = siteNav.querySelector('ul');
-        if (navList) navList.appendChild(ctaItem);
+        if (navList) {
+            const ctaItem = document.createElement('li');
+            ctaItem.className = 'site-nav__cta';
+            ctaItem.innerHTML = "<button type='button' class='btn btn-hero-gold js-open-registration' data-program='عام - أكاديمية نُمو'><i class='fa-solid fa-user-plus'></i><span>اشترك الآن</span></button>";
+            navList.appendChild(ctaItem);
+        }
     }
 
     if (mobileMenuBtn && siteNav) {
@@ -97,9 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
 
-    const siteHeader = document.querySelector('.site-header');
     let isScrolling = false;
-
     window.addEventListener('scroll', function () {
         if (isScrolling) return;
 
@@ -152,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const modal = registrationModal;
+    const registrationModal = document.getElementById('registrationModal');
     const form = document.getElementById('registrationForm');
     const errorMsg = document.getElementById('registrationError');
     const programSelect = document.getElementById('registrationProgram');
@@ -182,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleModalKeyDown(e) {
-        if (!modal || !modal.classList.contains('is-open')) return;
+        if (!registrationModal || !registrationModal.classList.contains('is-open')) return;
 
         if (e.key === 'Escape') {
             closeRegistrationModal();
@@ -192,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (e.key !== 'Tab') return;
 
-        const focusableElements = modal.querySelectorAll('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
+        const focusableElements = registrationModal.querySelectorAll('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
         if (!focusableElements.length) return;
 
         const firstElement = focusableElements[0];
@@ -210,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function openRegistrationModal(programName = '', trackName = '', triggerElement = null) {
-        if (!modal) return;
+        if (!registrationModal) return;
         lastActiveElement = triggerElement || document.activeElement;
 
         if (form) form.reset();
@@ -219,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
             errorMsg.style.display = 'none';
         }
 
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
+        registrationModal.classList.add('is-open');
+        registrationModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
 
         if (programSelect && programName) {
@@ -246,16 +271,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('keydown', handleModalKeyDown);
 
         window.setTimeout(() => {
-            const firstInput = modal.querySelector('input:not([type=hidden]), select, textarea, button');
+            const firstInput = registrationModal.querySelector('input:not([type=hidden]), select, textarea, button');
             if (firstInput) firstInput.focus();
         }, 80);
     }
 
     function closeRegistrationModal() {
-        if (!modal) return;
+        if (!registrationModal) return;
 
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
+        registrationModal.classList.remove('is-open');
+        registrationModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         document.removeEventListener('keydown', handleModalKeyDown);
 
@@ -288,9 +313,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    if (modal) {
-        modal.addEventListener('click', function (e) {
-            if (e.target === modal || e.target.classList.contains('registration-modal__overlay')) {
+    if (registrationModal) {
+        registrationModal.addEventListener('click', function (e) {
+            if (e.target === registrationModal || e.target.classList.contains('registration-modal__overlay')) {
                 closeRegistrationModal();
             }
         });
