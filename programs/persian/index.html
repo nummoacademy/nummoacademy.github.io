@@ -17,20 +17,12 @@
         }
       })();
     </script>
-    <meta
-        name="description"
-        content="برنامج احترافي متكامل لتعلم اللغة الفارسية من الصفر حتى الإتقان مع الأستاذة زهراء سعد أحمد."
-    >
-
+    <meta name="description" content="برنامج احترافي متكامل لتعلم اللغة الفارسية من الصفر حتى الإتقان مع الأستاذة زهراء سعد أحمد.">
     <meta name="theme-color" content="#1B2A4A">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -40,42 +32,29 @@
     <link rel="stylesheet" href="../../assets/css/layout.css">
     <link rel="stylesheet" href="../../assets/css/components.css">
     <link rel="stylesheet" href="../../assets/css/persian.css">
-
+    <link rel="stylesheet" href="../../assets/css/mobile-fixes.css">
 </head>
 
 <body class="page-persian">
 
-
-<!-- ==========================================
-     Header
-========================================== -->
-
 <header class="site-header" id="siteHeader">
-
     <div class="container site-header__container">
 
         <a href="../../index.html" class="site-logo">
-            <img
-                src="../../assets/images/logo.png"
-                alt="NEMMO Academy"
-                class="site-logo__img"
-                loading="eager"
-            >
+            <img src="../../assets/images/logo.png" alt="NEMMO Academy" class="site-logo__img" loading="eager">
             <div class="site-logo__text">
-                <span class="site-logo__title">
-                    NEMMO Academy
-                </span>
-                <span class="site-logo__subtitle">
-                    أكاديمية نمو التعليمية
-                </span>
+                <span class="site-logo__title">NEMMO Academy</span>
+                <span class="site-logo__subtitle">أكاديمية نمو التعليمية</span>
             </div>
         </a>
 
-        <nav class="site-nav">
+        <nav class="site-nav" id="siteNav" aria-label="القائمة الرئيسية" aria-hidden="true">
             <ul>
                 <li><a href="../../index.html">الرئيسية</a></li>
                 <li><a href="../../programs.html">الدورات التعليمية</a></li>
                 <li><a href="index.html" class="is-active">برنامج اللغة الفارسية</a></li>
+                <li><a href="../../index.html#about">من نحن</a></li>
+                <li><a href="../../index.html#contact">تواصل معنا</a></li>
             </ul>
         </nav>
 
@@ -84,32 +63,25 @@
                 <i data-lucide="moon" class="moon-icon"></i>
                 <i data-lucide="sun" class="sun-icon" style="display: none;"></i>
             </button>
+
+            <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
         </div>
 
     </div>
-
 </header>
 
-
 <main>
-
-
 <!-- ==========================================
      Hero Section
 ========================================== -->
-
 <section class="hero">
-
     <div class="container">
-
         <div class="hero__content">
-
-            <img
-                src="../../assets/images/logo.png"
-                alt="NEMMO Academy"
-                class="hero__logo"
-                loading="eager"
-            >
+            <img src="../../assets/images/logo.png" alt="NEMMO Academy" class="hero__logo" loading="eager">
 
             <span class="hero__eyebrow">
                 <i data-lucide="sparkles"></i>
@@ -127,33 +99,23 @@
             </h1>
 
             <p class="hero__tagline">
-                برنامج احترافي صُمم خصيصًا للطالب العراقي والعربي، يجمع بين الدروس المصورة، والكتب التعليمية،
+                برنامج احترافي صُمم خصيصًا للطالب العراقي والعربي، يجمع بين الدروس المصوّرة، والكتب التعليمية،
                 والتطبيق العملي، والدعم المستمر؛ ليمنحك القدرة على استخدام اللغة الفارسية في الدراسة، والسفر والعمل،
                 والتواصل اليومي.
             </p>
 
             <div class="hero__actions">
-                <a href="#packages" class="btn btn-primary">
-                    استعراض الباقات
-                </a>
-                <a href="#about-program" class="btn btn-secondary">
-                    تعرف على البرنامج
-                </a>
+                <a href="#packages" class="btn btn-primary">استعراض الباقات</a>
+                <a href="#about-program" class="btn btn-secondary">تعرف على البرنامج</a>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
 <!-- ==========================================
-     About the Program & Instagram Video
+     About the Program & Video
 ========================================== -->
-
 <section id="about-program" class="section section-light">
-
     <div class="container">
 
         <div class="section-title text-right-desktop">
@@ -162,7 +124,6 @@
         </div>
 
         <div class="program-editorial-wrapper">
-
             <div class="editorial-text-column">
                 <p class="editorial-lead">
                     برنامج اللغة الفارسية هو أول برامج أكاديمية نمو التعليمية، ويقدم تجربة تعلم متكاملة تعتمد على منهج عملي وتدريجي يناسب جميع المستويات.
@@ -171,12 +132,12 @@
                     يجمع البرنامج بين الشرح المبسط، والتطبيق العملي، والمواد التعليمية المساندة؛ ليمنح الطالب أساسًا قويًا في اللغة ومهارات استخدامها في الحياة الواقعية.
                 </p>
                 <p>
-                    تم تصميم المحتوى بعناية ليغطي المهارات الأساسية للغة (الاستماع، المحادثة، القراءة، والكتابة) بأسلوب يسهل استيعابه وتطبيقه مباشرة.
+                    تم تصميم المحتوى بعناية ليغطي المهارات الأساسية للغة: الاستماع، المحادثة، القراءة، والكتابة، بأسلوب يسهل استيعابه وتطبيقه مباشرة.
                 </p>
                 <p>
-                    صُمم البرنامج بإشراف مدربة متخصصة خريجة إدارة الأعمال (MBA) ليلبي الأهداف العملية المتعددة للمتعلم،<br>
-                    عبر مسارات موجهة تغطي متطلبات <strong>التجارة وإدارة الأعمال</strong> (المراسلات والتفاوض مع الموردين)،<br>
-                    و<strong>الدراسة الأكاديمية</strong> (المناهج والبحوث الجامعية)،<br>
+                    صُمم البرنامج بإشراف مدرّبة متخصصة خريجة إدارة الأعمال (MBA) ليلبي الأهداف العملية المتعددة للمتعلم،
+                    عبر مسارات موجهة تغطي متطلبات <strong>التجارة وإدارة الأعمال</strong> (المراسلات والتفاوض مع الموردين)،
+                    و<strong>الدراسة الأكاديمية</strong> (المناهج والبحوث الجامعية)،
                     و<strong>السياحة والسفر</strong> (المطارات، الفنادق، والتعاملات اليومية).
                 </p>
                 <div class="program-quick-features">
@@ -190,46 +151,39 @@
             <div class="editorial-media-column">
                 <div class="phone-mockup">
                     <div class="phone-mockup__screen">
-                        <iframe 
-                            src="https://www.instagram.com/reel/DQ16cK0CGsN/embed/" 
-                            title="Instagram Video Preview"
+                        <iframe
+                            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022229670752507&show_text=false&width=560"
+                            title="Facebook Video Preview"
                             loading="lazy"
-                            allowtransparency="true"
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                            allowfullscreen>
                         </iframe>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
-
 </section>
-
 
 <!-- ==========================================
      Learning Journey
 ========================================== -->
-
 <section class="section journey-section">
-
     <div class="container">
 
         <div class="section-title">
             <span>YOUR LEARNING JOURNEY</span>
             <h2>رحلتك نحو الإتقان خطوة بخطوة</h2>
-            <p>مسار عملي متدرج يأخذك من الصفر حتى مرحلة الطلاقة والاستخدام الواقعي بثقة.</p>
+            <p>مسار عملي متدرّج يأخذك من الصفر حتى مرحلة الطلاقة والاستخدام الواقعي بثقة.</p>
         </div>
 
         <div class="journey-wrapper">
-
-            <!-- Orbit Visual -->
             <div class="journey-visual">
                 <div class="journey-orbit-disc">
                     <svg class="journey-path-svg" viewBox="0 0 240 240" aria-hidden="true">
-                        <circle class="journey-path-track" cx="120" cy="120" r="110" fill="none" />
-                        <circle class="journey-path-progress" cx="120" cy="120" r="110" fill="none" />
+                        <circle class="journey-path-track" cx="120" cy="120" r="110" fill="none"></circle>
+                        <circle class="journey-path-progress" cx="120" cy="120" r="110" fill="none"></circle>
                     </svg>
 
                     <div class="orbit-center-core">
@@ -269,7 +223,6 @@
                 </div>
             </div>
 
-            <!-- Display Card -->
             <div class="journey-card-display">
                 <div class="journey-card-meta">
                     <div class="journey-step-counter">
@@ -321,8 +274,8 @@
                         <h3 class="slide-title">السياحة والتنقل الحر</h3>
                         <p class="slide-benefit">إدارة كامل التعاملات اليومية والسياحية في إيران بدون الحاجة لمترجم.</p>
                         <div class="slide-chips">
-                            <span class="step-chip"><i data-lucide="check"></i> استقلالية تامة بأسفارك</span>
-                            <span class="step-chip"><i data-lucide="check"></i> حوارات الفنادق والمطارات</span>
+                            <span class="step-chip"><i data-lucide="check"></i> استقلالية تامة في السفر</span>
+                            <span class="step-chip"><i data-lucide="check"></i> حوارات المطارات والفنادق</span>
                             <span class="step-chip step-chip--highlight"><i data-lucide="sparkles"></i> تسوق بلا عائق</span>
                         </div>
                     </div>
@@ -353,23 +306,21 @@
                         <h4>كل مرحلة تقرّبك خطوة نحو إتقان كامل للغة الفارسية...</h4>
                         <p>اختر الباقة المناسبة لك وابدأ رحلتك اليوم لتصنع الفارق.</p>
                     </div>
-                    <a href="#packages" class="btn btn-pkg-gold">استعراض الباقات والاشتراك <i data-lucide="arrow-down"></i></a>
+                    <a href="#packages" class="btn btn-pkg-gold">
+                        استعراض الباقات والاشتراك
+                        <i data-lucide="arrow-down"></i>
+                    </a>
                 </div>
             </div>
-
         </div>
 
     </div>
-
 </section>
-
 
 <!-- ==========================================
      Why This Program Features Grid
 ========================================== -->
-
 <section class="section section-light">
-
     <div class="container">
 
         <div class="section-title">
@@ -416,28 +367,19 @@
         </div>
 
     </div>
-
 </section>
-
 
 <!-- ==========================================
      Instructor & Verified Credentials
 ========================================== -->
-
 <section id="instructor" class="section instructor-section">
-
     <div class="container">
 
         <div class="instructor-grid">
 
             <div class="instructor-media-col">
                 <div class="instructor-image-frame">
-                    <img 
-                        src="../../assets/images/teacher.jpg" 
-                        alt="الأستاذة زهراء سعد أحمد"
-                        class="instructor-main-img"
-                        loading="lazy"
-                    >
+                    <img src="../../assets/images/teacher.jpg" alt="الأستاذة زهراء سعد أحمد" class="instructor-main-img" loading="lazy">
                     <div class="instructor-image-badge">
                         <i data-lucide="award"></i>
                         <span>ماجستير إدارة الأعمال (MBA)</span>
@@ -527,42 +469,40 @@
         </div>
 
     </div>
-
 </section>
-
 
 <!-- ==========================================
      Sample Lessons Carousel
 ========================================== -->
-
 <section class="section section-light">
-
     <div class="container">
 
         <div class="section-title">
             <span>SAMPLE LESSONS</span>
             <h2>شاهد أسلوب الشرح عن قرب</h2>
-            <p>نماذج قصيرة وسريعة من محاضرات الأستاذة زهراء، اسحب لليمين واليسار لمشاهدة باقي الدروس.</p>
+            <p>نماذج قصيرة وسريعة من محاضرات الأستاذة زهراء. اسحب لليمين واليسار لمشاهدة باقي الدروس.</p>
         </div>
 
         <div class="lessons-carousel">
             <div class="lessons-carousel__track">
-                
+
                 <div class="lesson-slide">
                     <div class="lesson-card">
                         <div class="lesson-card__video-wrapper">
-                            <iframe 
-                                src="https://www.instagram.com/reel/DFz-zO-N-k3/embed/" 
-                                title="Instagram Reel 1" 
+                            <iframe
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1026965566731421&show_text=false&width=560"
+                                title="Facebook Reel 1"
                                 loading="lazy"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen>
                             </iframe>
                         </div>
                         <div class="lesson-card__content">
                             <span class="lesson-card__badge"><i data-lucide="car"></i> مواصلات</span>
                             <h3>10 كلمات عن النقل والمواصلات</h3>
-                            <a href="https://www.instagram.com/p/DFz-zO-N-k3/" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
-                                <span>مشاهدة الدرس على إنستغرام</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <a href="https://www.facebook.com/reel/1026965566731421" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
+                                <span>مشاهدة الدرس على فيسبوك</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
@@ -571,38 +511,20 @@
                 <div class="lesson-slide">
                     <div class="lesson-card">
                         <div class="lesson-card__video-wrapper">
-                            <iframe 
-                                src="https://www.instagram.com/reel/DDYtVdSt5d2/embed/" 
-                                title="Instagram Reel 2" 
+                            <iframe
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2152806508975437&show_text=false&width=560"
+                                title="Facebook Reel 2"
                                 loading="lazy"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                            </iframe>
-                        </div>
-                        <div class="lesson-card__content">
-                            <span class="lesson-card__badge"><i data-lucide="activity"></i> صحة وطب</span>
-                            <h3>أبرز الكلمات في الطب والصحة</h3>
-                            <a href="https://www.instagram.com/p/DDYtVdSt5d2/" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
-                                <span>مشاهدة الدرس على إنستغرام</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lesson-slide">
-                    <div class="lesson-card">
-                        <div class="lesson-card__video-wrapper">
-                            <iframe 
-                                src="https://www.instagram.com/reel/DFxXg1ttLsp/embed/" 
-                                title="Instagram Reel 3" 
-                                loading="lazy"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen>
                             </iframe>
                         </div>
                         <div class="lesson-card__content">
                             <span class="lesson-card__badge"><i data-lucide="message-circle"></i> محادثة</span>
                             <h3>مصطلحات في الفارسية العامية</h3>
-                            <a href="https://www.instagram.com/p/DFxXg1ttLsp/" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
-                                <span>مشاهدة الدرس على إنستغرام</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <a href="https://www.facebook.com/reel/2152806508975437" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
+                                <span>مشاهدة الدرس على فيسبوك</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
@@ -611,18 +533,42 @@
                 <div class="lesson-slide">
                     <div class="lesson-card">
                         <div class="lesson-card__video-wrapper">
-                            <iframe 
-                                src="https://www.instagram.com/reel/DDk2x-Zt_8j/embed/" 
-                                title="Instagram Reel 4" 
+                            <iframe
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1045699788214450&show_text=false&width=560"
+                                title="Facebook Reel 3"
                                 loading="lazy"
-                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen>
                             </iframe>
                         </div>
                         <div class="lesson-card__content">
-                            <span class="lesson-card__badge"><i data-lucide="shopping-bag"></i> تسوق</span>
-                            <h3>كيف تتحدث أثناء التسوق؟ جمل مهمة</h3>
-                            <a href="https://www.instagram.com/p/DDk2x-Zt_8j/" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
-                                <span>مشاهدة الدرس على إنستغرام</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span class="lesson-card__badge"><i data-lucide="activity"></i> صحة وطب</span>
+                            <h3>أبرز الكلمات في الطب والصحة</h3>
+                            <a href="https://www.facebook.com/reel/1045699788214450" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
+                                <span>مشاهدة الدرس على فيسبوك</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-slide">
+                    <div class="lesson-card">
+                        <div class="lesson-card__video-wrapper">
+                            <iframe
+                                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2449962292190915&show_text=false&width=560"
+                                title="Facebook Reel 4"
+                                loading="lazy"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="lesson-card__content">
+                            <span class="lesson-card__badge"><i data-lucide="zap"></i> تقنية</span>
+                            <h3>مصطلحات في التكنولوجيا والإنترنت</h3>
+                            <a href="https://www.facebook.com/reel/2449962292190915" target="_blank" rel="noopener noreferrer" class="btn-link-watch">
+                                <span>مشاهدة الدرس على فيسبوك</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
@@ -632,16 +578,12 @@
         </div>
 
     </div>
-
 </section>
 
-
 <!-- ==========================================
-     Packages Section
+     Packages Section (v4)
 ========================================== -->
-
 <section id="packages" class="packages-section">
-
     <div class="container">
 
         <div class="section-title">
@@ -651,8 +593,6 @@
         </div>
 
         <div class="packages-grid">
-
-            <!-- 1. الأساسيات -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">01</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="book-open"></i></div>
@@ -660,7 +600,7 @@
                 <p class="pkg-card-v3__desc">لمن يريد بدء تعلم الفارسية من الصفر.</p>
 
                 <ul class="pkg-card-v3__checklist">
-                    <li><i data-lucide="check"></i> <strong>النتيجة:</strong> تأسيس الطالب للانتقال إلى مستويات أعلى، وقراءة وكتابة الجمل الأساسية.</li>
+                    <li><i data-lucide="check"></i> <strong>النتيجة:</strong> تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.</li>
                     <li><i data-lucide="check"></i> الحروف والنطق ومخارج الحروف.</li>
                     <li><i data-lucide="check"></i> الكلمات والجمل الأساسية.</li>
                     <li><i data-lucide="check"></i> أساسيات القواعد وتكوين الجمل.</li>
@@ -672,7 +612,6 @@
                 </div>
             </article>
 
-            <!-- 2. التواصل اليومي -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">02</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="message-square"></i></div>
@@ -682,7 +621,7 @@
                 <ul class="pkg-card-v3__checklist">
                     <li><i data-lucide="check"></i> <strong>النتيجة:</strong> تكوين الجمل والتحدث بثقة وفهم مواقف التواصل الاجتماعي.</li>
                     <li><i data-lucide="check"></i> المحادثات اليومية ومواقف التواصل.</li>
-                    <li><i data-lucide="check"></i> العبارات والاصطلاحات الشائعة.</li>
+                    <li><i data-lucide="check"></i> العبارات الشائعة والاستعمالات اليومية.</li>
                     <li><i data-lucide="check"></i> مهارات الاستماع والفهم المباشر.</li>
                 </ul>
 
@@ -692,7 +631,6 @@
                 </div>
             </article>
 
-            <!-- 3. السياحة والسفر -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">03</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="plane"></i></div>
@@ -701,8 +639,8 @@
 
                 <ul class="pkg-card-v3__checklist">
                     <li><i data-lucide="check"></i> <strong>النتيجة:</strong> امتلاك العبارات التي يحتاجها السائح للتواصل المباشر في رحلته.</li>
-                    <li><i data-lucide="check"></i> محادثات السفر والنقل والفنادق.</li>
-                    <li><i data-lucide="check"></i> المراجعات الطبية والمستشفيات.</li>
+                    <li><i data-lucide="check"></i> محادثات السفر والمطارات والفنادق.</li>
+                    <li><i data-lucide="check"></i> المصطلحات الطبية والمستشفيات وشرح الأعراض.</li>
                     <li><i data-lucide="check"></i> التسوق والتعاملات اليومية.</li>
                 </ul>
 
@@ -712,7 +650,6 @@
                 </div>
             </article>
 
-            <!-- 4. التجارة العامة -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">04</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="briefcase"></i></div>
@@ -732,7 +669,6 @@
                 </div>
             </article>
 
-            <!-- 5. التعليم والدراسة -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">05</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="graduation-cap"></i></div>
@@ -752,18 +688,17 @@
                 </div>
             </article>
 
-            <!-- 6. الزوار والمواكب -->
             <article class="pkg-card-v3">
                 <span class="pkg-card-v3__number">06</span>
-                <div class="pkg-card-v3__icon-wrap"><i data-lucide="handshake"></i></div>
+                <div class="pkg-card-v3__icon-wrap"><i data-lucide="heart-handshake"></i></div>
                 <h3 class="pkg-card-v3__title">باقة الزوار والمواكب</h3>
-                <p class="pkg-card-v3__desc">للزوار وأصحاب المواكب للتواصل المباشر مع الزائرين.</p>
+                <p class="pkg-card-v3__desc">للزوار وأصحاب المواكب الذين يحتاجون الفارسية للتواصل مع الزائرين.</p>
 
                 <ul class="pkg-card-v3__checklist">
                     <li><i data-lucide="check"></i> <strong>النتيجة:</strong> التوجيه، التعامل اليومي، ومواقف الاستقبال والخدمة في المواكب.</li>
                     <li><i data-lucide="check"></i> العبارات الخاصة بالزيارة والضيافة.</li>
                     <li><i data-lucide="check"></i> التواصل مع الزوار ومواقف الاستقبال.</li>
-                    <li><i data-lucide="check"></i> التوجيه والتعامل اليومي في المواكب.</li>
+                    <li><i data-lucide="check"></i> التوجيه والتعامل اليومي في المواكب الحسينية.</li>
                 </ul>
 
                 <div class="pkg-card-v3__actions">
@@ -772,7 +707,6 @@
                 </div>
             </article>
 
-            <!-- VIP Card -->
             <article class="pkg-card-v3 pkg-card-v3--vip">
                 <span class="pkg-card-v3__number">VIP</span>
                 <div class="pkg-card-v3__icon-wrap"><i data-lucide="crown"></i></div>
@@ -787,7 +721,7 @@
                         <span class="vip-icon-pill" title="السياحة والسفر"><i data-lucide="plane"></i></span>
                         <span class="vip-icon-pill" title="التجارة العامة"><i data-lucide="briefcase"></i></span>
                         <span class="vip-icon-pill" title="التعليم والدراسة"><i data-lucide="graduation-cap"></i></span>
-                        <span class="vip-icon-pill" title="الزوار والمواكب"><i data-lucide="handshake"></i></span>
+                        <span class="vip-icon-pill" title="الزوار والمواكب"><i data-lucide="heart-handshake"></i></span>
                     </div>
                 </div>
 
@@ -796,57 +730,29 @@
                     <button type="button" class="btn btn-pkg-outline js-open-pkg-modal" data-pkg-id="vip">تفاصيل VIP الكاملة</button>
                 </div>
             </article>
-
         </div>
 
-        <!-- All Inclusions Bar -->
         <div class="all-inclusions-bar">
             <h3 class="all-inclusions-bar__title">كل باقة تتضمن:</h3>
             <div class="all-inclusions-bar__grid">
-                <div class="bar-inclusion-item">
-                    <i data-lucide="video"></i>
-                    <span>أكثر من 70 درس فيديو HD</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="layers"></i>
-                    <span>جميع المستويات</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="clock"></i>
-                    <span>متابعة مع الأستاذة لمدة 6 أشهر</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="book-open"></i>
-                    <span>ملازم مجانية</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="truck"></i>
-                    <span>توصيل مجاني</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="infinity"></i>
-                    <span>التعلم من أي مكان وفي أي وقت</span>
-                </div>
-                <div class="bar-inclusion-item">
-                    <i data-lucide="rotate-ccw"></i>
-                    <span>إمكانية مشاهدة الدروس ومراجعتها في أي وقت</span>
-                </div>
+                <div class="bar-inclusion-item"><i data-lucide="video"></i><span>أكثر من 70 درس فيديو HD</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="layers"></i><span>جميع المستويات</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="clock"></i><span>متابعة مع الأستاذة لمدة 6 أشهر</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="book-open"></i><span>ملازم مجانية</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="truck"></i><span>توصيل مجاني</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="infinity"></i><span>التعلم من أي مكان وفي أي وقت</span></div>
+                <div class="bar-inclusion-item"><i data-lucide="rotate-ccw"></i><span>إمكانية مشاهدة الدروس المسجلة ومراجعتها وإعادتها في أي وقت</span></div>
             </div>
         </div>
 
     </div>
-
 </section>
-
 
 <!-- ==========================================
      FAQ Section
 ========================================== -->
-
 <section class="section section-light">
-
     <div class="container">
-
         <div class="section-title">
             <span>FAQ</span>
             <h2>الأسئلة الشائعة</h2>
@@ -881,20 +787,14 @@
                 </div>
             </details>
         </div>
-
     </div>
-
 </section>
-
 
 <!-- ==========================================
      CTA
 ========================================== -->
-
 <section class="section">
-
     <div class="container">
-
         <div class="cta">
             <h2>ابدأ رحلتك التعليمية اليوم</h2>
             <p>استثمر في تطوير نفسك، وابدأ تعلم اللغة الفارسية ضمن بيئة تعليمية احترافية صُممت خصيصًا للطلاب في العراق والعالم العربي.</p>
@@ -903,20 +803,14 @@
                 اشترك الآن
             </button>
         </div>
-
     </div>
-
 </section>
-
 
 <!-- ==========================================
      Contact
 ========================================== -->
-
 <section id="contact" class="section section-light">
-
     <div class="container">
-
         <div class="section-title">
             <span>CONTACT US</span>
             <h2>تواصل معنا</h2>
@@ -924,63 +818,35 @@
         </div>
 
         <div class="contact-compact-bar">
-            <a href="https://wa.me/9647770300029" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="واتساب">
-                <i class="fa-brands fa-whatsapp"></i>
-                <span>واتساب</span>
-            </a>
-            <a href="https://t.me/NemoAcademy" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تليغرام">
-                <i class="fa-brands fa-telegram"></i>
-                <span>تليغرام</span>
-            </a>
-            <a href="https://www.instagram.com/nemmo.ac?igsh=aXdpOXZjNmlseXJ0" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="انستغرام">
-                <i class="fa-brands fa-instagram"></i>
-                <span>انستغرام</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61575293433047" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="فيسبوك">
-                <i class="fa-brands fa-facebook-f"></i>
-                <span>فيسبوك</span>
-            </a>
-            <a href="https://tiktok.com/@nemoacademy1997" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تيك توك">
-                <i class="fa-brands fa-tiktok"></i>
-                <span>تيك توك</span>
-            </a>
+            <a href="https://wa.me/9647770300029" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i><span>واتساب</span></a>
+            <a href="https://t.me/NemoAcademy" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تليغرام"><i class="fa-brands fa-telegram"></i><span>تليغرام</span></a>
+            <a href="https://www.instagram.com/nemmo.ac?igsh=aXdpOXZjNmlseXJ0" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="انستغرام"><i class="fa-brands fa-instagram"></i><span>انستغرام</span></a>
+            <a href="https://www.facebook.com/profile.php?id=61575293433047" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i><span>فيسبوك</span></a>
+            <a href="https://tiktok.com/@nemoacademy1997" target="_blank" rel="noopener noreferrer" class="contact-icon-link" aria-label="تيك توك"><i class="fa-brands fa-tiktok"></i><span>تيك توك</span></a>
         </div>
-
     </div>
-
 </section>
 
-
 </main>
-
 
 <!-- ==========================================
      Footer
 ========================================== -->
-
 <footer class="site-footer">
-
     <div class="site-footer__container">
-        <p>© <span data-current-year></span> NEMMO Academy</p>
+        <p>© <span data-current-year></span> NEMMO Academy. جميع الحقوق محفوظة.</p>
         <a href="../../programs.html">الدورات التعليمية</a>
     </div>
-
 </footer>
 
-
 <!-- ==========================================
-     Modal 1: Registration Modal
+     Registration Modal
 ========================================== -->
-
 <div class="registration-modal" id="registrationModal" aria-hidden="true">
-
     <div class="registration-modal__overlay js-close-registration"></div>
 
     <div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle">
-
-        <button type="button" class="registration-modal__close js-close-registration" aria-label="إغلاق">
-            <i data-lucide="x"></i>
-        </button>
+        <button type="button" class="registration-modal__close js-close-registration" aria-label="إغلاق"><i data-lucide="x"></i></button>
 
         <div class="registration-modal__header">
             <span class="registration-modal__eyebrow">REGISTRATION</span>
@@ -989,7 +855,6 @@
         </div>
 
         <form id="registrationForm" class="registration-form" novalidate>
-
             <div class="form-group">
                 <label for="registrationName">الاسم الثلاثي</label>
                 <input type="text" id="registrationName" name="name" placeholder="أدخل الاسم الثلاثي" autocomplete="name" required>
@@ -1027,25 +892,25 @@
 
             <div class="form-group">
                 <label for="registrationAddress">العنوان الكامل</label>
-                <textarea id="registrationAddress" name="address" rows="3" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea>
+                <textarea id="registrationAddress" name="address" rows="2" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea>
             </div>
 
             <div class="form-group">
                 <label for="registrationProgram">البرنامج</label>
                 <select id="registrationProgram" name="program" required>
-                    <option value="برنامج اللغة الفارسية" selected>برنامج اللغة الفارسية</option>
+                    <option value="">اختر البرنامج</option>
+                    <option value="برنامج اللغة الفارسية">برنامج اللغة الفارسية</option>
                 </select>
             </div>
 
-            <div class="form-group" id="trackGroup">
+            <div class="form-group is-hidden" id="trackGroup">
                 <label for="registrationTrack">اختر المسار التعليمي</label>
-                <select id="registrationTrack" name="track" required>
+                <select id="registrationTrack" name="track">
                     <option value="">اختر المسار المناسب</option>
                     <option value="باقة الأساسيات">باقة الأساسيات</option>
                     <option value="باقة التواصل اليومي">باقة التواصل اليومي</option>
                     <option value="باقة السياحة والسفر">باقة السياحة والسفر</option>
                     <option value="باقة التجارة العامة">باقة التجارة العامة</option>
-                    <option value="باقة التعليم والدراسة">باقة التعليم والدراسة</option>
                     <option value="باقة الزوار والمواكب">باقة الزوار والمواكب</option>
                     <option value="باقة VIP الشاملة">باقة VIP الشاملة</option>
                 </select>
@@ -1057,54 +922,41 @@
                 <i data-lucide="send"></i>
                 إرسال الطلب عبر واتساب
             </button>
-
         </form>
-
     </div>
-
 </div>
 
-
 <!-- ==========================================
-     Modal 2: Package Details Modal (اعرف المزيد)
+     Modal 2: Package Details Modal
 ========================================== -->
-
 <div class="registration-modal" id="packageDetailsModal" aria-hidden="true">
     <div class="registration-modal__overlay js-close-pkg-modal"></div>
-    <div class="registration-modal__dialog" role="dialog" aria-modal="true">
-        <button type="button" class="registration-modal__close js-close-pkg-modal" aria-label="إغلاق">
-            <i data-lucide="x"></i>
-        </button>
+    <div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="packageDetailsTitle">
+        <button type="button" class="registration-modal__close js-close-pkg-modal" aria-label="إغلاق"><i data-lucide="x"></i></button>
         <div class="registration-modal__header">
             <span class="registration-modal__eyebrow">PACKAGE DETAILS</span>
-            <h2 id="modalTitle">تفاصيل الباقة</h2>
+            <h2 id="packageDetailsTitle">تفاصيل الباقة</h2>
             <p id="modalDescription"></p>
         </div>
-        <div class="modal-body" style="text-align: right; color: #cbd5e1;">
-            <div class="modal-outcome-box" style="margin-bottom: 1.25rem; padding: 1rem; background: rgba(201, 162, 39, 0.1); border-radius: 12px; border: 1px solid rgba(201, 162, 39, 0.25);">
-                <strong style="color: #c9a75c; display: block; margin-bottom: 0.25rem;">النتيجة المباشرة:</strong>
-                <p id="modalOutcome" style="margin: 0; color: #ffffff;"></p>
+        <div class="modal-body">
+            <div class="modal-outcome-box">
+                <strong class="modal-outcome-box__label">النتيجة المباشرة:</strong>
+                <p id="modalOutcome" class="modal-outcome-box__text"></p>
             </div>
-            <h4 style="color: #ffffff; margin-bottom: 0.75rem;">المحاور والدروس المتضمنة:</h4>
-            <ul id="modalTopicsList" class="pkg-card-v3__checklist" style="margin-bottom: 1.5rem;"></ul>
-            <button type="button" class="btn btn-pkg-gold js-open-registration" id="modalSubscribeBtn" style="width: 100%;">
-                اشترك في هذه الباقة الآن
-            </button>
+            <h4 class="modal-body__heading">المحاور والدروس المتضمنة:</h4>
+            <ul id="modalTopicsList" class="pkg-card-v3__checklist modal-topics-list"></ul>
+            <button type="button" class="btn btn-pkg-gold js-open-registration" id="modalSubscribeBtn" data-program="برنامج اللغة الفارسية" style="width: 100%;">اشترك في هذه الباقة الآن</button>
         </div>
     </div>
 </div>
 
-
 <!-- ==========================================
-     Modal 3: Cert Lightbox (معاينة الوثائق)
+     Modal 3: Cert Lightbox
 ========================================== -->
-
 <div class="cert-lightbox" id="certLightbox" aria-hidden="true">
     <div class="cert-lightbox__backdrop js-close-cert"></div>
     <div class="cert-lightbox__content" role="dialog" aria-modal="true">
-        <button type="button" class="cert-lightbox__close js-close-cert" aria-label="إغلاق">
-            <i data-lucide="x"></i>
-        </button>
+        <button type="button" class="cert-lightbox__close js-close-cert" aria-label="إغلاق"><i data-lucide="x"></i></button>
         <div class="cert-lightbox__body">
             <div class="cert-zoom-container" id="certZoomContainer">
                 <img id="certLightboxImg" src="" alt="وثيقة معتمدة">
@@ -1117,19 +969,16 @@
     </div>
 </div>
 
-
 <!-- Scripts -->
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="../../assets/js/main.js"></script>
 
-<!-- Persian Page Integrated JavaScript -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     if (typeof lucide !== "undefined") {
         lucide.createIcons();
     }
 
-    // 1. تشغيل مسار الإتقان المداري
     const stepNodes = document.querySelectorAll(".journey-step-node");
     const slides = document.querySelectorAll(".journey-slide");
     const stepCurrentSpan = document.getElementById("journeyStepCurrent");
@@ -1146,21 +995,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (index >= totalSteps) index = 0;
         currentStepIndex = index;
 
-        stepNodes.forEach((node, idx) => {
-            node.classList.toggle("is-active", idx === index);
-        });
+        stepNodes.forEach((node, idx) => node.classList.toggle("is-active", idx === index));
+        slides.forEach((slide, idx) => slide.classList.toggle("is-active", idx === index));
 
-        slides.forEach((slide, idx) => {
-            slide.classList.toggle("is-active", idx === index);
-        });
-
-        if (stepCurrentSpan) {
-            stepCurrentSpan.textContent = String(index + 1).padStart(2, "0");
-        }
-
-        if (progressFill) {
-            progressFill.style.width = ((index + 1) / totalSteps) * 100 + "%";
-        }
+        if (stepCurrentSpan) stepCurrentSpan.textContent = String(index + 1).padStart(2, "0");
+        if (progressFill) progressFill.style.width = ((index + 1) / totalSteps) * 100 + "%";
     }
 
     function startAutoPlay() {
@@ -1182,86 +1021,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => { goToStep(currentStepIndex + 1); startAutoPlay(); });
-    }
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => { goToStep(currentStepIndex - 1); startAutoPlay(); });
-    }
+    if (nextBtn) nextBtn.addEventListener("click", () => { goToStep(currentStepIndex + 1); startAutoPlay(); });
+    if (prevBtn) prevBtn.addEventListener("click", () => { goToStep(currentStepIndex - 1); startAutoPlay(); });
 
     startAutoPlay();
 
-    // 2. مودال تفاصيل الباقات
     const packagesData = {
-        "1": {
-            title: "باقة الأساسيات",
-            desc: "لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.",
-            outcome: "تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.",
-            topics: ["الحروف والنطق ومخارج الأصوات الفارسية.", "تركيب الكلمات وبناء الجمل البسيطة.", "قواعد تصريف الأفعال في الحاضر والماضي.", "الأرقام والأيام والتعريف بالنفس."]
-        },
-        "2": {
-            title: "باقة التواصل اليومي",
-            desc: "لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.",
-            outcome: "تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.",
-            topics: ["المحادثات في الأسواق والمطاعم والأماكن العامة.", "العبارات والاصطلاحات الشائعة عند الإيرانيين.", "فهم اللهجة العامية والرد السريع بدون تردد.", "التعبير عن المشاعر والآراء والاحتياجات اليومية."]
-        },
-        "3": {
-            title: "باقة السياحة والسفر",
-            desc: "لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.",
-            outcome: "الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.",
-            topics: ["محادثات المطارات، سيارات الأجرة، والفنادق.", "مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.", "التسوق والمفاصلة بالأسعار والصرافة.", "إرشادات الطرق والتنقل بين المدن."]
-        },
-        "4": {
-            title: "باقة التجارة العامة",
-            desc: "لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.",
-            outcome: "إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.",
-            topics: ["المصطلحات التجارية، العقود، والمراسلات الرسمية.", "محادثات التفاوض على الأسعار وشروط الدفع والشحن.", "التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.", "إدارة الجلسات والاجتماعات التجارية."]
-        },
-        "5": {
-            title: "باقة التعليم والدراسة",
-            desc: "للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.",
-            outcome: "القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.",
-            topics: ["المصطلحات الأكاديمية والجامعية المشتركة.", "فهم المحاضرات التخصصية وتلخيص الدروس.", "مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.", "التعامل مع بيئة السكن والأنشطة الطلابية."]
-        },
-        "6": {
-            title: "باقة الزوار والمواكب",
-            desc: "لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين.",
-            outcome: "إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.",
-            topics: ["عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.", "توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.", "الحوارات الدينية والشعائرية والتنظيمية.", "المحادثات السريعة والمباشرة في المواكب الحسينية."]
-        },
-        "vip": {
-            title: "باقة VIP الشاملة",
-            desc: "الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.",
-            outcome: "إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.",
-            topics: ["الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.", "كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.", "متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.", "شهادة إتمام معتمدة من الأكاديمية."]
-        }
+        "1": { title: "باقة الأساسيات", desc: "لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.", outcome: "تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.", topics: ["الحروف والنطق ومخارج الأصوات الفارسية.", "تركيب الكلمات وبناء الجمل البسيطة.", "قواعد تصريف الأفعال في الحاضر والماضي.", "الأرقام والأيام والتعريف بالنفس."] },
+        "2": { title: "باقة التواصل اليومي", desc: "لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.", outcome: "تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.", topics: ["المحادثات في الأسواق والمطاعم والأماكن العامة.", "العبارات والاصطلاحات الشائعة عند الإيرانيين.", "فهم اللهجة العامية والرد السريع بدون تردد.", "التعبير عن المشاعر والآراء والاحتياجات اليومية."] },
+        "3": { title: "باقة السياحة والسفر", desc: "لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.", outcome: "الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.", topics: ["محادثات المطارات، سيارات الأجرة، والفنادق.", "مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.", "التسوق والمفاصلة بالأسعار والصرافة.", "إرشادات الطرق والتنقل بين المدن."] },
+        "4": { title: "باقة التجارة العامة", desc: "لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.", outcome: "إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.", topics: ["المصطلحات التجارية، العقود، والمراسلات الرسمية.", "محادثات التفاوض على الأسعار وشروط الدفع والشحن.", "التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.", "إدارة الجلسات والاجتماعات التجارية."] },
+        "5": { title: "باقة التعليم والدراسة", desc: "للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.", outcome: "القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.", topics: ["المصطلحات الأكاديمية والجامعية المشتركة.", "فهم المحاضرات التخصصية وتلخيص الدروس.", "مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.", "التعامل مع بيئة السكن والأنشطة الطلابية."] },
+        "6": { title: "باقة الزوار والمواكب", desc: "لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين الإيرانيين.", outcome: "إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.", topics: ["عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.", "توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.", "الحوارات الدينية والشعائرية والتنظيمية.", "المحادثات السريعة والمباشرة في المواكب الحسينية."] },
+        "vip": { title: "باقة VIP الشاملة", desc: "الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.", outcome: "إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.", topics: ["الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.", "كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.", "متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.", "شهادة إتمام معتمدة من الأكاديمية."] }
     };
 
     const pkgModal = document.getElementById("packageDetailsModal");
     const openPkgBtns = document.querySelectorAll(".js-open-pkg-modal");
     const closePkgBtns = document.querySelectorAll(".js-close-pkg-modal");
 
+    function closePackageModal() {
+        if (!pkgModal) return;
+        pkgModal.classList.remove("is-open");
+        document.body.style.overflow = "";
+    }
+
     openPkgBtns.forEach(btn => {
         btn.addEventListener("click", function () {
             const pkgId = this.getAttribute("data-pkg-id");
             const data = packagesData[pkgId];
-            if (!data) return;
+            if (!data || !pkgModal) return;
 
-            document.getElementById("modalTitle").textContent = data.title;
-            document.getElementById("modalDescription").textContent = data.desc;
-            document.getElementById("modalOutcome").textContent = data.outcome;
-
+            const title = document.getElementById("packageDetailsTitle");
+            const desc = document.getElementById("modalDescription");
+            const outcome = document.getElementById("modalOutcome");
             const list = document.getElementById("modalTopicsList");
-            list.innerHTML = "";
-            data.topics.forEach(t => {
-                const li = document.createElement("li");
-                li.innerHTML = `<i data-lucide="check"></i> ${t}`;
-                list.appendChild(li);
-            });
-
             const subBtn = document.getElementById("modalSubscribeBtn");
-            subBtn.setAttribute("data-track", data.title);
 
+            if (title) title.textContent = data.title;
+            if (desc) desc.textContent = data.desc;
+            if (outcome) outcome.textContent = data.outcome;
+
+            if (list) {
+                list.innerHTML = "";
+                data.topics.forEach(t => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<i data-lucide="check"></i> ${t}`;
+                    list.appendChild(li);
+                });
+            }
+
+            if (subBtn) subBtn.setAttribute("data-track", data.title);
             if (typeof lucide !== "undefined") lucide.createIcons();
 
             pkgModal.classList.add("is-open");
@@ -1270,13 +1080,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     closePkgBtns.forEach(btn => {
-        btn.addEventListener("click", function () {
-            pkgModal.classList.remove("is-open");
-            document.body.style.overflow = "";
-        });
+        btn.addEventListener("click", closePackageModal);
     });
 
-    // 3. معاينة الوثائق والشهادات
+    if (pkgModal) {
+        pkgModal.addEventListener("click", function (e) {
+            if (e.target === pkgModal || e.target.classList.contains("registration-modal__overlay")) {
+                closePackageModal();
+            }
+        });
+    }
+
     const certLightbox = document.getElementById("certLightbox");
     const certImg = document.getElementById("certLightboxImg");
     const certCaption = document.getElementById("certLightboxCaption");
@@ -1284,25 +1098,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const viewCertBtns = document.querySelectorAll(".js-view-cert");
     const closeCertBtns = document.querySelectorAll(".js-close-cert");
 
+    function closeCertLightbox() {
+        if (!certLightbox) return;
+        certLightbox.classList.remove("is-open");
+        document.body.style.overflow = "";
+        if (certImg) certImg.src = "";
+    }
+
     viewCertBtns.forEach(btn => {
         btn.addEventListener("click", function () {
             const src = this.getAttribute("data-cert-src");
             const title = this.getAttribute("data-cert-title");
 
-            certImg.src = src;
-            certCaption.textContent = title;
-            certContainer.classList.remove("is-zoomed");
+            if (certImg) certImg.src = src || "";
+            if (certCaption) certCaption.textContent = title || "";
+            if (certContainer) certContainer.classList.remove("is-zoomed");
 
-            certLightbox.classList.add("is-open");
-            document.body.style.overflow = "hidden";
+            if (certLightbox) {
+                certLightbox.classList.add("is-open");
+                document.body.style.overflow = "hidden";
+            }
         });
     });
 
     closeCertBtns.forEach(btn => {
-        btn.addEventListener("click", function () {
-            certLightbox.classList.remove("is-open");
-            document.body.style.overflow = "";
-        });
+        btn.addEventListener("click", closeCertLightbox);
     });
 
     if (certContainer) {
@@ -1310,11 +1130,22 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.toggle("is-zoomed");
         });
     }
+
+    if (certLightbox) {
+        certLightbox.addEventListener("click", function (e) {
+            if (e.target === certLightbox || e.target.classList.contains("cert-lightbox__backdrop")) {
+                closeCertLightbox();
+            }
+        });
+    }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            closePackageModal();
+            closeCertLightbox();
+        }
+    });
 });
 </script>
-
-<!-- Instagram Embed Embedder Script -->
-<script async src="https://www.instagram.com/embed.js"></script>
-
 </body>
 </html>
