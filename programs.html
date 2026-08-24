@@ -1,302 +1,155 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang='ar' dir='rtl'>
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>البرامج | NEMMO Academy</title>
-<script>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>البرامج | NEMMO Academy</title>
+    <script>
       (function () {
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
           document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       })();
     </script>
-<meta name="description"
-content="استكشف البرامج التعليمية في أكاديمية نمو التعليمية.">
-
-<meta name="theme-color" content="#1B2A4A">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/variables.css">
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/layout.css">
-<link rel="stylesheet" href="assets/css/components.css">
-
+    <meta name='description' content='استكشف البرامج التعليمية في أكاديمية نمو التعليمية.'>
+    <meta name='theme-color' content='#1B2A4A'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
+    <link rel='stylesheet' href='assets/css/variables.css'>
+    <link rel='stylesheet' href='assets/css/layout.css'>
+    <link rel='stylesheet' href='assets/css/components.css'>
+    <link rel='stylesheet' href='assets/css/main.css'>
 </head>
+<body class='page-programs'>
+<header class='site-header' id='siteHeader'>
+    <div class='site-header__container'>
+        <a href='index.html' class='site-logo'>
+            <img src='assets/images/logo.png' alt='NEMMO Academy' class='site-logo__img' loading='eager'>
+            <div class='site-logo__text'>
+                <span class='site-logo__title'>NEMMO Academy</span>
+                <span class='site-logo__subtitle'>أكاديمية نمو التعليمية</span>
+            </div>
+        </a>
 
-<body>
+        <nav class='site-nav' id='siteNav' aria-label='القائمة الرئيسية' aria-hidden='true'>
+            <ul>
+                <li><a href='index.html'>الرئيسية</a></li>
+                <li><a href='programs.html' class='is-active'>الدورات التعليمية</a></li>
+                <li><a href='index.html#about'>من نحن</a></li>
+                <li><a href='index.html#contact'>تواصل معنا</a></li>
+            </ul>
+        </nav>
 
-<header class="site-header">
+        <div class='site-header__actions'>
+            <a href='programs/persian/index.html' class='btn btn-primary'>
+                <i class='fa-solid fa-arrow-left'></i>
+                <span>عرض البرنامج</span>
+            </a>
 
-<div class="site-header__container">
+            <button id='themeToggle' class='theme-toggle-btn' aria-label='تبديل المظهر'>
+                <i data-lucide='moon' class='moon-icon'></i>
+                <i data-lucide='sun' class='sun-icon' style='display: none;'></i>
+            </button>
 
-<a href="index.html" class="site-logo">
-
-<img src="assets/images/logo.png" alt="NEMMO Academy">
-
-<div class="site-logo__text">
-
-<span class="site-logo__title">
-
-NEMMO Academy
-
-</span>
-
-<nav class="site-nav">
-    <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="programs.html">البرامج</a></li>
-        <li><a href="index.html#about">من نحن</a></li>
-        <li><a href="index.html#contact">تواصل معنا</a></li>
-    </ul>
-</nav>
-</div>
-
+            <button id='mobileMenuBtn' class='mobile-menu-btn' aria-label='فتح القائمة' aria-expanded='false'>
+                <span class='hamburger-bar'></span>
+                <span class='hamburger-bar'></span>
+                <span class='hamburger-bar'></span>
+            </button>
+        </div>
+    </div>
 </header>
 
 <main>
-
-<!-- Hero -->
-
-<section class="hero">
-
-<div class="container">
-
-<div class="hero__content">
-
-<span class="hero__eyebrow">
-
-PROGRAMS
-
-</span>
-
-<h1 class="hero__title">
-
-برامج أكاديمية NEMMO
-
-</h1>
-
-<p class="hero__tagline">
-
-نطور برامج تعليمية عملية
-تساعد الطالب العراقي
-على اكتساب المهارات التي يحتاجها
-للدراسة،
-والسفر،
-والعمل،
-والتواصل مع العالم.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Programs -->
-
-<section class="section">
-
-<div class="container">
-
-<div class="section-title">
-
-<span>
-
-CURRENT PROGRAMS
-
-</span>
-
-<h2>
-
-البرامج الحالية
-
-</h2>
-
-<p>
-
-تبدأ الأكاديمية ببرنامج اللغة الفارسية،
-وستتوسع تدريجياً
-لتضم برامج جديدة
-في اللغات والتطوير المهني.
-
-</p>
-
-</div>
-
-<div class="grid grid-2">
-
-<!-- Persian -->
-
-<article class="program-card">
-
-<div class="program-card__image">
-
-<img
-src="assets/images/persian-course-cover.jpg"
-alt="برنامج اللغة الفارسية">
-
-</div>
-
-<div class="program-card__body">
-
-<span class="program-card__badge">
-
-متاح الآن
-
-</span>
-
-<h3>
-
-برنامج اللغة الفارسية
-
-</h3>
-
-<p>
-
-برنامج احترافي
-لتعلم اللغة الفارسية
-يشمل المحاضرات،
-وكتاب القواعد،
-وكتاب المحادثة،
-والملفات الصوتية
-لتجربة تعليمية متكاملة.
-
-</p>
-
-<div class="program-meta">
-
-<span>💎 الماسية</span>
-
-<span>⭐ الذهبية</span>
-
-<span>🎥 فيديو</span>
-
-<span>📚 كتب</span>
-
-</div>
-
-<a
-href="programs/persian/index.html"
-class="btn btn-primary">
-
-استعراض البرنامج
-
-</a>
-
-</div>
-
-</article>
-
-<!-- Coming Soon -->
-
-<article class="coming-card">
-
-<div class="coming-card__icon">
-
-🚀
-
-</div>
-
-<h3>
-
-برامج جديدة قريباً
-
-</h3>
-
-<p>
-
-نعمل حالياً
-على إعداد برامج تعليمية جديدة
-في اللغات
-ومجالات التطوير المهني،
-لتصبح الأكاديمية
-منصة تعليمية متكاملة.
-
-</p>
-
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="section section-light">
-
-<div class="container">
-
-<div class="cta">
-
-<h2>
-
-ابدأ رحلتك مع NEMMO Academy
-
-</h2>
-
-<p>
-
-إذا كنت ترغب
-في تعلم اللغة الفارسية
-بطريقة احترافية،
-فبرنامجنا الأول
-جاهز للانضمام اليوم.
-
-</p>
-
-<a
-href="programs/persian/index.html"
-class="btn btn-primary">
-
-عرض البرنامج
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
+    <section class='hero'>
+        <div class='container'>
+            <div class='hero__content'>
+                <span class='hero__eyebrow'>PROGRAMS</span>
+                <h1 class='hero__title'>برامج أكاديمية NEMMO</h1>
+                <p class='hero__tagline'>
+                    نطوّر برامج تعليمية عملية تساعد الطالب العراقي على اكتساب المهارات التي يحتاجها للدراسة والسفر والعمل والتواصل مع العالم.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class='section'>
+        <div class='container'>
+            <div class='section-title'>
+                <span>CURRENT PROGRAMS</span>
+                <h2>البرامج الحالية</h2>
+                <p>
+                    تبدأ الأكاديمية ببرنامج اللغة الفارسية، مع مسارات واضحة تناسب الأهداف المختلفة وتمنح المتعلم تجربة عملية ومريحة.
+                </p>
+            </div>
+
+            <div class='grid grid-2'>
+                <article class='program-card'>
+                    <div class='program-card__image'>
+                        <img src='assets/images/persian-course-cover.jpg' alt='برنامج اللغة الفارسية' loading='lazy'>
+                    </div>
+
+                    <div class='program-card__body'>
+                        <span class='program-card__badge'>متاح الآن</span>
+                        <h3 class='program-card__title'>برنامج اللغة الفارسية</h3>
+                        <p class='program-card__description'>
+                            برنامج احترافي متكامل يقدّم الدروس المصورة والكتب التعليمية والدعم الصوتي لتجربة تعلم واضحة ومنظمة.
+                        </p>
+
+                        <div class='program-meta'>
+                            <span>الأساسيات</span>
+                            <span>التواصل اليومي</span>
+                            <span>السياحة والسفر</span>
+                            <span>التجارة العامة</span>
+                            <span>الزوار والمواكب</span>
+                            <span>VIP الشاملة</span>
+                        </div>
+
+                        <div class='program-card__actions'>
+                            <a href='programs/persian/index.html' class='btn btn-primary'>استعراض البرنامج</a>
+                            <a href='index.html#contact' class='btn btn-secondary'>تواصل معنا</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class='coming-card'>
+                    <div class='coming-card__icon'>🚀</div>
+                    <h3>برامج جديدة قريباً</h3>
+                    <p>
+                        نعمل حالياً على إعداد برامج تعليمية جديدة في اللغات ومجالات التطوير المهني، لتصبح الأكاديمية منصة تعليمية متكاملة.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class='section section-light'>
+        <div class='container'>
+            <div class='cta'>
+                <h2>ابدأ رحلتك مع NEMMO Academy</h2>
+                <p>
+                    إذا كنت ترغب في تعلم اللغة الفارسية بطريقة احترافية، فبرنامجنا الأول جاهز للانضمام اليوم.
+                </p>
+                <a href='programs/persian/index.html' class='btn btn-primary'>عرض البرنامج</a>
+            </div>
+        </div>
+    </section>
 </main>
 
-<footer class="site-footer">
-
-<div class="site-footer__container">
-
-<p>
-
-© <span data-current-year></span>
-NEMMO Academy
-
-</p>
-
-<a href="index.html">
-
-الرئيسية
-
-</a>
-
-</div>
-
+<footer class='site-footer'>
+    <div class='site-footer__container'>
+        <p>© <span data-current-year></span> NEMMO Academy. جميع الحقوق محفوظة.</p>
+        <a href='index.html'>الرئيسية</a>
+    </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
-
+<script src='https://unpkg.com/lucide@latest'></script>
+<script src='assets/js/main.js'></script>
 </body>
-
 </html>
