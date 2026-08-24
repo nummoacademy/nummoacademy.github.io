@@ -1,0 +1,665 @@
+/* ========================================================================== 
+   NEMMO Academy — Mobile Fixes & Modal Contrast
+   This file is loaded after the base styles to preserve desktop layouts
+   while tightening mobile UX and improving modal readability.
+   ========================================================================== */
+
+html,
+body,
+.page-home,
+.page-programs,
+.page-persian {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+body.is-nav-open {
+    overflow: hidden;
+}
+
+/* ------------------------------
+   Shared header / drawer behavior
+------------------------------ */
+.site-header {
+    width: 100%;
+}
+
+.site-header__container {
+    width: min(1180px, calc(100% - 2rem));
+}
+
+.site-nav__cta {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(214, 167, 79, 0.28);
+    color: #ffffff;
+}
+
+.mobile-menu-btn .hamburger-bar {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.page-home .site-header__actions > .btn-hero-gold,
+.page-programs .site-header__actions > .btn-primary,
+.page-persian .site-header__actions > .btn-primary {
+    white-space: nowrap;
+}
+
+/* ------------------------------
+   Shared modal readability fixes
+------------------------------ */
+.registration-modal__dialog {
+    background: var(--surface, #ffffff);
+    color: var(--text, #1E1E1E);
+}
+
+.registration-modal__header h2,
+.registration-modal__dialog h2,
+.registration-modal__dialog h3,
+.registration-modal__dialog h4,
+.registration-modal__dialog label,
+.registration-modal__dialog strong,
+.registration-modal__dialog li,
+.registration-modal__dialog p {
+    color: var(--text, #1E1E1E);
+}
+
+.registration-modal__eyebrow {
+    color: var(--accent, #c9a75c);
+}
+
+.registration-modal__header p,
+.registration-modal__dialog .modal-outcome-box__text,
+.registration-modal__dialog .modal-body__heading,
+.registration-modal__dialog .modal-description,
+.registration-modal__dialog .modal-topics-list li {
+    color: var(--text, #1E1E1E);
+}
+
+.registration-modal__close {
+    background: var(--background, #f7f9fc);
+    color: var(--primary, #1B2A4A);
+}
+
+.registration-modal__close:hover {
+    background: var(--primary, #1B2A4A);
+    color: #ffffff;
+}
+
+.modal-outcome-box {
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-radius: 14px;
+}
+
+.modal-outcome-box__label {
+    color: var(--accent, #c9a75c);
+}
+
+.modal-topics-list li {
+    color: var(--text, #1E1E1E);
+}
+
+[data-theme="dark"] .registration-modal__dialog {
+    background: var(--surface) !important;
+    color: var(--text) !important;
+}
+
+[data-theme="dark"] .registration-modal__header h2,
+[data-theme="dark"] .registration-modal__dialog h2,
+[data-theme="dark"] .registration-modal__dialog h3,
+[data-theme="dark"] .registration-modal__dialog h4,
+[data-theme="dark"] .registration-modal__dialog label,
+[data-theme="dark"] .registration-modal__dialog strong,
+[data-theme="dark"] .registration-modal__dialog li,
+[data-theme="dark"] .registration-modal__dialog p {
+    color: var(--text) !important;
+}
+
+[data-theme="dark"] .registration-modal__header p,
+[data-theme="dark"] .registration-modal__dialog .modal-outcome-box__text,
+[data-theme="dark"] .registration-modal__dialog .modal-description,
+[data-theme="dark"] .registration-modal__dialog .modal-topics-list li {
+    color: var(--text-light) !important;
+}
+
+/* ------------------------------
+   Mobile drawer + mobile spacing
+------------------------------ */
+@media (max-width: 991px) {
+    .site-header__container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        min-height: 72px;
+        padding-block: 0.5rem;
+    }
+
+    .site-logo {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75rem;
+        text-align: inherit;
+        min-width: 0;
+    }
+
+    .site-logo img,
+    .site-logo__img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .site-logo__text {
+        min-width: 0;
+    }
+
+    .site-logo__title {
+        font-size: 0.95rem;
+        line-height: 1.15;
+    }
+
+    .site-logo__subtitle {
+        font-size: 0.68rem;
+        line-height: 1.1;
+    }
+
+    .site-header__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-shrink: 0;
+    }
+
+    .mobile-menu-btn {
+        display: inline-flex;
+        flex-shrink: 0;
+    }
+
+    .site-nav {
+        position: fixed;
+        top: 72px;
+        right: -100%;
+        width: min(320px, 84vw);
+        height: calc(100dvh - 72px);
+        background: #0d1b30;
+        border-left: 1px solid rgba(214, 167, 79, 0.18);
+        box-shadow: -12px 0 30px rgba(0, 0, 0, 0.35);
+        padding: 1.25rem 1rem;
+        overflow-y: auto;
+        transition: right 0.32s ease;
+        z-index: 9999;
+    }
+
+    .site-nav.is-open {
+        right: 0;
+    }
+
+    .site-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.55rem;
+        width: 100%;
+    }
+
+    .site-nav li {
+        width: 100%;
+    }
+
+    .site-nav a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 48px;
+        padding: 0.85rem 1rem;
+        border-radius: 14px;
+        color: #e5e7eb;
+        background: rgba(255, 255, 255, 0.04);
+        text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.is-active {
+        color: #ffffff;
+        background: rgba(214, 167, 79, 0.12);
+    }
+
+    .site-nav a::after {
+        display: none;
+    }
+
+    .site-nav__cta {
+        display: block;
+        margin-top: 0.6rem;
+    }
+
+    .site-nav__cta .btn,
+    .site-nav__cta .btn-primary,
+    .site-nav__cta .btn-hero-gold {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .page-home .site-header__actions > .js-open-registration {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header__container {
+        width: min(1180px, calc(100% - 1rem));
+    }
+
+    .registration-modal {
+        padding: 0.75rem !important;
+    }
+
+    .registration-modal__dialog {
+        width: min(100%, 560px);
+        padding: 1.4rem 1.1rem;
+        border-radius: 20px;
+    }
+}
+
+/* ------------------------------
+   Home page mobile fixes
+------------------------------ */
+.page-home .hero-v2 {
+    min-height: clamp(620px, 82svh, 920px);
+}
+
+@media (max-width: 991px) {
+    .page-home .hero-v2 {
+        padding-top: 5.25rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .page-home .hero-v2__container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .page-home .hero-v2__visual {
+        order: -1;
+    }
+
+    .page-home .hero-v2__content {
+        max-width: 100%;
+    }
+
+    .page-home .hero-v2__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-home .hero-v2__actions .btn,
+    .page-home .hero-v2__actions a {
+        width: 100%;
+    }
+
+    .page-home .hero-v2__trust-strip {
+        justify-content: center;
+    }
+
+    .page-home .hero-v2__philosophy-bar {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.9rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-home .hero-v2 {
+        min-height: auto;
+        padding-top: 4.95rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .page-home .hero-v2__wrapper {
+        padding-inline: 0.9rem;
+    }
+
+    .page-home .hero-v2__title {
+        font-size: clamp(1.75rem, 7vw, 2.35rem);
+    }
+
+    .page-home .hero-v2__description {
+        font-size: 0.95rem;
+    }
+
+    .page-home .hero-v2__philosophy-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .page-home .hero-v2__philosophy-item {
+        min-height: 56px;
+    }
+}
+
+/* ------------------------------
+   Programs page mobile fixes
+------------------------------ */
+.page-programs .hero {
+    padding-top: 5.25rem;
+}
+
+.page-programs .program-card,
+.page-programs .coming-card {
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .page-programs .hero {
+        padding-top: 4.75rem;
+        padding-bottom: 3.25rem;
+    }
+
+    .page-programs .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .page-programs .program-card {
+        grid-template-columns: 1fr;
+    }
+
+    .page-programs .program-card__actions {
+        flex-direction: column;
+    }
+
+    .page-programs .program-card__actions .btn {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-programs .hero__title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .page-programs .hero__tagline {
+        font-size: 0.98rem;
+    }
+}
+
+/* ------------------------------
+   Persian page mobile fixes
+------------------------------ */
+.page-persian .hero {
+    padding-top: 5.25rem;
+}
+
+.page-persian .hero__actions {
+    flex-wrap: wrap;
+}
+
+.page-persian .program-editorial-wrapper {
+    align-items: start;
+}
+
+.page-persian .editorial-text-column {
+    background: var(--surface, #ffffff);
+    border: 1px solid rgba(27, 42, 74, 0.08);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    color: var(--text, #1E1E1E);
+}
+
+.page-persian .editorial-text-column p {
+    color: var(--text, #1E1E1E);
+    line-height: 1.95;
+}
+
+.page-persian .editorial-lead {
+    color: var(--primary, #1B2A4A) !important;
+}
+
+.page-persian .phone-mockup {
+    width: min(100%, 340px);
+}
+
+.page-persian .phone-mockup__screen {
+    aspect-ratio: 9 / 16;
+    height: auto;
+}
+
+.page-persian .phone-mockup__screen iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.page-persian .journey-card-display {
+    background: #152238;
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-right: 3px solid var(--accent, #c9a75c);
+}
+
+.page-persian .slide-title,
+.page-persian .journey-cta-text h4,
+.page-persian .journey-cta-text p,
+.page-persian .journey-card-display p,
+.page-persian .slide-benefit {
+    color: #ffffff;
+}
+
+.page-persian .slide-benefit,
+.page-persian .journey-cta-text p,
+.page-persian .journey-card-display p {
+    color: #e2e8f0;
+}
+
+.page-persian .journey-step-node .step-txt {
+    color: #cbd5e1;
+}
+
+.page-persian .step-chip {
+    color: #f8fafc !important;
+}
+
+.page-persian .step-chip--highlight {
+    color: #ffffff !important;
+}
+
+.page-persian .lesson-card__video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    height: auto;
+    background: #000;
+    overflow: hidden;
+}
+
+.page-persian .lesson-card__video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.page-persian .lesson-card__content {
+    text-align: right;
+}
+
+.page-persian .modal-outcome-box__text,
+.page-persian .modal-topics-list li {
+    color: var(--text, #1E1E1E) !important;
+}
+
+.page-persian .modal-body {
+    text-align: right;
+}
+
+@media (max-width: 991px) {
+    .page-persian .hero {
+        padding-top: 4.8rem;
+        padding-bottom: 3.2rem;
+    }
+
+    .page-persian .hero__content {
+        max-width: 100%;
+    }
+
+    .page-persian .hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-persian .hero__actions .btn {
+        width: 100%;
+    }
+
+    .page-persian .program-editorial-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .page-persian .editorial-media-column {
+        order: -1;
+    }
+
+    .page-persian .journey-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .page-persian .journey-orbit-disc {
+        width: min(240px, 70vw);
+        height: min(240px, 70vw);
+        margin: 0 auto;
+    }
+
+    .page-persian .journey-cta-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-persian .packages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-persian .pkg-card-v3__actions {
+        flex-direction: column;
+    }
+
+    .page-persian .pkg-card-v3__actions .btn {
+        width: 100%;
+    }
+
+    .page-persian .all-inclusions-bar__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .page-persian .hero {
+        padding-top: 4.6rem;
+        padding-bottom: 2.85rem;
+    }
+
+    .page-persian .hero__logo {
+        width: 96px !important;
+        max-height: 96px !important;
+    }
+
+    .page-persian .hero__title {
+        font-size: clamp(1.9rem, 8vw, 2.75rem);
+    }
+
+    .page-persian .hero__tagline {
+        font-size: 0.98rem;
+    }
+
+    .page-persian .phone-mockup {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .page-persian .program-quick-features {
+        gap: 0.5rem;
+    }
+
+    .page-persian .quick-feature-tag {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .page-persian .journey-card-display {
+        padding: 1.25rem 1rem;
+    }
+
+    .page-persian .journey-card-meta {
+        flex-wrap: wrap;
+    }
+
+    .page-persian .journey-controls {
+        margin-inline-start: auto;
+    }
+
+    .page-persian .journey-orbit-disc {
+        width: 200px;
+        height: 200px;
+    }
+
+    .page-persian .journey-step-node {
+        padding: 0.16rem 0.42rem 0.16rem 0.26rem;
+    }
+
+    .page-persian .journey-step-node .step-txt {
+        font-size: 0.62rem;
+    }
+
+    .page-persian .slide-title {
+        font-size: 1.05rem;
+    }
+
+    .page-persian .slide-benefit {
+        font-size: 0.84rem;
+    }
+
+    .page-persian .slide-chips {
+        gap: 0.35rem;
+    }
+
+    .page-persian .step-chip {
+        width: 100%;
+        justify-content: flex-start;
+        font-size: 0.73rem;
+    }
+
+    .page-persian .all-inclusions-bar__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-persian .registration-modal__dialog {
+        padding: 1.25rem 0.95rem;
+        border-radius: 18px;
+    }
+
+    .page-persian .modal-body__heading {
+        font-size: 1rem;
+    }
+}
