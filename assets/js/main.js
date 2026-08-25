@@ -1,5 +1,5 @@
 /* ========================================================================== 
-   NEMMO Academy — Main JavaScript (Modular Production v3.6)
+   NEMMO Academy — Main JavaScript (Modular Production v3.7)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         lucide.createIcons();
     }
 
+    // Theme toggle
     const themeToggleBtn = document.getElementById('themeToggle');
     const moonIcon = document.querySelector('.moon-icon');
     const sunIcon = document.querySelector('.sun-icon');
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Navigation drawer
     const siteHeader = document.querySelector('.site-header');
     let siteNav = document.getElementById('siteNav');
     let mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { passive: true });
     }
 
+    // Header scrolled state
     let isScrolling = false;
     window.addEventListener('scroll', function () {
         if (isScrolling) return;
@@ -138,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isScrolling = true;
     }, { passive: true });
 
+    // Smooth anchor links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function (event) {
             const targetId = this.getAttribute('href');
@@ -151,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Testimonials slider (home page)
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const prevReviewBtn = document.getElementById('prevReviewBtn');
     const nextReviewBtn = document.getElementById('nextReviewBtn');
@@ -177,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Registration modal
     const registrationModal = document.getElementById('registrationModal');
     const form = document.getElementById('registrationForm');
     const errorMsg = document.getElementById('registrationError');
@@ -261,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (trackSelect && trackName) {
             for (const option of trackSelect.options) {
-                if (option.value === trackName || option.text.includes(trackName)) {
+                if (option.value === trackName || (option.text || '').includes(trackName)) {
                     option.selected = true;
                     break;
                 }
@@ -270,9 +276,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.addEventListener('keydown', handleModalKeyDown);
 
-        window.setTimeout(() => {
+        setTimeout(() => {
             const firstInput = registrationModal.querySelector('input:not([type=hidden]), select, textarea, button');
-            if (firstInput) firstInput.focus();
+            if (firstInput && typeof firstInput.focus === 'function') {
+                firstInput.focus();
+            }
         }, 80);
     }
 
@@ -335,9 +343,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const governorate = governorateSelect ? governorateSelect.value.trim() : '';
             const address = addressInput ? addressInput.value.trim() : '';
             const program = programSelect ? (programSelect.options[programSelect.selectedIndex]?.text || programSelect.value) : '';
-            const track = (trackSelect && !trackGroup.classList.contains('is-hidden')) ? trackSelect.value.trim() : 'عام';
+            const track = (trackSelect && !trackGroup?.classList.contains('is-hidden')) ? trackSelect.value.trim() : 'عام';
 
-            if (!name || !phone || !governorate || !address || !program || (!trackGroup.classList.contains('is-hidden') && !track)) {
+            if (!name || !phone || !governorate || !address || !program || (!trackGroup?.classList.contains('is-hidden') && !track)) {
                 if (errorMsg) {
                     errorMsg.textContent = 'يرجى ملء كافة الحقول واختيار المسار المطلوب.';
                     errorMsg.style.display = 'block';
@@ -351,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     errorMsg.textContent = 'يرجى إدخال رقم هاتف عراقي صحيح مكون من 11 رقماً يبدأ بـ 07 (مثال: 07700000000).';
                     errorMsg.style.display = 'block';
                 }
-                if (phoneInput) phoneInput.focus();
+                if (phoneInput && typeof phoneInput.focus === 'function') phoneInput.focus();
                 return;
             }
 
@@ -362,20 +370,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const now = new Date();
             const timeString = now.toLocaleString('ar-IQ', { dateStyle: 'short', timeStyle: 'short' });
-            const pageSource = window.location.href.split('#')[0];
-            const userAgent = navigator.userAgent;
-            const userDevice = /Android/i.test(userAgent) ? 'Android' : (/iPhone|iPad/i.test(userAgent) ? 'iOS' : 'Desktop');
+            const userDevice = /Android/i.test(navigator.userAgent) ? 'Android' : /iPhone|iPad/i.test(navigator.userAgent) ? 'iOS' : 'Desktop';
 
-            let whatsappMessage =
-                `طلب تسجيل جديد - NEMMO Academy 🎓\n` +
-                `⏰ وقت الطلب: ${timeString} (${userDevice})\n` +
-                `🌐 المصدر: ${pageSource}\n` +
-                `━━━━━━━━━━━━━━━━━━\n` +
-                `👤 الاسم: ${name}\n` +
-                `📞 الهاتف: ${phone}\n` +
-                `📍 المحافظة: ${governorate}\n` +
-                `🏠 العنوان: ${address}\n` +
-                `📚 البرنامج: ${program}\n`;
+            let whatsappMessage = `طلب تسجيل جديد - NEMMO Academy 🎓\n` +
+                                  `⏰ وقت الطلب: ${timeString} (${userDevice})\n` +
+                                  `━━━━━━━━━━━━━━━━━━\n` +
+                                  `👤 الاسم: ${name}\n` +
+                                  `📞 الهاتف: ${phone}\n` +
+                                  `📍 المحافظة: ${governorate}\n` +
+                                  `🏠 العنوان: ${address}\n` +
+                                  `📚 البرنامج: ${program}\n`;
 
             if (track && track !== 'عام') {
                 whatsappMessage += `🎯 المسار: ${track}\n`;
@@ -391,4 +395,81 @@ document.addEventListener('DOMContentLoaded', function () {
             closeRegistrationModal();
         });
     }
+
+    // Persian page reel fix
+    function fixPersianReelPlacement() {
+        if (!document.body.classList.contains('page-persian')) return;
+
+        const screen = document.querySelector('#about-program .phone-mockup__screen');
+        if (!screen) return;
+
+        const reelSrc = 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022229670752507&show_text=false&width=560';
+        const alreadyFixed = screen.dataset.reelFixed === '1';
+
+        if (!alreadyFixed) {
+            screen.innerHTML = `<iframe src="${reelSrc}" title="ريل البرنامج التعريفي" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>`;
+            screen.dataset.reelFixed = '1';
+        }
+
+        if (!document.getElementById('persianReelFixStyle')) {
+            const style = document.createElement('style');
+            style.id = 'persianReelFixStyle';
+            style.textContent = `
+                .page-persian .program-editorial-wrapper {
+                    align-items: start;
+                }
+
+                .page-persian .editorial-media-column {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+
+                .page-persian .phone-mockup {
+                    width: min(100%, 360px);
+                    background: transparent;
+                    border: 0;
+                    padding: 0;
+                    box-shadow: none;
+                }
+
+                .page-persian .phone-mockup__screen {
+                    position: relative;
+                    width: 100%;
+                    aspect-ratio: 9 / 16;
+                    height: auto;
+                    overflow: hidden;
+                    border-radius: 28px;
+                    background: #000;
+                }
+
+                .page-persian .phone-mockup__screen iframe {
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                }
+
+                @media (max-width: 991px) {
+                    .page-persian .program-editorial-wrapper {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .page-persian .editorial-media-column {
+                        order: -1;
+                        margin-bottom: 1rem;
+                    }
+
+                    .page-persian .phone-mockup {
+                        width: min(100%, 420px);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    fixPersianReelPlacement();
+    window.addEventListener('load', fixPersianReelPlacement);
 });
