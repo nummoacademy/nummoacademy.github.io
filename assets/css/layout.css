@@ -77,10 +77,14 @@
 
 .site-nav a{
     position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
     color:var(--text);
     font-weight:500;
     padding:.35rem 0;
     text-decoration:none;
+    transition:color .25s ease, transform .25s ease, background .25s ease, border-color .25s ease;
 }
 
 .site-nav a.is-active{
@@ -111,6 +115,31 @@
     width:100%;
 }
 
+.site-nav a i,
+.site-nav a .nav-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:28px;
+    height:28px;
+    min-width:28px;
+    border-radius:999px;
+    background:rgba(13,27,42,.04);
+    color:var(--accent-cyan, #00A8CC);
+    transition:background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.site-nav a:hover i,
+.site-nav a.is-active i{
+    background:rgba(0,168,204,.14);
+    color:var(--accent-cyan, #00A8CC);
+    transform:translateY(-1px);
+}
+
+.site-nav__cta{
+    display:none;
+}
+
 /* ========= Footer ========= */
 
 .site-footer{
@@ -136,6 +165,32 @@
 
 .site-footer a:hover{
     color:var(--accent);
+}
+
+/* ========= Design System Enhancements ========= */
+
+:where(.feature-card, .program-card, .coming-card, .testimonial, .faq-item, .lesson-card, .contact-icon-link){
+    border-radius:16px !important;
+    box-shadow:var(--shadow-soft, 0 12px 32px -8px rgba(13, 27, 42, 0.08)) !important;
+    background:var(--surface, #FFFFFF) !important;
+    border:1px solid rgba(13, 27, 42, 0.08) !important;
+    transition:transform .25s cubic-bezier(.4, 0, .2, 1), box-shadow .25s cubic-bezier(.4, 0, .2, 1), border-color .25s ease, background .25s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    :where(.feature-card, .program-card, .coming-card, .testimonial, .faq-item, .lesson-card, .contact-icon-link):hover{
+        transform:translateY(-4px) !important;
+        box-shadow:0 18px 42px -12px rgba(13, 27, 42, 0.16) !important;
+    }
+}
+
+:where(.program-card, .lesson-card) :is(.program-card__image, .lesson-card__video-wrapper){
+    border-radius:16px !important;
+    overflow:hidden !important;
+}
+
+:where(.program-card__actions .btn, .cta .btn, .site-nav__cta .btn){
+    border-radius:12px !important;
 }
 
 /* ========= Responsive ========= */
@@ -169,5 +224,221 @@
 
     .site-nav ul{
         gap:1rem;
+    }
+}
+
+/* ========= Mobile Drawer + Phone Tuning ========= */
+
+@media (max-width: 991px) {
+    .site-header{
+        position:fixed !important;
+        top:0 !important;
+        left:0 !important;
+        right:0 !important;
+        width:100% !important;
+        z-index:10000 !important;
+    }
+
+    .site-header__container{
+        width:min(1180px,92%) !important;
+        margin-inline:auto !important;
+        min-height:64px !important;
+        padding:0.55rem 0 !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:space-between !important;
+        gap:0.65rem !important;
+        flex-direction:row !important;
+    }
+
+    .site-logo{
+        flex-shrink:1 !important;
+        gap:0.6rem !important;
+        max-width:calc(100vw - 118px) !important;
+    }
+
+    .site-logo img,
+    .site-logo__img{
+        width:38px !important;
+        height:38px !important;
+        flex-shrink:0 !important;
+    }
+
+    .site-logo__text{
+        line-height:1.12 !important;
+        min-width:0 !important;
+    }
+
+    .site-logo__title{
+        font-size:0.92rem !important;
+        line-height:1.12 !important;
+    }
+
+    .site-logo__subtitle{
+        font-size:0.7rem !important;
+        line-height:1.1 !important;
+    }
+
+    .site-header__actions{
+        display:flex !important;
+        align-items:center !important;
+        justify-content:flex-end !important;
+        gap:0.5rem !important;
+        flex-shrink:0 !important;
+    }
+
+    .theme-toggle-btn,
+    .mobile-menu-btn{
+        width:40px !important;
+        height:40px !important;
+        min-width:40px !important;
+        min-height:40px !important;
+    }
+
+    .mobile-menu-btn{
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:center !important;
+        gap:4px !important;
+        padding:0 !important;
+        border-radius:12px !important;
+        background:rgba(255, 255, 255, 0.08) !important;
+        border:1px solid rgba(214, 167, 79, 0.28) !important;
+    }
+
+    .hamburger-bar{
+        width:18px !important;
+        height:2px !important;
+        border-radius:2px !important;
+        background:#ffffff !important;
+    }
+
+    .site-nav{
+        position:fixed !important;
+        top:64px !important;
+        inset-inline-end:0 !important;
+        width:min(320px, 86vw) !important;
+        height:calc(100dvh - 64px) !important;
+        padding:1rem 0.9rem 1.25rem !important;
+        background:rgba(13, 27, 42, 0.96) !important;
+        border-inline-start:1px solid rgba(0, 168, 204, 0.14) !important;
+        transform:translateX(104%) !important;
+        opacity:0 !important;
+        visibility:hidden !important;
+        pointer-events:none !important;
+        overflow-y:auto !important;
+        -webkit-overflow-scrolling:touch;
+        z-index:9999 !important;
+        box-shadow:-24px 0 40px rgba(13, 27, 42, 0.26) !important;
+        backdrop-filter:blur(8px) saturate(140%) !important;
+        -webkit-backdrop-filter:blur(8px) saturate(140%) !important;
+        transition:transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity .25s ease, visibility .25s ease !important;
+    }
+
+    .site-nav.is-open{
+        transform:translateX(0) !important;
+        opacity:1 !important;
+        visibility:visible !important;
+        pointer-events:auto !important;
+    }
+
+    .site-nav ul{
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:stretch !important;
+        gap:0.7rem !important;
+        margin:0 !important;
+        padding:0 !important;
+    }
+
+    .site-nav li{
+        width:100% !important;
+    }
+
+    .site-nav a{
+        display:flex !important;
+        align-items:center !important;
+        justify-content:flex-start !important;
+        gap:12px !important;
+        width:100% !important;
+        padding:0.95rem 1rem !important;
+        border-radius:14px !important;
+        background:rgba(255, 255, 255, 0.04) !important;
+        border:1px solid rgba(255, 255, 255, 0.06) !important;
+        color:#f8fafc !important;
+        font-size:1rem !important;
+        font-weight:600 !important;
+        overflow:hidden !important;
+    }
+
+    .site-nav a::after{
+        display:none !important;
+    }
+
+    .site-nav a i,
+    .site-nav a .nav-icon{
+        width:30px !important;
+        height:30px !important;
+        min-width:30px !important;
+        border-radius:999px !important;
+        background:rgba(255, 255, 255, 0.06) !important;
+        color:var(--accent-cyan, #00A8CC) !important;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.is-active{
+        background:rgba(0, 168, 204, 0.14) !important;
+        color:#ffffff !important;
+        border-color:rgba(0, 168, 204, 0.22) !important;
+        transform:translateX(-2px) !important;
+    }
+
+    .site-nav a:hover i,
+    .site-nav a.is-active i{
+        background:rgba(0, 168, 204, 0.18) !important;
+        color:#ffffff !important;
+    }
+
+    .site-nav__cta{
+        display:block !important;
+        margin-top:0.4rem !important;
+    }
+
+    .site-nav__cta .btn,
+    .site-nav__cta button{
+        width:100% !important;
+        min-height:50px !important;
+        justify-content:center !important;
+    }
+
+    .program-card,
+    .coming-card,
+    .feature-card,
+    .testimonial,
+    .faq-item,
+    .lesson-card{
+        border-radius:16px !important;
+    }
+
+    .program-card{
+        grid-template-columns:1fr !important;
+        gap:1rem !important;
+    }
+
+    .program-card__image img{
+        aspect-ratio:16 / 9 !important;
+    }
+
+    .program-card__body{
+        padding:0.1rem 0 !important;
+    }
+
+    .program-card__actions{
+        flex-direction:column !important;
+    }
+
+    .program-card__actions .btn{
+        width:100% !important;
     }
 }
