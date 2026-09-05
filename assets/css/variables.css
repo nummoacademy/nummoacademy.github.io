@@ -4,6 +4,11 @@
        COLORS
     ========================================== */
 
+    --primary-navy: #0D1B2A;
+    --accent-cyan: #00A8CC;
+    --bg-soft: #F4F7FA;
+    --shadow-soft: 0 12px 32px -8px rgba(13, 27, 42, 0.08);
+
     --primary: #1B2A4A;
     --primary-light: #24375F;
 
@@ -102,6 +107,8 @@
     --border: #2A385B;
     --shadow-sm: 0 4px 12px rgba(0,0,0,.3);
     --shadow-md: 0 12px 32px rgba(0,0,0,.4);
+    --bg-soft: #0B132B;
+    --shadow-soft: 0 12px 32px -8px rgba(0, 0, 0, 0.35);
 }
 
 /* 1. إجبار كافة الخلفيات الرئيسية والأقسام وقسم الـ Hero على التحول للون الداكن */
