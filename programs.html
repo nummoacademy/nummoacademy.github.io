@@ -71,15 +71,28 @@
 <main>
     <section class="programs-hero">
         <div class="container programs-hero__inner">
-            <span class="programs-hero__eyebrow">NEMMO ACADEMY · LEARNING CATALOG</span>
-            <h1 class="programs-hero__title">الدورات <span>التعليمية</span></h1>
-            <p class="programs-hero__subtitle">
-                طوّر مهاراتك من خلال برامج تعليمية احترافية مصممة بعناية، وتدرّج بسهولة نحو مهارات تواكب الدراسة والعمل وسوق الواقع.
-            </p>
-            <div class="programs-hero__stats" aria-label="مؤشرات الصفحة">
-                <span>برنامج متاح الآن</span>
-                <span>3 برامج قادمة</span>
-                <span>واجهة قابلة للتوسع</span>
+            <div class="programs-hero__side programs-hero__side--left" aria-hidden="true">
+                LEARNING<br>
+                CREATES<br>
+                OPPORTUNITIES
+            </div>
+
+            <div class="programs-hero__content">
+                <span class="programs-hero__eyebrow">NEMMO ACADEMY · LEARNING CATALOG</span>
+                <h1 class="programs-hero__title">الدورات <span>التعليمية</span></h1>
+                <p class="programs-hero__subtitle">
+                    طوّر مهاراتك من خلال برامج تعليمية احترافية مصممة بعناية، وتدرّج بسهولة نحو مهارات تواكب الدراسة والعمل وسوق الواقع.
+                </p>
+                <div class="programs-hero__stats" aria-label="مؤشرات الصفحة">
+                    <span><strong>1</strong>برنامج متاح الآن</span>
+                    <span><strong>3</strong>برامج قادمة</span>
+                    <span><strong>4</strong>مسارات تدريبية</span>
+                </div>
+            </div>
+
+            <div class="programs-hero__side programs-hero__side--right" aria-hidden="true">
+                تعلّم اليوم...<br>
+                لنصنع فرص الغد.
             </div>
         </div>
     </section>
@@ -96,26 +109,29 @@
 
             <div class="course-grid">
                 <article class="course-card course-card--featured course-card--from-bottom">
+                    <span class="course-card__badge">متاح الآن</span>
                     <div class="course-card__media course-card__media--teacher">
                         <img src="assets/images/teacher.jpg" alt="الأستاذة زهراء سعد أحمد" loading="eager">
-                        <span class="course-card__badge">متاح الآن</span>
                         <div class="course-card__visual-copy">
-                            <span>برنامج اللغة الفارسية</span>
-                            <strong>مع الأستاذة زهراء سعد أحمد</strong>
+                            <span>اللغة جسر</span>
+                            <strong>يقرّب الشعوب</strong>
+                            <small>أ. زهراء سعد أحمد</small>
                         </div>
                     </div>
 
                     <div class="course-card__body">
                         <h3>برنامج اللغة الفارسية</h3>
                         <p>
-                            برنامج احترافي متكامل يقدّم الدروس المصوّرة، الملازم المطبوعة، والدعم الصوتي لتجربة تعلم واضحة ومنظمة.
+                            برنامج متكامل لتعلّم اللغة الفارسية من الصفر حتى الاحتراف مع منهج منظم ودعم مستمر.
                         </p>
+
                         <ul class="course-card__features">
                             <li>أكثر من 70 درساً</li>
-                            <li>ملازم مطبوعة وتوصيل مجاني</li>
-                            <li>متابعة مستمرة خطوة بخطوة</li>
-                            <li>مسارات مناسبة لكل مستوى</li>
+                            <li>ملازم مطبوعة مجاناً</li>
+                            <li>توصيل إلى باب المنزل</li>
+                            <li>متابعة مستمرة</li>
                         </ul>
+
                         <div class="course-card__footer">
                             <a href="programs/persian/index.html" class="btn btn-primary">استعراض البرنامج</a>
                         </div>
@@ -123,46 +139,38 @@
                 </article>
 
                 <article class="course-card course-card--coming course-card--from-right">
+                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
                     <div class="course-card__media course-card__media--business">
-                        <span class="course-card__badge course-card__badge--muted">قريباً</span>
-                        <div class="course-card__monogram">MBA</div>
-                        <div class="course-card__visual-copy course-card__visual-copy--contrast">
-                            <span>إدارة الأعمال</span>
-                            <strong>وتطوير الشركات</strong>
-                        </div>
+                        <div class="course-card__monogram">BUSINESS</div>
                     </div>
 
                     <div class="course-card__body">
                         <h3>إدارة الأعمال وتطوير الشركات</h3>
                         <p>
-                            برنامج عملي يبني مهارات القيادة والتنظيم والتخطيط والنمو المؤسسي بأسلوب واضح ومباشر.
+                            برنامج عملي يهيئك لفهم الإدارة الحديثة، والتخطيط الاستراتيجي، وتطوير الشركات بأسلوب واضح ومباشر.
                         </p>
                         <ul class="course-card__features">
                             <li>القيادة الحديثة</li>
-                            <li>تطوير الشركات</li>
                             <li>التخطيط الاستراتيجي</li>
+                            <li>تطوير الشركات</li>
                             <li>إدارة المشاريع</li>
                         </ul>
                         <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>قريباً</button>
+                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
                         </div>
                     </div>
                 </article>
 
                 <article class="course-card course-card--coming course-card--from-left">
+                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
                     <div class="course-card__media course-card__media--writing">
-                        <span class="course-card__badge course-card__badge--muted">قريباً</span>
                         <div class="course-card__monogram">CONTENT</div>
-                        <div class="course-card__visual-copy">
-                            <span>كتابة المحتوى</span>
-                            <strong>التسويقي</strong>
-                        </div>
                     </div>
 
                     <div class="course-card__body">
                         <h3>كتابة المحتوى التسويقي</h3>
                         <p>
-                            مسار يطوّر قدرتك على صياغة الرسائل الإعلانية وصناعة المحتوى الذي يحقق تأثيراً واضحاً.
+                            تعلم كيفية صياغة محتوى مؤثر يحقق النتائج ويعزز حضورك الرقمي.
                         </p>
                         <ul class="course-card__features">
                             <li>كتابة الإعلانات</li>
@@ -171,30 +179,26 @@
                             <li>صياغة الرسائل</li>
                         </ul>
                         <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>قريباً</button>
+                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
                         </div>
                     </div>
                 </article>
 
                 <article class="course-card course-card--coming course-card--from-bottom">
+                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
                     <div class="course-card__media course-card__media--design">
-                        <span class="course-card__badge course-card__badge--muted">قريباً</span>
                         <div class="course-card__monogram">DESIGN</div>
                         <div class="course-card__swatches" aria-hidden="true">
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="course-card__visual-copy">
-                            <span>التصميم</span>
-                            <strong>الجرافيكي</strong>
-                        </div>
                     </div>
 
                     <div class="course-card__body">
                         <h3>التصميم الجرافيكي</h3>
                         <p>
-                            دورة إبداعية تفتح لك مسار التصميم الاحترافي وتمنحك أساساً عملياً في أدوات العمل البصري.
+                            من الفكرة إلى التصميم الاحترافي، تعلّم أساسيات وأدوات العمل البصري الحديث.
                         </p>
                         <ul class="course-card__features">
                             <li>Photoshop</li>
@@ -203,7 +207,7 @@
                             <li>تصميم السوشيال ميديا</li>
                         </ul>
                         <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>قريباً</button>
+                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
                         </div>
                     </div>
                 </article>
