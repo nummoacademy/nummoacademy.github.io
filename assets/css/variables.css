@@ -100,10 +100,10 @@
 [data-theme="dark"] {
     --background: #0B132B;
     --surface: #1C2541;
-    --primary: #5BC0BE;
-    --primary-light: #3A506B;
+    --primary: #1B2A4A;
+    --primary-light: #24375F;
     --text: #FFFFFF;
-    --text-light: #A5B4FC;
+    --text-light: #CBD5E1;
     --border: #2A385B;
     --shadow-sm: 0 4px 12px rgba(0,0,0,.3);
     --shadow-md: 0 12px 32px rgba(0,0,0,.4);
