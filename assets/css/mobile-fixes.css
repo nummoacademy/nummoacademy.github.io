@@ -1,5 +1,5 @@
 /* ========================================================================== 
-   NEMMO Academy — Mobile Fixes v2
+   NEMMO Academy — Mobile Fixes v3
    Purpose: mobile-first overrides that keep desktop intact and make the phone
    experience feel native, compact, and fully contained.
    ========================================================================== */
@@ -391,211 +391,134 @@ body.is-nav-open::before {
   .hero__visual,
   .hero-v2__visual,
   .page-persian .hero__visual {
-    order: -1;
+    order: -1 !important;
     min-height: 0 !important;
   }
 
-  .page-persian .hero__portrait {
-    width: min(92vw, 340px) !important;
-    object-fit: contain !important;
-    object-position: center top !important;
-    animation: none !important;
+  .page-persian .hero,
+  .page-persian .hero::before,
+  .page-persian .hero::after {
+    overflow: hidden !important;
   }
 
+  .page-persian .hero::before,
+  .page-persian .hero::after,
   .page-persian .hero-overlay-card,
   .page-persian .glass-card,
   .page-persian .floating-info,
-  .page-persian .hero-badge-group {
+  .page-persian .instructor-badge,
+  .page-persian .hero-badge-group,
+  .page-persian .hero__eyebrow-chip i {
     display: none !important;
   }
 
-  .hero__title,
-  .hero-v2__title,
-  .page-persian .hero__title,
-  h1,
-  h2 {
-    text-wrap: balance;
-    line-height: 1.22;
+  .page-persian .hero__content {
+    gap: 1.05rem !important;
+    padding-inline: 0 !important;
+    align-items: center !important;
   }
 
-  .hero__title,
-  .hero-v2__title,
+  .page-persian .hero__copy {
+    text-align: center !important;
+    order: 2 !important;
+  }
+
+  .page-persian .hero__eyebrow {
+    align-items: center !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .page-persian .hero__eyebrow-note {
+    font-size: 0.88rem !important;
+  }
+
   .page-persian .hero__title {
-    font-size: clamp(1.95rem, 8.2vw, 2.9rem) !important;
+    font-size: clamp(1.95rem, 8.8vw, 2.9rem) !important;
     margin-bottom: 1rem !important;
+    text-wrap: balance;
   }
 
-  .hero__tagline,
-  .hero-v2__description,
-  .page-persian .hero__tagline,
-  .section-title p {
-    font-size: 0.96rem;
-    line-height: 1.85;
+  .page-persian .hero__tagline {
+    font-size: 0.98rem !important;
+    line-height: 1.85 !important;
+    margin-inline: auto !important;
   }
 
-  .hero__actions,
-  .hero-v2__actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.75rem;
+  .page-persian .hero__actions {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    margin-top: 1.35rem !important;
   }
 
-  .hero__actions .btn,
-  .hero-v2__actions .btn,
-  .cta .btn,
-  .site-nav__cta .btn,
-  .registration-form__submit,
-  .program-card .btn,
-  .coming-card .btn,
-  .pkg-card-v3 .btn {
-    width: 100% !important;
-    min-height: 48px;
+  .page-persian .hero__actions .btn {
+    width: min(100%, 320px) !important;
+    min-height: 48px !important;
   }
 
-  .hero-v2__philosophy-bar,
-  .contact-compact-bar,
-  .persian-path-grid,
-  .faq-list,
-  .values-carousel__track,
-  .lessons-carousel__track {
-    gap: 0.85rem;
+  .page-persian .hero__visual {
+    min-height: 0 !important;
+    order: 1 !important;
   }
 
-  .feature-card,
-  .program-card,
-  .coming-card,
-  .testimonial,
-  .faq-item,
-  .lesson-card,
-  .cta,
-  .pkg-card-v3,
-  .journey-card-display,
-  .about-pillar,
-  .about-value,
-  .persian-path-card {
-    padding: 1rem;
-  }
-
-  .program-card,
-  .coming-card,
-  .lesson-card,
-  .pkg-card-v3,
-  .journey-card-display {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .program-card__image {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 16px;
-  }
-
-  .program-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-
-  .program-card__badge,
-  .coming-card__badge,
-  .hero-v2__trust-pill,
-  .hero__eyebrow-chip,
-  .persian-path-card__icon {
-    font-size: 0.76rem;
-  }
-
-  .faq-item {
-    padding: 1rem 1rem;
-  }
-
-  .faq-item summary {
-    min-height: 48px;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1rem;
-    line-height: 1.45;
-  }
-
-  .faq-item__answer {
-    padding-top: 0.85rem;
-  }
-
-  .contact-compact-bar {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .contact-icon-link {
-    width: 100%;
-    justify-content: center;
-    padding: 0.9rem 1rem;
-  }
-
-  .page-home .hero-v2__philosophy-bar {
-    grid-template-columns: 1fr;
-  }
-
-  .page-home .hero-v2__visual {
-    order: -1;
+  .page-persian .hero__portrait {
+    width: min(92vw, 330px) !important;
+    max-width: 330px !important;
+    margin-inline: auto !important;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
   }
 
   .page-persian .program-editorial-wrapper {
     grid-template-columns: 1fr !important;
-    gap: 1.35rem !important;
+    gap: 1.45rem !important;
   }
 
   .page-persian .editorial-media-column {
-    order: -1;
-    margin-inline: auto;
+    order: -1 !important;
+  }
+
+  .page-persian .editorial-text-column {
+    font-size: 0.98rem !important;
+    line-height: 1.8 !important;
+    text-align: right !important;
   }
 
   .page-persian .persian-video-stage {
-    width: min(100%, 330px);
+    width: 100% !important;
+    max-width: 330px !important;
+    margin-inline: auto !important;
   }
 
   .page-persian .persian-video-poster {
-    border-radius: 24px;
-    aspect-ratio: 9 / 16;
-    box-shadow: 0 18px 44px rgba(15, 23, 42, 0.16);
+    aspect-ratio: 9 / 16 !important;
+    border-radius: 24px !important;
+  }
+
+  .page-persian .persian-video-modal {
+    padding: 0.8rem !important;
   }
 
   .page-persian .persian-video-modal__dialog {
-    width: min(100%, 390px);
-    padding: 0.8rem;
-    border-radius: 24px;
+    width: min(100%, 92vw) !important;
+    max-width: 400px !important;
+    padding: 0.75rem !important;
+    border-radius: 24px !important;
   }
 
   .page-persian .persian-video-modal__frame {
-    aspect-ratio: 9 / 16;
-    border-radius: 18px;
+    aspect-ratio: 9 / 16 !important;
+    border-radius: 18px !important;
   }
 
-  .page-persian .hero__eyebrow-note {
-    font-size: 0.88rem;
-    line-height: 1.55;
+  .page-persian .persian-path-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
 @media (max-width: 480px) {
-  .site-header__container {
+  .container {
     width: min(1180px, calc(100% - 16px));
-  }
-
-  .site-logo {
-    max-width: calc(100vw - 104px);
-  }
-
-  .site-logo__title {
-    font-size: 0.82rem;
-  }
-
-  .site-logo__subtitle {
-    font-size: 0.6rem;
-  }
-
-  .site-nav {
-    padding: 0.9rem !important;
   }
 
   .section,
@@ -604,33 +527,41 @@ body.is-nav-open::before {
     padding-bottom: 3.5rem;
   }
 
-  .hero__title,
-  .hero-v2__title,
-  .page-persian .hero__title {
-    font-size: clamp(1.75rem, 8.8vw, 2.5rem) !important;
+  .section-title {
+    margin-bottom: 1.9rem;
   }
 
-  .page-persian .hero__portrait {
-    width: min(94vw, 320px) !important;
+  .section-title > span {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
   }
 
-  .program-card__body,
-  .testimonial,
-  .cta,
-  .faq-item,
-  .feature-card,
+  .section-title h2 {
+    font-size: clamp(1.4rem, 7.5vw, 1.95rem);
+  }
+
+  .program-card,
   .coming-card,
+  .feature-card,
+  .testimonial,
+  .faq-item,
+  .lesson-card,
+  .cta,
   .pkg-card-v3,
   .journey-card-display,
   .about-pillar,
   .about-value,
   .persian-path-card {
-    padding: 0.95rem;
+    border-radius: 18px;
   }
-}
 
-[data-theme="dark"] .site-header {
-  background: rgba(8, 19, 33, 0.98) !important;
+  .page-persian .hero__portrait {
+    width: min(94vw, 300px) !important;
+  }
+
+  .page-persian .persian-video-stage {
+    max-width: 300px !important;
+  }
 }
 
 [data-theme="dark"] .registration-modal__dialog {
@@ -654,33 +585,4 @@ body.is-nav-open::before {
 [data-theme="dark"] .registration-modal__dialog .modal-description,
 [data-theme="dark"] .registration-modal__dialog .modal-topics-list li {
   color: var(--text-light) !important;
-}
-
-[data-theme="dark"] .feature-card,
-[data-theme="dark"] .testimonial,
-[data-theme="dark"] .faq-item,
-[data-theme="dark"] .lesson-card,
-[data-theme="dark"] .contact-icon-link,
-[data-theme="dark"] .program-card,
-[data-theme="dark"] .coming-card,
-[data-theme="dark"] .cta,
-[data-theme="dark"] .pkg-card-v3,
-[data-theme="dark"] .journey-card-display,
-[data-theme="dark"] .about-pillar,
-[data-theme="dark"] .about-value,
-[data-theme="dark"] .persian-path-card {
-  background-color: #13233e !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #f8fafc !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
