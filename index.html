@@ -27,66 +27,257 @@
   <link rel='stylesheet' href='assets/css/home.css'>
   <link rel='stylesheet' href='assets/css/mobile-fixes.css'>
   <style>
-    .page-home .hero-v2.hero-v2--featured{position:relative;overflow:hidden;padding:6.5rem 0 2.2rem;background:radial-gradient(circle at 50% 0%,rgba(43,87,141,.24),transparent 34%),radial-gradient(circle at 12% 18%,rgba(201,162,39,.08),transparent 28%),linear-gradient(180deg,#091321 0%,#0d1b30 42%,#081321 100%);color:#fff}
-    .page-home .hero-v2--featured .hero-v2__ambient{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-    .page-home .hero-v2--featured .hero-v2__ambient::before,.page-home .hero-v2--featured .hero-v2__ambient::after{content:'';position:absolute;border-radius:50%;filter:blur(90px);opacity:.6}
-    .page-home .hero-v2--featured .hero-v2__ambient::before{width:420px;height:420px;top:-140px;right:-60px;background:rgba(68,194,204,.18)}
-    .page-home .hero-v2--featured .hero-v2__ambient::after{width:320px;height:320px;left:-90px;bottom:-110px;background:rgba(214,167,79,.16)}
-    .page-home .hero-v2--featured .hero-v2__wrapper{position:relative;z-index:2;width:min(1240px,calc(100% - 2rem));margin:0 auto}
-    .page-home .hero-v2--featured .hero-v2__container{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:1.75rem;align-items:center;direction:ltr;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.09);border-radius:34px;padding:clamp(1.1rem,2vw,1.75rem);box-shadow:0 30px 80px rgba(0,0,0,.26);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-    .page-home .hero-v2--featured .hero-v2__visual{position:relative;display:flex;align-items:center;justify-content:center;min-height:430px;direction:ltr}
-    .page-home .hero-v2--featured .hero-v2__portrait-wrap{position:relative;width:min(100%,470px);display:flex;align-items:center;justify-content:center;padding:1rem 0}
-    .page-home .hero-v2--featured .hero-v2__portrait-glow{position:absolute;inset:14% 8% 8%;border-radius:48%;background:radial-gradient(circle,rgba(214,167,79,.34) 0%,rgba(214,167,79,.16) 32%,transparent 72%);filter:blur(24px)}
-    .page-home .hero-v2--featured .hero-v2__portrait{position:relative;z-index:2;width:min(100%,420px);height:auto;display:block;object-fit:contain;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35));animation:heroFloat 7s ease-in-out infinite}
-    .page-home .hero-v2--featured .hero-v2__badge{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.65rem 1rem;border-radius:18px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.14);box-shadow:0 16px 32px rgba(0,0,0,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;font-size:.9rem;font-weight:700}
-    .page-home .hero-v2--featured .hero-v2__badge i{color:#d6a74f;font-size:1rem}
-    .page-home .hero-v2--featured .hero-v2__badge--rating{left:-6px;top:36px}
-    .page-home .hero-v2--featured .hero-v2__badge--students{right:-6px;bottom:38px}
-    .page-home .hero-v2--featured .hero-v2__content{direction:rtl;text-align:center;max-width:680px;margin-inline:auto;padding:clamp(.8rem,1.8vw,1.45rem)}
-    .page-home .hero-v2--featured .hero-v2__title{margin:0;color:#fff;font-size:clamp(2.1rem,4.8vw,4.15rem);line-height:1.18;font-weight:800;letter-spacing:-.02em;text-shadow:0 10px 24px rgba(0,0,0,.16)}
-    .page-home .hero-v2--featured .hero-v2__subtitle{margin:.85rem 0 0;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.9;letter-spacing:.04em;font-weight:500}
-    .page-home .hero-v2--featured .hero-v2__actions{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;direction:rtl;margin-top:1.5rem}
-    .page-home .hero-v2--featured .hero-v2__btn{min-height:52px;padding:.82rem 1.25rem;border-radius:16px;font-weight:800!important;gap:.55rem;box-shadow:0 12px 30px rgba(0,0,0,.18);text-decoration:none}
-    .page-home .hero-v2--featured .hero-v2__btn--primary{background:linear-gradient(135deg,#44c2cc 0%,#82e0eb 100%);color:#081321!important;border:none!important}
-    .page-home .hero-v2--featured .hero-v2__btn--secondary{background:linear-gradient(135deg,#d6a74f 0%,#b88628 100%);color:#081321!important;border:none!important}
-    .page-home .hero-v2--featured .hero-v2__philosophy-bar{margin-top:1.2rem;background:rgba(16,33,63,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.10);border-radius:24px;padding:1rem;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem;direction:rtl;box-shadow:0 18px 42px rgba(0,0,0,.18)}
-    .page-home .hero-v2--featured .hero-v2__philosophy-item{display:flex;align-items:center;gap:.8rem;padding:.9rem .95rem;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease}
-    .page-home .hero-v2--featured .hero-v2__philosophy-item:hover{transform:translateY(-4px);border-color:rgba(214,167,79,.28);box-shadow:0 18px 34px rgba(214,167,79,.10);background:rgba(255,255,255,.07)}
-    .page-home .hero-v2--featured .hero-v2__philosophy-icon{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:rgba(214,167,79,.15);border:1px solid rgba(214,167,79,.28);color:#d6a74f;font-size:1.05rem}
-    .page-home .hero-v2--featured .hero-v2__philosophy-text{min-width:0}
-    .page-home .hero-v2--featured .hero-v2__philosophy-title{display:block;color:#fff;font-size:.92rem;font-weight:800;line-height:1.35}
-    .page-home .hero-v2--featured .hero-v2__philosophy-desc{margin:.12rem 0 0;color:#cbd5e1;font-size:.78rem;line-height:1.55}
-    @keyframes heroFloat{0%,100%{transform:translateY(-6px)}50%{transform:translateY(6px)}}
-    @media (max-width: 991px){
-      .page-home .hero-v2.hero-v2--featured{padding:5.5rem 0 1.8rem}
-      .page-home .hero-v2--featured .hero-v2__container{grid-template-columns:1fr;gap:1.15rem}
-      .page-home .hero-v2--featured .hero-v2__visual{order:1;min-height:0}
-      .page-home .hero-v2--featured .hero-v2__content{order:2;padding:0}
-      .page-home .hero-v2--featured .hero-v2__portrait{width:min(88vw,360px);animation:none}
-      .page-home .hero-v2--featured .hero-v2__philosophy-bar{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:1rem}
-      .page-home .hero-v2--featured .hero-v2__badge--rating{left:0;top:18px}
-      .page-home .hero-v2--featured .hero-v2__badge--students{right:0;bottom:22px}
+    .hero-section {
+      position: relative;
+      padding: 60px 0;
+      background-color: #0b132b;
+      overflow: hidden;
     }
-    @media (max-width: 640px){
-      .page-home .hero-v2.hero-v2--featured{padding-top:4.9rem}
-      .page-home .hero-v2--featured .hero-v2__container{padding:1rem;border-radius:28px}
-      .page-home .hero-v2--featured .hero-v2__title{font-size:clamp(1.95rem,8vw,2.75rem)}
-      .page-home .hero-v2--featured .hero-v2__subtitle{font-size:.92rem;line-height:1.8}
-      .page-home .hero-v2--featured .hero-v2__actions{flex-direction:column}
-      .page-home .hero-v2--featured .hero-v2__btn{width:min(100%,320px)}
-      .page-home .hero-v2--featured .hero-v2__philosophy-bar{grid-template-columns:1fr;padding:.9rem}
-      .page-home .hero-v2--featured .hero-v2__philosophy-item{padding:.85rem .9rem}
-      .page-home .hero-v2--featured .hero-v2__badge{font-size:.82rem;min-height:44px;padding:.55rem .8rem}
-      .page-home .hero-v2--featured .hero-v2__visual{padding-inline:0}
-      .page-home .hero-v2--featured .hero-v2__portrait-wrap{width:min(100%,340px)}
-      .page-home .hero-v2--featured .hero-v2__badge--rating,.page-home .hero-v2--featured .hero-v2__badge--students{position:static;transform:none;margin-top:.65rem}
-      .page-home .hero-v2--featured .hero-v2__portrait-glow{inset:10% 4% 4%}
+
+    .hero-section::before,
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      inset: auto;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(90px);
+      opacity: 0.5;
     }
-    .page-home .hero-v2--featured .hero-v2__visual{min-height:500px !important}
-    .page-home .hero-v2--featured .hero-v2__portrait-wrap{width:min(100%,560px) !important;padding:0 !important}
-    .page-home .hero-v2--featured .hero-v2__portrait{width:min(100%,500px) !important;max-width:500px !important}
-    .page-home .hero-v2--featured .hero-v2__badge--rating{left:12px !important;top:42% !important;transform:translateY(-50%) !important}
-    .page-home .hero-v2--featured .hero-v2__badge--students{right:12px !important;top:58% !important;transform:translateY(-50%) !important}
+
+    .hero-section::before {
+      width: 420px;
+      height: 420px;
+      top: -130px;
+      right: -80px;
+      background: rgba(68, 194, 204, 0.18);
+    }
+
+    .hero-section::after {
+      width: 320px;
+      height: 320px;
+      left: -100px;
+      bottom: -110px;
+      background: rgba(214, 167, 79, 0.18);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: #ffffff;
+      padding: 1rem;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      color: rgba(68, 194, 204, 0.95);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.2rem, 4.8vw, 4.15rem);
+      line-height: 1.18;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      text-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-english-title {
+      margin: 0.9rem 0 0;
+      font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+      line-height: 1.8;
+      color: rgba(214, 167, 79, 0.95);
+      font-weight: 600;
+      text-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.6rem;
+      direction: rtl;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0.85rem 1.35rem;
+      border-radius: 16px;
+      border: 0;
+      background: linear-gradient(135deg, #d6a74f 0%, #b88628 100%);
+      color: #081321 !important;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-decoration: none;
+      gap: 0.55rem;
+      box-shadow: 0 16px 34px rgba(214, 167, 79, 0.22), 0 0 18px rgba(214, 167, 79, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.02);
+    }
+
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      width: 100%;
+      min-height: 480px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(214, 167, 79, 0.34) 0%, rgba(214, 167, 79, 0.14) 38%, transparent 72%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      filter: blur(10px);
+    }
+
+    .instructor-img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      object-fit: contain;
+      z-index: 2;
+      position: relative;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    }
+
+    .floating-badge {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #ffffff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+      min-width: 150px;
+    }
+
+    .badge-left {
+      bottom: 20%;
+      left: 5%;
+    }
+
+    .badge-right {
+      top: 20%;
+      right: 5%;
+    }
+
+    .badge-icon {
+      font-size: 1.1rem;
+      color: #d6a74f;
+      flex-shrink: 0;
+    }
+
+    .badge-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .badge-text strong {
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    .badge-text small {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 46px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding: 0;
+      }
+
+      .hero-image-container {
+        min-height: 380px;
+        margin-top: 10px;
+      }
+
+      .instructor-img {
+        max-width: 320px;
+      }
+
+      .badge-left {
+        bottom: 10%;
+        left: 2%;
+      }
+
+      .badge-right {
+        top: 10%;
+        right: 2%;
+      }
+
+      .floating-badge {
+        min-width: 128px;
+        padding: 9px 12px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons .btn,
+      .hero-buttons .btn-gold {
+        width: min(100%, 320px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: clamp(1.95rem, 8vw, 2.75rem);
+      }
+
+      .hero-english-title {
+        font-size: 0.92rem;
+      }
+    }
   </style>
 </head>
 <body class='page-home'>
@@ -118,32 +309,36 @@
   </div>
 </header>
 <main id='mainContent'>
-<section class='hero-v2 hero-v2--featured' id='hero'>
-  <div class='hero-v2__ambient' aria-hidden='true'></div>
-  <div class='hero-v2__wrapper'>
-    <div class='hero-v2__container'>
-      <div class='hero-v2__visual' aria-hidden='true'>
-        <div class='hero-v2__portrait-wrap'>
-          <div class='hero-v2__portrait-glow'></div>
-          <img src='assets/images/zahraa-instructor.png' onerror="this.onerror=null;this.src='assets/images/teacher.jpg'" alt='الأستاذة زهراء سعد أحمد' class='hero-v2__portrait' loading='eager'>
-          <div class='hero-v2__badge hero-v2__badge--rating'><i class='fa-solid fa-star'></i><span>تقييم 4.9/5</span></div>
-          <div class='hero-v2__badge hero-v2__badge--students'><i class='fa-solid fa-users'></i><span>1000+ طالب نشط</span></div>
+<section class='hero-section' id='hero'>
+  <div class='container'>
+    <div class='hero-grid'>
+      <div class='hero-image-container' aria-hidden='true'>
+        <div class='hero-glow'></div>
+        <img src='assets/images/zahraa-instructor.png' onerror="this.onerror=null;this.src='assets/images/teacher.jpg'" alt='الأستاذة زهراء سعد أحمد' class='instructor-img' loading='eager'>
+        <div class='floating-badge badge-left'>
+          <span class='badge-icon'>&#11088;</span>
+          <div class='badge-text'>
+            <strong>4.9/5</strong>
+            <small>تقييم</small>
+          </div>
+        </div>
+        <div class='floating-badge badge-right'>
+          <span class='badge-icon'>&#128101;</span>
+          <div class='badge-text'>
+            <strong>+1000</strong>
+            <small>طالب نشط</small>
+          </div>
         </div>
       </div>
-      <div class='hero-v2__content'>
-        <h1 class='hero-v2__title'>أكاديمية نمو | معاً ننمو</h1>
-        <p class='hero-v2__subtitle'>NEMMO Academy | Growing Together</p>
-        <div class='hero-v2__actions'>
-          <a href='programs.html' class='btn hero-v2__btn hero-v2__btn--primary'><span>الدورات التعليمية</span><i class='fa-solid fa-arrow-left'></i></a>
-          <button type='button' class='btn hero-v2__btn hero-v2__btn--secondary js-open-registration' data-program='عام - أكاديمية نُمو'><i class='fa-solid fa-user'></i><span>اشترك الآن</span></button>
+      <div class='hero-content'>
+        <span class='hero-subtitle'>تعلم اليوم ... لتصنع فرص الغد</span>
+        <h1 class='hero-title'>أكاديمية نمو | معاً ننمو</h1>
+        <p class='hero-english-title'>NEMMO Academy | Growing Together</p>
+        <div class='hero-buttons'>
+          <a href='programs.html' class='btn btn-primary'>الدورات التعليمية &larr;</a>
+          <button type='button' class='btn btn-gold js-open-registration' data-program='عام - أكاديمية نُمو'>اشترك الآن &#128100;</button>
         </div>
       </div>
-    </div>
-    <div class='hero-v2__philosophy-bar'>
-      <div class='hero-v2__philosophy-item'><div class='hero-v2__philosophy-icon'><i class='fa-solid fa-infinity'></i></div><div class='hero-v2__philosophy-text'><strong class='hero-v2__philosophy-title'>مرونة كاملة</strong><p class='hero-v2__philosophy-desc'>نظم وقتك والسرعة التي تناسبك</p></div></div>
-      <div class='hero-v2__philosophy-item'><div class='hero-v2__philosophy-icon'><i class='fa-solid fa-bullseye'></i></div><div class='hero-v2__philosophy-text'><strong class='hero-v2__philosophy-title'>مسارات واضحة</strong><p class='hero-v2__philosophy-desc'>تعلم منظم ومباشر نحو أهدافك</p></div></div>
-      <div class='hero-v2__philosophy-item'><div class='hero-v2__philosophy-icon'><i class='fa-solid fa-lightbulb'></i></div><div class='hero-v2__philosophy-text'><strong class='hero-v2__philosophy-title'>تعلم عملي</strong><p class='hero-v2__philosophy-desc'>معرفة قابلة للتطبيق المباشر</p></div></div>
-      <div class='hero-v2__philosophy-item'><div class='hero-v2__philosophy-icon'><i class='fa-solid fa-graduation-cap'></i></div><div class='hero-v2__philosophy-text'><strong class='hero-v2__philosophy-title'>برامج متخصصة</strong><p class='hero-v2__philosophy-desc'>برامج تعليمية صممت بعناية</p></div></div>
     </div>
   </div>
 </section>
@@ -205,44 +400,5 @@
 <div class='cert-lightbox' id='certLightbox' aria-hidden='true'><div class='cert-lightbox__backdrop js-close-cert'></div><div class='cert-lightbox__content' role='dialog' aria-modal='true'><button type='button' class='cert-lightbox__close js-close-cert' aria-label='إغلاق'><i data-lucide='x'></i></button><div class='cert-lightbox__body'><div class='cert-zoom-container' id='certZoomContainer'><img id='certLightboxImg' src='' alt='وثيقة معتمدة'></div><div class='cert-lightbox__footer'><p class='cert-lightbox__caption' id='certLightboxCaption'></p><span class='cert-zoom-hint'><i data-lucide='zoom-in'></i> اضغط على الصورة للتكبير / التصغير</span></div></div></div></div>
 <script src='https://unpkg.com/lucide@latest'></script>
 <script src='assets/js/main.js'></script>
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-  if(typeof lucide!=='undefined'){lucide.createIcons();}
-  const stepNodes=document.querySelectorAll('.journey-step-node');
-  const slides=document.querySelectorAll('.journey-slide');
-  const stepCurrentSpan=document.getElementById('journeyStepCurrent');
-  const progressFill=document.getElementById('journeyProgressFill');
-  const nextBtn=document.getElementById('journeyNext');
-  const prevBtn=document.getElementById('journeyPrev');
-  let currentStepIndex=0; const totalSteps=stepNodes.length; let autoPlayTimer=null;
-  function goToStep(index){if(index<0) index=totalSteps-1; if(index>=totalSteps) index=0; currentStepIndex=index; stepNodes.forEach((node,idx)=>node.classList.toggle('is-active',idx===index)); slides.forEach((slide,idx)=>slide.classList.toggle('is-active',idx===index)); if(stepCurrentSpan){stepCurrentSpan.textContent=String(index+1).padStart(2,'0');} if(progressFill){progressFill.style.width=((index+1)/totalSteps)*100+'%';}}
-  function startAutoPlay(){stopAutoPlay(); autoPlayTimer=setInterval(()=>goToStep(currentStepIndex+1),4000);}
-  function stopAutoPlay(){if(autoPlayTimer) clearInterval(autoPlayTimer);}
-  stepNodes.forEach(node=>node.addEventListener('click',function(){goToStep(parseInt(this.getAttribute('data-step'),10)); startAutoPlay();}));
-  if(nextBtn){nextBtn.addEventListener('click',()=>{goToStep(currentStepIndex+1); startAutoPlay();});}
-  if(prevBtn){prevBtn.addEventListener('click',()=>{goToStep(currentStepIndex-1); startAutoPlay();});}
-  startAutoPlay();
-  const packagesData={'1':{title:'باقة الأساسيات',desc:'لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.',outcome:'تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.',topics:['الحروف والنطق ومخارج الأصوات الفارسية.','تركيب الكلمات وبناء الجمل البسيطة.','قواعد تصريف الأفعال في الحاضر والماضي.','الأرقام والأيام والتعريف بالنفس.']},'2':{title:'باقة التواصل اليومي',desc:'لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.',outcome:'تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.',topics:['المحادثات في الأسواق والمطاعم والأماكن العامة.','العبارات والاصطلاحات الشائعة عند الإيرانيين.','فهم اللهجة العامية والرد السريع بدون تردد.','التعبير عن المشاعر والآراء والاحتياجات اليومية.']},'3':{title:'باقة السياحة والسفر',desc:'لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.',outcome:'الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.',topics:['محادثات المطارات، سيارات الأجرة، والفنادق.','مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.','التسوق والمفاصلة بالأسعار والصرافة.','إرشادات الطرق والتنقل بين المدن.']},'4':{title:'باقة التجارة العامة',desc:'لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.',outcome:'إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.',topics:['المصطلحات التجارية، العقود، والمراسلات الرسمية.','محادثات التفاوض على الأسعار وشروط الدفع والشحن.','التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.','إدارة الجلسات والاجتماعات التجارية.']},'5':{title:'باقة التعليم والدراسة',desc:'للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.',outcome:'القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.',topics:['المصطلحات الأكاديمية والجامعية المشتركة.','فهم المحاضرات التخصصية وتلخيص الدروس.','مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.','التعامل مع بيئة السكن والأنشطة الطلابية.']},'6':{title:'باقة الزوار والمواكب',desc:'لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين الإيرانيين.',outcome:'إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.',topics:['عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.','توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.','الحوارات الدينية والشعائرية والتنظيمية.','المحادثات السريعة والمباشرة في المواكب الحسينية.']},vip:{title:'باقة VIP الشاملة',desc:'الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.',outcome:'إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.',topics:['الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.','كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.','متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.','شهادة إتمام معتمدة من الأكاديمية.']}};
-  const pkgModal=document.getElementById('packageDetailsModal');
-  const openPkgBtns=document.querySelectorAll('.js-open-pkg-modal');
-  const closePkgBtns=document.querySelectorAll('.js-close-pkg-modal');
-  function closePackageModal(){if(!pkgModal) return; pkgModal.classList.remove('is-open'); document.body.style.overflow='';}
-  openPkgBtns.forEach(btn=>btn.addEventListener('click',function(){const pkgId=this.getAttribute('data-pkg-id'); const data=packagesData[pkgId]; if(!data||!pkgModal) return; const title=document.getElementById('packageDetailsTitle'); const desc=document.getElementById('modalDescription'); const outcome=document.getElementById('modalOutcome'); const list=document.getElementById('modalTopicsList'); const subBtn=document.getElementById('modalSubscribeBtn'); if(title) title.textContent=data.title; if(desc) desc.textContent=data.desc; if(outcome) outcome.textContent=data.outcome; if(list){list.innerHTML=''; data.topics.forEach(t=>{const li=document.createElement('li'); li.innerHTML='<i data-lucide=\'check\'></i> '+t; list.appendChild(li);});} if(subBtn){subBtn.setAttribute('data-track',data.title);} if(typeof lucide!=='undefined'){lucide.createIcons();} pkgModal.classList.add('is-open'); document.body.style.overflow='hidden';}));
-  closePkgBtns.forEach(btn=>btn.addEventListener('click',closePackageModal));
-  if(pkgModal){pkgModal.addEventListener('click',function(e){if(e.target===pkgModal||e.target.classList.contains('registration-modal__overlay')){closePackageModal();}});}
-  const certLightbox=document.getElementById('certLightbox');
-  const certImg=document.getElementById('certLightboxImg');
-  const certCaption=document.getElementById('certLightboxCaption');
-  const certContainer=document.getElementById('certZoomContainer');
-  const viewCertBtns=document.querySelectorAll('.js-view-cert');
-  const closeCertBtns=document.querySelectorAll('.js-close-cert');
-  function closeCertLightbox(){if(!certLightbox) return; certLightbox.classList.remove('is-open'); document.body.style.overflow=''; if(certImg) certImg.src='';}
-  viewCertBtns.forEach(btn=>btn.addEventListener('click',function(){const src=this.getAttribute('data-cert-src'); const title=this.getAttribute('data-cert-title'); if(certImg) certImg.src=src||''; if(certCaption) certCaption.textContent=title||''; if(certContainer) certContainer.classList.remove('is-zoomed'); if(certLightbox){certLightbox.classList.add('is-open'); document.body.style.overflow='hidden';}}));
-  closeCertBtns.forEach(btn=>btn.addEventListener('click',closeCertLightbox));
-  if(certContainer){certContainer.addEventListener('click',function(){this.classList.toggle('is-zoomed');});}
-  if(certLightbox){certLightbox.addEventListener('click',function(e){if(e.target===certLightbox||e.target.classList.contains('cert-lightbox__backdrop')){closeCertLightbox();}});}
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePackageModal(); closeCertLightbox();}});
-});
-</script>
 </body>
 </html>
