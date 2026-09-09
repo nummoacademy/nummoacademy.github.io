@@ -1,306 +1,837 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مشغل الدرس | NEMMO Academy</title>
+  <meta name="description" content="صفحة تشغيل الدروس في أكاديمية NEMMO.">
+  <meta name="theme-color" content="#1B2A4A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    body.page-player {
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef2f8 100%);
+    }
 
-<title>مشغل الدرس | NEMMO Academy</title>
+    .page-player .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.84);
+      border-bottom: 1px solid rgba(27, 42, 74, 0.08);
+    }
 
-<meta name="description"
-content="صفحة تشغيل الدروس في أكاديمية NEMMO.">
+    .page-player .site-header__container {
+      width: min(1200px, calc(100% - 2rem));
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
 
-<meta name="theme-color" content="#1B2A4A">
+    .page-player .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    .page-player .site-nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+    .page-player .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      color: var(--primary, #1B2A4A);
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
 
-<link rel="stylesheet" href="../assets/css/variables.css">
-<link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/layout.css">
-<link rel="stylesheet" href="../assets/css/components.css">
+    .page-player .site-nav a:hover {
+      background: rgba(201, 162, 39, 0.10);
+      color: var(--accent, #C9A227);
+    }
 
+    .page-player .site-nav a.is-active {
+      background: rgba(201, 162, 39, 0.16);
+      color: var(--accent, #C9A227);
+      font-weight: 700;
+    }
+
+    .page-player .site-header__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .page-player .theme-toggle-btn,
+    .page-player .mobile-menu-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(27, 42, 74, 0.12);
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary, #1B2A4A);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .page-player .lesson-hero {
+      padding: clamp(2rem, 4vw, 3.5rem) 0 1rem;
+    }
+
+    .page-player .lesson-hero__inner {
+      width: min(1200px, calc(100% - 2rem));
+      margin-inline: auto;
+      background:
+        linear-gradient(135deg, rgba(27, 42, 74, 0.98) 0%, rgba(34, 57, 94, 0.96) 55%, rgba(13, 24, 42, 0.98) 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+    }
+
+    .page-player .lesson-hero__inner::before,
+    .page-player .lesson-hero__inner::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(36px);
+      opacity: 0.5;
+    }
+
+    .page-player .lesson-hero__inner::before {
+      width: 220px;
+      height: 220px;
+      top: -90px;
+      right: -60px;
+      background: rgba(201, 162, 39, 0.24);
+    }
+
+    .page-player .lesson-hero__inner::after {
+      width: 180px;
+      height: 180px;
+      bottom: -90px;
+      left: -50px;
+      background: rgba(56, 189, 248, 0.18);
+    }
+
+    .page-player .lesson-breadcrumb {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.76);
+      font-size: 0.92rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .page-player .lesson-title {
+      margin: 0 0 0.7rem;
+      font-size: clamp(1.9rem, 4.4vw, 3rem);
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .page-player .lesson-subtitle {
+      max-width: 700px;
+      color: rgba(255,255,255,0.82);
+      line-height: 2;
+      font-size: 1.02rem;
+      margin: 0 0 1.25rem;
+    }
+
+    .page-player .lesson-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .page-player .lesson-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 38px;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #fff;
+      font-size: 0.88rem;
+    }
+
+    .page-player .lesson-shell {
+      padding: 1rem 0 3rem;
+    }
+
+    .page-player .lesson-shell__container {
+      width: min(1200px, calc(100% - 2rem));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .page-player .lesson-main {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .page-player .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      border-radius: 26px;
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+    }
+
+    .page-player .card__inner {
+      padding: clamp(1.1rem, 3vw, 1.5rem);
+    }
+
+    .page-player .lesson-player-card {
+      overflow: hidden;
+    }
+
+    .page-player .lesson-player-card__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-player .lesson-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(201, 162, 39, 0.12);
+      color: var(--accent, #C9A227);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .page-player .video-stage {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0b1220 0%, #16233b 50%, #0d1b30 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .page-player .video-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.18), transparent 24%),
+        radial-gradient(circle at 80% 20%, rgba(201, 162, 39, 0.20), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.06), transparent 18%);
+      pointer-events: none;
+    }
+
+    .page-player .video-stage__placeholder {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 520px);
+      padding: 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .page-player .video-stage__play {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 0;
+      margin: 0 auto 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1B2A4A;
+      background: linear-gradient(135deg, #f6d25a 0%, #c9a227 100%);
+      box-shadow: 0 18px 34px rgba(201, 162, 39, 0.25);
+      font-size: 1.6rem;
+    }
+
+    .page-player .video-stage__title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0 0 0.45rem;
+    }
+
+    .page-player .video-stage__text {
+      margin: 0;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.9;
+    }
+
+    .page-player .lesson-summary {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .page-player .lesson-summary__top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .page-player .teacher-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .page-player .teacher-chip img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    .page-player .teacher-chip strong {
+      display: block;
+      color: var(--primary, #1B2A4A);
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .page-player .teacher-chip span {
+      color: var(--text-light, #64748b);
+      font-size: 0.9rem;
+    }
+
+    .page-player .progress-pill {
+      min-width: 130px;
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(27, 42, 74, 0.96), rgba(13, 27, 42, 0.92));
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .page-player .progress-pill span {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .page-player .progress-pill strong {
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .page-player .lesson-progress-bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(27, 42, 74, 0.10);
+      overflow: hidden;
+    }
+
+    .page-player .lesson-progress-bar span {
+      display: block;
+      height: 100%;
+      width: 1.4%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #1B2A4A, #C9A227);
+    }
+
+    .page-player .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .page-player .info-card {
+      padding: 1.2rem;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .page-player .info-card h3 {
+      margin: 0 0 0.8rem;
+      color: var(--primary, #1B2A4A);
+      font-size: 1.04rem;
+    }
+
+    .page-player .info-card p {
+      margin: 0;
+      color: var(--text-light, #64748b);
+      line-height: 1.95;
+      font-size: 0.95rem;
+    }
+
+    .page-player .audio-box {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .page-player .audio-box audio {
+      width: 100%;
+      min-height: 52px;
+    }
+
+    .page-player .qr-box {
+      display: grid;
+      gap: 0.8rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .page-player .qr-box img {
+      width: 100%;
+      max-width: 190px;
+      aspect-ratio: 1;
+      object-fit: contain;
+      border-radius: 20px;
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.08);
+    }
+
+    .page-player .lesson-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.25rem;
+    }
+
+    .page-player .lesson-actions .btn {
+      min-height: 52px;
+      padding-inline: 1.2rem;
+      border-radius: 14px;
+    }
+
+    .page-player .lesson-sidebar {
+      display: grid;
+      gap: 1rem;
+      position: sticky;
+      top: 92px;
+    }
+
+    .page-player .sidebar-card {
+      padding: 1.2rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .page-player .sidebar-card h3 {
+      margin: 0 0 0.9rem;
+      color: var(--primary, #1B2A4A);
+      font-size: 1.05rem;
+    }
+
+    .page-player .lesson-list {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .page-player .lesson-list li a,
+    .page-player .lesson-list li button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      min-height: 52px;
+      padding: 0.8rem 0.95rem;
+      border-radius: 16px;
+      border: 1px solid rgba(27, 42, 74, 0.08);
+      background: #fff;
+      color: var(--primary, #1B2A4A);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .page-player .lesson-list li.is-active a {
+      background: rgba(201, 162, 39, 0.10);
+      border-color: rgba(201, 162, 39, 0.25);
+    }
+
+    .page-player .lesson-list li.is-locked a {
+      opacity: 0.72;
+    }
+
+    .page-player .lesson-list small {
+      color: var(--text-light, #64748b);
+      font-weight: 500;
+    }
+
+    .page-player .sidebar-progress {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .page-player .sidebar-progress__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      color: var(--primary, #1B2A4A);
+      font-weight: 700;
+    }
+
+    .page-player .sidebar-progress__bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(27, 42, 74, 0.10);
+      overflow: hidden;
+    }
+
+    .page-player .sidebar-progress__bar span {
+      display: block;
+      height: 100%;
+      width: 1.4%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #1B2A4A, #C9A227);
+    }
+
+    .page-player .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .page-player .footer-links a {
+      color: var(--text-light, #64748b);
+    }
+
+    @media (max-width: 991px) {
+      .page-player .lesson-shell__container {
+        grid-template-columns: 1fr;
+      }
+
+      .page-player .lesson-sidebar {
+        position: static;
+      }
+
+      .page-player .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-player .lesson-summary__top {
+        grid-template-columns: 1fr;
+      }
+
+      .page-player .lesson-actions {
+        justify-content: stretch;
+      }
+
+      .page-player .lesson-actions .btn {
+        flex: 1 1 220px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-player .site-header__container {
+        width: min(100%, calc(100% - 1rem));
+        padding: 0.75rem 0;
+      }
+
+      .page-player .site-nav ul {
+        gap: 0.4rem;
+      }
+
+      .page-player .site-nav a {
+        min-height: 38px;
+        padding: 0.45rem 0.75rem;
+        font-size: 0.92rem;
+      }
+
+      .page-player .lesson-hero__inner,
+      .page-player .sidebar-card,
+      .page-player .card {
+        border-radius: 20px;
+      }
+
+      .page-player .video-stage {
+        min-height: 220px;
+      }
+
+      .page-player .video-stage__play {
+        width: 78px;
+        height: 78px;
+      }
+
+      .page-player .lesson-actions {
+        flex-direction: column;
+      }
+
+      .page-player .lesson-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+<body class="page-player">
+<header class="site-header" id="siteHeader">
+  <div class="site-header__container">
+    <a href="../index.html" class="site-logo">
+      <img src="../assets/images/logo.png" alt="NEMMO Academy" class="site-logo__img" loading="eager">
+      <div class="site-logo__text">
+        <span class="site-logo__title">NEMMO Academy</span>
+        <span class="site-logo__subtitle">أكاديمية نمو التعليمية</span>
+      </div>
+    </a>
 
-<body>
+    <nav class="site-nav" id="siteNav" aria-label="القائمة الرئيسية" aria-hidden="true">
+      <ul>
+        <li><a href="../index.html">الرئيسية</a></li>
+        <li><a href="../programs.html">البرامج</a></li>
+        <li><a href="../programs/persian/index.html" class="is-active">برنامج اللغة الفارسية</a></li>
+      </ul>
+    </nav>
 
-<header class="site-header">
+    <div class="site-header__actions">
+      <button id="themeToggle" class="theme-toggle-btn" aria-label="تبديل المظهر">
+        <i data-lucide="moon" class="moon-icon"></i>
+        <i data-lucide="sun" class="sun-icon" style="display:none;"></i>
+      </button>
 
-<div class="site-header__container">
-
-<a href="../index.html" class="site-logo">
-
-<img src="../assets/images/logo.png" alt="NEMMO Academy">
-
-<div class="site-logo__text">
-
-<span class="site-logo__title">NEMMO Academy</span>
-<span class="site-logo__subtitle">أكاديمية نمو التعليمية</span>
-
-</div>
-
-</a>
-
-<nav class="site-nav">
-
-<ul>
-
-<li><a href="../index.html">الرئيسية</a></li>
-<li><a href="../programs.html">البرامج</a></li>
-<li><a href="../programs/persian/index.html">برنامج اللغة الفارسية</a></li>
-
-</ul>
-
-</nav>
-
-</div>
-
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </div>
 </header>
 
-<main>
-
-<!-- Hero -->
-
-<section class="lesson-hero">
-
-<div class="container">
-
-<div class="lesson-breadcrumb">
-
-<span>الرئيسية</span>
-
-<span>›</span>
-
-<span>برنامج اللغة الفارسية</span>
-
-<span>›</span>
-
-<span>الدرس الأول</span>
-
-</div>
-
-<h1 class="lesson-title">
-
-الدرس الأول
-— التعارف والمقدمة
-
-</h1>
-
-<p class="lesson-subtitle">
-
-ابدأ رحلتك مع اللغة الفارسية من خلال أول درس،
-وتعرّف على أساسيات النطق والكلمات الأولى
-بطريقة عملية وسهلة.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- Lesson -->
-
-<section class="lesson-player">
-
-<div class="container">
-
-<div class="player-layout">
-
-<!-- Main -->
-
-<div>
-
-<div class="player-card">
-
-<div class="player-video">
-
-<p>
-
-مكان تشغيل الفيديو
-(YouTube / Vimeo / HTML5)
-
-</p>
-
-</div>
-
-<div class="player-content">
-
-<h2>
-
-حول هذا الدرس
-
-</h2>
-
-<p>
-
-في هذا الدرس ستتعرف على أساسيات النطق،
-وكيفية تقديم نفسك باللغة الفارسية،
-مع أمثلة مبسطة تساعدك على البدء بثقة.
-
-</p>
-
-<p>
-
-يمكنك أيضاً الاستماع إلى التسجيل الصوتي
-ومتابعة الكتاب المرافق
-لتحسين مهارات النطق والاستيعاب.
-
-</p>
-
-<div class="audio-card">
-
-<h3>
-
-🎧 الملف الصوتي
-
-</h3>
-
-<audio controls>
-
-<source src="../assets/audio/lesson-01.mp3" type="audio/mpeg">
-
-</audio>
-
-</div>
-
-<div class="qr-card">
-
-<h3>
-
-📱 الاستماع عبر QR
-
-</h3>
-
-<img
-src="../assets/images/qr-placeholder.png"
-alt="QR Code">
-
-<p>
-
-امسح رمز QR الموجود داخل الكتيب
-للاستماع مباشرة إلى التسجيل الصوتي.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Sidebar -->
-
-<aside class="lesson-sidebar">
-
-<div class="sidebar-card">
-
-<h3>
-
-دروس الوحدة
-
-</h3>
-
-<ul class="lesson-list">
-
-<li class="active">
-<a href="#">
-<span>الدرس الأول</span>
-<span>▶</span>
-</a>
-</li>
-
-<li>
-<a href="#">
-<span>الدرس الثاني</span>
-<span>▶</span>
-</a>
-</li>
-
-<li>
-<a href="#">
-<span>الدرس الثالث</span>
-<span>▶</span>
-</a>
-</li>
-
-<li>
-<a href="#">
-<span>الدرس الرابع</span>
-<span>▶</span>
-</a>
-</li>
-
-</ul>
-
-</div>
-
-<div class="sidebar-card">
-
-<h3>
-
-📚 المواد المرفقة
-
-</h3>
-
-<ul class="lesson-list">
-
-<li>
-<a href="#">
-<span>كتاب القواعد</span>
-<span>PDF</span>
-</a>
-</li>
-
-<li>
-<a href="#">
-<span>كتاب المحادثة</span>
-<span>PDF</span>
-</a>
-</li>
-
-</ul>
-
-</div>
-
-</aside>
-
-</div>
-
-</div>
-
-</section>
-
+<main id="mainContent">
+  <section class="lesson-hero">
+    <div class="lesson-hero__inner">
+      <div class="lesson-breadcrumb">
+        <span>الرئيسية</span>
+        <span>›</span>
+        <span>برنامج اللغة الفارسية</span>
+        <span>›</span>
+        <span>الدرس الأول</span>
+      </div>
+
+      <h1 class="lesson-title">الدرس الأول — التعارف والمقدمة</h1>
+
+      <p class="lesson-subtitle">
+        ابدأ رحلتك مع اللغة الفارسية من خلال أول درس، وتعرّف على أساسيات النطق والكلمات الأولى بطريقة عملية وسهلة.
+      </p>
+
+      <div class="lesson-meta" aria-label="معلومات الدرس">
+        <span><i class="fa-solid fa-layer-group"></i> 70 درسًا</span>
+        <span><i class="fa-solid fa-clock"></i> 12–18 دقيقة</span>
+        <span><i class="fa-solid fa-shield-heart"></i> محتوى للمشتركين</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-shell">
+    <div class="lesson-shell__container">
+      <article class="lesson-main">
+        <div class="card lesson-player-card">
+          <div class="card__inner">
+            <div class="lesson-player-card__head">
+              <span class="lesson-badge">Lesson 01 · Preview</span>
+              <strong style="color: var(--primary, #1B2A4A);">فيديو الدرس</strong>
+            </div>
+
+            <div class="video-stage" aria-label="مشغل فيديو تجريبي">
+              <div class="video-stage__placeholder">
+                <button type="button" class="video-stage__play" aria-label="تشغيل المعاينة">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <h2 class="video-stage__title">مشغل الفيديو الخاص بالدرس</h2>
+                <p class="video-stage__text">
+                  هنا سيتم ربط فيديو الدرس الحقيقي لاحقًا، مع الحفاظ على نفس التصميم المتوافق مع الهاتف والكمبيوتر.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__inner lesson-summary">
+            <div class="lesson-summary__top">
+              <div class="teacher-chip">
+                <img src="../assets/images/teacher.jpg" alt="الأستاذة زهراء سعد أحمد" loading="lazy">
+                <div>
+                  <strong>الأستاذة زهراء سعد أحمد</strong>
+                  <span>مشرفة ومقدمة البرنامج</span>
+                </div>
+              </div>
+
+              <div class="progress-pill" aria-label="تقدم الدرس">
+                <span>التقدم الحالي</span>
+                <strong>1 / 70</strong>
+              </div>
+            </div>
+
+            <div class="lesson-progress-bar" aria-hidden="true">
+              <span></span>
+            </div>
+
+            <p style="margin:0;color:var(--text-light, #64748b);line-height:1.95;">
+              هذه الصفحة تمثل واجهة الدرس داخل المنصة. بعد اعتماد الطالب وتسجيله، يمكن أن تنتقل هنا الفيديوهات والاختبارات خطوة بخطوة دون الحاجة إلى إعادة بناء الهيكل.
+            </p>
+          </div>
+        </div>
+
+        <div class="lesson-grid">
+          <section class="info-card audio-box">
+            <h3>الملف الصوتي</h3>
+            <p>مرفق صوتي تجريبي منظم للعرض، ويمكن استبداله لاحقًا بملفات الدروس الحقيقية بسهولة.</p>
+            <audio controls preload="none" src="data:audio/wav;base64,UklGRoSZAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YdCJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"></audio>
+          </section>
+
+          <section class="info-card qr-box">
+            <h3>الاستماع عبر QR</h3>
+            <img src="data:image/svg+xml;charset=UTF-8,%0A%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231B2A4A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23C9A227%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22480%22%20height%3D%22480%22%20rx%3D%2236%22%20fill%3D%22%23f8f9fb%22/%3E%0A%20%20%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22432%22%20height%3D%22432%22%20rx%3D%2228%22%20fill%3D%22white%22%20stroke%3D%22url(%23g)%22%20stroke-width%3D%228%22/%3E%0A%20%20%3Cg%20fill%3D%22%231B2A4A%22%3E%0A%20%20%20%20%3Crect%20x%3D%2264%22%20y%3D%2264%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22320%22%20y%3D%2264%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%2264%22%20y%3D%22320%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22192%22%20y%3D%2264%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22240%22%20y%3D%2264%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22192%22%20y%3D%22112%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22240%22%20y%3D%22112%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22288%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22336%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22384%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22288%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22336%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22384%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22176%22%20y%3D%22224%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22224%22%20y%3D%22224%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22176%22%20y%3D%22272%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22224%22%20y%3D%22272%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22240%22%20y%3D%22440%22%20text-anchor%3D%22middle%22%20fill%3D%22%231B2A4A%22%20font-size%3D%2228%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-weight%3D%22700%22%3EQR%20CONTENT%3C/text%3E%0A%3C/svg%3E" alt="رمز QR تجريبي للاستماع إلى التسجيل الصوتي" loading="lazy">
+            <p>يمكن استبدال هذا الرمز لاحقًا بالـ QR الحقيقي المطبوع على الكارت أو الملزمة.</p>
+          </section>
+
+          <section class="info-card">
+            <h3>حول هذا الدرس</h3>
+            <p>
+              في هذا الدرس ستتعرف على أساسيات النطق، وكيفية تقديم نفسك باللغة الفارسية، مع أمثلة مبسطة تساعدك على البدء بثقة.
+            </p>
+            <p style="margin-top:0.8rem;">
+              كما يمكنك متابعة الملف الصوتي والرجوع إلى المواد المرفقة في أي وقت، مع تسلسل ثابت وسهل المتابعة.
+            </p>
+          </section>
+        </div>
+
+        <div class="lesson-actions">
+          <a href="../programs/persian/index.html" class="btn btn-secondary">
+            <i class="fa-solid fa-arrow-right"></i>
+            العودة إلى البرنامج
+          </a>
+          <button type="button" class="btn btn-primary" disabled>
+            <i class="fa-solid fa-circle-check"></i>
+            إكمال الدرس
+          </button>
+          <button type="button" class="btn btn-primary" disabled>
+            الدرس التالي
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+      </article>
+
+      <aside class="lesson-sidebar">
+        <div class="sidebar-card">
+          <h3>تقدّمك في الدورة</h3>
+          <div class="sidebar-progress">
+            <div class="sidebar-progress__top">
+              <span>الدرس الحالي</span>
+              <strong>1 من 70</strong>
+            </div>
+            <div class="sidebar-progress__bar" aria-hidden="true">
+              <span></span>
+            </div>
+            <p style="margin:0;color:var(--text-light, #64748b);line-height:1.8;">
+              بعد إنهاء كل درس وكويز قصير، يُفتح الدرس التالي تلقائيًا.
+            </p>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>دروس الوحدة</h3>
+          <ul class="lesson-list">
+            <li class="is-active">
+              <a href="#" aria-current="page">
+                <span>الدرس الأول</span>
+                <small>متاح الآن</small>
+              </a>
+            </li>
+            <li class="is-locked">
+              <a href="#" aria-disabled="true">
+                <span>الدرس الثاني</span>
+                <small>مقفل</small>
+              </a>
+            </li>
+            <li class="is-locked">
+              <a href="#" aria-disabled="true">
+                <span>الدرس الثالث</span>
+                <small>مقفل</small>
+              </a>
+            </li>
+            <li class="is-locked">
+              <a href="#" aria-disabled="true">
+                <span>الدرس الرابع</span>
+                <small>مقفل</small>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>المواد المرفقة</h3>
+          <ul class="lesson-list">
+            <li><a href="#"><span>كتاب القواعد</span><small>PDF</small></a></li>
+            <li><a href="#"><span>كتاب المحادثة</span><small>PDF</small></a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
-
-<div class="site-footer__container">
-
-<p>
-
-© <span data-current-year></span>
-NEMMO Academy
-
-</p>
-
-<a href="../programs/persian/index.html">
-
-العودة إلى البرنامج
-
-</a>
-
-</div>
-
+  <div class="site-footer__container">
+    <p>© <span data-current-year></span> NEMMO Academy</p>
+    <div class="footer-links">
+      <a href="../index.html">الرئيسية</a>
+      <a href="../programs/persian/index.html">العودة إلى البرنامج</a>
+    </div>
+  </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest"></script>
 <script src="../assets/js/main.js"></script>
-
 </body>
-
 </html>
