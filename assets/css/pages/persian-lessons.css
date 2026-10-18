@@ -1,0 +1,58 @@
+/* ==========================================================================
+   NEMMO Academy — Persian lesson cards (Instagram embeds)
+   Loaded LAST on programs/persian/index.html.
+   Why: Instagram embeds need at least 326px of width. The old rules made the
+   cards 250–290px wide and square (cropped), with conflicting !important
+   rules spread over persian.css, persian-override.css and phone-fix.css.
+   These rules replace them in one place.
+   ========================================================================== */
+
+.page-persian .lesson-slide {
+    flex: 0 0 min(100%, 340px) !important;
+}
+
+.page-persian .lesson-card {
+    aspect-ratio: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.page-persian .lesson-card__video-wrapper {
+    position: relative !important;
+    flex: none !important;
+    width: 100% !important;
+    height: 640px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+}
+
+.page-persian .lesson-card__video-wrapper iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    transform: none !important;
+}
+
+.page-persian .lesson-card__content {
+    margin-top: 0 !important;
+}
+
+/* Intro-video modal: fallback link when the Facebook embed is blocked */
+.page-persian .persian-video-modal__fallback {
+    display: block;
+    margin-top: .7rem;
+    text-align: center;
+    color: #f2d87a;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.page-persian .persian-video-modal__dialog {
+    max-height: 92vh;
+    overflow-y: auto;
+}

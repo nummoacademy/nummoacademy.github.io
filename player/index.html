@@ -10,11 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/variables.css">
-  <link rel="stylesheet" href="../assets/css/layout.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
-  <link rel="stylesheet" href="../assets/css/main.css">
-  <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
+  <link rel="stylesheet" href="../assets/css/base/variables.css">
+  <link rel="stylesheet" href="../assets/css/responsive/mobile-fix.css">
+  <link rel="stylesheet" href="../assets/css/responsive/phone-fix.css">
+  <link rel="stylesheet" href="../assets/css/responsive/persian-override.css">
+  <link rel="stylesheet" href="../assets/css/core/layout.css">
+  <link rel="stylesheet" href="../assets/css/core/components.css">
+  <link rel="stylesheet" href="../assets/css/base/main.css">
+  <link rel="stylesheet" href="../assets/css/responsive/mobile-fixes.css">
   <style>
     :root {
       color-scheme: light dark;
@@ -297,6 +300,16 @@
       margin: 0;
       color: rgba(255,255,255,0.78);
       line-height: 1.9;
+    }
+
+    .page-player .video-stage__media {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #000;
     }
 
     .page-player .lesson-summary {
@@ -681,9 +694,9 @@
               <strong style="color: var(--primary, #1B2A4A);">فيديو الدرس</strong>
             </div>
 
-            <div class="video-stage" aria-label="مشغل فيديو تجريبي">
+            <div class="video-stage" data-video-src="" aria-label="مشغل فيديو الدرس">
               <div class="video-stage__placeholder">
-                <button type="button" class="video-stage__play" aria-label="تشغيل المعاينة">
+                <button type="button" class="video-stage__play" data-video-play aria-label="تشغيل فيديو الدرس">
                   <i class="fa-solid fa-play"></i>
                 </button>
                 <h2 class="video-stage__title">مشغل الفيديو الخاص بالدرس</h2>
@@ -726,12 +739,12 @@
           <section class="info-card audio-box">
             <h3>الملف الصوتي</h3>
             <p>مرفق صوتي تجريبي منظم للعرض، ويمكن استبداله لاحقًا بملفات الدروس الحقيقية بسهولة.</p>
-            <audio controls preload="none" src="data:audio/wav;base64,UklGRoSZAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YdCJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"></audio>
+            <audio controls preload="none" src="../assets/media/lesson-01-sample.wav"></audio>
           </section>
 
           <section class="info-card qr-box">
             <h3>الاستماع عبر QR</h3>
-            <img src="data:image/svg+xml;charset=UTF-8,%0A%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%231B2A4A%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23C9A227%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22480%22%20height%3D%22480%22%20rx%3D%2236%22%20fill%3D%22%23f8f9fb%22/%3E%0A%20%20%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22432%22%20height%3D%22432%22%20rx%3D%2228%22%20fill%3D%22white%22%20stroke%3D%22url(%23g)%22%20stroke-width%3D%228%22/%3E%0A%20%20%3Cg%20fill%3D%22%231B2A4A%22%3E%0A%20%20%20%20%3Crect%20x%3D%2264%22%20y%3D%2264%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22320%22%20y%3D%2264%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%2264%22%20y%3D%22320%22%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22192%22%20y%3D%2264%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22240%22%20y%3D%2264%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22192%22%20y%3D%22112%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22240%22%20y%3D%22112%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22288%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22336%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22384%22%20y%3D%22192%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22288%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22336%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22384%22%20y%3D%22240%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22176%22%20y%3D%22224%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22224%22%20y%3D%22224%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22176%22%20y%3D%22272%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%20%20%3Crect%20x%3D%22224%22%20y%3D%22272%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%22240%22%20y%3D%22440%22%20text-anchor%3D%22middle%22%20fill%3D%22%231B2A4A%22%20font-size%3D%2228%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-weight%3D%22700%22%3EQR%20CONTENT%3C/text%3E%0A%3C/svg%3E" alt="رمز QR تجريبي للاستماع إلى التسجيل الصوتي" loading="lazy">
+            <img src="../assets/images/qr-placeholder.svg" alt="رمز QR تجريبي للاستماع إلى التسجيل الصوتي" loading="lazy">
             <p>يمكن استبدال هذا الرمز لاحقًا بالـ QR الحقيقي المطبوع على الكارت أو الملزمة.</p>
           </section>
 
@@ -833,5 +846,6 @@
 
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/player.js"></script>
 </body>
 </html>

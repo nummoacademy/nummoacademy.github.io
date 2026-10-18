@@ -514,6 +514,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && certLightbox && certLightbox.classList.contains('is-open')) {
+            certLightbox.classList.remove('is-open');
+            certLightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+    });
+
     /* ------------------------------
        Persian reel lightbox
     ------------------------------ */
@@ -526,6 +534,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!videoModal || !videoFrame || !url) return;
         const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=560`;
         videoFrame.src = embedUrl;
+        const fallbackLink = document.getElementById('persianVideoFallback');
+        if (fallbackLink) fallbackLink.href = url;
         videoModal.classList.add('is-open');
         videoModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -535,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!videoModal || !videoFrame) return;
         videoModal.classList.remove('is-open');
         videoModal.setAttribute('aria-hidden', 'true');
-        videoFrame.src = '';
+        videoFrame.src = 'about:blank';
         document.body.style.overflow = '';
     }
 
@@ -548,40 +558,4 @@ document.addEventListener('DOMContentLoaded', function () {
     videoCloseBtns.forEach(btn => btn.addEventListener('click', closeVideoModal));
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeVideoModal(); });
 
-    /* ------------------------------
-       Persian program reel placement
-    ------------------------------ */
-    function fixPersianReelPlacement() {
-        if (!document.body.classList.contains('page-persian')) return;
-
-        const screen = document.querySelector('#about-program .phone-mockup__screen');
-        if (!screen) return;
-
-        const reelSrc = 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022229670752507&show_text=false&width=560';
-        if (screen.dataset.reelFixed !== '1') {
-            screen.innerHTML = `<iframe src="${reelSrc}" title="ريل البرنامج التعريفي" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>`;
-            screen.dataset.reelFixed = '1';
-        }
-
-        if (!document.getElementById('persianReelFixStyle')) {
-            const style = document.createElement('style');
-            style.id = 'persianReelFixStyle';
-            style.textContent = `
-                .page-persian .program-editorial-wrapper { align-items: start; }
-                .page-persian .editorial-media-column { display: flex; justify-content: center; align-items: flex-start; }
-                .page-persian .phone-mockup { width: min(100%, 360px); background: transparent; border: 0; padding: 0; box-shadow: none; }
-                .page-persian .phone-mockup__screen { position: relative; width: 100%; aspect-ratio: 9 / 16; height: auto; overflow: hidden; border-radius: 28px; background: #000; }
-                .page-persian .phone-mockup__screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-                @media (max-width: 991px) {
-                    .page-persian .program-editorial-wrapper { grid-template-columns: 1fr; }
-                    .page-persian .editorial-media-column { order: -1; margin-bottom: 1rem; }
-                    .page-persian .phone-mockup { width: min(100%, 420px); }
-                }
-            `;
-            document.head.appendChild(style);
-        }
-    }
-
-    fixPersianReelPlacement();
-    window.addEventListener('load', fixPersianReelPlacement);
 });

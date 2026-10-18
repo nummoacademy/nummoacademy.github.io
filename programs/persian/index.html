@@ -21,11 +21,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../../assets/css/variables.css">
-  <link rel="stylesheet" href="../../assets/css/layout.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/persian.css">
-  <link rel="stylesheet" href="../../assets/css/mobile-fixes.css">
+  <link rel="stylesheet" href="../../assets/css/base/variables.css">
+  <link rel="stylesheet" href="../../assets/css/responsive/mobile-fix.css">
+  <link rel="stylesheet" href="../../assets/css/responsive/phone-fix.css">
+  <link rel="stylesheet" href="../../assets/css/responsive/persian-override.css">
+  <link rel="stylesheet" href="../../assets/css/core/layout.css">
+  <link rel="stylesheet" href="../../assets/css/core/components.css">
+  <link rel="stylesheet" href="../../assets/css/base/main.css">
+  <link rel="stylesheet" href="../../assets/css/pages/persian.css">
+  <link rel="stylesheet" href="../../assets/css/responsive/mobile-fixes.css">
+  <link rel="stylesheet" href="../../assets/css/pages/persian-lessons.css">
   <style>
     .page-persian .hero{
       position:relative;
@@ -189,7 +194,7 @@
 <div class="registration-modal" id="registrationModal" aria-hidden="true"><div class="registration-modal__overlay js-close-registration"></div><div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="registrationModalTitle"><button type="button" class="registration-modal__close js-close-registration" aria-label="إغلاق"><i data-lucide="x"></i></button><div class="registration-modal__header"><span class="registration-modal__eyebrow">REGISTRATION</span><h2 id="registrationModalTitle">أكمل تسجيلك</h2><p>أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب لإكمال إجراءات التسجيل.</p></div><form id="registrationForm" class="registration-form" novalidate><div class="form-group"><label for="registrationName">الاسم الثلاثي</label><input type="text" id="registrationName" name="name" placeholder="أدخل الاسم الثلاثي" autocomplete="name" required></div><div class="form-group"><label for="registrationPhone">رقم الهاتف</label><input type="tel" id="registrationPhone" name="phone" placeholder="07XXXXXXXXX" autocomplete="tel" required></div><div class="form-group"><label for="registrationGovernorate">المحافظة</label><select id="registrationGovernorate" name="governorate" required><option value="">اختر المحافظة</option><option value="بغداد">بغداد</option><option value="الأنبار">الأنبار</option><option value="بابل">بابل</option><option value="البصرة">البصرة</option><option value="ذي قار">ذي قار</option><option value="القادسية">القادسية</option><option value="كربلاء">كربلاء</option><option value="كركوك">كركوك</option><option value="ميسان">ميسان</option><option value="المثنى">المثنى</option><option value="النجف">النجف</option><option value="نينوى">نينوى</option><option value="ديالى">ديالى</option><option value="صلاح الدين">صلاح الدين</option><option value="السليمانية">السليمانية</option><option value="دهوك">دهوك</option><option value="أربيل">أربيل</option><option value="واسط">واسط</option></select></div><div class="form-group"><label for="registrationAddress">العنوان الكامل</label><textarea id="registrationAddress" name="address" rows="2" placeholder="أدخل العنوان الكامل" autocomplete="street-address" required></textarea></div><div class="form-group"><label for="registrationProgram">البرنامج</label><select id="registrationProgram" name="program" required><option value="">اختر البرنامج</option><option value="برنامج اللغة الفارسية">برنامج اللغة الفارسية</option></select></div><div class="form-group is-hidden" id="trackGroup"><label for="registrationTrack">اختر المسار التعليمي</label><select id="registrationTrack" name="track"><option value="">اختر المسار المناسب</option><option value="باقة الأساسيات">باقة الأساسيات</option><option value="باقة التواصل اليومي">باقة التواصل اليومي</option><option value="باقة السياحة والسفر">باقة السياحة والسفر</option><option value="باقة التجارة العامة">باقة التجارة العامة</option><option value="باقة الزوار والمواكب">باقة الزوار والمواكب</option><option value="باقة VIP الشاملة">باقة VIP الشاملة</option></select></div><p id="registrationError" class="registration-form__error" role="alert" aria-live="polite"></p><button type="submit" class="btn btn-primary registration-form__submit"><i data-lucide="send"></i> إرسال الطلب عبر واتساب</button></form></div></div>
 <div class="registration-modal" id="packageDetailsModal" aria-hidden="true"><div class="registration-modal__overlay js-close-pkg-modal"></div><div class="registration-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="packageDetailsTitle"><button type="button" class="registration-modal__close js-close-pkg-modal" aria-label="إغلاق"><i data-lucide="x"></i></button><div class="registration-modal__header"><span class="registration-modal__eyebrow">PACKAGE DETAILS</span><h2 id="packageDetailsTitle">تفاصيل الباقة</h2><p id="modalDescription"></p></div><div class="modal-body"><div class="modal-outcome-box"><strong class="modal-outcome-box__label">النتيجة المباشرة:</strong><p id="modalOutcome" class="modal-outcome-box__text"></p></div><h4 class="modal-body__heading">المحاور والدروس المتضمنة:</h4><ul id="modalTopicsList" class="pkg-card-v3__checklist modal-topics-list"></ul><button type="button" class="btn btn-pkg-gold js-open-registration" id="modalSubscribeBtn" data-program="برنامج اللغة الفارسية" style="width:100%;">اشترك في هذه الباقة الآن</button></div></div></div>
 <div class="cert-lightbox" id="certLightbox" aria-hidden="true"><div class="cert-lightbox__backdrop js-close-cert"></div><div class="cert-lightbox__content" role="dialog" aria-modal="true"><button type="button" class="cert-lightbox__close js-close-cert" aria-label="إغلاق"><i data-lucide="x"></i></button><div class="cert-lightbox__body"><div class="cert-zoom-container" id="certZoomContainer"><img id="certLightboxImg" src="" alt="وثيقة معتمدة"></div><div class="cert-lightbox__footer"><p class="cert-lightbox__caption" id="certLightboxCaption"></p><span class="cert-zoom-hint"><i data-lucide="zoom-in"></i> اضغط على الصورة للتكبير / التصغير</span></div></div></div></div>
-<div class="persian-video-modal" id="persianVideoModal" aria-hidden="true"><div class="persian-video-modal__backdrop" data-video-close></div><div class="persian-video-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="persianVideoModalTitle"><button type="button" class="persian-video-modal__close" data-video-close aria-label="إغلاق"><i data-lucide="x"></i></button><div class="persian-video-modal__frame"><iframe id="persianVideoFrame" title="Facebook Reel Preview" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div></div></div>
+<div class="persian-video-modal" id="persianVideoModal" aria-hidden="true"><div class="persian-video-modal__backdrop" data-video-close></div><div class="persian-video-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="persianVideoModalTitle"><button type="button" class="persian-video-modal__close" data-video-close aria-label="إغلاق"><i data-lucide="x"></i></button><div class="persian-video-modal__frame"><iframe id="persianVideoFrame" title="Facebook Reel Preview" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="persian-video-modal__fallback" id="persianVideoFallback" href="https://www.facebook.com/reel/1022229670752507" target="_blank" rel="noopener noreferrer">إذا لم يعمل الفيديو، افتحه على فيسبوك</a></div></div>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="../../assets/js/main.js"></script>
 <script>
@@ -219,57 +224,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (nextBtn) nextBtn.addEventListener("click", () => { goToStep(currentStepIndex + 1); startAutoPlay(); });
   if (prevBtn) prevBtn.addEventListener("click", () => { goToStep(currentStepIndex - 1); startAutoPlay(); });
   startAutoPlay();
-  const packagesData = {
-    "1": { title: "باقة الأساسيات", desc: "لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.", outcome: "تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.", topics: ["الحروف والنطق ومخارج الأصوات الفارسية.", "تركيب الكلمات وبناء الجمل البسيطة.", "قواعد تصريف الأفعال في الحاضر والماضي.", "الأرقام والأيام والتعريف بالنفس."] },
-    "2": { title: "باقة التواصل اليومي", desc: "لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.", outcome: "تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.", topics: ["المحادثات في الأسواق والمطاعم والأماكن العامة.", "العبارات والاصطلاحات الشائعة عند الإيرانيين.", "فهم اللهجة العامية والرد السريع بدون تردد.", "التعبير عن المشاعر والآراء والاحتياجات اليومية."] },
-    "3": { title: "باقة السياحة والسفر", desc: "لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.", outcome: "الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.", topics: ["محادثات المطارات، سيارات الأجرة، والفنادق.", "مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.", "التسوق والمفاصلة بالأسعار والصرافة.", "إرشادات الطرق والتنقل بين المدن."] },
-    "4": { title: "باقة التجارة العامة", desc: "لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.", outcome: "إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.", topics: ["المصطلحات التجارية، العقود، والمراسلات الرسمية.", "محادثات التفاوض على الأسعار وشروط الدفع والشحن.", "التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.", "إدارة الجلسات والاجتماعات التجارية."] },
-    "5": { title: "باقة التعليم والدراسة", desc: "للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.", outcome: "القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.", topics: ["المصطلحات الأكاديمية والجامعية المشتركة.", "فهم المحاضرات التخصصية وتلخيص الدروس.", "مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.", "التعامل مع بيئة السكن والأنشطة الطلابية."] },
-    "6": { title: "باقة الزوار والمواكب", desc: "لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين الإيرانيين.", outcome: "إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.", topics: ["عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.", "توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.", "الحوارات الدينية والشعائرية والتنظيمية.", "المحادثات السريعة والمباشرة في المواكب الحسينية."] },
-    "vip": { title: "باقة VIP الشاملة", desc: "الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.", outcome: "إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.", topics: ["الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.", "كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.", "متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.", "شهادة إتمام معتمدة من الأكاديمية."] }
-  };
-  const pkgModal = document.getElementById("packageDetailsModal");
-  document.querySelectorAll(".js-open-pkg-modal").forEach(btn => {
-    btn.addEventListener("click", function () {
-      const data = packagesData[this.getAttribute("data-pkg-id")];
-      if (!data) return;
-      document.getElementById("packageDetailsTitle").textContent = data.title;
-      document.getElementById("modalDescription").textContent = data.desc;
-      document.getElementById("modalOutcome").textContent = data.outcome;
-      const list = document.getElementById("modalTopicsList");
-      list.innerHTML = "";
-      data.topics.forEach(t => { const li = document.createElement("li"); li.innerHTML = `<i data-lucide=\"check\"></i> ${t}`; list.appendChild(li); });
-      document.getElementById("modalSubscribeBtn").setAttribute("data-track", data.title);
-      if (typeof lucide !== "undefined") lucide.createIcons();
-      pkgModal.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-    });
-  });
-  document.querySelectorAll(".js-close-pkg-modal").forEach(btn => btn.addEventListener("click", () => { pkgModal.classList.remove("is-open"); document.body.style.overflow = ""; }));
-  const certLightbox = document.getElementById("certLightbox");
-  const certImg = document.getElementById("certLightboxImg");
-  const certCaption = document.getElementById("certLightboxCaption");
-  const certContainer = document.getElementById("certZoomContainer");
-  document.querySelectorAll(".js-view-cert").forEach(btn => {
-    btn.addEventListener("click", function () {
-      certImg.src = this.getAttribute("data-cert-src");
-      certCaption.textContent = this.getAttribute("data-cert-title");
-      certContainer.classList.remove("is-zoomed");
-      certLightbox.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-    });
-  });
-  document.querySelectorAll(".js-close-cert").forEach(btn => btn.addEventListener("click", () => { certLightbox.classList.remove("is-open"); document.body.style.overflow = ""; }));
-  if (certContainer) certContainer.addEventListener("click", function () { this.classList.toggle("is-zoomed"); });
-  const videoModal = document.getElementById("persianVideoModal");
-  const videoFrame = document.getElementById("persianVideoFrame");
-  const openVideoButtons = document.querySelectorAll("[data-video-open]");
-  const closeVideoButtons = document.querySelectorAll("[data-video-close]");
-  function getFacebookEmbedUrl(url) { try { return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=400&height=711`; } catch (e) { return url; } }
-  openVideoButtons.forEach(btn => { btn.addEventListener("click", function () { const url = this.getAttribute("data-video-url"); if (videoFrame && url) videoFrame.src = getFacebookEmbedUrl(url); videoModal.classList.add("is-open"); document.body.style.overflow = "hidden"; if (typeof lucide !== "undefined") lucide.createIcons(); }); });
-  closeVideoButtons.forEach(btn => { btn.addEventListener("click", function () { videoModal.classList.remove("is-open"); if (videoFrame) videoFrame.src = ""; document.body.style.overflow = ""; }); });
-  const escapeClose = (e) => { if (e.key === "Escape") { videoModal.classList.remove("is-open"); pkgModal.classList.remove("is-open"); certLightbox.classList.remove("is-open"); if (videoFrame) videoFrame.src = ""; document.body.style.overflow = ""; } };
-  document.addEventListener("keydown", escapeClose);
 });
 </script>
 </body>

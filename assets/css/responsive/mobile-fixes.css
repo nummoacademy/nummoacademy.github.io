@@ -486,7 +486,7 @@ html[data-theme='dark'] .page-persian .glass-card {
 }
 
 .page-persian .persian-video-poster__image {
-  display: none !important;
+  display: block !important; /* was hidden because the cover file was missing; it exists now */
 }
 
 .page-persian .persian-video-poster__play i {

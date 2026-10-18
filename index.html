@@ -21,11 +21,15 @@
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
-  <link rel='stylesheet' href='assets/css/variables.css'>
-  <link rel='stylesheet' href='assets/css/layout.css'>
-  <link rel='stylesheet' href='assets/css/components.css'>
-  <link rel='stylesheet' href='assets/css/home.css'>
-  <link rel='stylesheet' href='assets/css/mobile-fixes.css'>
+  <link rel='stylesheet' href='assets/css/base/variables.css'>
+  <link rel='stylesheet' href='assets/css/responsive/mobile-fix.css'>
+  <link rel='stylesheet' href='assets/css/responsive/phone-fix.css'>
+  <link rel='stylesheet' href='assets/css/responsive/persian-override.css'>
+  <link rel='stylesheet' href='assets/css/core/layout.css'>
+  <link rel='stylesheet' href='assets/css/core/components.css'>
+  <link rel='stylesheet' href='assets/css/base/main.css'>
+  <link rel='stylesheet' href='assets/css/pages/home.css'>
+  <link rel='stylesheet' href='assets/css/responsive/mobile-fixes.css'>
   <style>
     .hero-section {
       position: relative;
@@ -440,26 +444,6 @@ document.addEventListener('DOMContentLoaded',function(){
   if(nextBtn){nextBtn.addEventListener('click',()=>{goToStep(currentStepIndex+1); startAutoPlay();});}
   if(prevBtn){prevBtn.addEventListener('click',()=>{goToStep(currentStepIndex-1); startAutoPlay();});}
   startAutoPlay();
-  const packagesData={'1':{title:'باقة الأساسيات',desc:'لمن يريد بدء تعلم الفارسية من الصفر بطريقة منهجية وصحيحة.',outcome:'تأسيس الطالب للانتقال إلى مستويات أعلى، والقدرة على قراءة وكتابة الجمل الأساسية بنطق سليم.',topics:['الحروف والنطق ومخارج الأصوات الفارسية.','تركيب الكلمات وبناء الجمل البسيطة.','قواعد تصريف الأفعال في الحاضر والماضي.','الأرقام والأيام والتعريف بالنفس.']},'2':{title:'باقة التواصل اليومي',desc:'لمن هدفه التحدث بالفارسية واستخدامها في المحادثات والحياة اليومية.',outcome:'تكوين الجمل والتحدث بطلاقة وثقة في كافة مواقف التواصل الاجتماعي.',topics:['المحادثات في الأسواق والمطاعم والأماكن العامة.','العبارات والاصطلاحات الشائعة عند الإيرانيين.','فهم اللهجة العامية والرد السريع بدون تردد.','التعبير عن المشاعر والآراء والاحتياجات اليومية.']},'3':{title:'باقة السياحة والسفر',desc:'لمن يحتاج اللغة أثناء السفر والرحلات العلاجية أو السياحية إلى إيران.',outcome:'الاستقلالية التامة في السفر وإدارة كافة الإجراءات بدون الحاجة إلى مترجم.',topics:['محادثات المطارات، سيارات الأجرة، والفنادق.','مصطلحات المراجعات الطبية والمستشفيات وشرح الأعراض.','التسوق والمفاصلة بالأسعار والصرافة.','إرشادات الطرق والتنقل بين المدن.']},'4':{title:'باقة التجارة العامة',desc:'لأصحاب الأعمال والتجار ومن يحتاج الفارسية في الاستيراد والتصدير.',outcome:'إتقان لغة المال والتفاوض التجاري والتعامل الاحترافي مع الشركات والموردين.',topics:['المصطلحات التجارية، العقود، والمراسلات الرسمية.','محادثات التفاوض على الأسعار وشروط الدفع والشحن.','التواصل عبر الواتساب والإيميل مع الشركات الإيرانية.','إدارة الجلسات والاجتماعات التجارية.']},'5':{title:'باقة التعليم والدراسة',desc:'للطلاب والباحثين الراغبين بالدراسة في الجامعات الإيرانية.',outcome:'القدرة على استيعاب المحاضرات، وكتابة البحوث، والتواصل الأكاديمي الممتاز.',topics:['المصطلحات الأكاديمية والجامعية المشتركة.','فهم المحاضرات التخصصية وتلخيص الدروس.','مخاطبة الأساتذة والعمادات وكتابة الرسائل الأكاديمية.','التعامل مع بيئة السكن والأنشطة الطلابية.']},'6':{title:'باقة الزوار والمواكب',desc:'لخدمة الزوار وأصحاب المواكب للتواصل المباشر مع الزائرين الإيرانيين.',outcome:'إدارة مواقف الاستقبال والضيافة والتوجيه والإرشاد اليومي بكل سلاسة ويسر.',topics:['عبارات الترحيب، الضيافة، وتلبية احتياجات الزائر.','توجيه الطرق، الإسعافات الأولية، ومساعدة المفقودين.','الحوارات الدينية والشعائرية والتنظيمية.','المحادثات السريعة والمباشرة في المواكب الحسينية.']},vip:{title:'باقة VIP الشاملة',desc:'الحل المتكامل الشامل لجميع المستويات والتخصصات في مكان واحد.',outcome:'إتقان شامل للغة الفارسية في المحادثة، السياحة، التجارة، والدراسة.',topics:['الوصول لكافة المحاضرات الـ 70 والمسارات الستة بالكامل.','كتابا القواعد والمحادثة مطبوعان مع التوصيل المجاني.','متابعة واستشارات فردية مع الأستاذة زهراء لمدة 6 أشهر.','شهادة إتمام معتمدة من الأكاديمية.']}};
-  const pkgModal=document.getElementById('packageDetailsModal');
-  const openPkgBtns=document.querySelectorAll('.js-open-pkg-modal');
-  const closePkgBtns=document.querySelectorAll('.js-close-pkg-modal');
-  function closePackageModal(){if(!pkgModal) return; pkgModal.classList.remove('is-open'); document.body.style.overflow='';}
-  openPkgBtns.forEach(btn=>btn.addEventListener('click',function(){const pkgId=this.getAttribute('data-pkg-id'); const data=packagesData[pkgId]; if(!data||!pkgModal) return; const title=document.getElementById('packageDetailsTitle'); const desc=document.getElementById('modalDescription'); const outcome=document.getElementById('modalOutcome'); const list=document.getElementById('modalTopicsList'); const subBtn=document.getElementById('modalSubscribeBtn'); if(title) title.textContent=data.title; if(desc) desc.textContent=data.desc; if(outcome) outcome.textContent=data.outcome; if(list){list.innerHTML=''; data.topics.forEach(t=>{const li=document.createElement('li'); li.innerHTML='<i data-lucide=\'check\'></i> '+t; list.appendChild(li);});} if(subBtn){subBtn.setAttribute('data-track',data.title);} if(typeof lucide!=='undefined'){lucide.createIcons();} pkgModal.classList.add('is-open'); document.body.style.overflow='hidden';}));
-  closePkgBtns.forEach(btn=>btn.addEventListener('click',closePackageModal));
-  if(pkgModal){pkgModal.addEventListener('click',function(e){if(e.target===pkgModal||e.target.classList.contains('registration-modal__overlay')){closePackageModal();}});}
-  const certLightbox=document.getElementById('certLightbox');
-  const certImg=document.getElementById('certLightboxImg');
-  const certCaption=document.getElementById('certLightboxCaption');
-  const certContainer=document.getElementById('certZoomContainer');
-  const viewCertBtns=document.querySelectorAll('.js-view-cert');
-  const closeCertBtns=document.querySelectorAll('.js-close-cert');
-  function closeCertLightbox(){if(!certLightbox) return; certLightbox.classList.remove('is-open'); document.body.style.overflow=''; if(certImg) certImg.src='';}
-  viewCertBtns.forEach(btn=>btn.addEventListener('click',function(){const src=this.getAttribute('data-cert-src'); const title=this.getAttribute('data-cert-title'); if(certImg) certImg.src=src||''; if(certCaption) certCaption.textContent=title||''; if(certContainer) certContainer.classList.remove('is-zoomed'); if(certLightbox){certLightbox.classList.add('is-open'); document.body.style.overflow='hidden';}}));
-  closeCertBtns.forEach(btn=>btn.addEventListener('click',closeCertLightbox));
-  if(certContainer){certContainer.addEventListener('click',function(){this.classList.toggle('is-zoomed');});}
-  if(certLightbox){certLightbox.addEventListener('click',function(e){if(e.target===certLightbox||e.target.classList.contains('cert-lightbox__backdrop')){closeCertLightbox();}});}
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closePackageModal(); closeCertLightbox();}});
 });
 </script>
 </body>
