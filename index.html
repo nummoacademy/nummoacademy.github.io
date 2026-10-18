@@ -19,7 +19,7 @@
   <meta name='theme-color' content='#081321'>
   <link rel='preconnect' href='https://fonts.googleapis.com'>
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-  <link href='https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
   <link rel='stylesheet' href='assets/css/base/variables.css'>
   <link rel='stylesheet' href='assets/css/responsive/mobile-fix.css'>
@@ -30,6 +30,7 @@
   <link rel='stylesheet' href='assets/css/base/main.css'>
   <link rel='stylesheet' href='assets/css/pages/home.css'>
   <link rel='stylesheet' href='assets/css/responsive/mobile-fixes.css'>
+  <link rel='stylesheet' href='assets/css/pages/home-hero.css'>
   <style>
     .hero-section {
       position: relative;
@@ -338,35 +339,50 @@
   </div>
 </header>
 <main id='mainContent'>
-<section class='hero-section' id='hero'>
-  <div class='hero-container'>
-    <div class='hero-visual-wrapper' aria-hidden='true'>
-      <div class='glow-effect'></div>
-      <img src='assets/images/zahraa-instructor.png' onerror="this.onerror=null;this.src='assets/images/teacher.jpg'" alt='أستاذة زهراء' class='instructor-portrait' loading='eager'>
-      <div class='glass-card card-rating'>
-        <span class='card-icon'>&#11088;</span>
-        <div class='card-info'>
-          <span class='card-num'>4.9/5</span>
-          <span class='card-label'>تقييم</span>
-        </div>
+<section class='nm-hero' id='hero'>
+  <div class='nm-hero__inner'>
+    <div class='nm-hero__text'>
+      <span class='nm-hero__badge'>أكاديمية نُمو · تعليم اللغة الفارسية</span>
+      <h1 class='nm-hero__title'>تعلّم الفارسية<br><em>بجمالها وسلاستها</em></h1>
+      <p class='nm-hero__lead'>دروس مباشرة ومسجّلة تأخذك من الحروف الأولى إلى المحادثة اليومية، بأسلوب مبسّط ومنهج واضح.</p>
+      <div class='nm-hero__btns'>
+        <a href='programs.html' class='nm-btn nm-btn--gold'>الدورات التعليمية <svg aria-hidden='true' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M19 12H5M11 6l-6 6 6 6'/></svg></a>
+        <button type='button' class='nm-btn nm-btn--line js-open-registration' data-program='عام - أكاديمية نُمو'>اشترك الآن</button>
       </div>
-      <div class='glass-card card-students'>
-        <span class='card-icon'>&#128101;</span>
-        <div class='card-info'>
-          <span class='card-num'>1000+</span>
-          <span class='card-label'>طالب نشط</span>
-        </div>
+      <div class='nm-hero__stats'>
+        <div class='nm-stat'><b>4.9/5</b><span>تقييم الطلاب</span></div>
+        <div class='nm-stats-sep'></div>
+        <div class='nm-stat'><b>+1000</b><span>طالب وطالبة</span></div>
       </div>
     </div>
-    <div class='hero-text-content'>
-      <span class='hero-badge-tag'>تعلم اليوم ... لتصنع فرص الغد</span>
-      <h1 class='hero-main-title'>أكاديمية نمو | معاً ننمو</h1>
-      <p class='hero-sub-title'>NEMMO Academy | Growing Together</p>
-      <div class='hero-action-btns'>
-        <a href='programs.html' class='btn-main'>الدورات التعليمية &larr;</a>
-        <button type='button' class='btn-gold js-open-registration' data-program='عام - أكاديمية نُمو'>اشترك الآن &#128100;</button>
+    <div class='nm-hero__visual' aria-hidden='true'>
+      <div class='nm-stage'>
+        <div class='nm-stage__glow'></div><div class='nm-stage__ring'></div>
+        <div class='nm-stage__arch'><img src='assets/images/teacher-cutout.png' alt='' loading='eager'></div>
+        <div class='nm-chip nm-chip--a'><b>سلام</b><span>مرحباً</span></div>
+        <div class='nm-chip nm-chip--b'><b>دوست</b><span>صديق</span></div>
+        <div class='nm-chip nm-chip--c'><b>ممنون</b><span>شكراً</span></div>
       </div>
     </div>
+  </div>
+</section>
+<section class='nm-book' id='book' aria-label='الكتاب التفاعلي'>
+  <div class='nm-book__inner'>
+    <div class='nm-book__head'>
+      <span class='nm-book__kicker'>كتيّب الدرس الأول</span>
+      <h2>تصفّح الكتاب بنفسك</h2>
+      <p>تتقلّب صفحاته تلقائياً، أو أوقفها وقلّبها بيدك.</p>
+    </div>
+    <div class='nm-book__wrap'><div class='nm-book__scale'><div class='nm-book__view'>
+      <div class='nm-book__shadow'></div>
+      <div class='nm-book__book' id='nmBook'><div class='nm-leaf nm-leaf--cover'><div class='nm-face nm-face--front'><div class='nm-face__k'>أكاديمية نُمو</div><div class='nm-face__w'>فارسی</div><div class='nm-face__line'></div><div class='nm-face__m'>الفارسية</div><div class='nm-face__n'>الدرس الأول</div></div><div class='nm-face nm-face--back'><div class='nm-face__k'>التحية</div><div class='nm-face__w'>سلام</div><div class='nm-face__line'></div><div class='nm-face__m'>مرحباً</div><div class='nm-face__n'>salām</div></div></div><div class='nm-leaf'><div class='nm-face nm-face--front'><div class='nm-face__k'>التحية</div><div class='nm-face__w'>خوش آمدید</div><div class='nm-face__line'></div><div class='nm-face__m'>أهلاً بك</div><div class='nm-face__n'>khosh āmadid</div></div><div class='nm-face nm-face--back'><div class='nm-face__k'>المجاملة</div><div class='nm-face__w'>ممنون</div><div class='nm-face__line'></div><div class='nm-face__m'>شكراً</div><div class='nm-face__n'>mamnun</div></div></div><div class='nm-leaf'><div class='nm-face nm-face--front'><div class='nm-face__k'>المجاملة</div><div class='nm-face__w'>لطفاً</div><div class='nm-face__line'></div><div class='nm-face__m'>من فضلك</div><div class='nm-face__n'>lotfan</div></div><div class='nm-face nm-face--back'><div class='nm-face__k'>الأصدقاء</div><div class='nm-face__w'>دوست</div><div class='nm-face__line'></div><div class='nm-face__m'>صديق</div><div class='nm-face__n'>dust</div></div></div><div class='nm-leaf'><div class='nm-face nm-face--front'><div class='nm-face__k'>الأصدقاء</div><div class='nm-face__w'>خداحافظ</div><div class='nm-face__line'></div><div class='nm-face__m'>مع السلامة</div><div class='nm-face__n'>khodāhāfez</div></div><div class='nm-face nm-face--back'><div class='nm-face__k'>الأرقام</div><div class='nm-face__w'>یک، دو، سه</div><div class='nm-face__line'></div><div class='nm-face__m'>واحد، اثنان، ثلاثة</div><div class='nm-face__n'>yek, do, se</div></div></div><div class='nm-leaf'><div class='nm-face nm-face--front'><div class='nm-face__k'>الأرقام</div><div class='nm-face__w'>چهار، پنج</div><div class='nm-face__line'></div><div class='nm-face__m'>أربعة، خمسة</div><div class='nm-face__n'>chahār, panj</div></div><div class='nm-face nm-face--back'><div class='nm-face__k'>نراكم قريباً</div><div class='nm-face__w'>به زودی</div><div class='nm-face__line'></div><div class='nm-face__m'>إلى اللقاء قريباً</div><div class='nm-face__n'>be zudi</div></div></div></div>
+    </div></div></div>
+    <div class='nm-book__ctrl'>
+      <button type='button' class='nm-round' id='nmBookNext' aria-label='الصفحة التالية'><svg aria-hidden='true' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M15 6l-6 6 6 6'/></svg></button>
+      <button type='button' class='nm-play' id='nmBookPlay'>إيقاف التقليب</button>
+      <button type='button' class='nm-round' id='nmBookPrev' aria-label='الصفحة السابقة'><svg aria-hidden='true' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M9 6l6 6-6 6'/></svg></button>
+    </div>
+    <div class='nm-book__count' id='nmBookCount' aria-live='off'>1 / 6</div>
   </div>
 </section>
 <section id='about' class='section about-section'>
@@ -427,6 +443,7 @@
 <div class='cert-lightbox' id='certLightbox' aria-hidden='true'><div class='cert-lightbox__backdrop js-close-cert'></div><div class='cert-lightbox__content' role='dialog' aria-modal='true'><button type='button' class='cert-lightbox__close js-close-cert' aria-label='إغلاق'><i data-lucide='x'></i></button><div class='cert-lightbox__body'><div class='cert-zoom-container' id='certZoomContainer'><img id='certLightboxImg' src='' alt='وثيقة معتمدة'></div><div class='cert-lightbox__footer'><p class='cert-lightbox__caption' id='certLightboxCaption'></p><span class='cert-zoom-hint'><i data-lucide='zoom-in'></i> اضغط على الصورة للتكبير / التصغير</span></div></div></div></div>
 <script src='https://unpkg.com/lucide@latest'></script>
 <script src='assets/js/main.js'></script>
+<script src='assets/js/hero-book.js'></script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   if(typeof lucide!=='undefined'){lucide.createIcons();}
