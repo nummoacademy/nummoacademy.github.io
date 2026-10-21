@@ -1,0 +1,89 @@
+/* ==========================================
+   NEMMO Academy: زر المنصة + قسم "منصة أكاديمية نمو"
+   يُحمَّل بعد ملفات الصفحات لأن الموقع يعتمد على ترتيب الشلال
+========================================== */
+
+/* زر المنصة في القائمة */
+.site-nav a.nav-platform{
+    border:1.5px solid var(--accent, #C9A227);
+    color:var(--accent-hover, #B8921E) !important;
+    border-radius:999px;
+    padding:.4rem 1.05rem;
+    font-weight:700;
+    background:rgba(201,162,39,.08);
+}
+.site-nav a.nav-platform::after{display:none !important}
+.site-nav a.nav-platform{white-space:nowrap}
+.site-nav a.nav-platform:hover{
+    background:var(--accent, #C9A227);
+    color:#081321 !important;
+}
+[data-theme="dark"] .site-nav a.nav-platform{color:#E8C86A !important}
+[data-theme="dark"] .site-nav a.nav-platform:hover{color:#081321 !important}
+
+/* قسم المنصة في الرئيسية */
+.nm-platform .plat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1.25rem;
+    align-items:stretch;
+}
+.plat-card{
+    display:flex;
+    flex-direction:column;
+    gap:.85rem;
+    padding:1.75rem 1.6rem;
+    text-align:start;
+}
+.plat-card h3{margin:0;font-size:1.25rem}
+.plat-card p{margin:0;color:var(--text-light,#666);line-height:1.9}
+.plat-card__icon{
+    width:56px;height:62px;
+    display:grid;place-items:center;
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    background:var(--primary,#1B2A4A);
+    color:#E8C86A;
+    font-size:1.35rem;
+}
+.plat-card__actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:.6rem}
+.plat-steps{margin:0;padding:0;list-style:none;display:grid;gap:.7rem;color:var(--text-light,#666);line-height:1.8;font-size:.95rem}
+.plat-steps b{color:var(--text,#1E1E1E)}
+.plat-card--feature{
+    background:linear-gradient(160deg,#0B2236,#143555) !important;
+    border-color:rgba(232,200,106,.35) !important;
+}
+.plat-card--feature h3,.plat-card--feature .plat-steps b{color:#fff}
+.plat-card--feature .plat-steps{color:#B9CAD6}
+.plat-card--feature .plat-card__icon{background:#E8C86A;color:#0B2236}
+
+.plat-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    min-height:46px;padding:.5rem 1.25rem;border-radius:12px;
+    font:inherit;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;
+    border:1.5px solid transparent;transition:transform .2s,background .2s,border-color .2s;
+}
+.plat-btn:hover{transform:translateY(-2px)}
+.plat-btn--gold{
+    background:linear-gradient(135deg,#d6a74f,#b88628);
+    color:#081321 !important;
+    box-shadow:0 8px 22px rgba(214,167,79,.3);
+}
+.plat-btn--ghost{
+    background:transparent;
+    color:var(--primary,#1B2A4A);
+    border-color:rgba(27,42,74,.25);
+}
+.plat-btn--ghost:hover{border-color:var(--accent,#C9A227)}
+[data-theme="dark"] .plat-btn--ghost{color:#E8EEF4;border-color:rgba(255,255,255,.25)}
+
+@media (max-width:900px){
+    .nm-platform .plat-grid{grid-template-columns:1fr}
+    .site-nav a.nav-platform{display:inline-block;margin-top:.25rem}
+}
+
+/* ألوان النص داخل الأزرار والأيقونات (الموقع يلوّن span و i داخل البطاقات في الوضع الليلي) */
+.plat-btn span,.plat-btn i{color:inherit !important}
+[data-theme="dark"] .plat-card__icon{background:#E8C86A;color:#0B2236}
+[data-theme="dark"] .plat-card__icon i{color:#0B2236 !important}
+.plat-card__icon i{color:#E8C86A}
+.plat-card--feature .plat-card__icon i{color:#0B2236 !important}

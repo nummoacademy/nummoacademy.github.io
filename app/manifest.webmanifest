@@ -1,0 +1,19 @@
+{
+  "name": "منصة أكاديمية نمو",
+  "short_name": "أكاديمية نمو",
+  "description": "منصة الطلاب والدورات في أكاديمية نمو التعليمية: دورة اللغة الفارسية وكتيبات رفيقك في السفر.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#062B3F",
+  "theme_color": "#062B3F",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

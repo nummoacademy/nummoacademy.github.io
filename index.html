@@ -31,6 +31,7 @@
   <link rel='stylesheet' href='assets/css/pages/home.css'>
   <link rel='stylesheet' href='assets/css/responsive/mobile-fixes.css'>
   <link rel='stylesheet' href='assets/css/pages/home-hero.css'>
+  <link rel='stylesheet' href='assets/css/pages/platform.css'>
   <style>
     .hero-section {
       position: relative;
@@ -329,6 +330,7 @@
         <li><a href='#testimonials'>آراء المستخدمين</a></li>
         <li><a href='#faq'>الأسئلة الشائعة</a></li>
         <li><a href='#contact'>تواصل معنا</a></li>
+        <li><a href='app/' class='nav-platform'>المنصة</a></li>
       </ul>
     </nav>
     <div class='site-header__actions'>
@@ -385,6 +387,41 @@
     <div class='nm-book__count' id='nmBookCount' aria-live='off'>1 / 6</div>
   </div>
 </section>
+<section id='platform' class='section nm-platform'>
+  <div class='container'>
+    <div class='section-title'><span>NEMMO PLATFORM</span><h2>منصة أكاديمية نمو</h2><p>مكانك الخاص للتعلم: شاهد دروسك وتمارينك، تابع تقدمك، وثبّت المنصة على هاتفك كأي تطبيق.</p></div>
+    <div class='plat-grid'>
+      <article class='feature-card plat-card'>
+        <div class='plat-card__icon'><i class='fa-solid fa-graduation-cap'></i></div>
+        <h3>للطلاب: سجّل في دورة</h3>
+        <p>اطلب الاشتراك عبر واتساب، ويصلك كود الدخول لتبدأ التعلم من الدرس الأول في منطقة الطالب.</p>
+        <div class='plat-card__actions'>
+          <a class='plat-btn plat-btn--gold' href='app/'><i class='fa-solid fa-right-to-bracket'></i><span>ادخل المنصة</span></a>
+          <button type='button' class='plat-btn plat-btn--ghost js-open-registration' data-program='منصة أكاديمية نمو'><span>اطلب الاشتراك</span></button>
+        </div>
+      </article>
+      <article class='feature-card plat-card plat-card--feature'>
+        <div class='plat-card__icon'><i class='fa-solid fa-mobile-screen-button'></i></div>
+        <h3>ثبّت المنصة على هاتفك</h3>
+        <ul class='plat-steps'>
+          <li><b>أندرويد (Chrome):</b> افتح المنصة، ثم زر «ثبّت التطبيق» أو القائمة ← «إضافة إلى الشاشة الرئيسية».</li>
+          <li><b>آيفون (Safari):</b> افتح المنصة، اضغط زر المشاركة ← «إضافة إلى الشاشة الرئيسية».</li>
+        </ul>
+        <div class='plat-card__actions'>
+          <a class='plat-btn plat-btn--gold' href='app/'><i class='fa-solid fa-arrow-up-right-from-square'></i><span>افتح المنصة</span></a>
+        </div>
+      </article>
+      <article class='feature-card plat-card'>
+        <div class='plat-card__icon'><i class='fa-solid fa-chalkboard-user'></i></div>
+        <h3>للأساتذة: اعرض دورتك معنا</h3>
+        <p>تستقبل الأكاديمية الأساتذة الراغبين بعرض دوراتهم في المنصة. راسلنا وسنرتّب معك التفاصيل.</p>
+        <div class='plat-card__actions'>
+          <a class='plat-btn plat-btn--ghost' href='https://wa.me/9647770300029?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%85%D8%AF%D8%B1%D9%91%D8%B3%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B9%D8%B1%D8%B6%20%D8%AF%D9%88%D8%B1%D8%AA%D9%8A%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A3%D9%83%D8%A7%D8%AF%D9%8A%D9%85%D9%8A%D8%A9%20%D9%86%D9%85%D9%88' target='_blank' rel='noopener noreferrer'><i class='fa-brands fa-whatsapp'></i><span>تواصل معنا</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 <section id='about' class='section about-section'>
   <div class='container'>
     <div class='section-title'><span>ABOUT NEMMO</span><h2>أكاديمية نمو التعليمية</h2></div>
@@ -437,7 +474,7 @@
   </div>
 </section>
 </main>
-<footer class='site-footer'><div class='site-footer__container'><p>© <span data-current-year></span> NEMMO Academy. جميع الحقوق محفوظة.</p><a href='programs.html'>الدورات التعليمية</a></div></footer>
+<footer class='site-footer'><div class='site-footer__container'><p>© <span data-current-year></span> NEMMO Academy. جميع الحقوق محفوظة.</p><a href='programs.html'>الدورات التعليمية</a><a href='app/'>منصة الطلاب</a></div></footer>
 <div class='registration-modal' id='registrationModal' aria-hidden='true'><div class='registration-modal__overlay js-close-registration'></div><div class='registration-modal__dialog' role='dialog' aria-modal='true' aria-labelledby='registrationModalTitle'><button type='button' class='registration-modal__close js-close-registration' aria-label='إغلاق'><i data-lucide='x'></i></button><div class='registration-modal__header'><span class='registration-modal__eyebrow'>REGISTRATION</span><h2 id='registrationModalTitle'>أكمل تسجيلك</h2><p>أدخل بياناتك وسيتواصل معك فريق المبيعات عبر واتساب لتأكيد التسجيل.</p></div><form id='registrationForm' class='registration-form' novalidate><div class='form-group'><label for='registrationName'>الاسم الثلاثي</label><input type='text' id='registrationName' name='name' placeholder='أدخل الاسم الثلاثي' autocomplete='name' required></div><div class='form-group'><label for='registrationPhone'>رقم الهاتف</label><input type='tel' id='registrationPhone' name='phone' placeholder='07XXXXXXXXX' autocomplete='tel' required></div><div class='form-group'><label for='registrationGovernorate'>المحافظة</label><select id='registrationGovernorate' name='governorate' required><option value=''>اختر المحافظة</option><option value='بغداد'>بغداد</option><option value='الأنبار'>الأنبار</option><option value='بابل'>بابل</option><option value='البصرة'>البصرة</option><option value='ذي قار'>ذي قار</option><option value='القادسية'>القادسية</option><option value='كربلاء'>كربلاء</option><option value='كركوك'>كركوك</option><option value='ميسان'>ميسان</option><option value='المثنى'>المثنى</option><option value='النجف'>النجف</option><option value='نينوى'>نينوى</option><option value='ديالى'>ديالى</option><option value='صلاح الدين'>صلاح الدين</option><option value='السليمانية'>السليمانية</option><option value='دهوك'>دهوك</option><option value='أربيل'>أربيل</option><option value='واسط'>واسط</option></select></div><div class='form-group'><label for='registrationAddress'>العنوان الكامل</label><textarea id='registrationAddress' name='address' rows='2' placeholder='أدخل العنوان الكامل' autocomplete='street-address' required></textarea></div><div class='form-group'><label for='registrationProgram'>البرنامج</label><select id='registrationProgram' name='program' required><option value=''>اختر البرنامج</option><option value='برنامج اللغة الفارسية'>برنامج اللغة الفارسية</option></select></div><div class='form-group is-hidden' id='trackGroup'><label for='registrationTrack'>اختر المسار التعليمي</label><select id='registrationTrack' name='track'><option value=''>اختر المسار المناسب</option><option value='باقة الأساسيات'>باقة الأساسيات</option><option value='باقة التواصل اليومي'>باقة التواصل اليومي</option><option value='باقة السياحة والسفر'>باقة السياحة والسفر</option><option value='باقة التجارة العامة'>باقة التجارة العامة</option><option value='باقة الزوار والمواكب'>باقة الزوار والمواكب</option><option value='باقة VIP الشاملة'>باقة VIP الشاملة</option></select></div><p id='registrationError' class='registration-form__error' role='alert' aria-live='polite'></p><button type='submit' class='btn btn-primary registration-form__submit'><i data-lucide='send'></i>إرسال الطلب عبر واتساب</button></form></div></div>
 <div class='registration-modal' id='packageDetailsModal' aria-hidden='true'><div class='registration-modal__overlay js-close-pkg-modal'></div><div class='registration-modal__dialog' role='dialog' aria-modal='true' aria-labelledby='packageDetailsTitle'><button type='button' class='registration-modal__close js-close-pkg-modal' aria-label='إغلاق'><i data-lucide='x'></i></button><div class='registration-modal__header'><span class='registration-modal__eyebrow'>PACKAGE DETAILS</span><h2 id='packageDetailsTitle'>تفاصيل الباقة</h2><p id='modalDescription'></p></div><div class='modal-body'><div class='modal-outcome-box'><strong class='modal-outcome-box__label'>النتيجة المباشرة:</strong><p id='modalOutcome' class='modal-outcome-box__text'></p></div><h4 class='modal-body__heading'>المحاور والدروس المتضمنة:</h4><ul id='modalTopicsList' class='pkg-card-v3__checklist modal-topics-list'></ul><button type='button' class='btn btn-pkg-gold js-open-registration' id='modalSubscribeBtn' data-program='برنامج اللغة الفارسية' style='width:100%;'>اشترك في هذه الباقة الآن</button></div></div></div>
 <div class='cert-lightbox' id='certLightbox' aria-hidden='true'><div class='cert-lightbox__backdrop js-close-cert'></div><div class='cert-lightbox__content' role='dialog' aria-modal='true'><button type='button' class='cert-lightbox__close js-close-cert' aria-label='إغلاق'><i data-lucide='x'></i></button><div class='cert-lightbox__body'><div class='cert-zoom-container' id='certZoomContainer'><img id='certLightboxImg' src='' alt='وثيقة معتمدة'></div><div class='cert-lightbox__footer'><p class='cert-lightbox__caption' id='certLightboxCaption'></p><span class='cert-zoom-hint'><i data-lucide='zoom-in'></i> اضغط على الصورة للتكبير / التصغير</span></div></div></div></div>
