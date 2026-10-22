@@ -87,3 +87,8 @@
 [data-theme="dark"] .plat-card__icon i{color:#0B2236 !important}
 .plat-card__icon i{color:#E8C86A}
 .plat-card--feature .plat-card__icon i{color:#0B2236 !important}
+
+/* زر قائمة الجوال كان يظهر كنقطة صغيرة في الهيدر على شاشات الحاسوب */
+@media (min-width:901px){
+    .site-header .mobile-menu-btn{display:none !important}
+}
