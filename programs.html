@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>البرامج | NEMMO Academy</title>
+    <title>الدورات التعليمية | أكاديمية نمو التعليمية</title>
     <script>
       (function () {
         const savedTheme = localStorage.getItem('theme');
@@ -15,11 +15,11 @@
         }
       })();
     </script>
-    <meta name="description" content="استكشف البرامج التعليمية في أكاديمية نمو التعليمية.">
+    <meta name="description" content="استكشف دورات أكاديمية نمو: اللغة الفارسية متاحة الآن، ودورات قادمة في الأعمال والتصميم والبرمجة واللغات والصحة وغيرها. وللمدرّسين: اعرض دورتك معنا.">
     <meta name="theme-color" content="#1B2A4A">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/base/variables.css">
   <link rel="stylesheet" href="assets/css/responsive/mobile-fix.css">
@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="assets/css/responsive/mobile-fixes.css">
   <link rel="stylesheet" href="assets/css/pages/programs.css">
   <link rel="stylesheet" href="assets/css/pages/platform.css">
+  <link rel="stylesheet" href="assets/css/pages/programs-v2.css">
 </head>
 <body class="page-programs">
 <header class="site-header" id="siteHeader">
@@ -73,149 +74,116 @@
     </div>
 </header>
 
-<main>
-    <section class="programs-hero">
-        <div class="container programs-hero__inner">
-            <div class="programs-hero__side programs-hero__side--left" aria-hidden="true">
-                LEARNING<br>
-                CREATES<br>
-                OPPORTUNITIES
-            </div>
+<main class="pg">
 
-            <div class="programs-hero__content">
-                <span class="programs-hero__eyebrow">NEMMO ACADEMY · LEARNING CATALOG</span>
-                <h1 class="programs-hero__title">الدورات <span>التعليمية</span></h1>
-                <p class="programs-hero__subtitle">
-                    طوّر مهاراتك من خلال برامج تعليمية احترافية مصممة بعناية، وتدرّج بسهولة نحو مهارات تواكب الدراسة والعمل وسوق الواقع.
-                </p>
-                <div class="programs-hero__stats" aria-label="مؤشرات الصفحة">
-                    <span><strong>1</strong>برنامج متاح الآن</span>
-                    <span><strong>3</strong>برامج قادمة</span>
-                    <span><strong>4</strong>مسارات تدريبية</span>
+    <!-- ===== الهيدر ===== -->
+    <section class="pg-hero" id="pgHero">
+        <div class="pg-bg" aria-hidden="true"><span class="pg-orb pg-orb--gold"></span><span class="pg-orb pg-orb--blue"></span><span class="pg-dots"></span></div>
+        <div class="pg-floats" id="pgFloats" aria-hidden="true"></div>
+        <div class="pg-hero__inner">
+            <span class="pg-chip"><i></i>NEMMO ACADEMY · كتالوج الدورات</span>
+            <h1 class="pg-title"><span class="pg-line"><span>الدورات</span></span><span class="pg-line pg-line--gold"><span>التعليمية</span></span></h1>
+            <svg class="pg-underline" viewBox="0 0 340 18" preserveAspectRatio="none" aria-hidden="true"><path d="M4 12 C 60 2, 120 17, 180 8 S 290 4, 336 11"/></svg>
+            <p class="pg-sub">أكاديمية تبدأ باللغة الفارسية وتتسع لكل المجالات والمهن: دورات اليوم، ودورات قادمة، ومكان لكل مدرّس يريد أن يعرض خبرته.</p>
+            <div class="pg-stats" aria-label="مؤشرات الصفحة">
+                <div class="pg-stat"><b id="pgNAvail" data-count="1">1</b><span>دورة متاحة<br>الآن</span></div>
+                <div class="pg-stat"><b id="pgNSoon" data-count="12">12</b><span>دورة<br>مرتقبة</span></div>
+                <div class="pg-stat"><b id="pgNCats" data-count="7">7</b><span>مجالات<br>تعليمية</span></div>
+            </div>
+            <a class="pg-scroll" href="#pgFeatured"><i></i>اكتشف الدورات</a>
+        </div>
+        <svg class="pg-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M-160 52 C 100 10, 360 90, 660 48 S 1200 20, 1440 56 S 1560 40 1600 50 L1600 80 L-160 80 Z"/><path d="M0 40 C 240 90, 480 0, 760 38 S 1250 80, 1440 30 L1440 80 L0 80 Z"/></svg>
+    </section>
+
+    <div class="pg-ribbon" aria-hidden="true"><div class="pg-track" id="pgTrack"></div></div>
+
+    <!-- ===== الدورة المتاحة ===== -->
+    <section class="pg-sec" id="pgFeatured">
+        <div class="pg-wrap">
+            <div class="pg-head pg-reveal">
+                <div class="pg-head__txt">
+                    <span class="pg-kicker">AVAILABLE NOW</span>
+                    <h2 class="pg-h2">ابدأ اليوم مع <em>دورتنا الأولى</em></h2>
+                    <p>دورة جاهزة بدروسها وتمارينها وكتيباتها، وتستطيع أن تبدأ بها من الدرس الأول.</p>
                 </div>
             </div>
 
-            <div class="programs-hero__side programs-hero__side--right" aria-hidden="true">
-                تعلّم اليوم...<br>
-                لنصنع فرص الغد.
+            <article class="pg-feat pg-reveal">
+                <div class="pg-feat__vis">
+                    <svg class="pg-feat__star" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="196"/><rect x="62" y="62" width="276" height="276"/><rect x="62" y="62" width="276" height="276" transform="rotate(45 200 200)"/><circle cx="200" cy="200" r="140"/></svg>
+                    <span class="pg-badge"><i></i>متاحة الآن</span>
+                    <div class="pg-arch"><img src="assets/images/teacher-cutout.png" alt="الأستاذة زهراء سعد أحمد" loading="lazy"></div>
+                    <div class="pg-word pg-word--a" aria-hidden="true"><b lang="fa">سلام</b><span>مرحباً</span></div>
+                    <div class="pg-word pg-word--b" aria-hidden="true"><b lang="fa">ممنون</b><span>شكراً</span></div>
+                </div>
+                <div class="pg-feat__body">
+                    <span class="pg-kicker">LANGUAGES · لغات</span>
+                    <h3>برنامج اللغة <em>الفارسية</em></h3>
+                    <p>برنامج متكامل لتعلّم اللغة الفارسية من الصفر حتى الاحتراف، مع منهج منظم ودعم مستمر، بإشراف الأستاذة زهراء سعد أحمد.</p>
+                    <ul class="pg-feats">
+                        <li>أكثر من 70 درساً</li>
+                        <li>ملازم مطبوعة مجاناً</li>
+                        <li>توصيل إلى باب المنزل</li>
+                        <li>متابعة مستمرة</li>
+                    </ul>
+                    <div class="pg-nums">
+                        <div><b><span data-count="70">70</span>+</b><span>درساً مسجلاً</span></div>
+                        <div><b><span data-count="14">14</span></b><span>كتيباً مصوراً</span></div>
+                        <div><b><span data-count="5">5</span></b><span>مقاطع مجانية</span></div>
+                    </div>
+                    <div class="pg-btns">
+                        <a href="programs/persian/index.html" class="pg-btn pg-btn--gold pg-btn--shine"><span>استعراض البرنامج</span><span data-ic="arrow"></span></a>
+                        <a href="app/" class="pg-btn pg-btn--line"><span data-ic="rocket"></span><span>ادخل المنصة</span></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- ===== الدورات المرتقبة ===== -->
+    <section class="pg-sec pg-sec--alt" id="pgUpcoming">
+        <div class="pg-wrap">
+            <div class="pg-head pg-reveal">
+                <div class="pg-head__txt">
+                    <span class="pg-kicker">COMING SOON</span>
+                    <h2 class="pg-h2">دورات قادمة في <em>كل المجالات</em></h2>
+                    <p>هذه دورات مقترحة نعمل على استقبالها في المنصة. اضغط «أخبرني عند الإطلاق» على ما يهمك، أو اقترح دورة جديدة.</p>
+                </div>
+                <a class="pg-suggest" id="pgSuggest" href="#" target="_blank" rel="noopener noreferrer"><span data-ic="plus"></span>اقترح دورة</a>
+            </div>
+            <div class="pg-filters" id="pgFilters" role="group" aria-label="تصفية الدورات حسب المجال"></div>
+            <div class="pg-grid" id="pgGrid"></div>
+            <noscript><p style="padding:1rem">يلزم تفعيل JavaScript لعرض الدورات المرتقبة.</p></noscript>
+        </div>
+    </section>
+
+    <!-- ===== للمدرّسين ===== -->
+    <section class="pg-teach" id="pgTeach">
+        <div class="pg-wrap pg-teach__grid">
+            <div class="pg-reveal">
+                <span class="pg-kicker">FOR INSTRUCTORS</span>
+                <h2 class="pg-h2">أنت خبير في مجالك؟ <em>دورتك مكانها هنا</em></h2>
+                <p class="pg-teach__lead">تستقبل أكاديمية نمو المدرّسين والمختصين من مختلف المهن لعرض دوراتهم في المنصة: لغات، أعمال، تصميم، تقنية، صحة، حرف، وأي مهارة يحتاجها الناس.</p>
+                <div class="pg-perks">
+                    <div class="pg-perk"><i data-ic="teach"></i><div><b>منصة جاهزة</b><span>مكان مرتّب لدروسك وتمارينك وفيديوهاتك.</span></div></div>
+                    <div class="pg-perk"><i data-ic="palette"></i><div><b>هوية احترافية</b><span>صفحة وغلاف لدورتك بنفس مستوى الأكاديمية.</span></div></div>
+                    <div class="pg-perk"><i data-ic="users"></i><div><b>جمهور من الطلاب</b><span>تصل دورتك إلى زوار الأكاديمية ومشتركيها.</span></div></div>
+                    <div class="pg-perk"><i data-ic="shield"></i><div><b>نرتّب التفاصيل معك</b><span>نتفق على الفكرة والمحتوى وطريقة النشر.</span></div></div>
+                </div>
+                <ol class="pg-steps"><li>راسلنا</li><li>نتفق على الفكرة</li><li>ننشر دورتك</li></ol>
+                <div class="pg-btns">
+                    <a class="pg-btn pg-btn--gold pg-btn--shine" id="pgTeachBtn" href="#" target="_blank" rel="noopener noreferrer"><span data-ic="wa"></span><span>اعرض دورتك معنا</span></a>
+                    <a class="pg-btn pg-btn--ghost" href="app/"><span>تعرّف على المنصة</span><span data-ic="arrow"></span></a>
+                </div>
+            </div>
+            <div class="pg-orbit pg-reveal pg-reveal--scale" aria-hidden="true">
+                <div class="pg-orbit__ring" id="pgOrbitRing"></div>
+                <div class="pg-orbit__core"><img src="assets/images/logo.png" alt="" loading="lazy"></div>
             </div>
         </div>
     </section>
 
-    <section class="programs-catalog">
-        <div class="container">
-            <div class="programs-catalog__head">
-                <span class="programs-catalog__kicker">CURRENT & UPCOMING PROGRAMS</span>
-                <h2>اختر البرنامج المناسب لك</h2>
-                <p>
-                    بدأت الأكاديمية ببرنامج اللغة الفارسية، وتستمر المنصة بالنمو بإضافة مسارات جديدة بشكل منظم وواضح وقابل للتطوير.
-                </p>
-            </div>
-
-            <div class="course-grid">
-                <article class="course-card course-card--featured course-card--from-bottom">
-                    <span class="course-card__badge">متاح الآن</span>
-                    <div class="course-card__media course-card__media--teacher">
-                        <img src="assets/images/teacher.jpg" alt="الأستاذة زهراء سعد أحمد" loading="eager">
-                    </div>
-
-                    <div class="course-card__body">
-                        <h3>برنامج اللغة الفارسية</h3>
-                        <p>
-                            برنامج متكامل لتعلّم اللغة الفارسية من الصفر حتى الاحتراف مع منهج منظم ودعم مستمر.
-                        </p>
-
-                        <ul class="course-card__features">
-                            <li>أكثر من 70 درساً</li>
-                            <li>ملازم مطبوعة مجاناً</li>
-                            <li>توصيل إلى باب المنزل</li>
-                            <li>متابعة مستمرة</li>
-                        </ul>
-
-                        <div class="course-card__footer">
-                            <a href="programs/persian/index.html" class="btn btn-primary">استعراض البرنامج</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="course-card course-card--coming course-card--from-right">
-                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
-                    <div class="course-card__media course-card__media--business">
-                        <div class="course-card__monogram">BUSINESS</div>
-                    </div>
-
-                    <div class="course-card__body">
-                        <h3>إدارة الأعمال وتطوير الشركات</h3>
-                        <p>
-                            برنامج عملي يهيئك لفهم الإدارة الحديثة، والتخطيط الاستراتيجي، وتطوير الشركات بأسلوب واضح ومباشر.
-                        </p>
-                        <ul class="course-card__features">
-                            <li>القيادة الحديثة</li>
-                            <li>التخطيط الاستراتيجي</li>
-                            <li>تطوير الشركات</li>
-                            <li>إدارة المشاريع</li>
-                        </ul>
-                        <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="course-card course-card--coming course-card--from-left">
-                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
-                    <div class="course-card__media course-card__media--writing">
-                        <div class="course-card__monogram">CONTENT</div>
-                    </div>
-
-                    <div class="course-card__body">
-                        <h3>كتابة المحتوى التسويقي</h3>
-                        <p>
-                            تعلم كيفية صياغة محتوى مؤثر يحقق النتائج ويعزز حضورك الرقمي.
-                        </p>
-                        <ul class="course-card__features">
-                            <li>كتابة الإعلانات</li>
-                            <li>المحتوى الرقمي</li>
-                            <li>استراتيجيات التسويق</li>
-                            <li>صياغة الرسائل</li>
-                        </ul>
-                        <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="course-card course-card--coming course-card--from-bottom">
-                    <span class="course-card__badge course-card__badge--muted">Coming Soon</span>
-                    <div class="course-card__media course-card__media--design">
-                        <div class="course-card__monogram">DESIGN</div>
-                        <div class="course-card__swatches" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-
-                    <div class="course-card__body">
-                        <h3>التصميم الجرافيكي</h3>
-                        <p>
-                            من الفكرة إلى التصميم الاحترافي، تعلّم أساسيات وأدوات العمل البصري الحديث.
-                        </p>
-                        <ul class="course-card__features">
-                            <li>Photoshop</li>
-                            <li>Illustrator</li>
-                            <li>Canva</li>
-                            <li>تصميم السوشيال ميديا</li>
-                        </ul>
-                        <div class="course-card__footer">
-                            <button type="button" class="btn btn-secondary" disabled>Coming Soon</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="programs-catalog__footer-line">معاً .. نحو مستقبل أكثر نمواً</div>
-        </div>
-    </section>
+    <div class="pg-close"><p><span style="--i:0">معاً</span> <span style="--i:1">..</span> <span style="--i:2">نحو</span> <span style="--i:3">مستقبل</span> <span style="--i:4">أكثر</span> <span style="--i:5">نمواً</span></p></div>
 </main>
 
 <footer class="site-footer">
@@ -228,5 +196,6 @@
 
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/programs-v2.js" defer></script>
 </body>
 </html>

@@ -92,3 +92,38 @@
 @media (min-width:901px){
     .site-header .mobile-menu-btn{display:none !important}
 }
+
+/* أزرار الهيدر كانت تتكدّس عمودياً على الحاسوب لأن الحاوية display:block خارج الجوال */
+@media (min-width:901px){
+    .site-header__actions{display:flex;align-items:center;gap:.75rem}
+}
+
+/* منع التفاف عناصر القائمة وزر الهيدر (زاد عدد العناصر بعد إضافة المنصة) */
+@media (min-width:901px){
+    .site-nav a,
+    .site-header__actions .btn{white-space:nowrap}
+    .site-header__container{gap:1rem}
+}
+
+/* الرئيسية: 7 روابط + زر اشتراك تحتاج مساحة أقل لتبقى في سطر واحد */
+@media (min-width:901px){
+    .page-home .site-nav ul{gap:1.15rem}
+    .page-home .site-header__actions .btn{padding-inline:1rem}
+}
+@media (min-width:901px) and (max-width:1240px){
+    .page-home .site-nav ul{gap:.8rem}
+    .page-home .site-nav a{font-size:.9rem}
+    .page-home .site-logo__subtitle{display:none}
+    .page-home .site-header__container{gap:.6rem}
+    .page-home .site-header__actions{gap:.5rem}
+    .page-home .site-header__actions .btn{padding-inline:.8rem;font-size:.88rem}
+}
+@media (min-width:901px) and (max-width:1020px){
+    .page-home .site-nav ul{gap:.55rem}
+    .page-home .site-nav a{font-size:.84rem}
+    .page-home .site-logo__title{font-size:.95rem}
+    .page-home .site-logo img{width:44px;height:44px}
+}
+@media (min-width:901px) and (max-width:1180px){
+    .page-home .site-header__actions > .btn-hero-gold{display:none}
+}
